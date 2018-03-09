@@ -143,6 +143,7 @@ class _DataSetLoader(object):
         while not coord.should_stop():
             index = self._data_set.next_index(index) % file_count
             wav_file, transcript = self._data_set.files[index]
+            print 'process file '+wav_file
             source = audiofile_to_input_vector(wav_file, self._model_feeder.numcep, self._model_feeder.numcontext)
             source_len = len(source)
             target = text_to_char_array(transcript, self._alphabet)

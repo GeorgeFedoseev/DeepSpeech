@@ -11,7 +11,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
         gcc \
         sox \
-        libsox-fmt-mp3
+        libsox-fmt-mp3 \
+        htop \
+        nano \
+        swig
 
 
 
@@ -26,4 +29,8 @@ WORKDIR /DeepSpeech
 
 RUN pip --no-cache-dir install -r requirements.txt
 
+
 RUN python util/taskcluster.py --target /DeepSpeech/native_client/ --arch gpu
+
+# install python bindings
+RUN pip install deepspeech
