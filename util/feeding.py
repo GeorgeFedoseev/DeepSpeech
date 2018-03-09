@@ -8,6 +8,11 @@ from util.audio import audiofile_to_input_vector
 from util.gpu import get_available_gpus
 from util.text import ctc_label_dense_to_sparse, text_to_char_array
 
+# encoding=utf8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 class ModelFeeder(object):
     '''
     Feeds data into a model.

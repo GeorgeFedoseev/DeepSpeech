@@ -5,6 +5,10 @@ from __future__ import absolute_import, division, print_function
 import os
 import sys
 
+# encoding=utf8
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 log_level_index = sys.argv.index('--log_level') + 1 if '--log_level' in sys.argv else 0
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = sys.argv[log_level_index] if log_level_index > 0 and log_level_index < len(sys.argv) else '3'
 
@@ -28,6 +32,8 @@ from util.shared_lib import check_cupti
 from util.text import sparse_tensor_value_to_texts, wer, levenshtein, Alphabet, ndarray_to_text
 from xdg import BaseDirectory as xdg
 import numpy as np
+
+
 
 
 # Importer
