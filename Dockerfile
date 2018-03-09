@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         wget \
         git \
         python \
-        libcurl3-dev 
+        libcurl3-dev  \
+        ca-certificates
 
 
 
