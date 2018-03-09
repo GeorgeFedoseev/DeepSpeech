@@ -145,9 +145,6 @@ class _DataSetLoader(object):
         Queue thread routine.
         '''
 
-        reload(sys)
-        sys.setdefaultencoding('utf8')
-
         file_count = len(self._data_set.files)
         index = -1
         while not coord.should_stop():

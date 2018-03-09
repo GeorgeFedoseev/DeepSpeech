@@ -34,3 +34,6 @@ RUN python util/taskcluster.py --target /DeepSpeech/native_client/ --arch gpu
 
 # install python bindings
 RUN pip install deepspeech
+
+# allow python printing utf-8
+ENV PYTHONIOENCODING UTF-8
