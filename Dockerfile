@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         curl \
         git \
         libcurl3-dev \
-        nvidia-smi
+        nvidia-390
 
 WORKDIR ~/
 
