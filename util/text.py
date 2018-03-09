@@ -10,7 +10,7 @@ from functools import reduce
 
 class Alphabet(object):
     def __init__(self, config_file):
-        print 'init alphabet'
+        
         self._label_to_str = []
         self._str_to_label = {}
         self._size = 0
