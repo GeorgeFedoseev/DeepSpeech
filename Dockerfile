@@ -26,4 +26,4 @@ WORKDIR /DeepSpeech
 
 RUN pip --no-cache-dir install -r requirements.txt
 
-RUN python util/taskcluster.py --target /DeepSpeech/native_client/
+RUN python util/taskcluster.py --target /DeepSpeech/native_client/ --arch gpu
