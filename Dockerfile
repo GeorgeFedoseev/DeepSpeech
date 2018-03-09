@@ -26,4 +26,4 @@ WORKDIR /DeepSpeech
 
 RUN pip --no-cache-dir install -r requirements.txt
 
-RUN pip freeze
+RUN python util/taskcluster.py --target .
