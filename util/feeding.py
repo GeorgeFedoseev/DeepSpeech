@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import pandas
 import tensorflow as tf
 
@@ -10,8 +12,7 @@ from util.text import ctc_label_dense_to_sparse, text_to_char_array
 
 # encoding=utf8
 import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
+
 
 class ModelFeeder(object):
     '''
@@ -143,6 +144,10 @@ class _DataSetLoader(object):
         '''
         Queue thread routine.
         '''
+
+        reload(sys)
+        sys.setdefaultencoding('utf8')
+
         file_count = len(self._data_set.files)
         index = -1
         while not coord.should_stop():
