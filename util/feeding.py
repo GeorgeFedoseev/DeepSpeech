@@ -154,11 +154,12 @@ class _DataSetLoader(object):
             source = audiofile_to_input_vector(wav_file, self._model_feeder.numcep, self._model_feeder.numcontext)
             source_len = len(source)
             print 'transcript for '+wav_file+': '+transcript
-            print 'alphabet len: '+str(len(self._alphabet))
             target = text_to_char_array(transcript, self._alphabet)
             target_len = len(target)
+            print 'target_len = '+str(target_len)
+            print 'source_len = '+str(source_len)
             if source_len < target_len:
-                raise ValueError('Error: Audio file {} is too short for transcription.'.format(wav_file))
+                raise ValueError('Error: source_len < target_len - Audio file {} is too short for transcription.'.format(wav_file))
             try:
                 session.run(self._enqueue_op, feed_dict={ self._model_feeder.ph_x: source,
                                                           self._model_feeder.ph_x_length: source_len,
