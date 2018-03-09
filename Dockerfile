@@ -6,8 +6,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         wget \
         git \
         python \
+        python-dev \
         libcurl3-dev  \
-        ca-certificates
+        ca-certificates \
+        gcc \
+        sox \
+        libsox-fmt-mp3
+
 
 
 
