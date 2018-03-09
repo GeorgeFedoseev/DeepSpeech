@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python \
         libcurl3-dev 
 
+RUN update-ca-trust
+
 RUN curl -fSsL -O https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py && \
     rm get-pip.py
