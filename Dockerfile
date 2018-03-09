@@ -1,4 +1,4 @@
-FROM nvidia/cuda
+FROM nvidia/cuda:9.0-cudnn7-runtime-ubuntu16.04
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
@@ -6,5 +6,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         git \
         libcurl3-dev 
 
-WORKDIR ~/
 
+COPY . /DeepSpeech/
+
+WORKDIR /DeepSpeech
+
+RUN ls
