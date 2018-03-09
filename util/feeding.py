@@ -146,6 +146,7 @@ class _DataSetLoader(object):
             print 'process file '+wav_file
             source = audiofile_to_input_vector(wav_file, self._model_feeder.numcep, self._model_feeder.numcontext)
             source_len = len(source)
+            print 'transcript for '+wav_file+': '+transcript
             target = text_to_char_array(transcript, self._alphabet)
             target_len = len(target)
             if source_len < target_len:
