@@ -10,6 +10,7 @@ from functools import reduce
 
 class Alphabet(object):
     def __init__(self, config_file):
+        print 'init alphabet'
         self._label_to_str = []
         self._str_to_label = {}
         self._size = 0
@@ -21,6 +22,7 @@ class Alphabet(object):
                     continue
                 self._label_to_str += line[:-1] # remove the line ending
                 self._str_to_label[line[:-1]] = self._size
+                print 'char: '+line[:-1]
                 self._size += 1
 
     def string_from_label(self, label):
