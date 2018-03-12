@@ -178,15 +178,17 @@ def _generate_dataset(data_dir, data_set):
                 for line in f:
                     id = line.split(' ')[0].split('/')[-1]
                     sentence = ' '.join(line.split(' ')[1:])
-                    sentence = re.sub("[^a-z']"," ",sentence.strip().lower())
+                    sentence = re.sub("[^a-zа-я']"," ",sentence.strip().lower())
                     transcript = ""
                     for token in sentence.split(" "):
                         word = token.strip()
                         if word!="" and word!=" ":
                             transcript += word + " "
-                    transcript = unicodedata.normalize("NFKD", transcript.strip())  \
-                                              .encode("ascii", "ignore")            \
-                                              .decode("ascii", "ignore")
+
+                    print (transcript)
+                    transcript = unicodedata.normalize("NFKD", transcript.strip())
+
+
                     wav_file = path.join(promts_file[:-11],"wav/" + id + ".wav")
                     if gfile.Exists(wav_file):
                         wav_filesize = path.getsize(wav_file)
