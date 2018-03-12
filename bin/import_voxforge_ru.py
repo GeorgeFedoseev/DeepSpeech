@@ -106,7 +106,7 @@ def _parallel_extracter(data_dir, number_of_test, number_of_dev, total, counter)
                 tar.extractall(dataset_dir)
                 tar.close()
         except Exception as e:
-            print 'failed to extract '+archive+' '+str(e)
+            print ("failed to extract "+archive+' '+str(e))
         
     return extract
 
