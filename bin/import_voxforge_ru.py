@@ -185,7 +185,7 @@ def _generate_dataset(data_dir, data_set):
                         if word!="" and word!=" ":
                             transcript += word + " "
 
-                    print (transcript)
+                    print ('transcript: '+transcript)
                     transcript = unicodedata.normalize("NFKD", transcript.strip())
 
 
