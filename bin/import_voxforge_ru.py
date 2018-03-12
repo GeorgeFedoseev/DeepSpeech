@@ -115,8 +115,8 @@ def _download_and_preprocess_data(data_dir):
 
     print("Downloading Voxforge data set into {} if not already present...".format(archive_dir))
 
-    voxforge_url = 'http://www.repository.voxforge1.org/downloads/SpeechCorpus/Trunk/Audio/Main/16kHz_16bit'
-    
+    #voxforge_url = 'http://www.repository.voxforge1.org/downloads/SpeechCorpus/Trunk/Audio/Main/16kHz_16bit'
+    voxforge_url = 'http://www.repository.voxforge1.org/downloads/Russian/Trunk/Audio/Main/16kHz_16bit/'
     html_page = urllib.request.urlopen(voxforge_url)
     soup = BeautifulSoup(html_page, 'html.parser')
 

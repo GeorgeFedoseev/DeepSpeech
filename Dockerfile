@@ -14,7 +14,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libsox-fmt-mp3 \
         htop \
         nano \
-        swig
+        swig \
+        cmake \
+        libboost-all-dev \
+        zlib1g-dev \
+        libbz2-dev \
+        liblzma-dev
 
 
 
@@ -37,3 +42,11 @@ RUN pip install deepspeech
 
 # allow python printing utf-8
 ENV PYTHONIOENCODING UTF-8
+
+# build kenlm
+WORKDIR /DeepSpeech/data
+RUN mkdir lm
+RUN git clone https://github.com/kpu/kenlm && cd kenlm
+RUN mkdir -p build && cd build && cmake .. && make -j 4
+
+WORKDIR /DeepSpeech
