@@ -96,12 +96,18 @@ def _parallel_extracter(data_dir, number_of_test, number_of_dev, total, counter)
             dataset_dir = path.join(data_dir, "dev")
         else:
             dataset_dir = path.join(data_dir, "train")
-        if not gfile.Exists(path.join(dataset_dir, '.'.join(filename_of(archive).split(".")[:-1]))):
-            c = counter.increment()
-            print('Extracting file {} ({}/{})...'.format(i+1, c, total))
-            tar = tarfile.open(archive)
-            tar.extractall(dataset_dir)
-            tar.close()
+
+
+        try:
+            if not gfile.Exists(path.join(dataset_dir, '.'.join(filename_of(archive).split(".")[:-1]))):
+                c = counter.increment()
+                print('Extracting file {} ({}/{})...'.format(i+1, c, total))
+                tar = tarfile.open(archive)
+                tar.extractall(dataset_dir)
+                tar.close()
+        except Exception as e:
+            print 'failed to extract '+archive+' '+str(e)
+        
     return extract
 
 def _download_and_preprocess_data(data_dir):
