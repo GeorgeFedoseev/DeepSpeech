@@ -73,7 +73,19 @@ def _parallel_downloader(voxforge_url, archive_dir, total, counter):
         download_url = voxforge_url + '/' + file
         c = counter.increment()
         print('Downloading file {} ({}/{})...'.format(i+1, c, total))
-        base.maybe_download(filename_of(download_url), archive_dir, download_url)
+
+        retry_cnt = 0
+        while True:
+            filename = filename_of(download_url)
+            fullpath = path.join(archive_dir, filename)            
+            base.maybe_download(filename, archive_dir, download_url)
+            if path.getsize(fullpath) > 1000:
+                print('done downloading '+download_url)
+                break
+            retry_cnt+=1
+            print ('File failed to download - retrying...('+str(retry_cnt)+')')           
+            
+        
     return download
 
 def _parallel_extracter(data_dir, number_of_test, number_of_dev, total, counter):
