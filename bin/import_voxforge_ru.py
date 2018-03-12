@@ -179,7 +179,7 @@ def _generate_dataset(data_dir, data_set):
                     print ('line: '+line)
                     id = line.split(u' ')[0].split(u'/')[-1]
                     sentence = u' '.join(line.split(u' ')[1:])
-                    sentence = re.sub(u"[^a-zа-я']"," ",sentence.strip().lower())
+                    sentence = re.sub(u"[^а-я]"," ",sentence.strip().lower())
                     transcript = ""
                     for token in sentence.split(" "):
                         word = token.strip()
