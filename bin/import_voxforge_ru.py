@@ -102,7 +102,7 @@ def _parallel_extracter(data_dir, number_of_test, number_of_dev, total, counter)
             if not gfile.Exists(path.join(dataset_dir, '.'.join(filename_of(archive).split(".")[:-1]))):
                 c = counter.increment()
                 print('Extracting file {} ({}/{})...'.format(i+1, c, total))
-                tar = tarfile.open(archive, "r:gz")
+                tar = tarfile.open(archive, "r:*")
                 tar.extractall(dataset_dir)
                 tar.close()
         except Exception as e:
