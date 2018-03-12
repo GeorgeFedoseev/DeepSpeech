@@ -177,9 +177,9 @@ def _generate_dataset(data_dir, data_set):
             with codecs.open(promts_file, 'r', 'utf-8') as f:
                 for line in f:
                     print ('line: '+line)
-                    id = line.split(' ')[0].split('/')[-1]
-                    sentence = ' '.join(line.split(' ')[1:])
-                    sentence = re.sub("[^a-zа-я']"," ",sentence.strip().lower())
+                    id = line.split(u' ')[0].split(u'/')[-1]
+                    sentence = u' '.join(line.split(u' ')[1:])
+                    sentence = re.sub(u"[^a-zа-я']"," ",sentence.strip().lower())
                     transcript = ""
                     for token in sentence.split(" "):
                         word = token.strip()
