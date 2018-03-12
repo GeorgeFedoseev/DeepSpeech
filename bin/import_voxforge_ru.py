@@ -176,6 +176,7 @@ def _generate_dataset(data_dir, data_set):
         if path.isdir(path.join(promts_file[:-11],"wav")):
             with codecs.open(promts_file, 'r', 'utf-8') as f:
                 for line in f:
+                    print ('line: '+line)
                     id = line.split(' ')[0].split('/')[-1]
                     sentence = ' '.join(line.split(' ')[1:])
                     sentence = re.sub("[^a-zа-я']"," ",sentence.strip().lower())
