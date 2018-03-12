@@ -186,9 +186,9 @@ def _generate_dataset(data_dir, data_set):
                         if word!="" and word!=" ":
                             transcript += word + " "
 
+                    
+                    #transcript = unicodedata.normalize("NFKD", transcript.strip())
                     print ('transcript: '+transcript)
-                    transcript = unicodedata.normalize("NFKD", transcript.strip())
-
 
                     wav_file = path.join(promts_file[:-11],"wav/" + id + ".wav")
                     if gfile.Exists(wav_file):
