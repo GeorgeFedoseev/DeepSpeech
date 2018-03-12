@@ -23,4 +23,5 @@ python -u DeepSpeech.py \
   --n_hidden 1024 \
   --checkpoint_dir /assets/network/checkpoint_dir_rus_voxforge_1024/ \
   --export_dir /root/assets/network/export_dir_rus_voxforge_1024/ \
+  --log_level 0 \
   "$@"
