@@ -19,6 +19,9 @@ from bs4 import BeautifulSoup
 from tensorflow.python.platform import gfile
 from tensorflow.contrib.learn.python.learn.datasets import base
 
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 """The number of jobs to run in parallel"""
 NUM_PARALLEL = 8
 
