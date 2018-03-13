@@ -271,7 +271,7 @@
 			"file": "Dockerfile",
 			"settings":
 			{
-				"buffer_size": 1048,
+				"buffer_size": 1066,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -537,23 +537,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1048,
+						"buffer_size": 1066,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1047,
-								1047
+								494,
+								494
 							]
 						],
 						"settings":
 						{
 							"WordCount":
 							{
-								"changes": 0,
-								"count": 102,
+								"changes": 13,
+								"count": 103,
 								"modified": false,
 								"selection": false,
 								"status": -1,

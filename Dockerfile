@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libboost-all-dev \
         zlib1g-dev \
         libbz2-dev \
-        liblzma-dev
+        liblzma-dev \
+        locales
 
 
 
