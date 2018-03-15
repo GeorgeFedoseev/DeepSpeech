@@ -22,7 +22,7 @@ class Alphabet(object):
                     continue
                 self._label_to_str += line[:-1] # remove the line ending
                 self._str_to_label[line[:-1]] = self._size
-                print("char: " + line[:-1])
+                #print("char: " + line[:-1])
                 self._size += 1
 
     def string_from_label(self, label):
