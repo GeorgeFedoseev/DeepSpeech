@@ -783,14 +783,14 @@ def calculate_report(results_tuple):
     samples = [s for s in samples if s.wer > 0 and len(s.src)>15]
 
     # Order the remaining items by their loss (lowest loss on top)
-    #samples.sort(key=lambda s: s.loss)
+    samples.sort(key=lambda s: s.loss)
 
     # Take only the first report_count items
-    #samples = samples[:FLAGS.report_count]
+    samples = samples[:FLAGS.report_count] + samples[-FLAGS.report_count:]
 
     # Order this top FLAGS.report_count items by their WER (lowest WER on top)
     samples.sort(key=lambda s: s.wer)
-    samples = samples[:FLAGS.report_count] + samples[:-FLAGS.report_count]
+    
 
     return samples_wer, samples
 
