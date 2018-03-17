@@ -1,7 +1,7 @@
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 
 RUN cp /usr/include/cudnn.h /usr/local/cuda/include/cudnn.h
-RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu/
+
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
@@ -43,7 +43,7 @@ RUN git checkout r1.6
 RUN apt-get install -y openjdk-8-jdk
 RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
 RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
-RUN apt-get update && apt-get install -y bazel
+RUN apt-get update && apt-get install -y bazel && apt-get upgrade bazel
 
 
 # install GPU stuff
@@ -101,6 +101,17 @@ RUN python util/taskcluster.py --target /DeepSpeech/native_client/ --arch gpu
 
 WORKDIR /tensorflow
 
+
+RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu/
+
+# Running bazel inside a `docker build` command causes trouble, cf:
+#   https://github.com/bazelbuild/bazel/issues/134
+# The easiest solution is to set up a bazelrc file forcing --batch.
+RUN echo "startup --batch" >>/etc/bazel.bazelrc
+# Similarly, we need to workaround sandboxing issues:
+#   https://github.com/bazelbuild/bazel/issues/418
+RUN echo "build --spawn_strategy=standalone --genrule_strategy=standalone" \
+    >>/etc/bazel.bazelrc
 
 
 # need add --config=cuda?
