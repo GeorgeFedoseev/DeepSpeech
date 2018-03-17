@@ -1,6 +1,7 @@
 FROM nvidia/cuda:9.0-cudnn7-runtime-ubuntu16.04
 
 RUN cp /usr/include/cudnn.h /usr/local/cuda/include/cudnn.h
+RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu/
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
@@ -58,7 +59,7 @@ ENV CUDA_PKG_VERSION 9-0=9.0.176-1
 ENV CUDA_VERSION 9.0.176
 ENV TF_CUDA_VERSION 9.0
 ENV TF_CUDNN_VERSION 7.1.1
-ENV CUDNN_INSTALL_PATH /usr/local/cuda
+ENV CUDNN_INSTALL_PATH /usr/lib/x86_64-linux-gnu/
 ENV TF_CUDA_COMPUTE_CAPABILITIES 6.0
 
 # Common Environment Setup
@@ -100,7 +101,16 @@ RUN python util/taskcluster.py --target /DeepSpeech/native_client/ --arch gpu
 
 WORKDIR /tensorflow
 
-RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64
 
-#RUN bazel build -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so
-#RUN bazel build --config=monolithic -c opt --copt=-O3 --copt=-fvisibility=hidden --define=DS_NATIVE_MODEL=1 --define=DS_MODEL_TIMESTEPS=64 --define=DS_MODEL_FRAMESIZE=494 --define=DS_MODEL_FILE=/tmp/model.ldc93s1.pb //native_client:libdeepspeech_model.so //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie
+
+# need add --config=cuda?
+RUN bazel build --config=cuda -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so
+
+# need add --config=cuda?
+RUN bazel build --config=monolithic --config=opt --config=cuda -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie
+
+RUN bazel build --config=opt --config=cuda --copt=-msse4.1 --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package
+
+# https://github.com/tensorflow/tensorflow/issues/471
+#RUN bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+#RUN pip install pip install /tmp/tensorflow_pkg/tensorflow_warpctc-1.6.0-cp27-cp27mu-linux_x86_64.whl
