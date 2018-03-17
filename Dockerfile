@@ -48,6 +48,9 @@ ENV PYTHONIOENCODING UTF-8
 WORKDIR /DeepSpeech/data
 RUN mkdir lm
 RUN git clone https://github.com/kpu/kenlm && cd kenlm
-RUN mkdir -p build && cd build && cmake .. && make -j 4
+RUN mkdir -p build
+RUN cd build
+RUN cmake .. 
+RUN make -j 4
 
 WORKDIR /DeepSpeech
