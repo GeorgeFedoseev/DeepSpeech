@@ -24,8 +24,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 
 # BUILD TensoFlow from Mozilla repo with XLA-AOT
-RUN git clone https://github.com/mozilla/tensorflow/ \
-    && git checkout r1.6
+RUN git clone https://github.com/mozilla/tensorflow/
+WORKDIR /tensorflow
+RUN git checkout r1.6
 
 
 
