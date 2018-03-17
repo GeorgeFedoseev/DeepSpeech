@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python-numpy \
         libcurl3-dev  \
         ca-certificates \
-        gcc \
+        gcc-4.8 \
         sox \
         libsox-fmt-mp3 \
         htop \
