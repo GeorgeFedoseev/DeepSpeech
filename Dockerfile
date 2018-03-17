@@ -1,6 +1,4 @@
-FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
-
-RUN cp /usr/include/cudnn.h /usr/local/cuda/include/cudnn.h
+FROM nvidia/cuda:9.0-cudnn7-runtime-ubuntu16.04
 
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -102,7 +100,7 @@ RUN python util/taskcluster.py --target /DeepSpeech/native_client/ --arch gpu
 WORKDIR /tensorflow
 
 
-RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu/
+RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu/:/usr/local/cuda/lib64/stubs/
 
 # Running bazel inside a `docker build` command causes trouble, cf:
 #   https://github.com/bazelbuild/bazel/issues/134
@@ -114,14 +112,20 @@ RUN echo "build --spawn_strategy=standalone --genrule_strategy=standalone" \
     >>/etc/bazel.bazelrc
 
 
-# need add --config=cuda?
-RUN bazel build -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so
+# fix for failing bazel TF build
+RUN ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/libcuda.so.1
+
 
 # need add --config=cuda?
-RUN bazel build --config=monolithic --config=opt -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie
+RUN bazel build --config=cuda -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so
 
-RUN bazel build --config=cuda --config=opt --copt=-msse4.1 --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package
+# need add --config=cuda?
+RUN bazel build --config=cuda --config=monolithic --config=opt -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie
 
+RUN bazel build --config=opt --config=cuda  --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
+
+
+RUN ./configure
 # https://github.com/tensorflow/tensorflow/issues/471
-#RUN bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
-#RUN pip install pip install /tmp/tensorflow_pkg/tensorflow_warpctc-1.6.0-cp27-cp27mu-linux_x86_64.whl
+RUN bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+RUN pip install pip install /tmp/tensorflow_pkg/tensorflow_warpctc-1.6.0-cp27-cp27mu-linux_x86_64.whl
