@@ -27,9 +27,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 
 # BUILD TensoFlow from Mozilla repo with XLA-AOT
+
+
+
 RUN git clone https://github.com/mozilla/tensorflow/
 WORKDIR /tensorflow
 RUN git checkout r1.6
+
+
 
 # install Bazel
 RUN apt-get install -y openjdk-8-jdk
@@ -74,6 +79,12 @@ ENV TF_NEED_MKL 0
 ENV TF_ENABLE_XLA 1
 ENV PYTHON_BIN_PATH /usr/bin/python2.7
 ENV PYTHON_LIB_PATH /usr/lib/python2.7/dist-packages
+
+
+
+# link DeepSpeech native_client libs to tf folder
+COPY . /DeepSpeech/
+RUN ln -s /DeepSpeech/native_client ./
 
 RUN bazel build -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so
 RUN bazel build --config=monolithic -c opt --copt=-O3 --copt=-fvisibility=hidden --define=DS_NATIVE_MODEL=1 --define=DS_MODEL_TIMESTEPS=64 --define=DS_MODEL_FRAMESIZE=494 --define=DS_MODEL_FILE=/tmp/model.ldc93s1.pb //native_client:libdeepspeech_model.so //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie
