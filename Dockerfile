@@ -1,5 +1,6 @@
-FROM nvidia/cuda:9.0-cudnn7-runtime-ubuntu16.04
+FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 
+RUN cp /usr/include/cudnn.h /usr/local/cuda/include/cudnn.h
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
