@@ -104,12 +104,12 @@ WORKDIR /tensorflow
 
 
 # need add --config=cuda?
-RUN bazel build --config=cuda -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so
+RUN bazel build -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so
 
 # need add --config=cuda?
-RUN bazel build --config=monolithic --config=opt --config=cuda -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie
+RUN bazel build --config=monolithic --config=opt -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie
 
-RUN bazel build --config=opt --config=cuda --copt=-msse4.1 --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package
+RUN bazel build --config=cuda --config=opt --copt=-msse4.1 --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package
 
 # https://github.com/tensorflow/tensorflow/issues/471
 #RUN bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
