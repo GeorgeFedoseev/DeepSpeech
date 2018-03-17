@@ -42,7 +42,7 @@ RUN git checkout r1.6
 RUN apt-get install -y openjdk-8-jdk
 RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
 RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
-RUN apt-get update && apt-get install -y bazel && apt-get upgrade -y bazel
+RUN apt-get update && apt-get install -y bazel
 
 
 # install GPU stuff
@@ -58,7 +58,7 @@ ENV CUDA_PKG_VERSION 9-0=9.0.176-1
 ENV CUDA_VERSION 9.0.176
 ENV TF_CUDA_VERSION 9.0
 ENV TF_CUDNN_VERSION 7.1.1.5
-ENV CUDNN_INSTALL_PATH /usr/lib/x86_64-linux-gnu
+ENV CUDNN_INSTALL_PATH /usr/local/cuda
 ENV TF_CUDA_COMPUTE_CAPABILITIES 6
 
 # Common Environment Setup
