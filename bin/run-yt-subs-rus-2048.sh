@@ -15,15 +15,15 @@ python -u DeepSpeech.py \
   --dev_batch_size 12 \
   --test_batch_size 12 \
   --learning_rate 0.0001 \
-  --epoch 120 \
+  --epoch 55 \
   --display_step 0 \
   --validation_step 5 \
   --dropout_rate 0.30 \
   --default_stddev 0.046875 \
-  --n_hidden 1024 \
-  --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_1024/ \
-  --export_dir /assets/network/export_dir_yt_subs_rus_1024/ \
+  --n_hidden 2048 \
+  --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_2048/ \
+  --export_dir /assets/network/export_dir_yt_subs_rus_2048/ \
   --log_level 0 \
-  --limit_test 1500 \
+  --limit_test 1 \
   --report_count 100 \
   "$@"
