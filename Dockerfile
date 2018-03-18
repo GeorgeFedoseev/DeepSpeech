@@ -1,6 +1,8 @@
+# Need devel version cause we need /usr/include/cudnn.h 
+# for compiling libctc_decoder_with_kenlm.so
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 
-RUN cp /usr/include/cudnn.h /usr/local/cuda/include/cudnn.h
+
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
@@ -28,8 +30,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         locales
 
 
-# BUILD TensoFlow from Mozilla repo with XLA-AOT
-
+# <BUILD TensorFlow+XLA
+# build TensoFlow from Mozilla repo with XLA
 
 
 RUN git clone https://github.com/mozilla/tensorflow/
@@ -101,7 +103,7 @@ RUN python util/taskcluster.py --target /DeepSpeech/native_client/ --arch gpu
 WORKDIR /tensorflow
 
 
-RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu/:/usr/local/cuda/lib64/stubs/
+
 
 # Running bazel inside a `docker build` command causes trouble, cf:
 #   https://github.com/bazelbuild/bazel/issues/134
@@ -116,17 +118,28 @@ RUN echo "build --spawn_strategy=standalone --genrule_strategy=standalone" \
 # fix for failing bazel TF build
 RUN ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/libcuda.so.1
 
+# fix
+RUN cp /usr/include/cudnn.h /usr/local/cuda/include/cudnn.h
+
+ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu/:/usr/local/cuda/lib64/stubs/
+
+# BUILD
+# need add --config=cuda?
+RUN bazel build --config=cuda -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
 
 # need add --config=cuda?
-RUN bazel build --config=cuda -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so
+RUN bazel build --config=cuda --config=monolithic --config=opt -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
 
-# need add --config=cuda?
-RUN bazel build --config=cuda --config=monolithic --config=opt -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie
-
+# passing LD_LIBRARY_PATH is required cause Bazel doesnt pickup it from env
 RUN bazel build --config=opt --config=cuda  --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
 
-
+# fix for not found script https://github.com/tensorflow/tensorflow/issues/471
 RUN ./configure
-# https://github.com/tensorflow/tensorflow/issues/471
+
+# build wheel
 RUN bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
-RUN pip install pip install /tmp/tensorflow_pkg/tensorflow_warpctc-1.6.0-cp27-cp27mu-linux_x86_64.whl
+
+# install tensorflow from our custom wheel
+RUN pip install /tmp/tensorflow_pkg/tensorflow_warpctc-1.6.0-cp27-cp27mu-linux_x86_64.whl
+
+# BUILD TensorFlow+XLA />
