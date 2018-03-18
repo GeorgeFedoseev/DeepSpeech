@@ -100,7 +100,7 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
     rm get-pip.py
 
 RUN pip --no-cache-dir install -r requirements.txt
-RUN python util/taskcluster.py --target /DeepSpeech/native_client/ --arch gpu
+
 
 WORKDIR /tensorflow
 
@@ -147,6 +147,8 @@ RUN pip install /tmp/tensorflow_pkg/*.whl
 
 # BUILD TensorFlow+XLA />
 
+# copy built libs to /DeepSpeech/native_client
+RUN cp /tensorflow/bazel-bin/native_client/* /DeepSpeech/native_client/
 
 # build deepspeech and install python bindings
 ENV TFDIR /tensorflow
