@@ -169,6 +169,7 @@ ENV PYTHONIOENCODING UTF-8
 # build kenlm
 WORKDIR /DeepSpeech/data
 RUN mkdir lm && cd lm && git clone https://github.com/kpu/kenlm && cd kenlm \
+    && mkdir eigen3 \
     && export EIGEN3_ROOT=/DeepSpeech/data/lm/kenlm/eigen3 \
     && cd $EIGEN3_ROOT && wget -O - https://bitbucket.org/eigen/eigen/get/3.2.8.tar.bz2 |tar xj && cd - \
     && mkdir -p build \
