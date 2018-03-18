@@ -148,7 +148,7 @@ RUN pip install /tmp/tensorflow_pkg/*.whl
 # BUILD TensorFlow+XLA />
 
 
-# build deepspeech
+# build deepspeech and install python bindings
 ENV TFDIR /tensorflow
 WORKDIR /DeepSpeech/native_client
 RUN make deepspeech
