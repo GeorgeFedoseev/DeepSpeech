@@ -127,10 +127,11 @@ ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/loc
 
 # BUILD
 # need add --config=cuda?
-RUN bazel build -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
+RUN bazel build --config=cuda -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
 
 # need add --config=cuda?
-RUN bazel build --config=opt --config=cuda --config=opt -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
+RUN bazel build --config=monolithic -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:libctc_decoder_with_kenlm.so //native_client:generate_trie
+  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
 
 # passing LD_LIBRARY_PATH is required cause Bazel doesnt pickup it from env
 RUN bazel build --config=opt --config=cuda  --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
@@ -142,11 +143,16 @@ RUN ./configure
 RUN bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
 
 # install tensorflow from our custom wheel
-RUN pip install /tmp/tensorflow_pkg/tensorflow_warpctc-1.6.0-cp27-cp27mu-linux_x86_64.whl
+RUN pip install /tmp/tensorflow_pkg/*.whl
 
 # BUILD TensorFlow+XLA />
 
-ENV TFDIR /tensorflow
-WORKDIR /DeepSpeech
-RUN cd native_client && make deepspeech
 
+# build deepspeech
+ENV TFDIR /tensorflow
+WORKDIR /DeepSpeech/native_client
+RUN make deepspeech
+RUN make bindings
+RUN pip install dist/deepspeech*
+
+WORKDIR /DeepSpeech
