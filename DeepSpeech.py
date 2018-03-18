@@ -1794,6 +1794,8 @@ def do_single_file_inference(input_file_path):
 
 def main(_) :
 
+    start_time = time.time()
+
     initialize_globals()
 
     if FLAGS.train or FLAGS.test:
@@ -1840,6 +1842,8 @@ def main(_) :
 
     # Stopping the coordinator
     COORD.stop()
+
+    print("Execution took: %s secs (Wall clock time)" % datetime.timedelta(seconds=round(time.time() - start_time)))
 
 if __name__ == '__main__' :
     tf.app.run()
