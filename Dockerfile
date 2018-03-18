@@ -147,7 +147,11 @@ RUN pip install /tmp/tensorflow_pkg/*.whl
 # BUILD TensorFlow+XLA />
 
 # copy built libs to /DeepSpeech/native_client
-RUN cp /tensorflow/bazel-bin/native_client/{libctc_decoder_with_kenlm.so,generate_trie,libdeepspeech.so,libdeepspeech_utils.so} /DeepSpeech/native_client/
+RUN cp /tensorflow/bazel-bin/native_client/libctc_decoder_with_kenlm.so /DeepSpeech/native_client/ \
+    && cp /tensorflow/bazel-bin/native_client/generate_trie /DeepSpeech/native_client/ \
+    && cp /tensorflow/bazel-bin/native_client/libdeepspeech.so /DeepSpeech/native_client/ \
+    && cp /tensorflow/bazel-bin/native_client/libdeepspeech_utils.so /DeepSpeech/native_client/
+ 
 
 # build deepspeech and install python bindings
 ENV TFDIR /tensorflow
