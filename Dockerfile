@@ -32,8 +32,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libsox-dev
 
 
-# <BUILD TensorFlow+XLA
-# build TensoFlow from Mozilla repo with XLA
+# <BUILD TensorFlow
+# build TensoFlow from Mozilla repo 
 
 
 RUN git clone https://github.com/mozilla/tensorflow/
@@ -82,7 +82,7 @@ ENV TF_NEED_JEMALLOC 1
 ENV TF_NEED_OPENCL 0
 ENV TF_CUDA_CLANG 0
 ENV TF_NEED_MKL 0
-ENV TF_ENABLE_XLA 1
+#ENV TF_ENABLE_XLA 1
 ENV PYTHON_BIN_PATH /usr/bin/python2.7
 ENV PYTHON_LIB_PATH /usr/lib/python2.7/dist-packages
 
@@ -151,7 +151,7 @@ RUN bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
 # install tensorflow from our custom wheel
 RUN pip install /tmp/tensorflow_pkg/*.whl
 
-# BUILD TensorFlow+XLA />
+# BUILD TensorFlow />
 
 # copy built libs to /DeepSpeech/native_client
 RUN cp /tensorflow/bazel-bin/native_client/libctc_decoder_with_kenlm.so /DeepSpeech/native_client/ \
