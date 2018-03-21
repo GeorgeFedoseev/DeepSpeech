@@ -271,32 +271,8 @@
 			"file": "Dockerfile",
 			"settings":
 			{
-				"buffer_size": 5349,
+				"buffer_size": 5321,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Dockerfile_bckup",
-			"settings":
-			{
-				"buffer_size": 1394,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "native_client/Makefile",
-			"settings":
-			{
-				"buffer_size": 2672,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "native_client/BUILD",
-			"settings":
-			{
-				"buffer_size": 6856,
 				"line_ending": "Unix"
 			}
 		},
@@ -304,78 +280,7 @@
 			"file": "DeepSpeech.py",
 			"settings":
 			{
-				"buffer_size": 82716,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/import_voxforge_ru.py",
-			"settings":
-			{
-				"buffer_size": 8956,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/run-voxforge-ru.sh",
-			"settings":
-			{
-				"buffer_size": 732,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/infer-yt-subs-rus.sh",
-			"settings":
-			{
-				"buffer_size": 350,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "data/alphabet.txt",
-			"settings":
-			{
-				"buffer_size": 341,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "util/feeding.py",
-			"settings":
-			{
-				"buffer_size": 8926,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "util/audio.py",
-			"settings":
-			{
-				"buffer_size": 2722,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "util/text.py",
-			"settings":
-			{
-				"buffer_size": 7993,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "requirements.txt",
-			"settings":
-			{
-				"buffer_size": 145,
+				"buffer_size": 82864,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -448,11 +353,21 @@
 		"/Users/gosha/Projects/DeepSpeech",
 		"/Users/gosha/Projects/DeepSpeech/bin",
 		"/Users/gosha/Projects/DeepSpeech/data",
-		"/Users/gosha/Projects/DeepSpeech/native_client",
 		"/Users/gosha/Projects/DeepSpeech/util"
 	],
 	"file_history":
 	[
+		"/Users/gosha/Projects/DeepSpeech/util/automation.py",
+		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge_ru.py",
+		"/Users/gosha/Projects/DeepSpeech/bin/run-voxforge-ru.sh",
+		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-subs-rus.sh",
+		"/Users/gosha/Projects/DeepSpeech/data/alphabet.txt",
+		"/Users/gosha/Projects/DeepSpeech/util/feeding.py",
+		"/Users/gosha/Projects/DeepSpeech/util/audio.py",
+		"/Users/gosha/Projects/DeepSpeech/util/text.py",
+		"/Users/gosha/Projects/DeepSpeech/requirements.txt",
+		"/Users/gosha/Projects/DeepSpeech/native_client/BUILD",
+		"/Users/gosha/Projects/DeepSpeech/native_client/Makefile",
 		"/Users/gosha/Projects/DeepSpeech/Dockerfile_bckup",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_librivox.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge.py",
@@ -513,7 +428,7 @@
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -527,6 +442,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"timedelta",
+			"time",
+			"main(",
 			"lte",
 			"LDF",
 			"LD",
@@ -579,22 +497,22 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5349,
+						"buffer_size": 5321,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5292,
-								5292
+								3296,
+								3296
 							]
 						],
 						"settings":
 						{
 							"WordCount":
 							{
-								"changes": 1338,
+								"changes": 0,
 								"count": 403,
 								"modified": false,
 								"selection": false,
@@ -608,7 +526,7 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1966.0,
+						"translation.y": 1816.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -616,134 +534,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Dockerfile_bckup",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1394,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								954,
-								1393
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 0,
-								"count": 124,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 145.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "native_client/Makefile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2672,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								438,
-								442
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 0,
-								"count": 144,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "native_client/BUILD",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6856,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4568,
-								4581
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 0,
-								"count": 230,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"syntax": "Packages/C#/Build.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "DeepSpeech.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 82716,
+						"buffer_size": 82864,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								38343,
-								38343
+								82814,
+								82814
 							]
 						],
 						"settings":
@@ -753,6 +556,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								},
 								{
 									"characters": ".",
@@ -769,280 +576,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 26941.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "bin/import_voxforge_ru.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8956,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3059,
-								3059
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1008.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "bin/run-voxforge-ru.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 732,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								732,
-								732
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "bin/infer-yt-subs-rus.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 350,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								173,
-								173
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "data/alphabet.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 341,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								217,
-								217
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "util/feeding.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8926,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3362,
-								3367
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 897.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "util/audio.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2722,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								97,
-								87
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "util/text.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7993,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2698,
-								2698
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"show_definitions": false,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 974.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "requirements.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 145,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								34,
-								34
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
