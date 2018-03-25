@@ -253,7 +253,7 @@ def initialize_globals():
     # add xla support
     if FLAGS.xla:
         session_config.graph_options.optimizer_options.global_jit_level = tf.OptimizerOptions.ON_1
-        print 'using XLA'
+        print('using XLA')
 
     global alphabet
     alphabet = Alphabet(os.path.abspath(FLAGS.alphabet_config_path))
