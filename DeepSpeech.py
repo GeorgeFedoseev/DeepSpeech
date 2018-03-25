@@ -166,6 +166,9 @@ tf.app.flags.DEFINE_string  ('one_shot_infer',       '',       'one-shot inferen
 
 tf.app.flags.DEFINE_string  ('initialize_from_frozen_model', '', 'path to frozen model to initialize from. This behaves like a checkpoint, loading the weights from the frozen model and starting training with those weights. The optimizer parameters aren\'t restored, so remember to adjust the learning rate.')
 
+# XLA support
+tf.app.flags.DEFINE_boolean ('xla',       False,        'enable XLA optimizations')
+
 for var in ['b1', 'h1', 'b2', 'h2', 'b3', 'h3', 'b5', 'h5', 'b6', 'h6']:
     tf.app.flags.DEFINE_float('%s_stddev' % var, None, 'standard deviation to use when initialising %s' % var)
 
@@ -246,6 +249,11 @@ def initialize_globals():
     # Standard session configuration that'll be used for all new sessions.
     global session_config
     session_config = tf.ConfigProto(allow_soft_placement=True, log_device_placement=FLAGS.log_placement)
+
+    # add xla support
+    if FLAGS.xla:
+        session_config.graph_options.optimizer_options.global_jit_level = tf.OptimizerOptions.ON_1
+        print 'using XLA'
 
     global alphabet
     alphabet = Alphabet(os.path.abspath(FLAGS.alphabet_config_path))

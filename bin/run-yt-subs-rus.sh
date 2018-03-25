@@ -8,14 +8,14 @@ fi;
 
 
 python -u DeepSpeech.py \
-  --train_files "/tmp/yt-subs-rus-dataset/yt-train.csv" \
-  --dev_files "/tmp/yt-subs-rus-dataset/yt-dev.csv" \
-  --test_files "/tmp/yt-subs-rus-dataset/yt-test.csv" \
+  --train_files "/tmp/yt-subs-rus-dataset/yt-subs-train.csv" \
+  --dev_files "/tmp/yt-subs-rus-dataset/yt-subs-dev.csv" \
+  --test_files "/tmp/yt-subs-rus-dataset/yt-subs-test.csv" \
   --train_batch_size 12 \
   --dev_batch_size 12 \
   --test_batch_size 12 \
   --learning_rate 0.0001 \
-  --epoch 120 \
+  --epoch 5 \
   --display_step 0 \
   --validation_step 5 \
   --dropout_rate 0.30 \
@@ -26,4 +26,5 @@ python -u DeepSpeech.py \
   --log_level 0 \
   --limit_test 1500 \
   --report_count 100 \
+  --xla True \
   "$@"

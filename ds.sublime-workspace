@@ -271,8 +271,25 @@
 			"file": "Dockerfile",
 			"settings":
 			{
-				"buffer_size": 5321,
+				"buffer_size": 5412,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/run-echo-msk.sh",
+			"settings":
+			{
+				"buffer_size": 783,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ds.sublime-project",
+			"settings":
+			{
+				"buffer_size": 247,
 				"line_ending": "Unix"
 			}
 		},
@@ -352,7 +369,6 @@
 	[
 		"/Users/gosha/Projects/DeepSpeech",
 		"/Users/gosha/Projects/DeepSpeech/bin",
-		"/Users/gosha/Projects/DeepSpeech/data",
 		"/Users/gosha/Projects/DeepSpeech/util"
 	],
 	"file_history":
@@ -428,7 +444,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -442,6 +458,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"map",
+			"XLA",
+			"float32",
+			"float16",
 			"timedelta",
 			"time",
 			"main(",
@@ -488,7 +508,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -497,28 +517,19 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5321,
+						"buffer_size": 5412,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3296,
-								3296
+								1999,
+								2004
 							]
 						],
 						"settings":
 						{
-							"WordCount":
-							{
-								"changes": 0,
-								"count": 403,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
 							"auto_name": "",
 							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"tab_size": 4,
@@ -526,14 +537,90 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1816.0,
+						"translation.y": 682.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "bin/run-echo-msk.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 783,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								704,
+								704
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 0,
+								"count": 45,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "ds.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 247,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3,
+								203
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "json"
+							},
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 3,
 					"file": "DeepSpeech.py",
 					"semi_transient": false,
 					"settings":
@@ -545,8 +632,8 @@
 						"selection":
 						[
 							[
-								82814,
-								82814
+								21272,
+								21262
 							]
 						],
 						"settings":
@@ -568,6 +655,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"show_definitions": false,
@@ -576,10 +667,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 26941.0,
+						"translation.y": 6088.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
