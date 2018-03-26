@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"sess",
+				"session_config\tstatement"
+			],
+			[
 				"dow",
 				"download_url\tstatement"
 			],
@@ -277,10 +281,19 @@
 			}
 		},
 		{
-			"file": "bin/run-echo-msk.sh",
+			"file": "DeepSpeech.py",
 			"settings":
 			{
-				"buffer_size": 783,
+				"buffer_size": 83098,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/run-yt-subs-rus.sh",
+			"settings":
+			{
+				"buffer_size": 809,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -290,15 +303,6 @@
 			"settings":
 			{
 				"buffer_size": 247,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "DeepSpeech.py",
-			"settings":
-			{
-				"buffer_size": 82864,
-				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -373,6 +377,7 @@
 	],
 	"file_history":
 	[
+		"/Users/gosha/Projects/DeepSpeech/bin/run-echo-msk.sh",
 		"/Users/gosha/Projects/DeepSpeech/util/automation.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge_ru.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/run-voxforge-ru.sh",
@@ -458,6 +463,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"config",
 			"map",
 			"XLA",
 			"float32",
@@ -508,7 +514,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -540,100 +546,24 @@
 						"translation.y": 682.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "bin/run-echo-msk.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 783,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								704,
-								704
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 0,
-								"count": 45,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "ds.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 247,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3,
-								203
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "json"
-							},
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "DeepSpeech.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 82864,
+						"buffer_size": 83098,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								21272,
-								21262
+								38454,
+								38454
 							]
 						],
 						"settings":
@@ -659,6 +589,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"show_definitions": false,
@@ -667,10 +601,69 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6088.0,
+						"translation.y": 11545.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "bin/run-yt-subs-rus.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 809,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								801,
+								801
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "ds.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 247,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3,
+								203
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
