@@ -1773,7 +1773,7 @@ def export():
 
 def do_single_file_inference(input_file_path):
     with tf.Session(config=session_config) as session:
-        inputs, outputs = create_inference_graph(batch_size=1, use_new_decoder=True)
+        inputs, outputs = create_inference_graph(batch_size=1, use_new_decoder=False)
 
         # Create a saver using variables from the above newly created graph
         saver = tf.train.Saver(tf.global_variables())
