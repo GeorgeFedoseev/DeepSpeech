@@ -542,6 +542,7 @@ def calculate_mean_edit_distance_and_loss(model_feeder, tower, dropout):
 
     # Calculate the average loss across the batch
     avg_loss = tf.reduce_mean(total_loss)
+   
 
     # Beam search decode the batch
     decoded, _ = decode_with_lm(logits, batch_seq_len, merge_repeated=False, beam_width=FLAGS.beam_width)
