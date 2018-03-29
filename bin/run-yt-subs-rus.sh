@@ -18,7 +18,7 @@ python -u DeepSpeech.py \
   --epoch 50 \
   --display_step 0 \
   --validation_step 5 \
-  --dropout_rate 0.30 \
+  --dropout_rate 0.15 \
   --default_stddev 0.046875 \
   --n_hidden 1024 \
   --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_1024/ \
