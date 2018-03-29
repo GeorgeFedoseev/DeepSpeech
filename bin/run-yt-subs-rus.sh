@@ -24,6 +24,8 @@ python -u DeepSpeech.py \
   --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_2048/ \
   --export_dir /assets/network/export_dir_yt_subs_rus_2048/ \
   --log_level 0 \
-  --limit_test 1500000 \
+  --limit_train 160000 \
+  --limit_dev 160000 \
+  --limit_test 160000 \  
   --report_count 100 \
   "$@"
