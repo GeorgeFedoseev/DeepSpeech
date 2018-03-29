@@ -15,7 +15,7 @@ python -u DeepSpeech.py \
   --dev_batch_size 12 \
   --test_batch_size 12 \
   --learning_rate 0.0001 \
-  --epoch 5 \
+  --epoch 50 \
   --display_step 0 \
   --validation_step 5 \
   --dropout_rate 0.30 \
@@ -24,7 +24,6 @@ python -u DeepSpeech.py \
   --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_1024/ \
   --export_dir /assets/network/export_dir_yt_subs_rus_1024/ \
   --log_level 0 \
-  --limit_test 1500 \
+  --limit_test 1500000 \
   --report_count 100 \
-  --xla True \
   "$@"
