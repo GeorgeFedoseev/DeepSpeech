@@ -29,7 +29,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         liblzma-dev \
         locales \
         pkg-config \
-        libsox-dev
+        libsox-dev \
+        ffmpeg 
+
 
 
 # <BUILD TensorFlow+XLA
