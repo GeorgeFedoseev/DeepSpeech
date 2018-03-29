@@ -169,6 +169,9 @@ tf.app.flags.DEFINE_string  ('initialize_from_frozen_model', '', 'path to frozen
 # XLA support
 tf.app.flags.DEFINE_boolean ('xla',       False,        'enable XLA optimizations')
 
+# infer use LM
+tf.app.flags.DEFINE_boolean ('infer_use_lm',       True,        'Use Language Model during one shot inference?')
+
 for var in ['b1', 'h1', 'b2', 'h2', 'b3', 'h3', 'b5', 'h5', 'b6', 'h6']:
     tf.app.flags.DEFINE_float('%s_stddev' % var, None, 'standard deviation to use when initialising %s' % var)
 
@@ -1773,7 +1776,10 @@ def export():
 
 def do_single_file_inference(input_file_path):
     with tf.Session(config=session_config) as session:
-        inputs, outputs = create_inference_graph(batch_size=1, use_new_decoder=False)
+
+        print('Use Language Model: %s' % str(FLAGS.infer_use_lm))
+
+        inputs, outputs = create_inference_graph(batch_size=1, use_new_decoder=FLAGS.infer_use_lm)
 
         # Create a saver using variables from the above newly created graph
         saver = tf.train.Saver(tf.global_variables())
