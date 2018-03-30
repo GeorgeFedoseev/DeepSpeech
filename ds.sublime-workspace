@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"Mode",
+				"Model"
+			],
+			[
+				"infer",
+				"infer_use_lm"
+			],
+			[
 				"sess",
 				"session_config\tstatement"
 			],
@@ -275,7 +283,7 @@
 			"file": "Dockerfile",
 			"settings":
 			{
-				"buffer_size": 5412,
+				"buffer_size": 5456,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -284,19 +292,8 @@
 			"file": "DeepSpeech.py",
 			"settings":
 			{
-				"buffer_size": 83098,
+				"buffer_size": 83303,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "# Need devel version cause we need /usr/include/cudnn.h \n# for compiling libctc_decoder_with_kenlm.so\nFROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04\n\n\n\nRUN apt-get update && apt-get install -y --no-install-recommends \\\n        build-essential \\\n        curl \\\n        wget \\\n        git \\\n        python \\\n        python-dev \\\n        python-pip \\\n        python-wheel \\\n        python-numpy \\\n        libcurl3-dev  \\\n        ca-certificates \\\n        gcc \\\n        sox \\\n        libsox-fmt-mp3 \\\n        htop \\\n        nano \\\n        swig \\\n        cmake \\\n        libboost-all-dev \\\n        zlib1g-dev \\\n        libbz2-dev \\\n        liblzma-dev \\\n        locales \\\n        pkg-config \\\n        libsox-dev \\\n        ffmpeg  \n\n\n\n# <BUILD TensorFlow+XLA\n# build TensoFlow from Mozilla repo with XLA\n\n\nRUN git clone https://github.com/mozilla/tensorflow/\nWORKDIR /tensorflow\nRUN git checkout r1.6\n\n\n\n# install Bazel\nRUN apt-get install -y openjdk-8-jdk\nRUN echo \"deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8\" | tee /etc/apt/sources.list.d/bazel.list\nRUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -\nRUN apt-get update && apt-get install -y bazel && apt-get upgrade -y bazel\n\n\n# install GPU stuff\nRUN apt-get install -y cuda-command-line-tools-9-0 \n\n\n# configure Tensorflow Build\n\n# GPU Environment Setup\nENV TF_NEED_CUDA 1\nENV CUDA_TOOLKIT_PATH /usr/local/cuda\nENV CUDA_PKG_VERSION 9-0=9.0.176-1\nENV CUDA_VERSION 9.0.176\nENV TF_CUDA_VERSION 9.0\nENV TF_CUDNN_VERSION 7.1.2\nENV CUDNN_INSTALL_PATH /usr/lib/x86_64-linux-gnu/\nENV TF_CUDA_COMPUTE_CAPABILITIES 6.0\n\n# Common Environment Setup\nENV TF_BUILD_CONTAINER_TYPE GPU\nENV TF_BUILD_OPTIONS OPT\nENV TF_BUILD_DISABLE_GCP 1\nENV TF_BUILD_ENABLE_XLA 1\nENV TF_BUILD_PYTHON_VERSION PYTHON2\nENV TF_BUILD_IS_OPT OPT\nENV TF_BUILD_IS_PIP PIP\n\n# Other Parameters\nENV CC_OPT_FLAGS -mavx -mavx2 -msse4.1 -msse4.2 -mfma\nENV TF_NEED_GCP 0\nENV TF_NEED_HDFS 0\nENV TF_NEED_JEMALLOC 1\nENV TF_NEED_OPENCL 0\nENV TF_CUDA_CLANG 0\nENV TF_NEED_MKL 0\nENV TF_ENABLE_XLA 1\nENV PYTHON_BIN_PATH /usr/bin/python2.7\nENV PYTHON_LIB_PATH /usr/lib/python2.7/dist-packages\n\n\n\n# link DeepSpeech native_client libs to tf folder\nCOPY . /DeepSpeech/\n\nRUN ln -s /DeepSpeech/native_client /tensorflow\n\nWORKDIR /DeepSpeech\n\nRUN wget https://bootstrap.pypa.io/get-pip.py && \\\n    python get-pip.py && \\\n    rm get-pip.py\n\nRUN pip --no-cache-dir install -r requirements.txt\n\n\nWORKDIR /tensorflow\n\n\n\n\n# Running bazel inside a `docker build` command causes trouble, cf:\n#   https://github.com/bazelbuild/bazel/issues/134\n# The easiest solution is to set up a bazelrc file forcing --batch.\nRUN echo \"startup --batch\" >>/etc/bazel.bazelrc\n# Similarly, we need to workaround sandboxing issues:\n#   https://github.com/bazelbuild/bazel/issues/418\nRUN echo \"build --spawn_strategy=standalone --genrule_strategy=standalone\" \\\n    >>/etc/bazel.bazelrc\n\n\n# fix for failing bazel TF build\nRUN ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/libcuda.so.1\n\n# fix\nRUN cp /usr/include/cudnn.h /usr/local/cuda/include/cudnn.h\n\nENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu/:/usr/local/cuda/lib64/stubs/\n\n# BUILD\n# passing LD_LIBRARY_PATH is required cause Bazel doesnt pickup it from env\n\n\n\n# need add --config=cuda?\nRUN bazel build --config=opt --config=cuda -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}\n\n# need add --config=cuda?\nRUN bazel build --config=monolithic -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}\n\n\nRUN bazel build --config=opt --config=cuda  --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}\n\n# fix for not found script https://github.com/tensorflow/tensorflow/issues/471\nRUN ./configure\n\n# build wheel\nRUN bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg\n\n# install tensorflow from our custom wheel\nRUN pip install /tmp/tensorflow_pkg/*.whl\n\n# BUILD TensorFlow+XLA />\n\n# copy built libs to /DeepSpeech/native_client\nRUN cp /tensorflow/bazel-bin/native_client/libctc_decoder_with_kenlm.so /DeepSpeech/native_client/ \\\n    && cp /tensorflow/bazel-bin/native_client/generate_trie /DeepSpeech/native_client/ \\\n    && cp /tensorflow/bazel-bin/native_client/libdeepspeech.so /DeepSpeech/native_client/ \\\n    && cp /tensorflow/bazel-bin/native_client/libdeepspeech_utils.so /DeepSpeech/native_client/\n \n\n# build deepspeech and install python bindings\nENV TFDIR /tensorflow\nWORKDIR /DeepSpeech/native_client\nRUN make deepspeech\nRUN make bindings\nRUN pip install dist/deepspeech*\n\n\n\n\n# allow python printing utf-8\nENV PYTHONIOENCODING UTF-8\n\n# build kenlm\nWORKDIR /DeepSpeech/data\nRUN mkdir lm && cd lm && git clone https://github.com/kpu/kenlm && cd kenlm \\\n    && mkdir eigen3 \\\n    && export EIGEN3_ROOT=/DeepSpeech/data/lm/kenlm/eigen3 \\\n    && cd $EIGEN3_ROOT && wget -O - https://bitbucket.org/eigen/eigen/get/3.2.8.tar.bz2 |tar xj && cd - \\\n    && mkdir -p build \\\n    && cd build \\\n    && cmake .. \\\n    && make -j 4\n\nWORKDIR /DeepSpeech\n",
-			"file": "Dockerfile.xla",
-			"file_size": 5340,
-			"file_write_time": 131665618110000000,
-			"settings":
-			{
-				"buffer_size": 5341,
 				"line_ending": "Unix"
 			}
 		},
@@ -304,16 +301,8 @@
 			"file": "bin/run-yt-subs-rus.sh",
 			"settings":
 			{
-				"buffer_size": 809,
+				"buffer_size": 847,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "ds.sublime-project",
-			"settings":
-			{
-				"buffer_size": 247,
 				"line_ending": "Unix"
 			}
 		}
@@ -384,10 +373,15 @@
 	[
 		"/Users/gosha/Projects/DeepSpeech",
 		"/Users/gosha/Projects/DeepSpeech/bin",
+		"/Users/gosha/Projects/DeepSpeech/native_client",
 		"/Users/gosha/Projects/DeepSpeech/util"
 	],
 	"file_history":
 	[
+		"/Users/gosha/Projects/DeepSpeech/ds.sublime-project",
+		"/Users/gosha/Projects/DeepSpeech/requirements.txt",
+		"/Users/gosha/Projects/DeepSpeech/native_client/deepspeech_utils.cc",
+		"/Users/gosha/Projects/DeepSpeech/Dockerfile.xla",
 		"/Users/gosha/Projects/DeepSpeech/bin/run-echo-msk.sh",
 		"/Users/gosha/Projects/DeepSpeech/util/automation.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge_ru.py",
@@ -397,7 +391,6 @@
 		"/Users/gosha/Projects/DeepSpeech/util/feeding.py",
 		"/Users/gosha/Projects/DeepSpeech/util/audio.py",
 		"/Users/gosha/Projects/DeepSpeech/util/text.py",
-		"/Users/gosha/Projects/DeepSpeech/requirements.txt",
 		"/Users/gosha/Projects/DeepSpeech/native_client/BUILD",
 		"/Users/gosha/Projects/DeepSpeech/native_client/Makefile",
 		"/Users/gosha/Projects/DeepSpeech/Dockerfile_bckup",
@@ -460,13 +453,14 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
 		"height": 101.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -474,6 +468,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"limit_train",
+			"n_input",
+			" 26",
+			"26",
+			"N_FILTERS",
+			"beam_width",
+			"do_single_file_inference",
+			"create_inference_graph",
+			"decode_with_lm",
+			"do_si",
+			"decoded",
+			"calculate_mean_edit_distance_and_loss",
+			"decode_with_lm",
+			"use_new_decoder",
+			"decode_wi",
+			"create_inference_graph",
+			"calculate_re",
+			"Sample",
 			"config",
 			"map",
 			"XLA",
@@ -525,7 +537,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -534,19 +546,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5412,
+						"buffer_size": 5456,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1999,
-								2004
+								3649,
+								3649
 							]
 						],
 						"settings":
 						{
+							"WordCount":
+							{
+								"changes": 61,
+								"count": 413,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
 							"auto_name": "",
 							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"tab_size": 4,
@@ -554,10 +575,10 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 682.0,
+						"translation.y": 1770.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -566,24 +587,36 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 83098,
+						"buffer_size": 83303,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								70237,
-								70244
+								5153,
+								5164
 							]
 						],
 						"settings":
 						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
 							"auto_complete_triggers":
 							[
 								{
 									"characters": ".",
 									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								},
 								{
 									"characters": ".",
@@ -612,70 +645,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 23488.0,
+						"translation.y": 1039.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "Dockerfile.xla",
+					"file": "bin/run-yt-subs-rus.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5341,
+						"buffer_size": 847,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								724,
-								724
+								847,
+								148
 							]
 						],
 						"settings":
 						{
 							"WordCount":
 							{
-								"changes": 0,
-								"count": 404,
+								"changes": 183,
+								"count": 50,
 								"modified": false,
 								"selection": false,
 								"status": -1,
 								"syntax": "plain text"
 							},
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "bin/run-yt-subs-rus.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 809,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								801,
-								801
-							]
-						],
-						"settings":
-						{
 							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
@@ -684,36 +687,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "ds.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 247,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3,
-								203
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
