@@ -258,6 +258,8 @@ def initialize_globals():
         session_config.graph_options.optimizer_options.global_jit_level = tf.OptimizerOptions.ON_1
         print('using XLA')
 
+    print("LOG LEVEL: %i" % FLAGS.log_level)
+
     global alphabet
     alphabet = Alphabet(os.path.abspath(FLAGS.alphabet_config_path))
 
