@@ -39,6 +39,7 @@ def text_to_char_array(original, alphabet):
     Given a Python string ``original``, remove unsupported characters, map characters
     to integers and return a numpy array representing the processed string.
     """
+    original = original.strip()
     return np.asarray([alphabet.label_from_string(c) for c in original])
 
 def sparse_tuple_from(sequences, dtype=np.int32):
