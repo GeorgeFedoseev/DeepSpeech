@@ -36,7 +36,7 @@ from util.text import sparse_tensor_value_to_texts, wer, levenshtein, Alphabet, 
 from xdg import BaseDirectory as xdg
 import numpy as np
 
-
+tf.logging.set_verbosity(tf.logging.ERROR)
 
 
 # Importer
