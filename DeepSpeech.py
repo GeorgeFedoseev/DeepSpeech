@@ -401,7 +401,10 @@ def log_traffic(message):
         log_debug(message)
 
 def log_info(message):
-    log_telegram(message)
+    if len(message) > 500:
+        telegram_send_text_as_attachement("long_log", message)
+    else:
+        log_telegram(message)
     if FLAGS.log_level <= 1:
         prefix_print('I ', message)
 
