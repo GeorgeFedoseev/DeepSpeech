@@ -200,6 +200,9 @@ tf.app.flags.DEFINE_boolean ('xla',       False,        'enable XLA optimization
 # infer use LM
 tf.app.flags.DEFINE_boolean ('infer_use_lm',       True,        'Use Language Model during one shot inference?')
 
+# enable Telegram logging
+tf.app.flags.DEFINE_boolean ('telegram_log',       False,        'Send messages to Telegram?')
+
 for var in ['b1', 'h1', 'b2', 'h2', 'b3', 'h3', 'b5', 'h5', 'b6', 'h6']:
     tf.app.flags.DEFINE_float('%s_stddev' % var, None, 'standard deviation to use when initialising %s' % var)
 
@@ -401,20 +404,24 @@ def log_traffic(message):
         log_debug(message)
 
 def log_info(message):
-    if len(message) > 500:
-        telegram_send_text_as_attachement("long_log", message)
-    else:
-        log_telegram(message)
+    if FLAGS.log_telegram:
+        if len(message) > 500:
+            telegram_send_text_as_attachement("long_log", message)
+        else:
+            log_telegram(message)
+            
     if FLAGS.log_level <= 1:
         prefix_print('I ', message)
 
 def log_warn(message):
-    log_telegram(message)
+    if FLAGS.log_telegram:
+        log_telegram(message)
     if FLAGS.log_level <= 2:
         prefix_print('W ', message)
 
 def log_error(message):
-    log_telegram(message)
+    if FLAGS.log_telegram:
+        log_telegram(message)
     if FLAGS.log_level <= 3:
         prefix_print('E ', message)
 
