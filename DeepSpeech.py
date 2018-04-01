@@ -36,6 +36,12 @@ from util.text import sparse_tensor_value_to_texts, wer, levenshtein, Alphabet, 
 from xdg import BaseDirectory as xdg
 import numpy as np
 
+from telegram.ext import Updater
+updater = Updater("592335153:AAEDnx7bFAfW87znwH6tAYsAfS-JZwdJEy8")   
+def log_telegram(msg):
+    updater.bot.send_message(chat_id="79735423", text=msg)
+
+
 tf.logging.set_verbosity(tf.logging.ERROR)
 
 
@@ -366,6 +372,7 @@ def prefix_print(prefix, message):
     print(prefix + ('\n' + prefix).join(message.split('\n')))
 
 def log_debug(message):
+    log_telegram(message)    
     if FLAGS.log_level == 0:
         prefix_print('D ', message)
 
@@ -374,14 +381,17 @@ def log_traffic(message):
         log_debug(message)
 
 def log_info(message):
+    log_telegram(message)
     if FLAGS.log_level <= 1:
         prefix_print('I ', message)
 
 def log_warn(message):
+    log_telegram(message)
     if FLAGS.log_level <= 2:
         prefix_print('W ', message)
 
 def log_error(message):
+    log_telegram(message)
     if FLAGS.log_level <= 3:
         prefix_print('E ', message)
 
