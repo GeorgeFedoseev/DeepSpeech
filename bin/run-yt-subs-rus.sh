@@ -11,21 +11,20 @@ python -u DeepSpeech.py \
   --train_files "/tmp/yt-subs-rus-dataset/yt-subs-train.csv" \
   --dev_files "/tmp/yt-subs-rus-dataset/yt-subs-dev.csv" \
   --test_files "/tmp/yt-subs-rus-dataset/yt-subs-test.csv" \
-  --train_batch_size 12 \
-  --dev_batch_size 12 \
-  --test_batch_size 12 \
-  --learning_rate 0.0001 \
-  --epoch 50 \
+  --train_batch_size 32 \
+  --dev_batch_size 16 \
+  --test_batch_size 16 \
+  --learning_rate 0.00005 \
+  --epoch 45 \
   --display_step 0 \
-  --validation_step 5 \
-  --dropout_rate 0.15 \
+  --validation_step 1 \
+  --dropout_rate 0.20 \
   --default_stddev 0.046875 \
   --n_hidden 2048 \
   --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_2048/ \
   --export_dir /assets/network/export_dir_yt_subs_rus_2048/ \
-  --log_level 0 \
-  --limit_train 160000 \
-  --limit_dev 160000 \
-  --limit_test 160000 \  
+  --log_level 1 \
+  --limit_train 16000000  \
   --report_count 100 \
+  --xla=False \
   "$@"
