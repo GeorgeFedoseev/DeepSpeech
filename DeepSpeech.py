@@ -284,12 +284,12 @@ def initialize_globals():
     # add xla support
     if FLAGS.xla:
         session_config.graph_options.optimizer_options.global_jit_level = tf.OptimizerOptions.ON_1
-        print('using XLA')
+        log_info('using XLA')
 
     # disaply if using warpctc    
-    print('using Warp-CTC: %s' % str(FLAGS.use_warpctc))
+    log_info('using Warp-CTC: %s' % str(FLAGS.use_warpctc))
 
-    print("LOG LEVEL: %i" % FLAGS.log_level)
+    log_info("LOG LEVEL: %i" % FLAGS.log_level)
 
     telegram_send_text_as_attachement("params", pformat(tf.app.flags.FLAGS.flag_values_dict()))
 
@@ -1896,7 +1896,7 @@ def main(_) :
     # Stopping the coordinator
     COORD.stop()
 
-    print("Execution took: %s secs (Wall clock time)" % datetime.timedelta(seconds=round(time.time() - start_time)))
+    log_info("Execution took: %s secs (Wall clock time)" % datetime.timedelta(seconds=round(time.time() - start_time)))
 
 if __name__ == '__main__' :
     tf.app.run()
