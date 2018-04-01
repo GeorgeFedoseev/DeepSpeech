@@ -602,6 +602,7 @@ def calculate_mean_edit_distance_and_loss(model_feeder, tower, dropout):
 
     # Compute the edit (Levenshtein) distance
     #distance = tf.edit_distance(tf.cast(decoded[0], tf.int32), batch_y)
+    distance = 0
 
     # Compute the mean edit distance
     #mean_edit_distance = tf.reduce_mean(distance)
