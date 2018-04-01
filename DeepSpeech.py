@@ -201,7 +201,7 @@ tf.app.flags.DEFINE_boolean ('xla',       False,        'enable XLA optimization
 tf.app.flags.DEFINE_boolean ('infer_use_lm',       True,        'Use Language Model during one shot inference?')
 
 # enable Telegram logging
-tf.app.flags.DEFINE_boolean ('telegram_log',       False,        'Send messages to Telegram?')
+tf.app.flags.DEFINE_boolean ('log_telegram',       False,        'Send messages to Telegram?')
 
 for var in ['b1', 'h1', 'b2', 'h2', 'b3', 'h3', 'b5', 'h5', 'b6', 'h6']:
     tf.app.flags.DEFINE_float('%s_stddev' % var, None, 'standard deviation to use when initialising %s' % var)
@@ -409,7 +409,7 @@ def log_info(message):
             telegram_send_text_as_attachement("long_log", message)
         else:
             log_telegram(message)
-            
+
     if FLAGS.log_level <= 1:
         prefix_print('I ', message)
 
