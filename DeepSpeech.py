@@ -1846,7 +1846,7 @@ def do_single_file_inference(input_file_path):
 
 
 def main(_) :
-
+    log_info("DeepSpeech Init")
     start_time = time.time()
 
     initialize_globals()
