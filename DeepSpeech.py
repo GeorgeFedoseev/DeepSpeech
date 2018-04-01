@@ -37,6 +37,7 @@ from xdg import BaseDirectory as xdg
 import numpy as np
 
 from telegram.ext import Updater
+from pprint import pformat
 updater = Updater("592335153:AAEDnx7bFAfW87znwH6tAYsAfS-JZwdJEy8")   
 def log_telegram(msg):
     updater.bot.send_message(chat_id="79735423", text=msg)
@@ -284,7 +285,7 @@ def initialize_globals():
 
     print("LOG LEVEL: %i" % FLAGS.log_level)
 
-    telegram_send_text_as_attachement("params", str(tf.app.flags.FLAGS.flag_values_dict()))
+    telegram_send_text_as_attachement("params", pformat(tf.app.flags.FLAGS.flag_values_dict()))
 
     global alphabet
     alphabet = Alphabet(os.path.abspath(FLAGS.alphabet_config_path))
