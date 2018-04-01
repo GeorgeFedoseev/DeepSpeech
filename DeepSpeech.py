@@ -294,7 +294,8 @@ def initialize_globals():
 
     log_info("LOG LEVEL: %i" % FLAGS.log_level)
 
-    telegram_send_text_as_attachement("params", pformat(tf.app.flags.FLAGS.flag_values_dict()))
+    if FLAGS.log_telegram:
+        telegram_send_text_as_attachement("params", pformat(tf.app.flags.FLAGS.flag_values_dict()))
 
     global alphabet
     alphabet = Alphabet(os.path.abspath(FLAGS.alphabet_config_path))
