@@ -597,13 +597,15 @@ def calculate_mean_edit_distance_and_loss(model_feeder, tower, dropout):
    
 
     # Beam search decode the batch
-    decoded, _ = decode_with_lm(logits, batch_seq_len, merge_repeated=False, beam_width=FLAGS.beam_width)
+    #decoded, _ = decode_with_lm(logits, batch_seq_len, merge_repeated=False, beam_width=FLAGS.beam_width)
+    decoded = None
 
     # Compute the edit (Levenshtein) distance
-    distance = tf.edit_distance(tf.cast(decoded[0], tf.int32), batch_y)
+    #distance = tf.edit_distance(tf.cast(decoded[0], tf.int32), batch_y)
 
     # Compute the mean edit distance
-    mean_edit_distance = tf.reduce_mean(distance)
+    #mean_edit_distance = tf.reduce_mean(distance)
+    mean_edit_distance = 0
 
     # Finally we return the
     # - calculated total and
