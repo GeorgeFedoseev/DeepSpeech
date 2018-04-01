@@ -41,6 +41,18 @@ updater = Updater("592335153:AAEDnx7bFAfW87znwH6tAYsAfS-JZwdJEy8")
 def log_telegram(msg):
     updater.bot.send_message(chat_id="79735423", text=msg)
 
+def telegram_send_text_as_attachement(name, text):
+    fname = name+".txt"
+    f = open(fname, "w")
+    f.write(text)    
+    f.close()
+
+    f = open(fname, "r")
+    updater.bot.send_document(chat_id="79735423", document=f)
+    f.close()
+
+    os.remove(fname)
+
 
 tf.logging.set_verbosity(tf.logging.ERROR)
 
@@ -271,6 +283,8 @@ def initialize_globals():
     print('using Warp-CTC: %s' % str(FLAGS.use_warpctc))
 
     print("LOG LEVEL: %i" % FLAGS.log_level)
+
+    telegram_send_text_as_attachement("params", str(tf.app.flags.FLAGS.flag_values_dict()))
 
     global alphabet
     alphabet = Alphabet(os.path.abspath(FLAGS.alphabet_config_path))
