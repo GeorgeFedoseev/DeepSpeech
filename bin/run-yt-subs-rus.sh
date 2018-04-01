@@ -27,4 +27,5 @@ python -u DeepSpeech.py \
   --limit_train 16000000  \
   --report_count 100 \
   --xla=False \
+  --use_warpctc=True \
   "$@"

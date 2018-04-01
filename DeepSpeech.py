@@ -261,6 +261,9 @@ def initialize_globals():
         session_config.graph_options.optimizer_options.global_jit_level = tf.OptimizerOptions.ON_1
         print('using XLA')
 
+    # disaply if using warpctc    
+    print('using Warp-CTC: %s' % str(FLAGS.use_warpctc))
+
     print("LOG LEVEL: %i" % FLAGS.log_level)
 
     global alphabet
