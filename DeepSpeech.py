@@ -385,8 +385,7 @@ def initialize_globals():
 def prefix_print(prefix, message):
     print(prefix + ('\n' + prefix).join(message.split('\n')))
 
-def log_debug(message):
-    log_telegram(message)    
+def log_debug(message):    
     if FLAGS.log_level == 0:
         prefix_print('D ', message)
 
