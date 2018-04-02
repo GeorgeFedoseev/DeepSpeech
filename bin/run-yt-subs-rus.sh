@@ -24,7 +24,7 @@ python -u DeepSpeech.py \
   --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_512/ \
   --export_dir /assets/network/export_dir_yt_subs_rus_512/ \
   --log_level 1 \
-  --limit_train 32000  \
+  --limit_train 16000  \
   --report_count 5 \
   --xla=False \
   --use_warpctc=True \
