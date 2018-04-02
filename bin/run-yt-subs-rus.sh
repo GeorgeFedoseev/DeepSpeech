@@ -11,14 +11,14 @@ python -u DeepSpeech.py \
   --train_files "/tmp/yt-subs-rus-dataset/yt-subs-train.csv" \
   --dev_files "/tmp/yt-subs-rus-dataset/yt-subs-dev.csv" \
   --test_files "/tmp/yt-subs-rus-dataset/yt-subs-test.csv" \
-  --train_batch_size 64 \
+  --train_batch_size 32 \
   --dev_batch_size 16 \
   --test_batch_size 16 \
   --learning_rate 0.001 \
   --epoch 45 \
   --display_step 0 \
   --validation_step 1 \
-  --dropout_rate 0.30 \
+  --dropout_rate 0.50 \
   --default_stddev 0.046875 \
   --n_hidden 1024 \
   --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_1024/ \
