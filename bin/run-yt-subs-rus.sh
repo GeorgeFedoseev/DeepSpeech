@@ -11,9 +11,9 @@ python -u DeepSpeech.py \
   --train_files "/tmp/yt-subs-rus-dataset/yt-subs-train.csv" \
   --dev_files "/tmp/yt-subs-rus-dataset/yt-subs-dev.csv" \
   --test_files "/tmp/yt-subs-rus-dataset/yt-subs-test.csv" \
-  --train_batch_size 8 \
-  --dev_batch_size 8 \
-  --test_batch_size 8 \
+  --train_batch_size 4 \
+  --dev_batch_size 4 \
+  --test_batch_size 4 \
   --learning_rate 0.0001 \
   --epoch 45 \
   --display_step 0 \
@@ -24,7 +24,7 @@ python -u DeepSpeech.py \
   --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_512/ \
   --export_dir /assets/network/export_dir_yt_subs_rus_512/ \
   --log_level 1 \
-  --limit_train 16000  \
+  --limit_train 32000  \
   --report_count 5 \
   --xla=False \
   --use_warpctc=True \
