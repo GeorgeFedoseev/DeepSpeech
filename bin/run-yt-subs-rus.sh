@@ -11,7 +11,7 @@ python -u DeepSpeech.py \
   --train_files "/tmp/yt-subs-rus-dataset/yt-subs-train.csv" \
   --dev_files "/tmp/yt-subs-rus-dataset/yt-subs-dev.csv" \
   --test_files "/tmp/yt-subs-rus-dataset/yt-subs-test.csv" \
-  --train_batch_size 32 \
+  --train_batch_size 64 \
   --dev_batch_size 16 \
   --test_batch_size 16 \
   --learning_rate 0.001 \
