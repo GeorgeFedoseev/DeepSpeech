@@ -1758,6 +1758,7 @@ def create_inference_graph(batch_size=None, use_new_decoder=False):
     logits = BiRNN(input_tensor, tf.to_int64(seq_length) if FLAGS.use_seq_length else None, no_dropout)
 
     # Beam search decode the batch
+    # Decode with beam search using LM (additional scoring based on lang model) or just beam serch over CTC matrix
     decoder = decode_with_lm if use_new_decoder else tf.nn.ctc_beam_search_decoder
 
     decoded, _ = decoder(logits, seq_length, merge_repeated=False, beam_width=FLAGS.beam_width)
