@@ -20,9 +20,9 @@ python -u DeepSpeech.py \
   --validation_step 1 \
   --dropout_rate 0.30 \
   --default_stddev 0.046875 \
-  --n_hidden 2048 \
-  --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_2048/ \
-  --export_dir /assets/network/export_dir_yt_subs_rus_2048/ \
+  --n_hidden 1024 \
+  --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_1024/ \
+  --export_dir /assets/network/export_dir_yt_subs_rus_1024/ \
   --log_level 1 \
   --limit_train 160000000  \
   --report_count 25 \
