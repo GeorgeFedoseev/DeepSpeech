@@ -11,7 +11,7 @@ python -u DeepSpeech.py \
   --train_files "/tmp/voxforge_ru/voxforge-train.csv" \
   --dev_files "/tmp/voxforge_ru/voxforge-dev.csv" \
   --test_files "/tmp/voxforge_ru/voxforge-test.csv" \
-  --train False \  
+  --train=False \
   --test_batch_size 12 \
   --n_hidden 1024 \
   --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_1024/ \  
@@ -21,5 +21,5 @@ python -u DeepSpeech.py \
   --xla=False \
   --beam_width 2048 \
   --use_warpctc=True \
-  --log_telegram=True \
+  --log_telegram=False \
   "$@"
