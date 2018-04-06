@@ -18,7 +18,7 @@ python -u DeepSpeech.py \
   --epoch 30 \
   --display_step 0 \
   --validation_step 1 \
-  --dropout_rate 0.20 \
+  --dropout_rate 0.30 \
   --default_stddev 0.046875 \
   --n_hidden 1024 \
   --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_1024/ \
@@ -27,7 +27,7 @@ python -u DeepSpeech.py \
   --limit_train 160000000  \
   --report_count 100 \
   --xla=False \
-  --beam_width 2048 \
+  --beam_width 1024 \
   --use_warpctc=True \
   --log_telegram=True \
   "$@"
