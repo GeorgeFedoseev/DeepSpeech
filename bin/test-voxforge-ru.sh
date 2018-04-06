@@ -19,7 +19,7 @@ python -u DeepSpeech.py \
   --limit_train 160000000  \
   --report_count 100 \
   --xla=False \
-  --beam_width 2048 \
+  --beam_width 1024 \
   --use_warpctc=True \
   --log_telegram=False \
   "$@"
