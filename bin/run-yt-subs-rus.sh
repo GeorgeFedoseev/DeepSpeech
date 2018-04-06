@@ -15,7 +15,7 @@ python -u DeepSpeech.py \
   --dev_batch_size 16 \
   --test_batch_size 16 \
   --learning_rate 0.0001 \
-  --epoch 45 \
+  --epoch 30 \
   --display_step 0 \
   --validation_step 1 \
   --dropout_rate 0.20 \
@@ -25,7 +25,7 @@ python -u DeepSpeech.py \
   --export_dir /assets/network/export_dir_yt_subs_rus_1024/ \
   --log_level 1 \
   --limit_train 160000000  \
-  --report_count 25 \
+  --report_count 100 \
   --xla=False \
   --use_warpctc=True \
   --log_telegram=True \
