@@ -15,7 +15,7 @@ python -u DeepSpeech.py \
   --test_batch_size 12 \
   --n_hidden 1024 \
   --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_1024/ \  
-  --log_level 1 \
+  --log_level 0 \
   --limit_train 160000000  \
   --report_count 100 \
   --xla=False \
