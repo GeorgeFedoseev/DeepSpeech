@@ -15,7 +15,7 @@ python -u DeepSpeech.py \
   --dev_batch_size 16 \
   --test_batch_size 16 \
   --learning_rate 0.0001 \
-  --epoch 30 \
+  --epoch 19 \
   --display_step 0 \
   --validation_step 1 \
   --dropout_rate 0.30 \
@@ -26,8 +26,7 @@ python -u DeepSpeech.py \
   --log_level 1 \
   --limit_train 160000000  \
   --report_count 100 \
-  --xla=False \
-  --beam_width 1024 \
+  --xla=False \  
   --use_warpctc=True \
   --log_telegram=True \
   "$@"
