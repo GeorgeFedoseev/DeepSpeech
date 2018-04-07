@@ -26,7 +26,7 @@ python -u DeepSpeech.py \
   --log_level 1 \
   --limit_train 160000000  \
   --report_count 100 \
-  --xla=False \  
+  --xla=False \
   --use_warpctc=True \
   --log_telegram=True \
   "$@"
