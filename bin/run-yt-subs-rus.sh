@@ -15,10 +15,10 @@ python -u DeepSpeech.py \
   --dev_batch_size 16 \
   --test_batch_size 16 \
   --learning_rate 0.0001 \
-  --epoch 19 \
+  --epoch 30 \
   --display_step 0 \
   --validation_step 1 \
-  --dropout_rate 0.30 \
+  --dropout_rate 0.20 \
   --default_stddev 0.046875 \
   --n_hidden 1024 \
   --checkpoint_dir /assets/network/checkpoint_dir_yt_subs_rus_1024/ \
