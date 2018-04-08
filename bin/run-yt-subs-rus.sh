@@ -15,7 +15,7 @@ python -u DeepSpeech.py \
   --dev_batch_size 16 \
   --test_batch_size 16 \
   --learning_rate 0.0001 \
-  --epoch 30 \
+  --epoch 22 \
   --display_step 0 \
   --validation_step 1 \
   --dropout_rate 0.20 \
