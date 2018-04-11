@@ -841,7 +841,7 @@ def calculate_report(results_tuple):
     samples_wer = total_levenshtein / total_label_length
 
     # Filter out all items with WER=0
-    samples = [s for s in samples if s.wer > 0 and len(s.src)>15]
+    samples = [s for s in samples if s.wer > 0]
 
     # Order the remaining items by their loss (lowest loss on top)
     samples.sort(key=lambda s: s.loss)
