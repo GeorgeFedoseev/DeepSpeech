@@ -291,7 +291,16 @@
 			"file": "DeepSpeech.py",
 			"settings":
 			{
-				"buffer_size": 84829,
+				"buffer_size": 84828,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/run-yt-subs-rus.sh",
+			"settings":
+			{
+				"buffer_size": 865,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -305,12 +314,13 @@
 			}
 		},
 		{
-			"file": "bin/run-yt-subs-rus.sh",
+			"contents": "Searching 1643 files for \"numcep\"\n\n/Users/gosha/Projects/DeepSpeech/bin/import_swb.py:\n  178      return (filelist[train_beg:train_end], filelist[dev_beg:dev_end], filelist[test_beg:test_end])\n  179  \n  180: def _read_data_set(filelist, thread_count, batch_size, numcep, numcontext, stride=1, offset=0, next_index=lambda i: i + 1, limit=0):\n  181      # Optionally apply dataset size limit\n  182      if limit > 0:\n  ...\n  186  \n  187      # Return DataSet\n  188:     return DataSet(txt_files, thread_count, batch_size, numcep, numcontext, next_index=next_index)\n  189  \n  190  if __name__ == \"__main__\":\n\n/Users/gosha/Projects/DeepSpeech/util/audio.py:\n   14          displayed = False\n   15  \n   16:     def audioToInputVector(audio, fs, numcep, numcontext):\n   17          if DeprecationWarning.displayed is not True:\n   18              DeprecationWarning.displayed = True\n   ..\n   23  \n   24          # Get mfcc coefficients\n   25:         features = mfcc(audio, samplerate=fs, numcep=numcep)\n   26  \n   27          # We only keep every second feature (BiRNN stride = 2)\n   ..\n   32  \n   33          # Add empty initial and final contexts\n   34:         empty_context = np.zeros((numcontext, numcep), dtype=features.dtype)\n   35          features = np.concatenate((empty_context, features, empty_context))\n   36  \n   ..\n   40          train_inputs = np.lib.stride_tricks.as_strided(\n   41              features,\n   42:             (num_strides, window_size, numcep),\n   43              (features.strides[0], features.strides[0], features.strides[1]),\n   44              writeable=False)\n   ..\n   56  \n   57  \n   58: def audiofile_to_input_vector(audio_filename, numcep, numcontext):\n   59      r\"\"\"\n   60:     Given a WAV audio file at ``audio_filename``, calculates ``numcep`` MFCC features\n   61      at every 0.01s time step with a window length of 0.025s. Appends ``numcontext``\n   62      context frames to the left and right of each time step, and returns this data\n   ..\n   66      fs, audio = wav.read(audio_filename)\n   67  \n   68:     return audioToInputVector(audio, fs, numcep, numcontext)\n   69  \n\n/Users/gosha/Projects/DeepSpeech/util/feeding.py:\n   27                   dev_set,\n   28                   test_set,\n   29:                  numcep,\n   30                   numcontext,\n   31                   alphabet,\n   ..\n   37          self.test = test_set\n   38          self.sets = [train_set, dev_set, test_set]\n   39:         self.numcep = numcep\n   40          self.numcontext = numcontext\n   41          self.tower_feeder_count = max(len(get_available_gpus()), 1) if tower_feeder_count < 0 else tower_feeder_count\n   42          self.threads_per_queue = threads_per_queue\n   43  \n   44:         self.ph_x = tf.placeholder(tf.float32, [None, numcep + (2 * numcep * numcontext)])\n   45          self.ph_x_length = tf.placeholder(tf.int32, [])\n   46          self.ph_y = tf.placeholder(tf.int32, [None,])\n   ..\n  116          self._model_feeder = model_feeder\n  117          self._data_set = data_set\n  118:         self.queue = tf.PaddingFIFOQueue(shapes=[[None, model_feeder.numcep + (2 * model_feeder.numcep * model_feeder.numcontext)], [], [None,], []],\n  119                                                    dtypes=[tf.float32, tf.int32, tf.int32, tf.int32],\n  120                                                    capacity=data_set.batch_size * 2)\n  ...\n  152              wav_file, transcript = self._data_set.files[index]\n  153              #print 'process file '+wav_file\n  154:             source = audiofile_to_input_vector(wav_file, self._model_feeder.numcep, self._model_feeder.numcontext)\n  155              source_len = len(source)\n  156              #print 'transcript for '+wav_file+': '+transcript\n\n18 matches across 3 files\n",
 			"settings":
 			{
-				"buffer_size": 887,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"buffer_size": 3768,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
@@ -419,10 +429,12 @@
 	"expanded_folders":
 	[
 		"/Users/gosha/Projects/DeepSpeech",
+		"/Users/gosha/Projects/DeepSpeech/bin",
 		"/Users/gosha/Projects/DeepSpeech/util"
 	],
 	"file_history":
 	[
+		"/Users/gosha/Projects/DeepSpeech/bin/test-voxforge-ru.sh",
 		"/Users/gosha/Projects/DeepSpeech/native_client/kenlm/lm/facade.hh",
 		"/Users/gosha/Projects/DeepSpeech/Dockerfile",
 		"/Users/gosha/Projects/DeepSpeech/bin/run-yt-subs-rus.sh",
@@ -516,6 +528,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ModelFeeder",
+			"numcep",
+			"gpu",
+			"num_gpus",
 			"BiRNN",
 			"audioToInputVector",
 			"levenshtein",
@@ -647,7 +663,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -656,32 +672,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 84829,
+						"buffer_size": 84828,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								29011,
-								29016
+								69487,
+								69494
 							]
 						],
 						"settings":
 						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
 							"auto_complete_triggers":
 							[
 								{
 									"characters": ".",
 									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								},
 								{
 									"characters": ".",
@@ -725,8 +737,8 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 2478.0,
+						"translation.x": 133.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -734,65 +746,27 @@
 				},
 				{
 					"buffer": 1,
-					"file": "util/audio.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2722,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2672,
-								2690
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 176.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "bin/run-yt-subs-rus.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 887,
+						"buffer_size": 865,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								832,
-								832
+								471,
+								471
 							]
 						],
 						"settings":
 						{
 							"WordCount":
 							{
-								"changes": 44,
-								"count": 49,
+								"changes": 0,
+								"count": 48,
 								"modified": false,
 								"selection": false,
 								"status": -1,
@@ -810,7 +784,152 @@
 					"type": "text"
 				},
 				{
+					"buffer": 2,
+					"file": "util/audio.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1016,
+								1022
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 176.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
 					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3768,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										263,
+										269
+									],
+									[
+										520,
+										526
+									],
+									[
+										740,
+										746
+									],
+									[
+										982,
+										988
+									],
+									[
+										989,
+										995
+									],
+									[
+										1196,
+										1202
+									],
+									[
+										1462,
+										1468
+									],
+									[
+										1666,
+										1672
+									],
+									[
+										1773,
+										1779
+									],
+									[
+										2086,
+										2092
+									],
+									[
+										2256,
+										2262
+									],
+									[
+										2454,
+										2460
+									],
+									[
+										2463,
+										2469
+									],
+									[
+										2766,
+										2772
+									],
+									[
+										2780,
+										2786
+									],
+									[
+										3099,
+										3105
+									],
+									[
+										3126,
+										3132
+									],
+									[
+										3589,
+										3595
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 541.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "bin/infer-yt-subs-rus.sh",
 					"semi_transient": false,
 					"settings":
@@ -828,26 +947,17 @@
 						],
 						"settings":
 						{
-							"WordCount":
-							{
-								"changes": 0,
-								"count": 25,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
 							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "util/text.py",
 					"semi_transient": false,
 					"settings":
@@ -859,33 +969,25 @@
 						"selection":
 						[
 							[
-								3288,
-								3299
+								4237,
+								4816
 							]
 						],
 						"settings":
 						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1085.0,
+						"translation.y": 1537.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "native_client/beam_search.cc",
 					"semi_transient": false,
 					"settings":
@@ -911,11 +1013,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "native_client/beam_search.h",
 					"semi_transient": false,
 					"settings":
@@ -941,11 +1043,11 @@
 						"translation.y": 837.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "native_client/trie_node.h",
 					"semi_transient": false,
 					"settings":
@@ -971,7 +1073,7 @@
 						"translation.y": 1961.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
