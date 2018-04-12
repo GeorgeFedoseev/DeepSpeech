@@ -29,8 +29,10 @@ N_CONTEXT = 9
 
 
 def pmap(fun, iterable, threads=8):
-    with Pool(threads) as pool:
-        results = pool.map(fun, iterable)
+    
+    pool = Pool(threads)
+    results = pool.map(fun, iterable)
+
     return results
 
 
