@@ -1,7 +1,7 @@
 import os
 
 from telegram.ext import Updater
-from pprint import pformat
+
 
 updater = Updater("592335153:AAEDnx7bFAfW87znwH6tAYsAfS-JZwdJEy8")   
 def log_telegram(msg):
