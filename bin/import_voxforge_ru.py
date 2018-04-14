@@ -275,25 +275,20 @@ def _generate_dataset(data_dir, data_set):
                                 # remove tmp
                                 os.remove(tmp_path)
 
-                        wav_file = filtered_path
-
-                        # get audio duration
-                        audio_duration = get_audio_length(wav_file)
-
-                        # filter out audio longer than 10 seconds
-                        if audio_duration > 10:
-                            continue
-
-
-                        dataset_audio_duration_sec += audio_duration
+                        wav_file = filtered_path                       
 
 
                     
                         wav_filesize = path.getsize(wav_file)
+                        audio_duration = wav_filesize/32000
+                        
+
                         # remove audios that are shorter than 0.5s and longer than 20s.
                         # remove audios that are too short for transcript.
-                        if (wav_filesize/32000)>0.5 and (wav_filesize/32000)<20 and transcript!="" and \
+                        if audio_duration > 0.5 and audio_duration < 20 and transcript!="" and \
                             wav_filesize/len(transcript)>1400:
+
+                            dataset_audio_duration_sec += audio_duration
                             files.append((path.abspath(wav_file), wav_filesize, transcript))
 
     return pandas.DataFrame(data=files, columns=["wav_filename", "wav_filesize", "transcript"]), dataset_audio_duration_sec
