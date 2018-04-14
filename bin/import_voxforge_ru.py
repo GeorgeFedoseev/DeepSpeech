@@ -253,24 +253,25 @@ def _generate_dataset(data_dir, data_set):
                     wav_file = path.join(promts_file[:-11],"wav/" + id + ".wav")
 
                     
-
-                    # apply filters
-                    filtered_path = path.join(promts_file[:-11],"wav/" + id + "_f.wav")
-                    from_path = wav_file
-                    if not os.path.exists(filtered_path):      
-                        tmp_path = "%s.tmp.wav" % filtered_path
-                        correct_volume(from_path, tmp_path)
-                        apply_bandpass_filter(tmp_path, filtered_path)
-                        # remove tmp
-                        os.remove(tmp_path)
-
-                    wav_file = filtered_path
-
-                    # get audio duration
-                    dataset_audio_duration_sec += get_audio_length(wav_file)
-
-
                     if gfile.Exists(wav_file):
+                        
+                        # apply filters
+                        filtered_path = path.join(promts_file[:-11],"wav/" + id + "_f.wav")
+                        from_path = wav_file
+                        if not os.path.exists(filtered_path):      
+                            tmp_path = "%s.tmp.wav" % filtered_path
+                            correct_volume(from_path, tmp_path)
+                            apply_bandpass_filter(tmp_path, filtered_path)
+                            # remove tmp
+                            os.remove(tmp_path)
+
+                        wav_file = filtered_path
+
+                        # get audio duration
+                        dataset_audio_duration_sec += get_audio_length(wav_file)
+
+
+                    
                         wav_filesize = path.getsize(wav_file)
                         # remove audios that are shorter than 0.5s and longer than 20s.
                         # remove audios that are too short for transcript.
