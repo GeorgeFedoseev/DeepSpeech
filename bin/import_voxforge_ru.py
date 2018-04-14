@@ -242,7 +242,7 @@ def _generate_dataset(data_dir, data_set):
                     
 
                     # apply filters
-                    filtered_path = wav_file = path.join(promts_file[:-11],"wav/" + id + "_f.wav")
+                    filtered_path = path.join(promts_file[:-11],"wav/" + id + "_f.wav")
                     from_path = wav_file
                     if not os.path.exists(filtered_path):      
                         tmp_path = "%s.tmp.wav" % filtered_path
