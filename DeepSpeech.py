@@ -1659,8 +1659,10 @@ def train(server=None):
                         # recreate progressbar
                         total_jobs = 0
                         if job.set_name == "train":
+                            log_info('Training...')
                             total_jobs = COORD._num_jobs_train
                         elif job.set_name == "dev":
+                            log_info('Validating...')
                             total_jobs = COORD._num_jobs_dev
                         elif job.set_name == "test":
                             log_info('Testing...')
