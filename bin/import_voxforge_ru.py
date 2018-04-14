@@ -285,7 +285,7 @@ def _generate_dataset(data_dir, data_set):
 
                         # remove audios that are shorter than 0.5s and longer than 20s.
                         # remove audios that are too short for transcript.
-                        if audio_duration > 0.5 and audio_duration < 20 and transcript!="" and \
+                        if audio_duration > 0.5 and audio_duration < 10 and transcript!="" and \
                             wav_filesize/len(transcript)>1400:
 
                             dataset_audio_duration_sec += audio_duration
