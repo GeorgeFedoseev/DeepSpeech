@@ -22,6 +22,8 @@ from tensorflow.contrib.learn.python.learn.datasets import base
 import subprocess
 import os
 
+from tqdm import tqdm
+
 reload(sys)
 sys.setdefaultencoding('utf8')
 
@@ -232,11 +234,18 @@ def _generate_dataset(data_dir, data_set):
 
     dataset_audio_duration_sec = 0
 
-    for promts_file in glob(path.join(extracted_dir+"/*/etc/", "PROMPTS")):
+
+    prompt_files = glob(path.join(extracted_dir+"/*/etc/", "PROMPTS"))
+
+    pbar = tqdm(total=len(prompt_files))
+
+    for promts_file in prompt_files:
+        pbar.update(1)
+
         if path.isdir(path.join(promts_file[:-11],"wav")):
             with codecs.open(promts_file, 'r', 'utf-8') as f:
                 for line in f:
-                    print ('line: '+line)
+                    #print ('line: '+line)
                     id = line.split(u' ')[0].split(u'/')[-1]
                     sentence = u' '.join(line.split(u' ')[1:])
                     sentence = re.sub(u"[^а-я]"," ",sentence.strip().lower())
@@ -248,7 +257,7 @@ def _generate_dataset(data_dir, data_set):
 
                     
                     #transcript = unicodedata.normalize("NFKD", transcript.strip())
-                    print ('transcript: '+transcript)
+                    #print ('transcript: '+transcript)
 
                     wav_file = path.join(promts_file[:-11],"wav/" + id + ".wav")
 
@@ -257,18 +266,26 @@ def _generate_dataset(data_dir, data_set):
 
                         # apply filters
                         filtered_path = path.join(promts_file[:-11],"wav/" + id + "_f.wav")
-                        from_path = wav_file
-                        if not os.path.exists(filtered_path):      
-                            tmp_path = "%s.tmp.wav" % filtered_path
-                            correct_volume(from_path, tmp_path)
-                            apply_bandpass_filter(tmp_path, filtered_path)
-                            # remove tmp
-                            os.remove(tmp_path)
+                        if not os.path.exists(filtered_path):
+                            from_path = wav_file
+                            if not os.path.exists(filtered_path):      
+                                tmp_path = "%s.tmp.wav" % filtered_path
+                                correct_volume(from_path, tmp_path)
+                                apply_bandpass_filter(tmp_path, filtered_path)
+                                # remove tmp
+                                os.remove(tmp_path)
 
                         wav_file = filtered_path
 
                         # get audio duration
-                        dataset_audio_duration_sec += get_audio_length(wav_file)
+                        audio_duration = get_audio_length(wav_file)
+
+                        # filter out audio longer than 10 seconds
+                        if audio_duration > 10:
+                            continue
+
+
+                        dataset_audio_duration_sec += audio_duration
 
 
                     
