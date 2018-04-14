@@ -36,8 +36,9 @@ from util.text import sparse_tensor_value_to_texts, wer, levenshtein, Alphabet, 
 from xdg import BaseDirectory as xdg
 import numpy as np
 
-
 from util import telegram_logger
+
+from tqdm import tqdm
 
 
 tf.logging.set_verbosity(tf.logging.ERROR)
@@ -1618,6 +1619,11 @@ def train(server=None):
 
         init_from_frozen_model_op = tf.group(*assign_ops)
 
+
+    # init progress bar
+    current_job_name = ""
+    pbar = None
+
     # The MonitoredTrainingSession takes care of session initialization,
     # restoring from a checkpoint, saving to a checkpoint, and closing when done
     # or an error occurs.
@@ -1647,6 +1653,23 @@ def train(server=None):
 
                 while job and not session.should_stop():
                     log_debug('Computing %s...' % job)
+
+                    # <PROGRESSBAR
+                    if job.set_name != current_job_name:
+                        # recreate progressbar
+                        total_jobs = 0
+                        if job.set_name == "train":
+                            total_jobs = COORD._num_jobs_train
+                        elif job.set_name == "dev":
+                            total_jobs = COORD._num_jobs_dev
+                        elif job.set_name == "test":
+                            total_jobs = COORD._num_jobs_test
+                        
+                        pbar = tqdm(total=total_jobs)
+                        current_job_name = job.set_name
+
+                    pbar.update(1)
+                    # PROGRESSBAR>
 
                     # The feed_dict (mainly for switching between queues)
                     feed_dict = {}
