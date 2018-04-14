@@ -1663,6 +1663,7 @@ def train(server=None):
                         elif job.set_name == "dev":
                             total_jobs = COORD._num_jobs_dev
                         elif job.set_name == "test":
+                            log_info('Testing...')
                             total_jobs = COORD._num_jobs_test
                         
                         pbar = tqdm(total=total_jobs)
