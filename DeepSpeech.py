@@ -40,7 +40,7 @@ from util import telegram_logger
 from pprint import pformat
 
 from tqdm import tqdm
-
+tqdm.monitor_interval = 0
 
 tf.logging.set_verbosity(tf.logging.ERROR)
 
