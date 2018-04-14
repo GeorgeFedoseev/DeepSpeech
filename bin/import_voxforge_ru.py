@@ -230,7 +230,7 @@ def _generate_dataset(data_dir, data_set):
     extracted_dir = path.join(data_dir, data_set)
     files = []
 
-    dataset_audio_duration_sec = []
+    dataset_audio_duration_sec = 0
 
     for promts_file in glob(path.join(extracted_dir+"/*/etc/", "PROMPTS")):
         if path.isdir(path.join(promts_file[:-11],"wav")):
@@ -254,7 +254,7 @@ def _generate_dataset(data_dir, data_set):
 
                     
                     if gfile.Exists(wav_file):
-                        
+
                         # apply filters
                         filtered_path = path.join(promts_file[:-11],"wav/" + id + "_f.wav")
                         from_path = wav_file
