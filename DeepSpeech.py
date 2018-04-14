@@ -1660,13 +1660,13 @@ def train(server=None):
                         # recreate progressbar
                         total_jobs = 0
                         if job.set_name == "train":
-                            log_info('Training...')
+                            log_info('Training epoch %i...' % COORD._epoch)
                             total_jobs = COORD._num_jobs_train
                         elif job.set_name == "dev":
-                            log_info('Validating...')
+                            log_info('Validating epoch %i...' % COORD._epoch)
                             total_jobs = COORD._num_jobs_dev
                         elif job.set_name == "test":
-                            log_info('Testing...')
+                            log_info('Testing epoch %i...' % COORD._epoch)
                             total_jobs = COORD._num_jobs_test
                         
                         pbar = tqdm(total=total_jobs)
