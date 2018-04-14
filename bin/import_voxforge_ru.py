@@ -19,6 +19,9 @@ from bs4 import BeautifulSoup
 from tensorflow.python.platform import gfile
 from tensorflow.contrib.learn.python.learn.datasets import base
 
+import subprocess
+import os
+
 reload(sys)
 sys.setdefaultencoding('utf8')
 
@@ -127,6 +130,38 @@ def _parallel_extracter(data_dir, number_of_test, number_of_dev, total, counter)
         
     return extract
 
+
+def apply_bandpass_filter(in_path, out_path):
+    # ffmpeg -i input.wav -acodec pcm_s16le -ac 1 -ar 16000 -af lowpass=3000,highpass=200 output.wav
+    p = subprocess.Popen(["ffmpeg", "-y",
+        "-acodec", "pcm_s16le",
+         "-i", in_path,    
+         "-acodec", "pcm_s16le",
+         "-ac", "1",
+         "-af", "lowpass=3000,highpass=200",
+         "-ar", "16000",         
+         out_path
+         ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    out, err = p.communicate()
+
+    if p.returncode != 0:
+        raise Exception("Failed to apply bandpass filter: %s" % str(err))
+
+def correct_volume(in_path, out_path, db=-10):
+    # sox input.wav output.wav gain -n -10
+    p = subprocess.Popen(["sox",
+         in_path,             
+         out_path,
+         "gain",
+         "-n", str(db)
+         ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    out, err = p.communicate()
+
+    if p.returncode != 0:
+        raise Exception("Failed to correct volume: %s" % str(err))
+
 def _download_and_preprocess_data(data_dir):
     # Conditionally download data to data_dir
     if not path.isdir(data_dir):
@@ -203,6 +238,22 @@ def _generate_dataset(data_dir, data_set):
                     print ('transcript: '+transcript)
 
                     wav_file = path.join(promts_file[:-11],"wav/" + id + ".wav")
+
+                    
+
+                    # apply filters
+                    filtered_path = wav_file = path.join(promts_file[:-11],"wav/" + id + "_f.wav")
+                    from_path = wav_file
+                    if not os.path.exists(filtered_path):      
+                        tmp_path = "%s.tmp.wav" % filtered_path
+                        correct_volume(from_path, tmp_path)
+                        apply_bandpass_filter(tmp_path, filtered_path)
+                        # remove tmp
+                        os.remove(tmp_path)
+
+                    wav_file = filtered_path
+
+
                     if gfile.Exists(wav_file):
                         wav_filesize = path.getsize(wav_file)
                         # remove audios that are shorter than 0.5s and longer than 20s.
