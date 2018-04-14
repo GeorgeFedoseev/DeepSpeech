@@ -36,29 +36,8 @@ from util.text import sparse_tensor_value_to_texts, wer, levenshtein, Alphabet, 
 from xdg import BaseDirectory as xdg
 import numpy as np
 
-from telegram.ext import Updater
-from pprint import pformat
-updater = Updater("592335153:AAEDnx7bFAfW87znwH6tAYsAfS-JZwdJEy8")   
-def log_telegram(msg):
-    try:
-        updater.bot.send_message(chat_id="79735423", text=msg)
-    except:
-        pass
 
-def telegram_send_text_as_attachement(name, text):
-    try:
-        fname = name+".txt"
-        f = open(fname, "w")
-        f.write(text)    
-        f.close()
-
-        f = open(fname, "r")
-        updater.bot.send_document(chat_id="79735423", document=f)
-        f.close()
-
-        os.remove(fname)
-    except:
-        pass
+from util import telegram_logger
 
 
 tf.logging.set_verbosity(tf.logging.ERROR)
@@ -295,7 +274,7 @@ def initialize_globals():
     log_info("LOG LEVEL: %i" % FLAGS.log_level)
 
     if FLAGS.log_telegram:
-        telegram_send_text_as_attachement("params", pformat(tf.app.flags.FLAGS.flag_values_dict()))
+        telegram_logger.telegram_send_text_as_attachement("params", pformat(tf.app.flags.FLAGS.flag_values_dict()))
 
     global alphabet
     alphabet = Alphabet(os.path.abspath(FLAGS.alphabet_config_path))
@@ -407,22 +386,22 @@ def log_traffic(message):
 def log_info(message):
     if FLAGS.log_telegram:
         if len(message) > 500:
-            telegram_send_text_as_attachement("long_log", message)
+            telegram_logger.telegram_send_text_as_attachement("long_log", message)
         else:
-            log_telegram(message)
+            telegram_logger.log_telegram(message)
 
     if FLAGS.log_level <= 1:
         prefix_print('I ', message)
 
 def log_warn(message):
     if FLAGS.log_telegram:
-        log_telegram(message)
+        telegram_logger.log_telegram(message)
     if FLAGS.log_level <= 2:
         prefix_print('W ', message)
 
 def log_error(message):
     if FLAGS.log_telegram:
-        log_telegram(message)
+        telegram_logger.log_telegram(message)
     if FLAGS.log_level <= 3:
         prefix_print('E ', message)
 
