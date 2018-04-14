@@ -131,6 +131,12 @@ def _parallel_extracter(data_dir, number_of_test, number_of_dev, total, counter)
     return extract
 
 
+def get_audio_length(input_file):    
+    result = subprocess.Popen('ffprobe -i '+input_file+' -show_entries format=duration -v quiet -of csv="p=0"', stdout=subprocess.PIPE,stderr=subprocess.STDOUT, shell=True)
+    output = result.communicate()
+
+    return float(output[0])
+
 def apply_bandpass_filter(in_path, out_path):
     # ffmpeg -i input.wav -acodec pcm_s16le -ac 1 -ar 16000 -af lowpass=3000,highpass=200 output.wav
     p = subprocess.Popen(["ffmpeg", "-y",
@@ -207,9 +213,13 @@ def _download_and_preprocess_data(data_dir):
 
     # Generate data set
     print("Generating Voxforge data set into {}".format(data_dir))
-    test_files = _generate_dataset(data_dir, "test")
-    dev_files = _generate_dataset(data_dir, "dev")
-    train_files = _generate_dataset(data_dir, "train")
+    test_files, test_duration = _generate_dataset(data_dir, "test")
+    dev_files, dev_duration = _generate_dataset(data_dir, "dev")
+    train_files, train_duration = _generate_dataset(data_dir, "train")
+
+    total_audio_duration = test_duration + dev_duration + train_duration
+
+    print('Total audio duration: %s hours' % (format(total_audio_duration/3600, '.2f')))
 
     # Write sets to disk as CSV files
     train_files.to_csv(path.join(data_dir, "voxforge-train.csv"), index=False)
@@ -219,6 +229,9 @@ def _download_and_preprocess_data(data_dir):
 def _generate_dataset(data_dir, data_set):
     extracted_dir = path.join(data_dir, data_set)
     files = []
+
+    dataset_audio_duration_sec = []
+
     for promts_file in glob(path.join(extracted_dir+"/*/etc/", "PROMPTS")):
         if path.isdir(path.join(promts_file[:-11],"wav")):
             with codecs.open(promts_file, 'r', 'utf-8') as f:
@@ -253,6 +266,9 @@ def _generate_dataset(data_dir, data_set):
 
                     wav_file = filtered_path
 
+                    # get audio duration
+                    dataset_audio_duration_sec += get_audio_length(wav_file)
+
 
                     if gfile.Exists(wav_file):
                         wav_filesize = path.getsize(wav_file)
@@ -262,7 +278,7 @@ def _generate_dataset(data_dir, data_set):
                             wav_filesize/len(transcript)>1400:
                             files.append((path.abspath(wav_file), wav_filesize, transcript))
 
-    return pandas.DataFrame(data=files, columns=["wav_filename", "wav_filesize", "transcript"])
+    return pandas.DataFrame(data=files, columns=["wav_filename", "wav_filesize", "transcript"]), dataset_audio_duration_sec
 
 if __name__=="__main__":
     _download_and_preprocess_data(sys.argv[1])
