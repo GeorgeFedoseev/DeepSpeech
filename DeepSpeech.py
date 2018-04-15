@@ -814,7 +814,7 @@ def calculate_report(results_tuple):
     items = list(zip(*results_tuple))
     
 
-    print("calculate_report for %i results" % len(items))
+    print("calculate_report using %i threads" % len(items))
 
     def calculate_report_worker(item):
         label, decoding, distance, loss = item
