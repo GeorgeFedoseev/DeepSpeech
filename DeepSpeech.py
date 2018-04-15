@@ -1660,7 +1660,7 @@ def train(server=None):
 
                     # <PROGRESSBAR
                     try:
-                        if job.set_name != current_job_name:
+                        if job.set_name != current_job_name or pbar == None:
                             if pbar != None:
                                 pbar.close()
 
@@ -1690,7 +1690,8 @@ def train(server=None):
                         if pbar:     
                             pbar.update(1)
                     except Exception as ex:
-                        print("pbar Exception: %s" % str(ex))
+                        #print("pbar Exception: %s" % str(ex))
+                        pbar = None
                     # PROGRESSBAR>
 
                     # The feed_dict (mainly for switching between queues)
