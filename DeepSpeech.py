@@ -823,7 +823,7 @@ def calculate_report(results_tuple):
     items = list(zip(*results_tuple))
     
 
-    print("calculate_report using %i threads" % len(items))
+    #print("calculate_report using %i threads" % len(items))
 
     def calculate_report_worker(item):
         label, decoding, distance, loss = item
@@ -837,7 +837,7 @@ def calculate_report(results_tuple):
     start = timer()
     pool = ThreadPool(len(items))
     calc_results = pool.map(calculate_report_worker, items)
-    print("calculate_report took %f" % (timer()-start))
+    #print("calculate_report took %f" % (timer()-start))
 
     samples = []
     total_levenshtein = 0.0
@@ -1763,7 +1763,7 @@ def train(server=None):
                         _tstart = timer()
                         # Compute the batch
                         _, current_step, batch_loss, batch_report = session.run([train_op, global_step, loss, report_params], **extra_params)
-                        print("batch compute took: %f" % (timer()-_tstart))
+                        #print("batch compute took: %f" % (timer()-_tstart))
                         # Uncomment the next line for debugging race conditions / distributed TF
                         log_debug('Finished batch step %d.' % current_step)
 
