@@ -185,6 +185,10 @@ tf.app.flags.DEFINE_boolean ('xla',       False,        'enable XLA optimization
 # infer use LM
 tf.app.flags.DEFINE_boolean ('infer_use_lm',       True,        'Use Language Model during one shot inference?')
 
+# test use LM
+tf.app.flags.DEFINE_boolean ('test_use_lm',       True,        'Use Language Model during test?')
+
+
 # enable Telegram logging
 tf.app.flags.DEFINE_boolean ('log_telegram',       False,        'Send messages to Telegram?')
 
@@ -580,9 +584,10 @@ def calculate_mean_edit_distance_and_loss(model_feeder, tower, dropout):
     # Calculate the average loss across the batch
     avg_loss = tf.reduce_mean(total_loss)
    
-
     # Beam search decode the batch
-    decoded, _ = decode_with_lm(logits, batch_seq_len, merge_repeated=False, beam_width=FLAGS.beam_width)
+    decoder = decode_with_lm if FLAGS.test_use_lm else tf.nn.ctc_beam_search_decoder
+    
+    decoded, _ = decoder(logits, batch_seq_len, merge_repeated=False, beam_width=FLAGS.beam_width)
 
     # Compute the edit (Levenshtein) distance
     distance = tf.edit_distance(tf.cast(decoded[0], tf.int32), batch_y)
@@ -1742,9 +1747,7 @@ def train(server=None):
                         # Create report results tuple
                         report_results = ([],[],[],[])
                         # Extend the session.run parameters
-                        #report_params = [results_tuple, mean_edit_distance]
-                        report_params = [results_tuple]
-                        print
+                        report_params = [results_tuple, mean_edit_distance]
                     else:
                         report_params = []
 
@@ -1771,7 +1774,7 @@ def train(server=None):
                             # Collect individual sample results
                             collect_results(report_results, batch_report[0])
                             # Add batch to total_mean_edit_distance
-                            #total_mean_edit_distance += batch_report[1]
+                            total_mean_edit_distance += batch_report[1]
 
                     # Gathering job results
                     job.loss = total_loss / job.steps
