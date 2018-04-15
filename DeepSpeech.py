@@ -42,6 +42,9 @@ from pprint import pformat
 from tqdm import tqdm
 tqdm.monitor_interval = 0
 
+from multiprocessing.pool import ThreadPool
+
+
 tf.logging.set_verbosity(tf.logging.ERROR)
 
 
@@ -807,19 +810,40 @@ def calculate_report(results_tuple):
     It'll compute the `mean` WER and create ``Sample`` objects of the ``report_count`` top lowest
     loss items from the provided WER results tuple (only items with WER!=0 and ordered by their WER).
     '''
-    samples = []
+    
     items = list(zip(*results_tuple))
-    total_levenshtein = 0.0
-    total_label_length = 0.0
+    
 
     print("calculate_report for %i results" % len(items))
 
-    for label, decoding, distance, loss in items:
+    def calculate_report_worker(item):
+        label, decoding, distance, loss = item
         sample_wer = wer(label, decoding)
         sample = Sample(label, decoding, loss, distance, sample_wer)
+
+        levenshtein_dst = levenshtein(label.split(), decoding.split())
+        label_length = float(len(label.split()))
+        return (sample, levenshtein_dst, label_length)    
+
+    pool = ThreadPool(len(items))
+    calc_results = pool.map(calculate_report_worker, items)
+
+    samples = []
+    total_levenshtein = 0.0
+    total_label_length = 0.0
+    for res in calc_results:
+        sample, levenshtein_dst, label_length = res
         samples.append(sample)
-        total_levenshtein += levenshtein(label.split(), decoding.split())
-        total_label_length += float(len(label.split()))
+        total_levenshtein += levenshtein_dst
+        total_label_length += label_length
+
+
+    # for label, decoding, distance, loss in items:
+    #     sample_wer = wer(label, decoding)
+    #     sample = Sample(label, decoding, loss, distance, sample_wer)
+    #     samples.append(sample)
+    #     total_levenshtein += levenshtein(label.split(), decoding.split())
+    #     total_label_length += float(len(label.split()))
 
     # Getting the WER from the accumulated levenshteins and lengths
     samples_wer = total_levenshtein / total_label_length
@@ -1690,7 +1714,7 @@ def train(server=None):
                             pbar.update(1)
                     except Exception as ex:
                         print("pbar Exception: %s" % str(ex))
-                                                
+
                     # PROGRESSBAR>
 
                     # The feed_dict (mainly for switching between queues)
