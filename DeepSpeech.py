@@ -1771,7 +1771,7 @@ def train(server=None):
                             # Collect individual sample results
                             collect_results(report_results, batch_report[0])
                             # Add batch to total_mean_edit_distance
-                            total_mean_edit_distance += batch_report[1]
+                            #total_mean_edit_distance += batch_report[1]
 
                     # Gathering job results
                     job.loss = total_loss / job.steps
