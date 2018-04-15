@@ -689,10 +689,10 @@ def get_tower_results(model_feeder, optimizer):
                     # Calculate the avg_loss and mean_edit_distance and retrieve the decoded
                     # batch along with the original batch's labels (Y) of this tower
 
-                    _tstart = timer()
+                    
                     total_loss, avg_loss, distance, mean_edit_distance, decoded, labels = \
                         calculate_mean_edit_distance_and_loss(model_feeder, i, no_dropout if optimizer is None else dropout_rates)
-                    print("calculate_mean_edit_distance_and_loss took %f" % (timer() - _tstart))
+                    
 
                     # Allow for variables to be re-used by the next tower
                     tf.get_variable_scope().reuse_variables()
@@ -832,7 +832,7 @@ def calculate_report(results_tuple):
     start = timer()
     pool = ThreadPool(len(items))
     calc_results = pool.map(calculate_report_worker, items)
-    print(timer()-start)
+    print("calculate_report took %f" % (timer()-start))
 
     samples = []
     total_levenshtein = 0.0
@@ -1742,7 +1742,9 @@ def train(server=None):
                         # Create report results tuple
                         report_results = ([],[],[],[])
                         # Extend the session.run parameters
-                        report_params = [results_tuple, mean_edit_distance]
+                        #report_params = [results_tuple, mean_edit_distance]
+                        report_params = [results_tuple]
+                        print
                     else:
                         report_params = []
 
