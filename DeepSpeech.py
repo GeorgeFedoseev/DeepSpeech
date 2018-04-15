@@ -1659,18 +1659,24 @@ def train(server=None):
                     if job.set_name != current_job_name:
                         if pbar != None:
                             pbar.close()
-                            
+
                         # recreate progressbar
                         total_jobs = 0
                         if job.set_name == "train":
                             log_info('Training epoch %i...' % COORD._epoch)
                             total_jobs = COORD._num_jobs_train
+                            total_samples = model_feeder.train.total_batches*FLAGS.train_batch_size
+                            log_info("Total samples: %i", total_samples)
                         elif job.set_name == "dev":
                             log_info('Validating epoch %i...' % COORD._epoch)
                             total_jobs = COORD._num_jobs_dev
+                            total_samples = model_feeder.dev.total_batches*FLAGS.dev_batch_size
+                            log_info("Total samples: %i", total_samples)
                         elif job.set_name == "test":
                             log_info('Testing epoch %i...' % COORD._epoch)
                             total_jobs = COORD._num_jobs_test
+                            total_samples = model_feeder.test.total_batches*FLAGS.test_batch_size
+                            log_info("Total samples: %i", total_samples)
 
 
                         
