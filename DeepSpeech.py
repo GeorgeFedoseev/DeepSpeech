@@ -1657,6 +1657,9 @@ def train(server=None):
 
                     # <PROGRESSBAR
                     if job.set_name != current_job_name:
+                        if pbar != None:
+                            pbar.close()
+                            
                         # recreate progressbar
                         total_jobs = 0
                         if job.set_name == "train":
@@ -1668,6 +1671,8 @@ def train(server=None):
                         elif job.set_name == "test":
                             log_info('Testing epoch %i...' % COORD._epoch)
                             total_jobs = COORD._num_jobs_test
+
+
                         
                         pbar = tqdm(total=total_jobs)
                         current_job_name = job.set_name
