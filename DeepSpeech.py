@@ -688,8 +688,11 @@ def get_tower_results(model_feeder, optimizer):
                 with tf.name_scope('tower_%d' % i) as scope:
                     # Calculate the avg_loss and mean_edit_distance and retrieve the decoded
                     # batch along with the original batch's labels (Y) of this tower
+
+                    _tstart = timer()
                     total_loss, avg_loss, distance, mean_edit_distance, decoded, labels = \
                         calculate_mean_edit_distance_and_loss(model_feeder, i, no_dropout if optimizer is None else dropout_rates)
+                    print("calculate_mean_edit_distance_and_loss took %f" % (timer() - _tstart))
 
                     # Allow for variables to be re-used by the next tower
                     tf.get_variable_scope().reuse_variables()
