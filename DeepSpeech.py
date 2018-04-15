@@ -811,6 +811,9 @@ def calculate_report(results_tuple):
     items = list(zip(*results_tuple))
     total_levenshtein = 0.0
     total_label_length = 0.0
+
+    print("calculate_report for %i results" % len(items))
+
     for label, decoding, distance, loss in items:
         sample_wer = wer(label, decoding)
         sample = Sample(label, decoding, loss, distance, sample_wer)
