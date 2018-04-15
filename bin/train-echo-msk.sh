@@ -26,7 +26,9 @@ python -u DeepSpeech.py \
   --summary_dir /assets/network/echo_msk/summary_echo_msk \
   --summary_sec 60 \
   --log_level 1 \
-  --limit_train 160000000  \
+  --limit_train 100000  \
+  --limit_dev 10000  \
+  --limit_test 10000  \
   --report_count 1000 \
   --xla=False \
   --use_warpctc=True \
