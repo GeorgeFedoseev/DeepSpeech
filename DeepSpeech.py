@@ -1752,9 +1752,10 @@ def train(server=None):
                             break
 
                         log_debug('Starting batch...')
+                        _tstart = timer()
                         # Compute the batch
                         _, current_step, batch_loss, batch_report = session.run([train_op, global_step, loss, report_params], **extra_params)
-
+                        print("batch compute took: %f" % (timer()-_tstart))
                         # Uncomment the next line for debugging race conditions / distributed TF
                         log_debug('Finished batch step %d.' % current_step)
 
