@@ -43,6 +43,7 @@ from tqdm import tqdm
 tqdm.monitor_interval = 0
 
 from multiprocessing.pool import ThreadPool
+from timeit import default_timer as timer
 
 
 tf.logging.set_verbosity(tf.logging.ERROR)
@@ -825,8 +826,10 @@ def calculate_report(results_tuple):
         label_length = float(len(label.split()))
         return (sample, levenshtein_dst, label_length)    
 
+    start = timer()
     pool = ThreadPool(len(items))
     calc_results = pool.map(calculate_report_worker, items)
+    print(timer()-start)
 
     samples = []
     total_levenshtein = 0.0
