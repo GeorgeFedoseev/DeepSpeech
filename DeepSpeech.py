@@ -1690,7 +1690,7 @@ def train(server=None):
                         if pbar:     
                             pbar.update(1)
                     except Exception as ex:
-                        #print("pbar Exception: %s" % str(ex))
+                        print("pbar Exception: %s" % str(ex))
                         pbar = None
                     # PROGRESSBAR>
 
