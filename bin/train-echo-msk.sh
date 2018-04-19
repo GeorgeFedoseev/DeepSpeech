@@ -23,9 +23,7 @@ python -u DeepSpeech.py \
   --n_hidden 512 \
   --checkpoint_dir /assets/network/echo_msk/checkpoint_dir_echo_msk_512/ \
   --export_dir /assets/network/echo_msk/export_dir_echo_msk_512/ \
-  --summary_dir /assets/network/echo_msk/summary_echo_msk_512 \
-  --summary_sec 600 \
-  --log_level 1 \      
+  --log_level 1 \
   --report_count 100 \
   --xla=False \
   --use_warpctc=True \
