@@ -3,6 +3,7 @@
 # A line that starts with # is a comment. You can escape it with \# if you wish
 # to use '#' as a label.
  
+-
 а
 б
 в

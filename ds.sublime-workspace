@@ -4,8 +4,80 @@
 		"selected_items":
 		[
 			[
+				"label",
+				"label_length\tstatement"
+			],
+			[
+				"totall",
+				"total_label_length\tstatement"
+			],
+			[
+				"total",
+				"total_levenshtein\tstatement"
+			],
+			[
+				"labe",
+				"label_length\tstatement"
+			],
+			[
+				"exce",
+				"Exception"
+			],
+			[
+				"tota",
+				"total_batches\tstatement"
+			],
+			[
+				"modelf",
+				"model_feeder\tstatement"
+			],
+			[
+				"model",
+				"model_feeder"
+			],
+			[
+				"_nu",
+				"_num_jobs_train\tstatement"
+			],
+			[
+				"curre",
+				"current_job_name\tstatement"
+			],
+			[
 				"teleg",
-				"telegram_send_text_as_attachement\tfunction"
+				"telegram_logger\tmodule"
+			],
+			[
+				"filter",
+				"filtered_path\tstatement"
+			],
+			[
+				"audi",
+				"audio_duration\tstatement"
+			],
+			[
+				"get",
+				"get_audio_length\tfunction"
+			],
+			[
+				"train",
+				"train_duration\tstatement"
+			],
+			[
+				"dev",
+				"dev_duration\tstatement"
+			],
+			[
+				"test",
+				"test_duration\tstatement"
+			],
+			[
+				"wav",
+				"wav_file\tstatement"
+			],
+			[
+				"from",
+				"from_path"
 			],
 			[
 				"telegra",
@@ -82,10 +154,6 @@
 			[
 				"appe",
 				"append_column_to_csv\tfunction"
-			],
-			[
-				"get",
-				"get_column_csv\tfunction"
 			],
 			[
 				"wr",
@@ -291,75 +359,72 @@
 			"file": "DeepSpeech.py",
 			"settings":
 			{
-				"buffer_size": 84828,
+				"buffer_size": 87538,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bin/run-yt-subs-rus.sh",
+			"contents": "Searching 1645 files for \"--config=cuda\"\n\n/Users/gosha/Projects/DeepSpeech/Dockerfile:\n  134  \n  135  \n  136: # need add --config=cuda?\n  137: RUN bazel build --config=opt --config=cuda -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}\n  138  \n  139: # need add --config=cuda? - added 30Mar18 - NOT TESTED!\n  140: RUN bazel build --config=monolithic --config=cuda -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}\n  141  \n  142  \n  143: RUN bazel build --config=opt --config=cuda  --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}\n  144  \n  145  # fix for not found script https://github.com/tensorflow/tensorflow/issues/471\n\n/Users/gosha/Projects/DeepSpeech/Dockerfile.xla:\n  133  \n  134  \n  135: # need add --config=cuda?\n  136: RUN bazel build --config=opt --config=cuda -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}\n  137  \n  138: # need add --config=cuda?\n  139  RUN bazel build --config=monolithic -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}\n  140  \n  141  \n  142: RUN bazel build --config=opt --config=cuda  --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}\n  143  \n  144  # fix for not found script https://github.com/tensorflow/tensorflow/issues/471\n\n/Users/gosha/Projects/DeepSpeech/Dockerfile.xla.fp16:\n  134  \n  135  \n  136: # need add --config=cuda?\n  137: RUN bazel build --config=opt --config=cuda -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}\n  138  \n  139: # need add --config=cuda?\n  140  RUN bazel build --config=monolithic -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}\n  141  \n  142  \n  143: RUN bazel build --config=opt --config=cuda  --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}\n  144  \n  145  # fix for not found script https://github.com/tensorflow/tensorflow/issues/471\n\n13 matches across 3 files\n",
 			"settings":
 			{
-				"buffer_size": 865,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "util/audio.py",
-			"settings":
-			{
-				"buffer_size": 2722,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 1643 files for \"numcep\"\n\n/Users/gosha/Projects/DeepSpeech/bin/import_swb.py:\n  178      return (filelist[train_beg:train_end], filelist[dev_beg:dev_end], filelist[test_beg:test_end])\n  179  \n  180: def _read_data_set(filelist, thread_count, batch_size, numcep, numcontext, stride=1, offset=0, next_index=lambda i: i + 1, limit=0):\n  181      # Optionally apply dataset size limit\n  182      if limit > 0:\n  ...\n  186  \n  187      # Return DataSet\n  188:     return DataSet(txt_files, thread_count, batch_size, numcep, numcontext, next_index=next_index)\n  189  \n  190  if __name__ == \"__main__\":\n\n/Users/gosha/Projects/DeepSpeech/util/audio.py:\n   14          displayed = False\n   15  \n   16:     def audioToInputVector(audio, fs, numcep, numcontext):\n   17          if DeprecationWarning.displayed is not True:\n   18              DeprecationWarning.displayed = True\n   ..\n   23  \n   24          # Get mfcc coefficients\n   25:         features = mfcc(audio, samplerate=fs, numcep=numcep)\n   26  \n   27          # We only keep every second feature (BiRNN stride = 2)\n   ..\n   32  \n   33          # Add empty initial and final contexts\n   34:         empty_context = np.zeros((numcontext, numcep), dtype=features.dtype)\n   35          features = np.concatenate((empty_context, features, empty_context))\n   36  \n   ..\n   40          train_inputs = np.lib.stride_tricks.as_strided(\n   41              features,\n   42:             (num_strides, window_size, numcep),\n   43              (features.strides[0], features.strides[0], features.strides[1]),\n   44              writeable=False)\n   ..\n   56  \n   57  \n   58: def audiofile_to_input_vector(audio_filename, numcep, numcontext):\n   59      r\"\"\"\n   60:     Given a WAV audio file at ``audio_filename``, calculates ``numcep`` MFCC features\n   61      at every 0.01s time step with a window length of 0.025s. Appends ``numcontext``\n   62      context frames to the left and right of each time step, and returns this data\n   ..\n   66      fs, audio = wav.read(audio_filename)\n   67  \n   68:     return audioToInputVector(audio, fs, numcep, numcontext)\n   69  \n\n/Users/gosha/Projects/DeepSpeech/util/feeding.py:\n   27                   dev_set,\n   28                   test_set,\n   29:                  numcep,\n   30                   numcontext,\n   31                   alphabet,\n   ..\n   37          self.test = test_set\n   38          self.sets = [train_set, dev_set, test_set]\n   39:         self.numcep = numcep\n   40          self.numcontext = numcontext\n   41          self.tower_feeder_count = max(len(get_available_gpus()), 1) if tower_feeder_count < 0 else tower_feeder_count\n   42          self.threads_per_queue = threads_per_queue\n   43  \n   44:         self.ph_x = tf.placeholder(tf.float32, [None, numcep + (2 * numcep * numcontext)])\n   45          self.ph_x_length = tf.placeholder(tf.int32, [])\n   46          self.ph_y = tf.placeholder(tf.int32, [None,])\n   ..\n  116          self._model_feeder = model_feeder\n  117          self._data_set = data_set\n  118:         self.queue = tf.PaddingFIFOQueue(shapes=[[None, model_feeder.numcep + (2 * model_feeder.numcep * model_feeder.numcontext)], [], [None,], []],\n  119                                                    dtypes=[tf.float32, tf.int32, tf.int32, tf.int32],\n  120                                                    capacity=data_set.batch_size * 2)\n  ...\n  152              wav_file, transcript = self._data_set.files[index]\n  153              #print 'process file '+wav_file\n  154:             source = audiofile_to_input_vector(wav_file, self._model_feeder.numcep, self._model_feeder.numcontext)\n  155              source_len = len(source)\n  156              #print 'transcript for '+wav_file+': '+transcript\n\n18 matches across 3 files\n",
-			"settings":
-			{
-				"buffer_size": 3768,
+				"buffer_size": 2708,
 				"line_ending": "Unix",
 				"name": "Find Results",
 				"scratch": true
 			}
 		},
 		{
-			"file": "bin/infer-yt-subs-rus.sh",
+			"file": "bin/train-echo-msk.sh",
 			"settings":
 			{
-				"buffer_size": 350,
+				"buffer_size": 997,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "util/text.py",
+			"file": "util/telegram_logger.py",
 			"settings":
 			{
-				"buffer_size": 8025,
+				"buffer_size": 563,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "native_client/beam_search.cc",
+			"file": "bin/import_voxforge_ru.py",
 			"settings":
 			{
-				"buffer_size": 14045,
+				"buffer_size": 11556,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "native_client/beam_search.h",
+			"file": "data/alphabet.txt",
 			"settings":
 			{
-				"buffer_size": 7084,
+				"buffer_size": 341,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "native_client/trie_node.h",
+			"file": "evaluate.py",
 			"settings":
 			{
-				"buffer_size": 5622,
+				"buffer_size": 12346,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/train-yt-subs-rus.sh",
+			"settings":
+			{
+				"buffer_size": 865,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -429,16 +494,21 @@
 	"expanded_folders":
 	[
 		"/Users/gosha/Projects/DeepSpeech",
-		"/Users/gosha/Projects/DeepSpeech/bin",
+		"/Users/gosha/Projects/DeepSpeech/data",
 		"/Users/gosha/Projects/DeepSpeech/util"
 	],
 	"file_history":
 	[
+		"/Users/gosha/Projects/DeepSpeech/bin/run-yt-subs-rus.sh",
+		"/Users/gosha/Projects/DeepSpeech/util/text.py",
+		"/Users/gosha/Projects/DeepSpeech/util/audio.py",
+		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-subs-rus.sh",
+		"/Users/gosha/Projects/DeepSpeech/native_client/beam_search.cc",
+		"/Users/gosha/Projects/DeepSpeech/native_client/beam_search.h",
+		"/Users/gosha/Projects/DeepSpeech/native_client/trie_node.h",
 		"/Users/gosha/Projects/DeepSpeech/bin/test-voxforge-ru.sh",
 		"/Users/gosha/Projects/DeepSpeech/native_client/kenlm/lm/facade.hh",
 		"/Users/gosha/Projects/DeepSpeech/Dockerfile",
-		"/Users/gosha/Projects/DeepSpeech/bin/run-yt-subs-rus.sh",
-		"/Users/gosha/Projects/DeepSpeech/util/text.py",
 		"/Users/gosha/Projects/DeepSpeech/ds.sublime-project",
 		"/Users/gosha/Projects/DeepSpeech/requirements.txt",
 		"/Users/gosha/Projects/DeepSpeech/native_client/deepspeech_utils.cc",
@@ -447,10 +517,8 @@
 		"/Users/gosha/Projects/DeepSpeech/util/automation.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge_ru.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/run-voxforge-ru.sh",
-		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-subs-rus.sh",
 		"/Users/gosha/Projects/DeepSpeech/data/alphabet.txt",
 		"/Users/gosha/Projects/DeepSpeech/util/feeding.py",
-		"/Users/gosha/Projects/DeepSpeech/util/audio.py",
 		"/Users/gosha/Projects/DeepSpeech/native_client/BUILD",
 		"/Users/gosha/Projects/DeepSpeech/native_client/Makefile",
 		"/Users/gosha/Projects/DeepSpeech/Dockerfile_bckup",
@@ -513,7 +581,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -528,6 +596,55 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"seq_length",
+			"BiRNN",
+			"print",
+			"test_use_lm",
+			"--config=cuda",
+			"results_t",
+			"total_mean",
+			"calculate_mean_edit_distance_and_loss",
+			"get_tower_results",
+			"mean_edit_distance",
+			"apply_gradient_op",
+			"gradients",
+			"results_tuple",
+			"loss",
+			"loss\n",
+			"calculate_mea",
+			"calculate_mee",
+			"timer()",
+			"_tstart",
+			"get_tower_results",
+			"mean_edit_distance",
+			"results_tuple",
+			"calculate_report",
+			"ThreadPool",
+			"limit_train",
+			"tqdm",
+			"_epoch",
+			"Traini",
+			"pformat",
+			"FLAGS.train",
+			"log_telegram",
+			"pformat",
+			"placeholder",
+			"summary_dir",
+			"training_graph",
+			"gradi",
+			"mean_ed",
+			"calculate_report",
+			"calculate_repo",
+			"report_count",
+			"initialize_G",
+			"n_steps",
+			"n_input",
+			"n_steps",
+			"stddev",
+			"limit_test",
+			"BiRNN",
+			"seq_length",
+			"default_stddev",
 			"ModelFeeder",
 			"numcep",
 			"gpu",
@@ -606,46 +723,7 @@
 			"do_si",
 			"decoded",
 			"calculate_mean_edit_distance_and_loss",
-			"decode_with_lm",
-			"use_new_decoder",
-			"decode_wi",
-			"create_inference_graph",
-			"calculate_re",
-			"Sample",
-			"config",
-			"map",
-			"XLA",
-			"float32",
-			"float16",
-			"timedelta",
-			"time",
-			"main(",
-			"lte",
-			"LDF",
-			"LD",
-			"tens",
-			"coda",
-			"monol",
-			"bazel",
-			"report(",
-			"train",
-			"export()",
-			"export",
-			"remove_export",
-			"report",
-			"repo",
-			"report",
-			"Success",
-			"getsize",
-			"filename_of",
-			"maybe_download",
-			"unicodedata",
-			"n_input",
-			"ModelFeeder",
-			"numcep",
-			"range",
-			"alphabet",
-			"_alphabet"
+			"decode_with_lm"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -663,7 +741,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -672,24 +750,40 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 84828,
+						"buffer_size": 87538,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								69487,
-								69494
+								87431,
+								87458
 							]
 						],
 						"settings":
 						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
 							"auto_complete_triggers":
 							[
 								{
 									"characters": ".",
 									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								},
 								{
 									"characters": ".",
@@ -737,88 +831,19 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 133.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "bin/run-yt-subs-rus.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 865,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								471,
-								471
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 0,
-								"count": 48,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 28752.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "util/audio.py",
+					"buffer": 1,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2722,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1016,
-								1022
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 176.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3768,
+						"buffer_size": 2708,
 						"regions":
 						{
 							"match":
@@ -827,76 +852,56 @@
 								"regions":
 								[
 									[
-										263,
-										269
+										121,
+										134
 									],
 									[
-										520,
-										526
+										172,
+										185
 									],
 									[
-										740,
-										746
+										343,
+										356
 									],
 									[
-										982,
-										988
+										431,
+										444
 									],
 									[
-										989,
-										995
+										705,
+										718
 									],
 									[
-										1196,
-										1202
+										1030,
+										1043
 									],
 									[
-										1462,
-										1468
+										1081,
+										1094
 									],
 									[
-										1666,
-										1672
+										1252,
+										1265
 									],
 									[
-										1773,
-										1779
+										1570,
+										1583
 									],
 									[
-										2086,
-										2092
+										1900,
+										1913
 									],
 									[
-										2256,
-										2262
+										1951,
+										1964
 									],
 									[
-										2454,
-										2460
+										2122,
+										2135
 									],
 									[
-										2463,
-										2469
-									],
-									[
-										2766,
-										2772
-									],
-									[
-										2780,
-										2786
-									],
-									[
-										3099,
-										3105
-									],
-									[
-										3126,
-										3132
-									],
-									[
-										3589,
-										3595
+										2440,
+										2453
 									]
 								],
 								"scope": ""
@@ -911,6 +916,14 @@
 						],
 						"settings":
 						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "plain text"
+							},
 							"detect_indentation": false,
 							"line_numbers": false,
 							"output_tag": 1,
@@ -922,91 +935,75 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 541.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "bin/infer-yt-subs-rus.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 350,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "util/text.py",
+					"buffer": 2,
+					"file": "bin/train-echo-msk.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8025,
+						"buffer_size": 997,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4237,
-								4816
+								983,
+								987
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1537.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "native_client/beam_search.cc",
+					"buffer": 3,
+					"file": "util/telegram_logger.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14045,
+						"buffer_size": 563,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12737,
-								12752
+								44,
+								44
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"auto_name": "",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -1017,42 +1014,61 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "native_client/beam_search.h",
+					"buffer": 4,
+					"file": "bin/import_voxforge_ru.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7084,
+						"buffer_size": 11556,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3032,
-								3037
+								11152,
+								11185
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 837.0,
+						"translation.y": 3642.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "native_client/trie_node.h",
-					"semi_transient": false,
+					"buffer": 5,
+					"file": "data/alphabet.txt",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 5622,
+						"buffer_size": 341,
 						"regions":
 						{
 						},
@@ -1065,15 +1081,82 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
+							"WordCount":
+							{
+								"changes": 0,
+								"count": 81,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "evaluate.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12346,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								832,
+								832
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "bin/train-yt-subs-rus.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 865,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								865
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1961.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
