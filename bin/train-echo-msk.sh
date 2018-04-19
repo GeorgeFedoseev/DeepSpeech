@@ -18,18 +18,15 @@ python -u DeepSpeech.py \
   --epoch 35 \
   --display_step 0 \
   --validation_step 1 \
-  --dropout_rate 0.20 \
+  --dropout_rate 0.30 \
   --default_stddev 0.046875 \
-  --n_hidden 1024 \
-  --checkpoint_dir /assets/network/echo_msk/checkpoint_dir_echo_msk_1024/ \
-  --export_dir /assets/network/echo_msk/export_dir_echo_msk_1024/ \
-  --summary_dir /assets/network/echo_msk/summary_echo_msk \
-  --summary_sec 60 \
-  --log_level 1 \
-  --limit_train 100000  \
-  --limit_dev 10000  \
-  --limit_test 10000  \
-  --report_count 1000 \
+  --n_hidden 512 \
+  --checkpoint_dir /assets/network/echo_msk/checkpoint_dir_echo_msk_512/ \
+  --export_dir /assets/network/echo_msk/export_dir_echo_msk_512/ \
+  --summary_dir /assets/network/echo_msk/summary_echo_msk_512 \
+  --summary_sec 600 \
+  --log_level 1 \      
+  --report_count 100 \
   --xla=False \
   --use_warpctc=True \
   --log_telegram=True \
