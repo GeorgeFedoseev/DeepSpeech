@@ -23,7 +23,7 @@ python -u DeepSpeech.py \
   --n_hidden 2048 \
   --checkpoint_dir /assets/network/yt-vad-autosubs-2048/yt-vad-autosubs-2048-checkpoints/ \
   --export_dir /assets/network/yt-vad-autosubs-2048/yt-vad-autosubs-2048-export/ \
-  --log_level 1 \  
+  --log_level 1 \
   --report_count 100 \
   --xla=False \
   --use_warpctc=True \
