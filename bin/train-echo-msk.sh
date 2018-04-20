@@ -18,11 +18,11 @@ python -u DeepSpeech.py \
   --epoch 35 \
   --display_step 0 \
   --validation_step 1 \
-  --dropout_rate 0.30 \
+  --dropout_rate 0.20 \
   --default_stddev 0.046875 \
-  --n_hidden 512 \
-  --checkpoint_dir /assets/network/echo_msk/checkpoint_dir_echo_msk_512/ \
-  --export_dir /assets/network/echo_msk/export_dir_echo_msk_512/ \
+  --n_hidden 1024 \
+  --checkpoint_dir /assets/network/echo_msk/checkpoint_dir_echo_msk_1024/ \
+  --export_dir /assets/network/echo_msk/export_dir_echo_msk_1024/ \
   --log_level 1 \
   --report_count 100 \
   --xla=False \
