@@ -359,7 +359,7 @@
 			"file": "bin/train-echo-msk.sh",
 			"settings":
 			{
-				"buffer_size": 839,
+				"buffer_size": 842,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -691,19 +691,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 839,
+						"buffer_size": 842,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								745,
-								745
+								533,
+								533
 							]
 						],
 						"settings":
 						{
+							"WordCount":
+							{
+								"changes": 23,
+								"count": 44,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
 							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
