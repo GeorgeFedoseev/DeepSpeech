@@ -20,9 +20,9 @@ python -u DeepSpeech.py \
   --validation_step 1 \
   --dropout_rate 0.30 \
   --default_stddev 0.046875 \
-  --n_hidden 512 \
-  --checkpoint_dir /assets/network/yt-vad-autosubs-512/yt-vad-autosubs-512-checkpoints/ \
-  --export_dir /assets/network/yt-vad-autosubs-512/yt-vad-autosubs-512-export/ \
+  --n_hidden 1024 \
+  --checkpoint_dir /assets/network/yt-vad-autosubs-1024/yt-vad-autosubs-1024-checkpoints/ \
+  --export_dir /assets/network/yt-vad-autosubs-1024/yt-vad-autosubs-1024-export/ \
   --log_level 1 \
   --report_count 100 \
   --xla=False \
