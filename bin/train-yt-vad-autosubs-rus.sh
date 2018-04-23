@@ -18,7 +18,7 @@ python -u DeepSpeech.py \
   --epoch 35 \
   --display_step 0 \
   --validation_step 1 \
-  --dropout_rate 0.30 \
+  --dropout_rate 0.22 \
   --default_stddev 0.046875 \
   --n_hidden 2048 \
   --checkpoint_dir /assets/network/yt-vad-autosubs-2048/yt-vad-autosubs-2048-checkpoints/ \
