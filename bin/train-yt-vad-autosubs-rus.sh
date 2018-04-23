@@ -14,7 +14,7 @@ python -u DeepSpeech.py \
   --train_batch_size 64 \
   --dev_batch_size 64 \
   --test_batch_size 64 \
-  --learning_rate 0.0001 \
+  --learning_rate 0.00095 \
   --epoch 35 \
   --display_step 0 \
   --validation_step 1 \
