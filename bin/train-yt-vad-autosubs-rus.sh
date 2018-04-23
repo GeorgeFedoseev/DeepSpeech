@@ -11,7 +11,7 @@ python -u DeepSpeech.py \
   --train_files "/tmp/yt-vad-autosubs-dataset/yt-vad-autosubs-train.csv" \
   --dev_files "/tmp/yt-vad-autosubs-dataset/yt-vad-autosubs-dev.csv" \
   --test_files "/tmp/yt-vad-autosubs-dataset/yt-vad-autosubs-test.csv" \
-  --train_batch_size 32 \
+  --train_batch_size 16 \
   --dev_batch_size 16 \
   --test_batch_size 16 \
   --learning_rate 0.0001 \
