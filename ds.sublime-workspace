@@ -368,7 +368,7 @@
 			"file": "bin/train-yt-vad-autosubs-rus.sh",
 			"settings":
 			{
-				"buffer_size": 910,
+				"buffer_size": 915,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -747,22 +747,22 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 910,
+						"buffer_size": 915,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								702,
-								702
+								793,
+								793
 							]
 						],
 						"settings":
 						{
 							"WordCount":
 							{
-								"changes": 0,
+								"changes": 36,
 								"count": 60,
 								"modified": false,
 								"selection": false,

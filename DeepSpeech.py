@@ -279,9 +279,9 @@ def initialize_globals():
         log_info('using XLA')
 
     # disaply if using warpctc    
-    log_info('using Warp-CTC: %s' % str(FLAGS.use_warpctc))
+    #log_info('using Warp-CTC: %s' % str(FLAGS.use_warpctc))
 
-    log_info("LOG LEVEL: %i" % FLAGS.log_level)
+    #log_info("LOG LEVEL: %i" % FLAGS.log_level)
 
     if FLAGS.log_telegram:
         telegram_logger.telegram_send_text_as_attachement("params", pformat(tf.app.flags.FLAGS.flag_values_dict()))
