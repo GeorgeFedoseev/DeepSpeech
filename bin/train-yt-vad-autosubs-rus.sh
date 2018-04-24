@@ -12,9 +12,9 @@ python -u DeepSpeech.py \
   --dev_files "/tmp/yt-vad-autosubs-dataset/yt-vad-autosubs-dev.csv" \
   --test_files "/tmp/yt-vad-autosubs-dataset/yt-vad-autosubs-test.csv" \
   --train_batch_size 32 \
-  --dev_batch_size 32 \
-  --test_batch_size 32 \
-  --learning_rate 0.001 \
+  --dev_batch_size 16 \
+  --test_batch_size 16 \
+  --learning_rate 0.0001 \
   --epoch 35 \
   --display_step 0 \
   --validation_step 1 \
