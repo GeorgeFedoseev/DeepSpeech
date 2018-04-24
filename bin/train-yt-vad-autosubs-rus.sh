@@ -14,15 +14,15 @@ python -u DeepSpeech.py \
   --train_batch_size 32 \
   --dev_batch_size 32 \
   --test_batch_size 32 \
-  --learning_rate 0.00095 \
+  --learning_rate 0.001 \
   --epoch 35 \
   --display_step 0 \
   --validation_step 1 \
-  --dropout_rate 0.22 \
+  --dropout_rate 0.3 \
   --default_stddev 0.046875 \
-  --n_hidden 1024 \
-  --checkpoint_dir /assets/network/yt-vad-autosubs-1024/yt-vad-autosubs-1024-checkpoints/ \
-  --export_dir /assets/network/yt-vad-autosubs-1024/yt-vad-autosubs-1024-export/ \
+  --n_hidden 2048 \
+  --checkpoint_dir /assets/network/yt-vad-autosubs-2048/yt-vad-autosubs-2048-checkpoints/ \
+  --export_dir /assets/network/yt-vad-autosubs-2048/yt-vad-autosubs-2048-export/ \
   --log_level 1 \
   --report_count 100 \
   --xla=False \
