@@ -68,7 +68,7 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
 # Clone TensoFlow from Mozilla repo
 RUN git clone https://github.com/mozilla/tensorflow/
 WORKDIR /tensorflow
-RUN git checkout r1.7
+RUN git checkout r1.6
 
 
 # GPU Environment Setup
