@@ -39,7 +39,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install Bazel
 RUN apt-get install -y openjdk-8-jdk
 
-# Use bazel 0.11.1 cause newer bazel fails to compile libctc_decoder_with_kenlm and TF
+# Use bazel 0.11.1 cause newer bazel fails to compile libctc_decoder_with_kenlm and TF (https://github.com/tensorflow/tensorflow/issues/18450#issuecomment-381380000)
 RUN apt-get install -y --no-install-recommends bash-completion g++ zlib1g-dev
 RUN curl -LO "https://github.com/bazelbuild/bazel/releases/download/0.11.1/bazel_0.11.1-linux-x86_64.deb" 
 RUN dpkg -i bazel_*.deb
@@ -51,14 +51,7 @@ RUN dpkg -i bazel_*.deb
 # Install CUDA CLI Tools
 RUN apt-get install -y cuda-command-line-tools-9-0
 
-
-# Clone TensoFlow from Mozilla repo
-RUN git clone https://github.com/mozilla/tensorflow/
-WORKDIR /tensorflow
-RUN git checkout r1.7
-
-
-# Install pip DeepSpeech requirements
+# Install pip
 RUN wget https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py && \
     rm get-pip.py
@@ -72,13 +65,19 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
 
 # >> START Configure Tensorflow Build
 
+# Clone TensoFlow from Mozilla repo
+RUN git clone https://github.com/mozilla/tensorflow/
+WORKDIR /tensorflow
+RUN git checkout r1.7
+
+
 # GPU Environment Setup
 ENV TF_NEED_CUDA 1
 ENV CUDA_TOOLKIT_PATH /usr/local/cuda
 ENV CUDA_PKG_VERSION 9-0=9.0.176-1
 ENV CUDA_VERSION 9.0.176
 ENV TF_CUDA_VERSION 9.0
-ENV TF_CUDNN_VERSION 7.1.3
+ENV TF_CUDNN_VERSION 7.1.1
 ENV CUDNN_INSTALL_PATH /usr/lib/x86_64-linux-gnu/
 ENV TF_CUDA_COMPUTE_CAPABILITIES 6.0
 
