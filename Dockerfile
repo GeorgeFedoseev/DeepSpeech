@@ -3,7 +3,7 @@
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 
 
-# >> START Install needed software
+# >> START Install base software
 
 # Get basic packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -38,15 +38,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Install Bazel
 RUN apt-get install -y openjdk-8-jdk
-
-# Use bazel 0.11.1 cause newer bazel fails to compile libctc_decoder_with_kenlm and TF (https://github.com/tensorflow/tensorflow/issues/18450#issuecomment-381380000)
+# Use bazel 0.11.1 cause newer bazel fails to compile TensorFlow (https://github.com/tensorflow/tensorflow/issues/18450#issuecomment-381380000)
 RUN apt-get install -y --no-install-recommends bash-completion g++ zlib1g-dev
 RUN curl -LO "https://github.com/bazelbuild/bazel/releases/download/0.11.1/bazel_0.11.1-linux-x86_64.deb" 
 RUN dpkg -i bazel_*.deb
-
-#RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
-#RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
-#RUN apt-get update && apt-get install -y bazel && apt-get upgrade -y bazel
 
 # Install CUDA CLI Tools
 RUN apt-get install -y cuda-command-line-tools-9-0
@@ -56,9 +51,7 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py && \
     rm get-pip.py
 
-
-
-# << END Install needed software
+# << END Install base software
 
 
 
@@ -105,6 +98,8 @@ ENV PYTHON_LIB_PATH /usr/lib/python2.7/dist-packages
 # << END Configure Tensorflow Build
 
 
+
+
 # >> START Configure Bazel
 
 # Running bazel inside a `docker build` command causes trouble, cf:
@@ -145,18 +140,13 @@ RUN ln -s /DeepSpeech/native_client /tensorflow
 
 WORKDIR /tensorflow
 
-# BUILD (passing LD_LIBRARY_PATH is required cause Bazel doesnt pickup it from environment)
+# passing LD_LIBRARY_PATH is required cause Bazel doesn't pickup it from environment
 
 # Build LM Prefix Decoder
-# RUN bazel build --config=opt --config=cuda -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
-
 RUN bazel build -c opt --copt=-O3 --config=cuda --copt="-D_GLIBCXX_USE_CXX11_ABI=0" //native_client:libctc_decoder_with_kenlm.so  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
 
 # Build DeepSpeech
-# RUN bazel build --config=monolithic --config=cuda -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
-
 RUN bazel build --config=monolithic -c opt --copt=-O3 --copt="-D_GLIBCXX_USE_CXX11_ABI=0" --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
-
 
 
 # Build TF pip package
@@ -189,17 +179,21 @@ RUN pip install dist/deepspeech*
 # << END Build and bind
 
 
+
+
 # Allow Python printing utf-8
 ENV PYTHONIOENCODING UTF-8
 
 # Build KenLM in /DeepSpeech/native_client/kenlm folder
 WORKDIR /DeepSpeech/native_client/kenlm
 RUN mkdir eigen3 \
-    && export EIGEN3_ROOT=/DeepSpeech/data/lm/kenlm/eigen3 \
+    && export EIGEN3_ROOT=/DeepSpeech/native_client/kenlm/eigen3 \
     && cd $EIGEN3_ROOT && wget -O - https://bitbucket.org/eigen/eigen/get/3.2.8.tar.bz2 |tar xj && cd - \
     && mkdir -p build \
     && cd build \
     && cmake .. \
     && make -j 4
 
+
+# Done
 WORKDIR /DeepSpeech
