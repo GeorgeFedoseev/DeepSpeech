@@ -52,13 +52,6 @@ WORKDIR /tensorflow
 RUN git checkout r1.6
 
 
-# Copy DeepSpeech repo contents to container's /DeepSpeech
-COPY . /DeepSpeech/
-
-# Link DeepSpeech native_client libs to tf folder
-RUN ln -s /DeepSpeech/native_client /tensorflow
-
-
 # Install pip DeepSpeech requirements
 WORKDIR /DeepSpeech
 RUN wget https://bootstrap.pypa.io/get-pip.py && \
@@ -128,6 +121,17 @@ RUN cp /usr/include/cudnn.h /usr/local/cuda/include/cudnn.h
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu/:/usr/local/cuda/lib64/stubs/
 
 # << END Configure Bazel
+
+
+
+
+# Copy DeepSpeech repo contents to container's /DeepSpeech
+COPY . /DeepSpeech/
+
+# Link DeepSpeech native_client libs to tf folder
+RUN ln -s /DeepSpeech/native_client /tensorflow
+
+
 
 
 # >> START Build and bind
