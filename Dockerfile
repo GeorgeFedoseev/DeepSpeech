@@ -38,9 +38,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Install Bazel
 RUN apt-get install -y openjdk-8-jdk
-RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
-RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
-RUN apt-get update && apt-get install -y bazel && apt-get upgrade -y bazel
+
+# Use bazel 0.11.1 cause newer bazel fails to compile libctc_decoder_with_kenlm and TF
+RUN apt-get install -y --no-install-recommends bash-completion g++ zlib1g-dev
+RUN curl -LO "https://github.com/bazelbuild/bazel/releases/download/0.11.1/bazel_0.11.1-linux-x86_64.deb" 
+RUN dpkg -i bazel_*.deb
+
+#RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
+#RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
+#RUN apt-get update && apt-get install -y bazel && apt-get upgrade -y bazel
 
 # Install CUDA CLI Tools
 RUN apt-get install -y cuda-command-line-tools-9-0
@@ -49,7 +55,7 @@ RUN apt-get install -y cuda-command-line-tools-9-0
 # Clone TensoFlow from Mozilla repo
 RUN git clone https://github.com/mozilla/tensorflow/
 WORKDIR /tensorflow
-RUN git checkout r1.6
+RUN git checkout r1.7
 
 
 # Install pip DeepSpeech requirements
