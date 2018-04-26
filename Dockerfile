@@ -185,10 +185,14 @@ RUN pip install dist/deepspeech*
 ENV PYTHONIOENCODING UTF-8
 
 # Build KenLM in /DeepSpeech/native_client/kenlm folder
-WORKDIR /DeepSpeech/native_client/kenlm
-RUN mkdir eigen3 \
-    && export EIGEN3_ROOT=/DeepSpeech/native_client/kenlm/eigen3 \
-    && cd $EIGEN3_ROOT && wget -O - https://bitbucket.org/eigen/eigen/get/3.2.8.tar.bz2 |tar xj && cd - \
+WORKDIR /DeepSpeech/native_client
+RUN rm -rf kenlm \
+    && git clone https://github.com/kpu/kenlm && cd kenlm \
+    && mkdir -p eigen3 \
+    && cd eigen3 && wget -O - https://bitbucket.org/eigen/eigen/get/3.2.8.tar.bz2 |tar xj && cd - \
+    && export EIGEN3_ROOT=/DeepSpeech/native_client/kenlm/eigen3/eigen-eigen-07105f7124f9 \
+    && mkdir -p lm/builder && mkdir -p lm/filter \
+    && mkdir -p util/stream \
     && mkdir -p build \
     && cd build \
     && cmake .. \
