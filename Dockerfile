@@ -3,7 +3,9 @@
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 
 
+# >> START Install needed software
 
+# Get basic packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
         curl \
@@ -32,28 +34,46 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libsox-dev
 
 
-# <BUILD TensorFlow
-# build TensoFlow from Mozilla repo 
 
 
-RUN git clone https://github.com/mozilla/tensorflow/
-WORKDIR /tensorflow
-RUN git checkout r1.6
-
-
-
-# install Bazel
+# Install Bazel
 RUN apt-get install -y openjdk-8-jdk
 RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
 RUN curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
 RUN apt-get update && apt-get install -y bazel && apt-get upgrade -y bazel
 
+# Install CUDA CLI Tools
+RUN apt-get install -y cuda-command-line-tools-9-0
 
-# install GPU stuff
-RUN apt-get install -y cuda-command-line-tools-9-0 
+
+# Clone TensoFlow from Mozilla repo
+RUN git clone https://github.com/mozilla/tensorflow/
+WORKDIR /tensorflow
+RUN git checkout r1.6
 
 
-# configure Tensorflow Build
+# Copy DeepSpeech repo contents to container's /DeepSpeech
+COPY . /DeepSpeech/
+
+# Link DeepSpeech native_client libs to tf folder
+RUN ln -s /DeepSpeech/native_client /tensorflow
+
+
+# Install pip DeepSpeech requirements
+WORKDIR /DeepSpeech
+RUN wget https://bootstrap.pypa.io/get-pip.py && \
+    python get-pip.py && \
+    rm get-pip.py
+
+RUN pip --no-cache-dir install -r requirements.txt
+
+# << END Install needed software
+
+
+WORKDIR /tensorflow
+
+
+# >> START Configure Tensorflow Build
 
 # GPU Environment Setup
 ENV TF_NEED_CUDA 1
@@ -69,7 +89,7 @@ ENV TF_CUDA_COMPUTE_CAPABILITIES 6.0
 ENV TF_BUILD_CONTAINER_TYPE GPU
 ENV TF_BUILD_OPTIONS OPT
 ENV TF_BUILD_DISABLE_GCP 1
-#ENV TF_BUILD_ENABLE_XLA 1
+ENV TF_BUILD_ENABLE_XLA 0
 ENV TF_BUILD_PYTHON_VERSION PYTHON2
 ENV TF_BUILD_IS_OPT OPT
 ENV TF_BUILD_IS_PIP PIP
@@ -82,33 +102,14 @@ ENV TF_NEED_JEMALLOC 1
 ENV TF_NEED_OPENCL 0
 ENV TF_CUDA_CLANG 0
 ENV TF_NEED_MKL 0
-#ENV TF_ENABLE_XLA 1
+ENV TF_ENABLE_XLA 0
 ENV PYTHON_BIN_PATH /usr/bin/python2.7
 ENV PYTHON_LIB_PATH /usr/lib/python2.7/dist-packages
 
-# enable FP16
-#ENV TF_FP16_CONV_USE_FP32_COMPUTE 0             
-#ENV TF_FP16_MATMUL_USE_FP32_COMPUTE 0  
+# << END Configure Tensorflow Build
 
 
-# link DeepSpeech native_client libs to tf folder
-COPY . /DeepSpeech/
-
-RUN ln -s /DeepSpeech/native_client /tensorflow
-
-WORKDIR /DeepSpeech
-
-RUN wget https://bootstrap.pypa.io/get-pip.py && \
-    python get-pip.py && \
-    rm get-pip.py
-
-RUN pip --no-cache-dir install -r requirements.txt
-
-
-WORKDIR /tensorflow
-
-
-
+# >> START Configure Bazel
 
 # Running bazel inside a `docker build` command causes trouble, cf:
 #   https://github.com/bazelbuild/bazel/issues/134
@@ -119,48 +120,46 @@ RUN echo "startup --batch" >>/etc/bazel.bazelrc
 RUN echo "build --spawn_strategy=standalone --genrule_strategy=standalone" \
     >>/etc/bazel.bazelrc
 
-
-# fix for failing bazel TF build
+# Put cuda libraries to where they are expected to be
 RUN ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/libcuda.so.1
-
-# fix
 RUN cp /usr/include/cudnn.h /usr/local/cuda/include/cudnn.h
 
+# Set library paths
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu/:/usr/local/cuda/lib64/stubs/
 
-# BUILD
-# passing LD_LIBRARY_PATH is required cause Bazel doesnt pickup it from env
+# << END Configure Bazel
 
 
+# >> START Build and bind
 
-# need add --config=cuda?
+# BUILD (passing LD_LIBRARY_PATH is required cause Bazel doesnt pickup it from environment)
+
+# Build LM Prefix Decoder
 RUN bazel build --config=opt --config=cuda -c opt --copt=-O3 //native_client:libctc_decoder_with_kenlm.so  --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
 
-# need add --config=cuda? - added 30Mar18 - NOT TESTED!
+# Build DeepSpeech
 RUN bazel build --config=monolithic --config=cuda -c opt --copt=-O3 --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:deepspeech_utils //native_client:generate_trie --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
 
-
+# Build Python pip package
 RUN bazel build --config=opt --config=cuda  --copt=-msse4.2 //tensorflow/tools/pip_package:build_pip_package --verbose_failures --action_env=LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
 
-# fix for not found script https://github.com/tensorflow/tensorflow/issues/471
+# Fix for not found script https://github.com/tensorflow/tensorflow/issues/471
 RUN ./configure
 
-# build wheel
+# Build wheel
 RUN bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
 
-# install tensorflow from our custom wheel
+# Install tensorflow from our custom wheel
 RUN pip install /tmp/tensorflow_pkg/*.whl
 
-# BUILD TensorFlow />
-
-# copy built libs to /DeepSpeech/native_client
+# Copy built libs to /DeepSpeech/native_client
 RUN cp /tensorflow/bazel-bin/native_client/libctc_decoder_with_kenlm.so /DeepSpeech/native_client/ \
     && cp /tensorflow/bazel-bin/native_client/generate_trie /DeepSpeech/native_client/ \
     && cp /tensorflow/bazel-bin/native_client/libdeepspeech.so /DeepSpeech/native_client/ \
     && cp /tensorflow/bazel-bin/native_client/libdeepspeech_utils.so /DeepSpeech/native_client/
  
 
-# build deepspeech and install python bindings
+# Make DeepSpeech and install Python bindings
 ENV TFDIR /tensorflow
 WORKDIR /DeepSpeech/native_client
 RUN make deepspeech
@@ -168,12 +167,13 @@ RUN make bindings
 RUN pip install dist/deepspeech*
 
 
+# << END Build and bind
 
 
-# allow python printing utf-8
+# Allow Python printing utf-8
 ENV PYTHONIOENCODING UTF-8
 
-# build kenlm
+# Download and build KenLM to /DeepSpeech/data/lm folder
 WORKDIR /DeepSpeech/data
 RUN mkdir lm && cd lm && git clone https://github.com/kpu/kenlm && cd kenlm \
     && mkdir eigen3 \
