@@ -53,17 +53,15 @@ RUN git checkout r1.7
 
 
 # Install pip DeepSpeech requirements
-WORKDIR /DeepSpeech
 RUN wget https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py && \
     rm get-pip.py
 
-RUN pip --no-cache-dir install -r requirements.txt
+
 
 # << END Install needed software
 
 
-WORKDIR /tensorflow
 
 
 # >> START Configure Tensorflow Build
@@ -128,6 +126,10 @@ ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64:/usr/loc
 # Copy DeepSpeech repo contents to container's /DeepSpeech
 COPY . /DeepSpeech/
 
+WORKDIR /DeepSpeech
+
+RUN pip --no-cache-dir install -r requirements.txt
+
 # Link DeepSpeech native_client libs to tf folder
 RUN ln -s /DeepSpeech/native_client /tensorflow
 
@@ -135,6 +137,8 @@ RUN ln -s /DeepSpeech/native_client /tensorflow
 
 
 # >> START Build and bind
+
+WORKDIR /tensorflow
 
 # BUILD (passing LD_LIBRARY_PATH is required cause Bazel doesnt pickup it from environment)
 
