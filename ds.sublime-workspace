@@ -356,45 +356,10 @@
 	"buffers":
 	[
 		{
-			"file": "DeepSpeech.py",
+			"file": "bin/train-yt-vad-1k.sh",
 			"settings":
 			{
-				"buffer_size": 87540,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Dockerfile.xla.fp16",
-			"settings":
-			{
-				"buffer_size": 5424,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/train-echo-msk.sh",
-			"settings":
-			{
-				"buffer_size": 842,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/train-yt-vad-autosubs-rus.sh",
-			"settings":
-			{
-				"buffer_size": 916,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/infer-yt-vad-autosubs-rus.sh",
-			"settings":
-			{
-				"buffer_size": 310,
+				"buffer_size": 854,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -470,6 +435,10 @@
 	"file_history":
 	[
 		"/Users/gosha/Projects/DeepSpeech/DeepSpeech.py",
+		"/Users/gosha/Projects/DeepSpeech/bin/import_swb.py",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-echo-msk.sh",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-autosubs-rus.sh",
+		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-autosubs-rus.sh",
 		"/Users/gosha/Projects/DeepSpeech/util/telegram_logger.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge_ru.py",
 		"/Users/gosha/Projects/DeepSpeech/data/alphabet.txt",
@@ -570,6 +539,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"test_use_lm",
 			"seq_length",
 			"use_seq_length",
 			"checkpoint_s",
@@ -696,8 +666,7 @@
 			"26",
 			"N_FILTERS",
 			"beam_width",
-			"do_single_file_inference",
-			"create_inference_graph"
+			"do_single_file_inference"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -715,62 +684,24 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "DeepSpeech.py",
+					"file": "bin/train-yt-vad-1k.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 87540,
+						"buffer_size": 854,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								81625,
-								81635
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 746.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Dockerfile.xla.fp16",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 5424,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								456,
+								456
 							]
 						],
 						"settings":
@@ -778,75 +709,6 @@
 							"WordCount":
 							{
 								"changes": 0,
-								"count": 409,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "bin/train-echo-msk.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 842,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								533,
-								533
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "bin/train-yt-vad-autosubs-rus.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 916,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								577,
-								560
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 38,
 								"count": 60,
 								"modified": false,
 								"selection": false,
@@ -862,43 +724,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "bin/infer-yt-vad-autosubs-rus.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 310,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								310,
-								310
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 0,
-								"count": 29,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				}
 			]

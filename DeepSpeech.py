@@ -1786,6 +1786,12 @@ def train(server=None):
                     # Send the current job to coordinator and receive the next one
                     log_debug('Sending %s...' % job)
                     job = COORD.next_job(job)
+
+
+                # close progressbar after all jobs done
+                if pbar != None:
+                    pbar.close()
+                    
             except Exception as e:
                 log_error(str(e))
                 traceback.print_exc()
