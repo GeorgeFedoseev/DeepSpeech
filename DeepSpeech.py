@@ -5,6 +5,7 @@ from __future__ import absolute_import, division, print_function
 import os
 import sys
 
+import re
 import language_check
 
 # encoding=utf8
