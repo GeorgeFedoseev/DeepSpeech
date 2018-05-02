@@ -846,6 +846,7 @@ def calculate_report(results_tuple):
         if languageTool != None:
             decoding = languageTool.correct(decoding)
             decoding = decoding.replace("ё", "е")
+            decoding = re.sub(u'[^a-zа-я- ]+', '', decoding)
 
         sample_wer = wer(label, decoding)
         sample = Sample(label, decoding, loss, distance, sample_wer)
