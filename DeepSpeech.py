@@ -289,6 +289,8 @@ def initialize_globals():
     if FLAGS.lt_lang != "":
         print("Init language tool with lang %s" % (FLAGS.lt_lang))
         languageTool = language_check.LanguageTool(FLAGS.lt_lang)
+        # disable uppercasing
+        languageTool.disabled.add('UPPERCASE_SENTENCE_START')
 
     # disaply if using warpctc    
     #log_info('using Warp-CTC: %s' % str(FLAGS.use_warpctc))
