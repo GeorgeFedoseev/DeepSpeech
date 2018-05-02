@@ -5,6 +5,8 @@ from __future__ import absolute_import, division, print_function
 import os
 import sys
 
+import language_check
+
 # encoding=utf8
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -192,6 +194,9 @@ tf.app.flags.DEFINE_boolean ('test_use_lm',       True,        'Use Language Mod
 # enable Telegram logging
 tf.app.flags.DEFINE_boolean ('log_telegram',       False,        'Send messages to Telegram?')
 
+# enable LanguageTool correction
+tf.app.flags.DEFINE_string ('lt_lang',       "ru-RU",        'LanguageTool language')
+
 for var in ['b1', 'h1', 'b2', 'h2', 'b3', 'h3', 'b5', 'h5', 'b6', 'h6']:
     tf.app.flags.DEFINE_float('%s_stddev' % var, None, 'standard deviation to use when initialising %s' % var)
 
@@ -277,6 +282,13 @@ def initialize_globals():
     if FLAGS.xla:
         session_config.graph_options.optimizer_options.global_jit_level = tf.OptimizerOptions.ON_1
         log_info('using XLA')
+
+    # init LanguageTool
+    global languageTool
+    languageTool = None
+    if FLAGS.lt_lang != "":
+        print("Init language tool with lang %s" % (FLAGS.lt_lang))
+        languageTool = language_check.LanguageTool(FLAGS.lt_lang)
 
     # disaply if using warpctc    
     #log_info('using Warp-CTC: %s' % str(FLAGS.use_warpctc))
@@ -819,6 +831,7 @@ def calculate_report(results_tuple):
     It'll compute the `mean` WER and create ``Sample`` objects of the ``report_count`` top lowest
     loss items from the provided WER results tuple (only items with WER!=0 and ordered by their WER).
     '''
+    global languageTool
     
     items = list(zip(*results_tuple))
     
@@ -827,6 +840,10 @@ def calculate_report(results_tuple):
 
     def calculate_report_worker(item):
         label, decoding, distance, loss = item
+
+        if languageTool != None:
+            decoding = languageTool.correct(decoding)
+
         sample_wer = wer(label, decoding)
         sample = Sample(label, decoding, loss, distance, sample_wer)
 

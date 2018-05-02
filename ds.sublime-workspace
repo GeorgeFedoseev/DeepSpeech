@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"No",
+				"None\tinstance"
+			],
+			[
 				"label",
 				"label_length\tstatement"
 			],
@@ -356,10 +360,10 @@
 	"buffers":
 	[
 		{
-			"file": "bin/train-yt-vad-1k.sh",
+			"file": "Dockerfile",
 			"settings":
 			{
-				"buffer_size": 854,
+				"buffer_size": 6207,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -434,7 +438,9 @@
 	],
 	"file_history":
 	[
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-1k.sh",
 		"/Users/gosha/Projects/DeepSpeech/DeepSpeech.py",
+		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-1k.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_swb.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-echo-msk.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-autosubs-rus.sh",
@@ -524,7 +530,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -539,6 +545,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"O3",
 			"test_use_lm",
 			"seq_length",
 			"use_seq_length",
@@ -665,8 +672,7 @@
 			" 26",
 			"26",
 			"N_FILTERS",
-			"beam_width",
-			"do_single_file_inference"
+			"beam_width"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -689,38 +695,38 @@
 			[
 				{
 					"buffer": 0,
-					"file": "bin/train-yt-vad-1k.sh",
+					"file": "Dockerfile",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 854,
+						"buffer_size": 6207,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								456,
-								456
+								4671,
+								4671
 							]
 						],
 						"settings":
 						{
 							"WordCount":
 							{
-								"changes": 0,
-								"count": 60,
+								"changes": 479,
+								"count": 504,
 								"modified": false,
 								"selection": false,
 								"status": -1,
 								"syntax": "plain text"
 							},
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
-							"tab_size": 2,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2107.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
