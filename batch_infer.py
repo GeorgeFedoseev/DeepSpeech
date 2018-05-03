@@ -12,19 +12,12 @@ from util import text as text_utils
 
 
 
-global session
-global inputs
-global outputs
 
-session = None
-inputs = None
-outputs = None
 
 def init_session():
-    global session, inputs, outputs
-
-    if session:
-        return
+    global session
+    global inputs
+    global outputs
 
     DeepSpeech.initialize_globals()
 
