@@ -57,3 +57,6 @@ def infer(wav_path):
     text = DeepSpeech.ndarray_to_text(output[0][0], DeepSpeech.alphabet)
 
     return text
+
+if __name__ == "__main__":
+    infer(sys.argv[1])
