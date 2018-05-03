@@ -1944,7 +1944,7 @@ def do_single_file_inference(input_file_path):
 
         if languageTool != None:
             text = languageTool.correct(text)
-            text = decoding.replace("ё", "е")
+            text = text.replace("ё", "е")
             text = re.sub(u'[^a-zа-я- ]+', '', text)
 
         print(text)
