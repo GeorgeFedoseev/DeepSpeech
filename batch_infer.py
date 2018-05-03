@@ -71,4 +71,6 @@ if __name__ == '__main__':
     #     text = text.replace("ё", "е")
     #     text = re.sub(u'[^a-zа-я- ]+', '', text)
     print(text)
+    print(" ".join(text.split()))
+
     print("Inference took %.2f seconds" % (time.time() - start_time))
