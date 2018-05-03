@@ -19,6 +19,13 @@ def init_session():
     global inputs
     global outputs
 
+    try:
+        if session != None:
+            return
+    except:
+        pass
+
+
     DeepSpeech.initialize_globals()
 
     session = tf.Session(config=DeepSpeech.session_config)
