@@ -8,6 +8,8 @@ import re
 
 import time
 
+from util import text as text_utils
+
 if __name__ == '__main__':
     DeepSpeech.initialize_globals()
 
@@ -42,9 +44,9 @@ if __name__ == '__main__':
 
             text = DeepSpeech.ndarray_to_text(output[0][0], DeepSpeech.alphabet)
 
-            if DeepSpeech.languageTool != None:
-                text = DeepSpeech.languageTool.correct(text)
-                text = text.replace("ё", "е")
-                text = re.sub(u'[^a-zа-я- ]+', '', text)
+            # if DeepSpeech.languageTool != None:
+            #     text = DeepSpeech.languageTool.correct(text)
+            #     text = text.replace("ё", "е")
+            #     text = re.sub(u'[^a-zа-я- ]+', '', text)
             print(text)
             print("Inference %i took %.2f seconds" % (i, time.time() - start_time))
