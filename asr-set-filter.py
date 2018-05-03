@@ -20,10 +20,10 @@ def filter_asr(csv_path):
     pass
 
 if __name__ == "__main__":
-    filter_asr("~/Desktop/test-file.csv")
+    #filter_asr("~/Desktop/test-file.csv")
 
-    # if len(sys.argv) <= 1:
-    #     print("Usage: python asr-set-filter <dataset_csv_path>")
-    #     sys.exit(1)
+    if len(sys.argv) <= 1:
+        print("Usage: python asr-set-filter <dataset_csv_path>")
+        sys.exit(1)
 
-    #filter_asr(sys.argv[1])
+    filter_asr(sys.argv[1])
