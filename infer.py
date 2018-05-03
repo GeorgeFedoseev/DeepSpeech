@@ -48,7 +48,7 @@ def infer(wav_path):
 
     init_session()
 
-    mfcc = DeepSpeech.audiofile_to_input_vector(input_file_path, DeepSpeech.n_input, DeepSpeech.n_context)
+    mfcc = DeepSpeech.audiofile_to_input_vector(wav_path, DeepSpeech.n_input, DeepSpeech.n_context)
     output = session.run(outputs['outputs'], feed_dict={
         inputs['input']: [mfcc],
         inputs['input_lengths']: [len(mfcc)],
