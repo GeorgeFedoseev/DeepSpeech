@@ -11,6 +11,9 @@ import time
 from util import text as text_utils
 
 
+session = None
+inputs = None
+outputs = None
 
 def init_session():
     global session, inputs, outputs
