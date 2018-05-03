@@ -13,4 +13,4 @@ if __name__ == '__main__':
         print("Inference %i" % (i))
         start_time = time.time()
         DeepSpeech.do_single_file_inference(sys.argv[1])
-        print("Inference %i took %.2f seconds" % (i, time.time() - start_time)
+        print("Inference %i took %.2f seconds" % (i, time.time() - start_time))
