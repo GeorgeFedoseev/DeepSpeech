@@ -28,6 +28,8 @@ def init_session():
 
     DeepSpeech.initialize_globals()
 
+    print('Use Language Model: %s' % str(DeepSpeech.FLAGS.infer_use_lm))
+
     session = tf.Session(config=DeepSpeech.session_config)
 
     inputs, outputs = DeepSpeech.create_inference_graph(batch_size=1, use_new_decoder=DeepSpeech.FLAGS.infer_use_lm)
@@ -45,18 +47,10 @@ def init_session():
     saver.restore(session, checkpoint_path)
 
 
-if __name__ == '__main__':
-
+def infer(wav_path):
     global session, inputs, outputs
 
     init_session()
-
-    print('Use Language Model: %s' % str(DeepSpeech.FLAGS.infer_use_lm))
-        
-    #print("Inference %i" % (i))
-    start_time = time.time()
-
-    input_file_path = sys.argv[1]
 
     mfcc = DeepSpeech.audiofile_to_input_vector(input_file_path, DeepSpeech.n_input, DeepSpeech.n_context)
     output = session.run(outputs['outputs'], feed_dict={
@@ -66,10 +60,18 @@ if __name__ == '__main__':
 
     text = DeepSpeech.ndarray_to_text(output[0][0], DeepSpeech.alphabet)
 
+    return text
+
+if __name__ == '__main__':
     # if DeepSpeech.languageTool != None:
     #     text = DeepSpeech.languageTool.correct(text)
     #     text = text.replace("ё", "е")
     #     text = re.sub(u'[^a-zа-я- ]+', '', text)
+
+    text = input_file_path = sys.argv[1]
+
+    start_time = time.time()
+    text = infer(input_file_path)
     print(text)
     print(" ".join(text.split()))
 
