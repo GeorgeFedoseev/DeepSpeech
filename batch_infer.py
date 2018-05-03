@@ -12,7 +12,10 @@ from util import text as text_utils
 
 
 
-global session, inputs, outputs
+global session
+global inputs
+global outputs
+
 session = None
 inputs = None
 outputs = None
