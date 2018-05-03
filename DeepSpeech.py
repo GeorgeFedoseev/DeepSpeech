@@ -1942,6 +1942,11 @@ def do_single_file_inference(input_file_path):
 
         text = ndarray_to_text(output[0][0], alphabet)
 
+        if languageTool != None:
+            text = languageTool.correct(text)
+            text = decoding.replace("ё", "е")
+            text = re.sub(u'[^a-zа-я- ]+', '', text)
+
         print(text)
 
 
