@@ -4,6 +4,8 @@ import pandas
 
 from infer import infer
 
+from util import text as text_utils
+
 
 def filter_asr(csv_path):
 
@@ -15,7 +17,16 @@ def filter_asr(csv_path):
 
     df = pandas.read_csv(csv_path, encoding='utf-8', na_filter=False)
     for index, row in df.iterrows():
-        print infer(row[0])
+        original = row[2]
+
+        decoded = infer(row[0])
+        decoded = decoded.strip()
+
+        print "-------------------"
+        print original
+        print decoded
+        print "char_wer: %.3f" % (text_utils.wer(list(original), list(decoded)))
+
 
     pass
 
