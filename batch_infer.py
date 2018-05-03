@@ -35,7 +35,7 @@ if __name__ == '__main__':
             input_file_path = sys.argv[1]
 
             mfcc = DeepSpeech.audiofile_to_input_vector(input_file_path, DeepSpeech.n_input, DeepSpeech.n_context)
-            output = DeepSpeech.session.run(outputs['outputs'], feed_dict={
+            output = session.run(outputs['outputs'], feed_dict={
                 inputs['input']: [mfcc],
                 inputs['input_lengths']: [len(mfcc)],
             })
