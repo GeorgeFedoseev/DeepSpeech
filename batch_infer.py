@@ -11,6 +11,8 @@ import time
 from util import text as text_utils
 
 
+
+global session, inputs, outputs
 session = None
 inputs = None
 outputs = None
@@ -48,7 +50,7 @@ if __name__ == '__main__':
 
     print('Use Language Model: %s' % str(DeepSpeech.FLAGS.infer_use_lm))
         
-    print("Inference %i" % (i))
+    #print("Inference %i" % (i))
     start_time = time.time()
 
     input_file_path = sys.argv[1]
@@ -66,4 +68,4 @@ if __name__ == '__main__':
     #     text = text.replace("ё", "е")
     #     text = re.sub(u'[^a-zа-я- ]+', '', text)
     print(text)
-    print("Inference %i took %.2f seconds" % (i, time.time() - start_time))
+    print("Inference took %.2f seconds" % (time.time() - start_time))
