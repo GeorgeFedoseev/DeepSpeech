@@ -25,7 +25,7 @@ def filter_asr(csv_path):
         print "-------------------"
         print original
         print decoded
-        print "char_wer: %.3f" % (text_utils.wer(list(original), list(decoded)))
+        print "char_wer: %.3f" % (text_utils.levenshtein(list(original), list(decoded))/float(len(original)))
 
 
     pass
