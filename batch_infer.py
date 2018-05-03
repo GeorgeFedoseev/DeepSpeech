@@ -26,7 +26,7 @@ if __name__ == '__main__':
             sys.exit(1)
 
         checkpoint_path = checkpoint.model_checkpoint_path
-        saver.restore(DeepSpeech.session, checkpoint_path)
+        saver.restore(session, checkpoint_path)
 
         for i in range(0, 20):
             print("Inference %i" % (i))
