@@ -48,8 +48,8 @@ def filter_asr(csv_path, output_csv):
 
         # load csv initial rows
         df = pandas.read_csv(csv_path, encoding='utf-8', na_filter=False)
-        
-        
+
+        print("Exclude already existing...")
         # exclude already processed
         already_processed_rows = list(csv.reader(csv_f))[1:] # skip header
         already_processed_files = [row[0] for row in already_processed_rows]
@@ -57,8 +57,12 @@ def filter_asr(csv_path, output_csv):
 
         total_rows_to_process = len(rows_to_process)
 
+        print("%i files already processed" % (len(already_processed_rows)))
+
         p_bar = tqdm(total=len(df))
         p_bar.update(len(already_processed_rows))
+
+
 
         if len(already_processed_rows) == 0:
             csv_writer.writerow(["wav_filename", "wav_filesize", "transcript"])
@@ -142,7 +146,7 @@ def filter_asr(csv_path, output_csv):
             p_bar.update(1)       
 
 
-
+        print("Start processing...")
         pool = ThreadPool(NUM_THREADS)
 
         try:
