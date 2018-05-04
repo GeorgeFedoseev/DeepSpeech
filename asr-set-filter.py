@@ -14,6 +14,8 @@ from tqdm import tqdm
 
 
 def filter_asr(csv_path, output_csv):
+    # init deepspeech
+    infer.init() 
 
     CER_CALC_NUM = 15
     NUM_THREADS = 2
