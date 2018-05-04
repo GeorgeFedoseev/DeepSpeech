@@ -20,7 +20,7 @@ csv_writer_lock = threading.Lock()
 
 
 def filter_asr(csv_path, output_csv):
-    signal.signal(signal.SIGINT, signal.SIG_IGN)
+    
 
     # init deepspeech
     infer.init() 
@@ -143,7 +143,12 @@ def filter_asr(csv_path, output_csv):
 
             p_bar.update(1)       
 
-        pool = ThreadPool(NUM_THREADS)
+
+        def initializer():
+            """Ignore CTRL+C in the worker process."""
+            signal.signal(signal.SIGINT, signal.SIG_IGN)
+
+        pool = ThreadPool(NUM_THREADS, initializer=initializer)
 
         try:
             pool.map(process_sample, rows_to_process)
