@@ -63,29 +63,27 @@ def filter_asr(csv_path, output_csv):
         if len(already_processed_rows) == 0:
             csv_writer.writerow(["wav_filename", "wav_filesize", "transcript"])
 
-        session_tuple = infer.init_session()    
+        #session_tuple = infer.init_session()    
 
         def process_sample(row):
             row = list(row)
-            #thread_name = threading.current_thread().getName()
+            thread_name = threading.current_thread().getName()
 
-            #print "processing in thread %s" % (thread_name)
+            print "processing in thread %s" % (thread_name)
 
-            # if not (thread_name in sessions_per_thread):
-            #     # create new session for this thread
-            #     #print "created sessiion object for thread %s" % (thread_name)
+            if not (thread_name in sessions_per_thread):
+                
+                gpu_id = len(sessions_per_thread) % 2
+                print "init session with GPU id = %i" % (gpu_id)
 
-            #     #scope = tf.get_variable_scope()
-            #     #scope.reuse = tf.AUTO_REUSE
-
-            #     #with tf.variable_scope(main_thread_scope, reuse=tf.AUTO_REUSE):
-            #     session_tuple = infer.init_session() 
-            #     sessions_per_thread[thread_name] = session_tuple
+                with tf.device('/device:GPU:%i' % (gpu_id)):
+                    session_tuple = infer.init_session()
+                    sessions_per_thread[thread_name] = session_tuple
                 
             #else:
                 #print "using saved session for thread %s" % (thread_name)
 
-            #session_tuple = sessions_per_thread[thread_name]
+            session_tuple = sessions_per_thread[thread_name]
 
 
             #print "process item %i in %s" % (index, str())
