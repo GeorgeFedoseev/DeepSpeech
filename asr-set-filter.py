@@ -53,10 +53,17 @@ def filter_asr(csv_path, output_csv):
 
         print("Exclude already existing...")
         start_excluding = time.time()
-        # exclude already processed
+        # exclude already processed        
+
+        all_rows = list(df.as_matrix())
+        all_files_set = [row[0] for row in all_rows]
+
         already_processed_rows = list(csv.reader(csv_f))[1:] # skip header
-        already_processed_files = [row[0] for row in already_processed_rows]
-        rows_to_process = [row for row in list(df.as_matrix()) if (len(row) > 2 and row[0] not in already_processed_files)]
+        already_processed_files_set = set([row[0] for row in already_processed_rows])
+
+        not_processed_files_set = all_files_set - already_processed_files_set
+
+        rows_to_process = [list(row) for row in all_rows if (len(row) > 2 and row[0] in not_processed_files_set)]
 
         print("Finished excluding in %.2f seconds" % (time.time() - start_excluding))
 
