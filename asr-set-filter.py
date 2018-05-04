@@ -141,7 +141,12 @@ def filter_asr(csv_path, output_csv):
             p_bar.update(1)       
 
         pool = ThreadPool(NUM_THREADS)
-        pool.map(process_sample, rows_to_process)
+
+        try:
+            pool.map(process_sample, rows_to_process)
+        except KeyboardInterrupt:
+            pool.terminate()
+            pool.join()
 
         p_bar.close()
 
