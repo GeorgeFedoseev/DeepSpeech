@@ -9,7 +9,7 @@ from util import text as text_utils
 
 def filter_asr(csv_path):
 
-    CER_CALC_NUM = 5
+    CER_CALC_NUM = 15
 
     try:
         if csv_path.split(".")[-1] != "csv":
