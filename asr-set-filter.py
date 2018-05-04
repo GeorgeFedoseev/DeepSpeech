@@ -28,12 +28,18 @@ def filter_asr(csv_path):
         print original
         print decoded
 
-        original_start = list(original)[:CER_CALC_NUM]
-        decoded_start = list(decoded)[:CER_CALC_NUM]
+        original_words = original.split()
+        decoded_words = decoded.split()
+
+        start_take_num = min(CER_CALC_NUM, len(original_words[0]))
+        end_take_num = min(CER_CALC_NUM, len(original_words[-1]))        
+
+        original_start = list(original)[:start_take_num]
+        decoded_start = list(decoded)[:start_take_num]
         start_cer = text_utils.levenshtein(list(original_start), list(decoded_start))/float(len(original_start))
 
-        original_end = list(original)[-CER_CALC_NUM:]
-        decoded_end = list(decoded)[-CER_CALC_NUM:]
+        original_end = list(original)[-end_take_num:]
+        decoded_end = list(decoded)[-end_take_num:]
         end_cer = text_utils.levenshtein(list(original_end), list(decoded_end))/float(len(original_end))
 
         print "start: %s vs %s" % ("".join(original_start), "".join(decoded_start))
