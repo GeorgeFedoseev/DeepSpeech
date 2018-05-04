@@ -16,7 +16,7 @@ def init():
     DeepSpeech.initialize_globals()
 
 def init_session():
-    
+
     print('Use Language Model: %s' % str(DeepSpeech.FLAGS.infer_use_lm))
 
     session = tf.Session(config=DeepSpeech.session_config)
@@ -47,7 +47,7 @@ def infer(wav_path, session_tuple):
         inputs['input_lengths']: [len(mfcc)],
     })
 
-    text = DeepSpeech.ndarray_to_text(output[0][0], DeepSpeech.alphabet)
+    text = DeepSpeech.ndarray_to_text(output[0][1], DeepSpeech.alphabet)
 
     return text
 
