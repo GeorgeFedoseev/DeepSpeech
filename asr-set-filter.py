@@ -1,3 +1,4 @@
+import signal
 import sys
 import pandas
 
@@ -19,6 +20,8 @@ csv_writer_lock = threading.Lock()
 
 
 def filter_asr(csv_path, output_csv):
+     signal.signal(signal.SIGINT, signal.SIG_IGN)
+
     # init deepspeech
     infer.init() 
 
