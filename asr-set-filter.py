@@ -51,6 +51,13 @@ def filter_asr(csv_path, output_csv):
 
         session_tuple = infer.init_session()
 
+        texts = infer.infer(df.as_matrix()[:5])
+
+        for t in texts:
+            print t
+
+        return
+
         def process_sample(item):
             index, row = item
 

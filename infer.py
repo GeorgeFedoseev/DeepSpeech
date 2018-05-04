@@ -38,18 +38,26 @@ def init_session():
     return session, inputs, outputs
 
 
-def infer(wav_path, session_tuple):
+def infer(wav_paths, session_tuple):
     session, inputs, outputs = session_tuple    
 
-    mfcc = DeepSpeech.audiofile_to_input_vector(wav_path, DeepSpeech.n_input, DeepSpeech.n_context)
+    mfccs = []
+    for wav_path in wav_paths:
+        mfcc = DeepSpeech.audiofile_to_input_vector(wav_path, DeepSpeech.n_input, DeepSpeech.n_context)
+        mfccs.append(mfcc)
+
     output = session.run(outputs['outputs'], feed_dict={
-        inputs['input']: [mfcc],
-        inputs['input_lengths']: [len(mfcc)],
+        inputs['input']: mfccs,
+        inputs['input_lengths']: [len(mfcc) for mfcc in mfccs],
     })
 
-    text = DeepSpeech.ndarray_to_text(output[0][1], DeepSpeech.alphabet)
+    texts = []
+    for i in range(0, len(wav_paths)):
+        text = DeepSpeech.ndarray_to_text(output[0][0], DeepSpeech.alphabet)
+        texts.append(text)
 
-    return text
+    return texts
 
 if __name__ == "__main__":
-    infer(sys.argv[1], init_session())
+    #infer(sys.argv[1], init_session())
+    pass
