@@ -7,10 +7,15 @@ from infer import infer
 
 from util import text as text_utils
 
+from multiprocessing.pool import ThreadPool
+
+from tqdm import tqdm
+
 
 def filter_asr(csv_path, output_csv):
 
     CER_CALC_NUM = 15
+    NUM_THREADS = 1
 
     try:
         if csv_path.split(".")[-1] != "csv":
@@ -29,11 +34,13 @@ def filter_asr(csv_path, output_csv):
         # write header of new csv
         csv_writer.writerow(["wav_filename", "wav_filesize", "transcript"])
 
+        # load csv initial rows
         df = pandas.read_csv(csv_path, encoding='utf-8', na_filter=False)
-
         total_rows = len(df)
 
-        for index, row in df.iterrows():
+        p_bar = tqdm(total=total_rows)
+
+        def process_sample(index, row):
             total_passed_num+=1
 
 
@@ -74,6 +81,13 @@ def filter_asr(csv_path, output_csv):
 
             print "%.1f%% approved (%.2f%% processed of %i)" % (float(approved_num)/float(total_passed_num)*100,
                  float(total_passed_num)/float(total_rows)*100, total_rows)
+
+            p_bar.update(1)
+
+        p_bar.close()
+
+        pool = ThreadPool(NUM_THREADS)
+        calc_results = pool.map(process_sample, df.iterrows())
 
 
     pass
