@@ -57,6 +57,7 @@ def filter_asr(csv_path, output_csv):
         def process_sample(item):
             index, row = item
 
+            row = list(row)
             #thread_name = threading.current_thread().getName()
 
             #print "processing in thread %s" % (thread_name)
