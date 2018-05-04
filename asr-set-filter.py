@@ -60,8 +60,8 @@ def filter_asr(csv_path, output_csv):
                 # create new session for this thread
                 print "created sessiion object for thread %s" % (thread_name)
 
-                scope = tf.get_variable_scope()
-                scope.reuse = tf.AUTO_REUSE
+                #scope = tf.get_variable_scope()
+                #scope.reuse = tf.AUTO_REUSE
 
                 #with tf.variable_scope(main_thread_scope, reuse=tf.AUTO_REUSE):
                 session_tuple = infer.init_session()

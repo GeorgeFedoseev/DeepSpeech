@@ -15,9 +15,8 @@ from util import text as text_utils
 def init():
     DeepSpeech.initialize_globals()
 
-def init_session():  
- 
-
+def init_session():
+    
     print('Use Language Model: %s' % str(DeepSpeech.FLAGS.infer_use_lm))
 
     session = tf.Session(config=DeepSpeech.session_config)
@@ -40,9 +39,7 @@ def init_session():
 
 
 def infer(wav_path, session_tuple):
-    session, inputs, outputs = session_tuple
-
-    init_session()
+    session, inputs, outputs = session_tuple    
 
     mfcc = DeepSpeech.audiofile_to_input_vector(wav_path, DeepSpeech.n_input, DeepSpeech.n_context)
     output = session.run(outputs['outputs'], feed_dict={
