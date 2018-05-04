@@ -15,7 +15,7 @@ from tqdm import tqdm
 def filter_asr(csv_path, output_csv):
 
     CER_CALC_NUM = 15
-    NUM_THREADS = 1
+    NUM_THREADS = 4
 
     try:
         if csv_path.split(".")[-1] != "csv":
