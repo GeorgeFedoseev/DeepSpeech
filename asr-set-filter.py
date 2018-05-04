@@ -186,7 +186,7 @@ def filter_asr(csv_path, output_csv):
         pool = Pool(NUM_THREADS, init_worker)        
 
         try:
-            pool.map_async(process_sample, rows_to_process)
+            res = pool.map_async(process_sample, rows_to_process)
             print("Waiting for results")
             res.get(60) # Without the timeout this blocking call ignores all signals.
         except KeyboardInterrupt:
