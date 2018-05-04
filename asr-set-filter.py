@@ -49,30 +49,30 @@ def filter_asr(csv_path, output_csv):
 
         p_bar = tqdm(total=total_rows)
 
-        #session_tuple = infer.init_session()        
+        session_tuple = infer.init_session()        
 
         def process_sample(item):
             index, row = item
 
-            thread_name = threading.current_thread().getName()
+            #thread_name = threading.current_thread().getName()
 
-            print "processing in thread %s" % (thread_name)
+            #print "processing in thread %s" % (thread_name)
 
-            if not (thread_name in sessions_per_thread):
-                # create new session for this thread
-                #print "created sessiion object for thread %s" % (thread_name)
+            # if not (thread_name in sessions_per_thread):
+            #     # create new session for this thread
+            #     #print "created sessiion object for thread %s" % (thread_name)
 
-                #scope = tf.get_variable_scope()
-                #scope.reuse = tf.AUTO_REUSE
+            #     #scope = tf.get_variable_scope()
+            #     #scope.reuse = tf.AUTO_REUSE
 
-                #with tf.variable_scope(main_thread_scope, reuse=tf.AUTO_REUSE):
-                session_tuple = infer.init_session() 
-                sessions_per_thread[thread_name] = session_tuple
+            #     #with tf.variable_scope(main_thread_scope, reuse=tf.AUTO_REUSE):
+            #     session_tuple = infer.init_session() 
+            #     sessions_per_thread[thread_name] = session_tuple
                 
-            else:
-                print "using saved session for thread %s" % (thread_name)
+            #else:
+                #print "using saved session for thread %s" % (thread_name)
 
-            session_tuple = sessions_per_thread[thread_name]
+            #session_tuple = sessions_per_thread[thread_name]
 
 
             #print "process item %i in %s" % (index, str())
