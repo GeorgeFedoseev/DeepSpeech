@@ -48,7 +48,7 @@ def infer(wav_paths, session_tuple):
         mfccs.append(mfcc)
 
 
-    input_lengths = np.array([len(mfcc) for mfcc in mfccs])
+    input_lengths = np.max([len(mfcc) for mfcc in mfccs])
 
     print input_lengths
 
