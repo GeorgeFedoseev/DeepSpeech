@@ -9,6 +9,7 @@ import re
 import time
 
 from util import text as text_utils
+import numpy as np
 
 
 
@@ -46,7 +47,8 @@ def infer(wav_paths, session_tuple):
         mfcc = DeepSpeech.audiofile_to_input_vector(wav_path, DeepSpeech.n_input, DeepSpeech.n_context)
         mfccs.append(mfcc)
 
-    input_lengths = [len(mfcc) for mfcc in mfccs]
+
+    input_lengths = np.array([len(mfcc) for mfcc in mfccs])
 
     print input_lengths
 
