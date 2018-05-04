@@ -23,7 +23,8 @@ def filter_asr(csv_path, output_csv):
     total_passed_num = 0
     approved_num = 0
 
-    with csv.writer(open(output_csv, 'wb')) as csv_writer:
+    with open(output_csv, 'wb') as csv_f:
+        csv_writer = csv.writer(csv_f)
 
         # write header of new csv
         csv_writer.writerow(["wav_filename", "wav_filesize", "transcript"])
