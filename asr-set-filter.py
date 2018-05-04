@@ -57,12 +57,15 @@ def filter_asr(csv_path, output_csv):
 
             decoded = infer(row[0])
 
-            print decoded
+
             decoded = decoded.strip()
 
             print "-------------------"
             print original
             print decoded
+
+
+            continue
 
             original_words = original.split()
             decoded_words = decoded.split()
