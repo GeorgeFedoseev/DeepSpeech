@@ -93,7 +93,7 @@ def filter_asr(csv_path, output_csv):
 
             thread_num = int(thread_name.replace("Thread-", ""))
 
-            print "processing in thread %s" % (thread_name)
+            #print "processing in thread %s" % (thread_name)
 
             if not (thread_name in sessions_per_thread):
                 
