@@ -46,7 +46,7 @@ def filter_asr(csv_path, output_csv):
         def process_sample(item):
             index, row = item
 
-            print "process item %i in %s" % (index, str(threading.current_thread()))
+            print "process item %i in %s" % (index, str(threading.current_thread().ident))
 
             global total_passed_num
             global approved_num
