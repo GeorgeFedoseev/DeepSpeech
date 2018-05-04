@@ -9,6 +9,8 @@ from util import text as text_utils
 
 def filter_asr(csv_path):
 
+    CER_CALC_NUM = 5
+
     try:
         if csv_path.split(".")[-1] != "csv":
             raise
@@ -25,7 +27,17 @@ def filter_asr(csv_path):
         print "-------------------"
         print original
         print decoded
-        print "char_wer: %.3f" % (text_utils.levenshtein(list(original), list(decoded))/float(len(original)))
+
+        original_start = list(original)[:CER_CALC_NUM]
+        decoded_start = list(decoded)[:CER_CALC_NUM]
+        start_cer = text_utils.levenshtein(list(original_start), list(decoded_start))/float(len(original_start))
+
+        original_end = list(original)[-CER_CALC_NUM:]
+        decoded_end = list(decoded)[-CER_CALC_NUM:]
+        end_cer = text_utils.levenshtein(list(original_end), list(decoded_end))/float(len(original_end))
+
+        
+        print "start_cer: %.3f, end_cer: %.3f" % (start_cer, end_cer)
 
 
     pass
