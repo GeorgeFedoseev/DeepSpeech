@@ -57,8 +57,12 @@ def filter_asr(csv_path, output_csv):
             if not (thread_name in sessions_per_thread):
                 # create new session for this thread
                 print "created sessiion object for thread %s" % (thread_name)
-                session_tuple = infer.init_session()
-                sessions_per_thread[thread_name] = session_tuple
+                
+                main_thread_scope = tf.variable_scope.get_variable_scope()
+                with tf.variable_scope(main_thread_scope):
+                    session_tuple = infer.init_session()
+                    sessions_per_thread[thread_name] = session_tuple
+                
             else:
                 print "using saved session for thread %s" % (thread_name)
 
