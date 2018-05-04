@@ -40,24 +40,26 @@ def filter_asr(csv_path, output_csv):
 
     sessions_per_thread = {}
 
-    with open(output_csv, 'wb') as csv_f:
-        csv_writer = csv.writer(csv_f)
-
-        # write header of new csv
-        csv_writer.writerow(["wav_filename", "wav_filesize", "transcript"])
+    with open(output_csv, 'a+') as csv_f:
+        csv_writer = csv.writer(csv_f)        
 
         # load csv initial rows
         df = pandas.read_csv(csv_path, encoding='utf-8', na_filter=False)
-        total_rows = len(df)
+        
+        
+        # exclude already processed
+        already_processed_rows = list(csv.reader(csv_f))
+        already_processed_files = [row[0] for row in already_processed_rows]
+        rows_to_process = [list(row) for row in df.interrows() if row[0] not in already_processed_files]
 
-        p_bar = tqdm(total=total_rows)
+        total_rows_to_process = len(rows_to_process)
 
-        session_tuple = infer.init_session()        
+        p_bar = tqdm(total=len(df))
+        p_bar.update(len(already_processed_rows))
 
-        def process_sample(item):
-            index, row = item
+        session_tuple = infer.init_session()    
 
-            row = list(row)
+        def process_sample(row):
             #thread_name = threading.current_thread().getName()
 
             #print "processing in thread %s" % (thread_name)
@@ -127,15 +129,15 @@ def filter_asr(csv_path, output_csv):
                 row.append(0)
 
             with csv_writer_lock:
-                csv_writer.writerow(row)
+                csv_writer.writerow(row)                
 
             print "%.1f%% approved (%.2f%% processed of %i)" % (float(approved_num)/float(total_passed_num)*100,
-                 float(total_passed_num)/float(total_rows)*100, total_rows)
+                 float(total_passed_num)/float(total_rows)*100, total_rows_to_process)
 
             p_bar.update(1)       
 
         pool = ThreadPool(NUM_THREADS)
-        pool.map(process_sample, df.iterrows())
+        pool.map(process_sample, rows_to_process)
 
         p_bar.close()
 
