@@ -144,20 +144,16 @@ def filter_asr(csv_path, output_csv):
             p_bar.update(1)       
 
 
-        def initializer():
-            """Ignore CTRL+C in the worker process."""
-            signal.signal(signal.SIGINT, signal.SIG_IGN)
 
-        pool = ThreadPool(NUM_THREADS, initializer=initializer)
+        pool = ThreadPool(NUM_THREADS)
 
         try:
             pool.map(process_sample, rows_to_process)
         except KeyboardInterrupt:
-            pool.terminate()
+            pool.close()
             pool.join()
 
         p_bar.close()
-
 
     pass
 
