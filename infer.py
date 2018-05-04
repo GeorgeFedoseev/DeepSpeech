@@ -21,7 +21,7 @@ def init_session():
 
     session = tf.Session(config=DeepSpeech.session_config)
 
-    inputs, outputs = DeepSpeech.create_inference_graph(batch_size=1, use_new_decoder=DeepSpeech.FLAGS.infer_use_lm)
+    inputs, outputs = DeepSpeech.create_inference_graph(batch_size=5, use_new_decoder=DeepSpeech.FLAGS.infer_use_lm)
     # Create a saver using variables from the above newly created graph
     saver = tf.train.Saver(tf.global_variables())
     # Restore variables from training checkpoint
