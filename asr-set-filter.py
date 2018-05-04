@@ -51,7 +51,7 @@ def filter_asr(csv_path, output_csv):
 
         session_tuple = infer.init_session()
 
-        texts = infer.infer(df.as_matrix()[:5])
+        texts = infer.infer(df.as_matrix()[:5], session_tuple)
 
         for t in texts:
             print t
