@@ -56,6 +56,8 @@ def filter_asr(csv_path, output_csv):
             original = row[2].strip()
 
             decoded = infer(row[0])
+
+            print decoded
             decoded = decoded.strip()
 
             print "-------------------"
