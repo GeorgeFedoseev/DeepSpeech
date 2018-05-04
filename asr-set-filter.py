@@ -64,7 +64,7 @@ def filter_asr(csv_path, output_csv):
         # check if all rows valid
         for i, row in enumerate(already_processed_rows):
             if len(row) != 4:
-                raise Exception("row %i in %s is bad" % (i+2, output_csv))
+                raise Exception("row %i in %s is bad:\n%s" % (i+2, output_csv, ", ".join(row)))
 
 
         print("Exclude already existing...1")
