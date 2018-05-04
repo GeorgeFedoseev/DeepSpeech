@@ -30,6 +30,9 @@ def filter_asr(csv_path, output_csv):
         csv_writer.writerow(["wav_filename", "wav_filesize", "transcript"])
 
         df = pandas.read_csv(csv_path, encoding='utf-8', na_filter=False)
+
+        total_rows = len(df)
+
         for index, row in df.iterrows():
             total_passed_num+=1
 
@@ -69,7 +72,8 @@ def filter_asr(csv_path, output_csv):
             else:
                 print "SKIP"
 
-            print "%.1f approved" % (float(approved_num)/float(total_passed_num)*100)
+            print "%.1f approved (%.2f processed of %i)" % (float(approved_num)/float(total_passed_num)*100,
+                 float(total_passed_num)/float(ltotal_rows)*100, total_rows)
 
 
     pass
