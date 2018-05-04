@@ -203,7 +203,11 @@ for var in ['b1', 'h1', 'b2', 'h2', 'b3', 'h3', 'b5', 'h5', 'b6', 'h6']:
 
 FLAGS = tf.app.flags.FLAGS
 
+FLAGS.initialized_globals = False
+
 def initialize_globals():
+
+    FLAGS.initialized_globals = True
 
     # ps and worker hosts required for p2p cluster setup
     FLAGS.ps_hosts = list(filter(len, FLAGS.ps_hosts.split(',')))
