@@ -120,9 +120,9 @@ def filter_asr(csv_path, output_csv):
 
             original = row[2].strip()
 
-            start_time = time.time()
+            
             decoded = infer.infer(row[0], session_tuple)
-            print "INFER took %.2f" % (time.time() - start_time)
+            
 
 
             decoded = decoded.strip()
@@ -131,7 +131,7 @@ def filter_asr(csv_path, output_csv):
             print original
             print decoded
 
-            start_time = time.time()
+
 
             original_words = original.split()
             decoded_words = decoded.split()
@@ -166,7 +166,7 @@ def filter_asr(csv_path, output_csv):
             print "%.1f%% approved (%.2f%% processed of %i)" % (float(approved_num)/float(total_passed_num)*100,
                  float(total_passed_num)/float(total_rows_to_process)*100, total_rows_to_process)
 
-            print "OTHER took %.2f" % (time.time() - start_time)
+            
 
             p_bar.update(1)       
 

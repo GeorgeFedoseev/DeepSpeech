@@ -40,11 +40,16 @@ def init_session():
 def infer(wav_path, session_tuple):
     session, inputs, outputs = session_tuple    
 
+    start_time = time.time()
     mfcc = DeepSpeech.audiofile_to_input_vector(wav_path, DeepSpeech.n_input, DeepSpeech.n_context)
+    print "MFCC took %.2f" % (time.time() - start_time)
+
+    start_time = time.time()
     output = session.run(outputs['outputs'], feed_dict={
         inputs['input']: [mfcc],
         inputs['input_lengths']: [len(mfcc)],
     })
+    print "INFER took %.2f" % (time.time() - start_time)
 
     text = DeepSpeech.ndarray_to_text(output[0][0], DeepSpeech.alphabet)
 
