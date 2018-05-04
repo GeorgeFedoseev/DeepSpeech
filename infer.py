@@ -46,9 +46,13 @@ def infer(wav_paths, session_tuple):
         mfcc = DeepSpeech.audiofile_to_input_vector(wav_path, DeepSpeech.n_input, DeepSpeech.n_context)
         mfccs.append(mfcc)
 
+    input_lengths = [len(mfcc) for mfcc in mfccs]
+
+    print input_lengths
+
     output = session.run(outputs['outputs'], feed_dict={
         inputs['input']: mfccs,
-        inputs['input_lengths']: list([len(mfcc) for mfcc in mfccs]),
+        inputs['input_lengths']: input_lengths,
     })
 
     texts = []
