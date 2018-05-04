@@ -136,7 +136,7 @@ def filter_asr(csv_path, output_csv):
                 csv_writer.writerow(row)                
 
             print "%.1f%% approved (%.2f%% processed of %i)" % (float(approved_num)/float(total_passed_num)*100,
-                 float(total_passed_num)/float(total_rows)*100, total_rows_to_process)
+                 float(total_passed_num)/float(total_rows_to_process)*100, total_rows_to_process)
 
             p_bar.update(1)       
 
