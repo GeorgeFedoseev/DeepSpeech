@@ -65,7 +65,7 @@ def filter_asr(csv_path, output_csv):
             print decoded
 
 
-            continue
+            return
 
             original_words = original.split()
             decoded_words = decoded.split()
