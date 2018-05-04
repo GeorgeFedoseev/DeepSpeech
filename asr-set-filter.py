@@ -8,7 +8,7 @@ import infer
 
 from util import text as text_utils
 
-from multiprocessing.pool import ThreadPool
+from multiprocessing.pool import ThreadPool, Pool
 import threading
 
 from tqdm import tqdm
