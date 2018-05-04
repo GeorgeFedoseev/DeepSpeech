@@ -8,6 +8,7 @@ from infer import infer
 from util import text as text_utils
 
 from multiprocessing.pool import ThreadPool
+import threading
 
 from tqdm import tqdm
 
@@ -45,13 +46,17 @@ def filter_asr(csv_path, output_csv):
         def process_sample(item):
             index, row = item
 
-            print "process item %i" % (index)
+            print "process item %i in %s" % (index, str(threading.get_ident()))
 
             global total_passed_num
             global approved_num
 
             total_passed_num+=1
 
+
+
+
+            return
 
             original = row[2].strip()
 
@@ -65,7 +70,7 @@ def filter_asr(csv_path, output_csv):
             print decoded
 
 
-            return
+
 
             original_words = original.split()
             decoded_words = decoded.split()
