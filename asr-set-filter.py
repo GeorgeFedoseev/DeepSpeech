@@ -45,6 +45,8 @@ def filter_asr(csv_path, output_csv):
         def process_sample(item):
             index, row = item
 
+            print "process item %i" % (index)
+
             global total_passed_num
             global approved_num
 
