@@ -3,6 +3,7 @@ import csv
 import time
 import threading
 
+from util import text as text_utils
 
 csv_writer_lock = threading.Lock()
 
