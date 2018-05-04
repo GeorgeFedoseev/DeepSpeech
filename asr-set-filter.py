@@ -49,15 +49,21 @@ def filter_asr(csv_path, output_csv):
             index, row = item
 
             thread_name = threading.current_thread().getName()
+
+            print "processing in thread %s" % (thread_name)
+
             if not (thread_name in sessions_per_thread):
                 # create new session for this thread
+                print "created sessiion object for thread %s" % (thread_name)
                 session_tuple = infer.init_session()
                 sessions_per_thread[thread_name] = session_tuple
+            else:
+                print "using saved session for thread %s" % (thread_name)
 
             session_tuple = sessions_per_thread[thread_name]
 
 
-            print "process item %i in %s" % (index, str())
+            #print "process item %i in %s" % (index, str())
 
             global total_passed_num
             global approved_num
