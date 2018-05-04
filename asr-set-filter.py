@@ -48,7 +48,7 @@ def filter_asr(csv_path, output_csv):
         
         
         # exclude already processed
-        already_processed_rows = list(csv.reader(csv_f))
+        already_processed_rows = list(csv.reader(csv_f))[1:] # skip header
         already_processed_files = [row[0] for row in already_processed_rows]
         rows_to_process = [list(row) for row in df.interrows() if row[0] not in already_processed_files]
 
@@ -56,6 +56,9 @@ def filter_asr(csv_path, output_csv):
 
         p_bar = tqdm(total=len(df))
         p_bar.update(len(already_processed_rows))
+
+        if len(already_processed_rows) == 0:
+            csv_writer.writerow(["wav_filename", "wav_filesize", "transcript"])
 
         session_tuple = infer.init_session()    
 
