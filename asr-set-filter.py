@@ -56,7 +56,7 @@ def filter_asr(csv_path, output_csv):
         # exclude already processed
         already_processed_rows = list(csv.reader(csv_f))[1:] # skip header
         already_processed_files = [row[0] for row in already_processed_rows]
-        rows_to_process = [row for row in list(df.as_matrix()) if len(row) > 2 and row[0] not in already_processed_files]
+        rows_to_process = [row for row in list(df.as_matrix()) if (len(row) > 2 and row[0] not in already_processed_files)]
 
         print("Finished excluding in %.2f seconds" % (time.time() - start_excluding))
 
@@ -79,11 +79,13 @@ def filter_asr(csv_path, output_csv):
             row = list(row)
             thread_name = threading.current_thread().getName()
 
+            thread_num = int(thread_name.replace("Thread-", ""))
+
             print "processing in thread %s" % (thread_name)
 
             if not (thread_name in sessions_per_thread):
                 
-                gpu_id = len(sessions_per_thread) % 2
+                gpu_id = thread_num % 2
                 print "init session with GPU id = %i" % (gpu_id)
 
                 with tf.device('/device:GPU:%i' % (gpu_id)):
