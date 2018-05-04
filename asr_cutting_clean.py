@@ -55,7 +55,7 @@ def is_good_cutting(label, decoding):
     total_passed_num+=1    
 
     original = label.strip()
-    decoded = decodeding.strip()
+    decoded = decoding.strip()
 
     print "-------------------"
     print original
