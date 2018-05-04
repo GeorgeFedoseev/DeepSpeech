@@ -15,6 +15,8 @@ from tqdm import tqdm
 
 import tensorflow as tf
 
+import time
+
 
 csv_writer_lock = threading.Lock()
 
@@ -50,10 +52,14 @@ def filter_asr(csv_path, output_csv):
         df = pandas.read_csv(csv_path, encoding='utf-8', na_filter=False)
 
         print("Exclude already existing...")
+        start_excluding = time.time()
         # exclude already processed
         already_processed_rows = list(csv.reader(csv_f))[1:] # skip header
         already_processed_files = [row[0] for row in already_processed_rows]
         rows_to_process = [row for row in list(df.as_matrix()) if len(row) > 2 and row[0] not in already_processed_files]
+
+        print("Finished excluding in %.2f seconds" % (time.time() - start_excluding))
+
 
         total_rows_to_process = len(rows_to_process)
 
