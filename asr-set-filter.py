@@ -50,7 +50,7 @@ def filter_asr(csv_path, output_csv):
         # exclude already processed
         already_processed_rows = list(csv.reader(csv_f))[1:] # skip header
         already_processed_files = [row[0] for row in already_processed_rows]
-        rows_to_process = [list(row) for row in df.interrows() if row[0] not in already_processed_files]
+        rows_to_process = [list(row) for row in df.iterrows() if row[0] not in already_processed_files]
 
         total_rows_to_process = len(rows_to_process)
 
