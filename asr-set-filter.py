@@ -40,7 +40,9 @@ def filter_asr(csv_path, output_csv):
 
         p_bar = tqdm(total=total_rows)
 
-        def process_sample(index, row):
+        def process_sample(item):
+            index, row = item
+            
             total_passed_num+=1
 
 
