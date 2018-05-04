@@ -23,7 +23,7 @@ def init_with_csv_paths(_csv_paths, _clean_output_path):
             all_rows += list(csv.reader(f))[1:]
 
 def onDecoded(label, decoding):
-    found_row = next([row for row in all_rows if row[2].strip() == label.strip()])
+    found_row = next((row for row in all_rows if row[2].strip() == label.strip()), None)
     if found_row:
         with open(clean_output_csv_path, "a+") as f:
             csv_writer = csv.writer(f)
