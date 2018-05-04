@@ -48,7 +48,7 @@ def infer(wav_paths, session_tuple):
 
     output = session.run(outputs['outputs'], feed_dict={
         inputs['input']: mfccs,
-        inputs['input_lengths']: [len(mfcc) for mfcc in mfccs],
+        inputs['input_lengths']: list([len(mfcc) for mfcc in mfccs]),
     })
 
     texts = []
