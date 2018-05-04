@@ -13,7 +13,7 @@ from util import text as text_utils
 
 
 def init_session():
-    if not DeepSpeech.FLAGS.initialized_globals:
+    if not DeepSpeech.initialized_globals:
         DeepSpeech.initialize_globals()
 
     print('Use Language Model: %s' % str(DeepSpeech.FLAGS.infer_use_lm))
