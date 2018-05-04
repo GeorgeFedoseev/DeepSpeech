@@ -50,7 +50,7 @@ def filter_asr(csv_path, output_csv):
         # exclude already processed
         already_processed_rows = list(csv.reader(csv_f))[1:] # skip header
         already_processed_files = [row[0] for row in already_processed_rows]
-        rows_to_process = [row for row in df.as_matrix() if len(row) > 2 and row[0] not in already_processed_files]
+        rows_to_process = [row for row in list(df.as_matrix()) if len(row) > 2 and row[0] not in already_processed_files]
 
         total_rows_to_process = len(rows_to_process)
 
@@ -63,6 +63,7 @@ def filter_asr(csv_path, output_csv):
         session_tuple = infer.init_session()    
 
         def process_sample(row):
+            row = list(row)
             #thread_name = threading.current_thread().getName()
 
             #print "processing in thread %s" % (thread_name)
