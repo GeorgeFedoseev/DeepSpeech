@@ -3,7 +3,7 @@ import pandas
 
 import csv
 
-from infer import infer
+import infer
 
 from util import text as text_utils
 
@@ -31,6 +31,8 @@ def filter_asr(csv_path, output_csv):
     total_passed_num = 0
     approved_num = 0
 
+    sessions_per_thread = {}
+
     with open(output_csv, 'wb') as csv_f:
         csv_writer = csv.writer(csv_f)
 
@@ -46,7 +48,16 @@ def filter_asr(csv_path, output_csv):
         def process_sample(item):
             index, row = item
 
-            print "process item %i in %s" % (index, str(threading.current_thread().ident))
+            thread_name = threading.current_thread().getName()
+            if not (thread_name in sessions_per_thread):
+                # create new session for this thread
+                session_tuple = infer.init_session()
+                sessions_per_thread[thread_name] = session_tuple
+
+            session_tuple = sessions_per_thread[thread_name]
+
+
+            print "process item %i in %s" % (index, str())
 
             global total_passed_num
             global approved_num
@@ -54,13 +65,11 @@ def filter_asr(csv_path, output_csv):
             total_passed_num+=1
 
 
-
-
             return
 
             original = row[2].strip()
 
-            decoded = infer(row[0])
+            decoded = infer.infer(row[0], session_tuple)
 
 
             decoded = decoded.strip()

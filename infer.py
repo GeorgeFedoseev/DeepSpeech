@@ -11,17 +11,6 @@ import time
 from util import text as text_utils
 
 def init_session():
-    global session
-    global inputs
-    global outputs
-
-    try:
-        if session != None:
-            return
-    except:
-        pass
-
-
     DeepSpeech.initialize_globals()
 
     print('Use Language Model: %s' % str(DeepSpeech.FLAGS.infer_use_lm))
@@ -42,9 +31,11 @@ def init_session():
     checkpoint_path = checkpoint.model_checkpoint_path
     saver.restore(session, checkpoint_path)
 
+    return session, inputs, outputs
 
-def infer(wav_path):
-    global session, inputs, outputs
+
+def infer(wav_path, session_tuple):
+    session, inputs, outputs = session_tuple
 
     init_session()
 
@@ -59,4 +50,4 @@ def infer(wav_path):
     return text
 
 if __name__ == "__main__":
-    infer(sys.argv[1])
+    infer(sys.argv[1], init_session())
