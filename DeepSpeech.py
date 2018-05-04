@@ -207,7 +207,11 @@ global initialized_globals
 initialized_globals = False
 
 def initialize_globals():
+
+    # check if already inited
     global initialized_globals
+    if initialized_globals:
+        return
     initialized_globals = True
 
     # ps and worker hosts required for p2p cluster setup
