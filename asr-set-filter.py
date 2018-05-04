@@ -36,6 +36,9 @@ def filter_asr(csv_path):
         decoded_end = list(decoded)[-CER_CALC_NUM:]
         end_cer = text_utils.levenshtein(list(original_end), list(decoded_end))/float(len(original_end))
 
+        print "start: %s vs %s" % ("".join(original_start), "".join(decoded_start))
+        
+        print "end: %s vs %s" % ("".join(original_end), "".join(decoded_end))
         
         print "start_cer: %.3f, end_cer: %.3f" % (start_cer, end_cer)
 
