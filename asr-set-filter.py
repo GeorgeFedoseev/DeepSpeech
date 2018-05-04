@@ -71,9 +71,7 @@ def filter_asr(csv_path, output_csv):
             global approved_num
 
             total_passed_num+=1
-
-
-            return
+            
 
             original = row[2].strip()
 
