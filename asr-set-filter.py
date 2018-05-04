@@ -15,6 +15,9 @@ from tqdm import tqdm
 import tensorflow as tf
 
 
+csv_writer_lock = threading.Lock()
+
+
 def filter_asr(csv_path, output_csv):
     # init deepspeech
     infer.init() 
@@ -95,8 +98,6 @@ def filter_asr(csv_path, output_csv):
             print decoded
 
 
-
-
             original_words = original.split()
             decoded_words = decoded.split()
 
@@ -118,10 +119,14 @@ def filter_asr(csv_path, output_csv):
             print "start_cer: %.3f, end_cer: %.3f" % (start_cer, end_cer)
 
             if start_cer < 0.5 and end_cer < 0.5:
-                approved_num+=1                
-                csv_writer.writerow(row)
+                approved_num+=1
+                row.append(1)                
             else:
                 print "SKIP"
+                row.append(0)
+
+            with csv_writer_lock:
+                csv_writer.writerow(row)
 
             print "%.1f%% approved (%.2f%% processed of %i)" % (float(approved_num)/float(total_passed_num)*100,
                  float(total_passed_num)/float(total_rows)*100, total_rows)
