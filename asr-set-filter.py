@@ -183,9 +183,7 @@ def filter_asr(csv_path, output_csv):
         def init_worker():
             signal.signal(signal.SIGINT, signal.SIG_IGN)
 
-        pool = Pool(NUM_THREADS, init_worker)
-
-        signal.signal(signal.SIGINT, original_sigint_handler)
+        pool = Pool(NUM_THREADS, init_worker)        
 
         try:
             pool.map_async(process_sample, rows_to_process)
