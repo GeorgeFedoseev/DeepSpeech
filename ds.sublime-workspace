@@ -4,8 +4,12 @@
 		"selected_items":
 		[
 			[
+				"all",
+				"all_rows\tstatement"
+			],
+			[
 				"alre",
-				"already_processed_rows\tstatement"
+				"already_processed_files_set\tstatement"
 			],
 			[
 				"alread",
@@ -475,7 +479,7 @@
 			"file": "asr-set-filter.py",
 			"settings":
 			{
-				"buffer_size": 4738,
+				"buffer_size": 5321,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -484,7 +488,7 @@
 			"file": "infer.py",
 			"settings":
 			{
-				"buffer_size": 1672,
+				"buffer_size": 1844,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -718,6 +722,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"results_tuple",
+			"session.run",
 			"queue",
 			"enqueue",
 			"enqueue_op",
@@ -843,9 +849,7 @@
 			"log_te",
 			"log_",
 			"teleg",
-			"validation",
-			"Started",
-			"optimizer"
+			"validation"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -863,7 +867,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -872,15 +876,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4738,
+						"buffer_size": 5321,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								136,
-								146
+								348,
+								348
 							]
 						],
 						"settings":
@@ -898,6 +902,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								},
 								{
 									"characters": ".",
@@ -910,13 +918,15 @@
 							],
 							"auto_name": "",
 							"show_definitions": false,
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1746.0,
+						"translation.y": 96.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -925,15 +935,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1672,
+						"buffer_size": 1844,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								194,
-								194
+								1646,
+								1646
 							]
 						],
 						"settings":
@@ -951,6 +961,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								},
 								{
 									"characters": ".",
@@ -970,7 +984,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1016,10 +1030,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 14467.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1035,8 +1049,8 @@
 						"selection":
 						[
 							[
-								18755,
-								18760
+								39763,
+								39776
 							]
 						],
 						"settings":
@@ -1065,10 +1079,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6554.0,
+						"translation.y": 12344.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{

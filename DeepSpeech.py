@@ -8,6 +8,8 @@ import sys
 import re
 import language_check
 
+import asr_cutting_clean
+
 # encoding=utf8
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -198,6 +200,10 @@ tf.app.flags.DEFINE_boolean ('log_telegram',       False,        'Send messages 
 # enable LanguageTool correction
 tf.app.flags.DEFINE_string ('lt_lang',       "ru-RU",        'LanguageTool language')
 
+# cut filtering clean output csv path
+tf.app.flags.DEFINE_string ('cut_clean_output',   "",        'Output path of csv with only clean cut samples')
+
+
 for var in ['b1', 'h1', 'b2', 'h2', 'b3', 'h3', 'b5', 'h5', 'b6', 'h6']:
     tf.app.flags.DEFINE_float('%s_stddev' % var, None, 'standard deviation to use when initialising %s' % var)
 
@@ -302,10 +308,9 @@ def initialize_globals():
         # disable uppercasing
         languageTool.disabled.add('UPPERCASE_SENTENCE_START')
 
-    # disaply if using warpctc    
-    #log_info('using Warp-CTC: %s' % str(FLAGS.use_warpctc))
-
-    #log_info("LOG LEVEL: %i" % FLAGS.log_level)
+    # init cut clean
+    if FLAGS.cut_clean_output != '':
+        asr_cutting_clean.init_with_csv_paths(FLAGS.test_files.split(","), FLAGS.cut_clean_output)
 
     if FLAGS.log_telegram:
         telegram_logger.telegram_send_text_as_attachement("params", pformat(tf.app.flags.FLAGS.flag_values_dict()))
@@ -852,6 +857,9 @@ def calculate_report(results_tuple):
 
     def calculate_report_worker(item):
         label, decoding, distance, loss = item
+        
+        if FLAGS.cut_clean_output != '':
+            asr_cutting_clean.onDecoded(label, decoding)
 
         if languageTool != None:
             decoding = languageTool.correct(decoding)
