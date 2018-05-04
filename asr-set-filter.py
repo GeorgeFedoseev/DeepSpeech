@@ -60,6 +60,13 @@ def filter_asr(csv_path, output_csv):
 
         already_processed_rows = list(csv.reader(csv_f))[1:] # skip header
 
+
+        # check if all rows valid
+        for i, row in enumerate(already_processed_rows):
+            if len(row) != 4:
+                raise Exception("row %i in %s is bad" % (i+2, output_csv))
+
+
         print("Exclude already existing...1")
         already_processed_files_set = set([row[0] for row in already_processed_rows])
 
