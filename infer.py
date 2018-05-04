@@ -9,7 +9,6 @@ import re
 import time
 
 from util import text as text_utils
-import numpy as np
 
 
 
@@ -17,12 +16,11 @@ def init():
     DeepSpeech.initialize_globals()
 
 def init_session():
-
     print('Use Language Model: %s' % str(DeepSpeech.FLAGS.infer_use_lm))
 
     session = tf.Session(config=DeepSpeech.session_config)
 
-    inputs, outputs = DeepSpeech.create_inference_graph(batch_size=5, use_new_decoder=DeepSpeech.FLAGS.infer_use_lm)
+    inputs, outputs = DeepSpeech.create_inference_graph(batch_size=1, use_new_decoder=DeepSpeech.FLAGS.infer_use_lm)
     # Create a saver using variables from the above newly created graph
     saver = tf.train.Saver(tf.global_variables())
     # Restore variables from training checkpoint
@@ -39,31 +37,18 @@ def init_session():
     return session, inputs, outputs
 
 
-def infer(wav_paths, session_tuple):
+def infer(wav_path, session_tuple):
     session, inputs, outputs = session_tuple    
 
-    mfccs = []
-    for wav_path in wav_paths:
-        mfcc = DeepSpeech.audiofile_to_input_vector(wav_path, DeepSpeech.n_input, DeepSpeech.n_context)
-        mfccs.append(mfcc)
-
-
-    input_lengths = [len(mfcc) for mfcc in mfccs]
-
-    print input_lengths
-
+    mfcc = DeepSpeech.audiofile_to_input_vector(wav_path, DeepSpeech.n_input, DeepSpeech.n_context)
     output = session.run(outputs['outputs'], feed_dict={
-        inputs['input']: mfccs,
-        inputs['input_lengths']: input_lengths,
+        inputs['input']: [mfcc],
+        inputs['input_lengths']: [len(mfcc)],
     })
 
-    texts = []
-    for i in range(0, len(wav_paths)):
-        text = DeepSpeech.ndarray_to_text(output[0][0], DeepSpeech.alphabet)
-        texts.append(text)
+    text = DeepSpeech.ndarray_to_text(output[0][0], DeepSpeech.alphabet)
 
-    return texts
+    return text
 
 if __name__ == "__main__":
-    #infer(sys.argv[1], init_session())
-    pass
+    infer(sys.argv[1], init_session())
