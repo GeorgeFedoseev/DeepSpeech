@@ -31,8 +31,8 @@ def filter_asr(csv_path):
         original_words = original.split()
         decoded_words = decoded.split()
 
-        start_take_num = min(CER_CALC_NUM, len(original_words[0]))
-        end_take_num = min(CER_CALC_NUM, len(original_words[-1]))        
+        start_take_num = max(CER_CALC_NUM, len(original_words[0]))
+        end_take_num = max(CER_CALC_NUM, len(original_words[-1]))        
 
         original_start = list(original)[:start_take_num]
         decoded_start = list(decoded)[:start_take_num]
