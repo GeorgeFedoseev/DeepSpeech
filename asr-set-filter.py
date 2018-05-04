@@ -19,7 +19,7 @@ def filter_asr(csv_path):
 
     df = pandas.read_csv(csv_path, encoding='utf-8', na_filter=False)
     for index, row in df.iterrows():
-        original = row[2]
+        original = row[2].strip()
 
         decoded = infer(row[0])
         decoded = decoded.strip()
@@ -37,7 +37,7 @@ def filter_asr(csv_path):
         end_cer = text_utils.levenshtein(list(original_end), list(decoded_end))/float(len(original_end))
 
         print "start: %s vs %s" % ("".join(original_start), "".join(decoded_start))
-        
+
         print "end: %s vs %s" % ("".join(original_end), "".join(decoded_end))
         
         print "start_cer: %.3f, end_cer: %.3f" % (start_cer, end_cer)
