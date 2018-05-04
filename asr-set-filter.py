@@ -12,6 +12,8 @@ import threading
 
 from tqdm import tqdm
 
+import tensorflow as tf
+
 
 def filter_asr(csv_path, output_csv):
     # init deepspeech
@@ -57,7 +59,7 @@ def filter_asr(csv_path, output_csv):
             if not (thread_name in sessions_per_thread):
                 # create new session for this thread
                 print "created sessiion object for thread %s" % (thread_name)
-                
+
                 main_thread_scope = tf.variable_scope.get_variable_scope()
                 with tf.variable_scope(main_thread_scope):
                     session_tuple = infer.init_session()
