@@ -24,6 +24,8 @@ def filter_asr(csv_path, output_csv):
         print("Wrong input path: %s" % (csv_path))
 
 
+    global total_passed_num
+    global approved_num
 
     total_passed_num = 0
     approved_num = 0
@@ -42,7 +44,10 @@ def filter_asr(csv_path, output_csv):
 
         def process_sample(item):
             index, row = item
-            
+
+            global total_passed_num
+            global approved_num
+
             total_passed_num+=1
 
 
@@ -84,12 +89,12 @@ def filter_asr(csv_path, output_csv):
             print "%.1f%% approved (%.2f%% processed of %i)" % (float(approved_num)/float(total_passed_num)*100,
                  float(total_passed_num)/float(total_rows)*100, total_rows)
 
-            p_bar.update(1)
-
-        p_bar.close()
+            p_bar.update(1)       
 
         pool = ThreadPool(NUM_THREADS)
-        calc_results = pool.map(process_sample, df.iterrows())
+        pool.map(process_sample, df.iterrows())
+
+        p_bar.close()
 
 
     pass
