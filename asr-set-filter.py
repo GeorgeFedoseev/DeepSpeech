@@ -69,7 +69,7 @@ def filter_asr(csv_path, output_csv):
             else:
                 print "SKIP"
 
-            print "%.1f% approved" % (float(approved_num)/float(total_passed_num)*100)
+            print "%.1f approved" % (float(approved_num)/float(total_passed_num)*100)
 
 
     pass
