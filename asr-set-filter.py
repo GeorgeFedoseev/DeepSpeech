@@ -183,20 +183,17 @@ def filter_asr(csv_path, output_csv):
         def init_worker():
             signal.signal(signal.SIGINT, signal.SIG_IGN)
 
-        pool = Pool(NUM_THREADS, init_worker)        
+        pool = ThreadPool(NUM_THREADS, init_worker)        
 
         try:
-            res = pool.map_async(process_sample, rows_to_process)
+            pool.map_async(process_sample, rows_to_process)
+            
+            # wait for threads
             print("Waiting for results")
-            res.get(60) # Without the timeout this blocking call ignores all signals.
-        except KeyboardInterrupt:
-            print("Caught KeyboardInterrupt, terminating workers")
-            pool.close()            
-        else:
-            print("Normal termination")
-            pool.close()
-
-        pool.join()
+            while True: time.sleep(100)
+        except (KeyboardInterrupt, SystemExit):
+            print '\n! Received keyboard interrupt, quitting threads.\n'
+        
 
         p_bar.close()
 
