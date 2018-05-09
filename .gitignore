@@ -25,3 +25,4 @@
 /native_client/generate_trie
 *.tar.xz
 /dist
+/build
