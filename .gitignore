@@ -24,3 +24,4 @@
 /native_client/deepspeech
 /native_client/generate_trie
 *.tar.xz
+/dist

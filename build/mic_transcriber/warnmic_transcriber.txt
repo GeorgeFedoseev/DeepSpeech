@@ -1,0 +1,333 @@
+missing module named unittest.mock - imported by unittest, matplotlib, pandas.util.testing, tensorflow.python.platform.test
+missing module named org - imported by copy
+missing module named _sha512 - imported by hashlib
+missing module named _sha256 - imported by hashlib
+missing module named _md5 - imported by hashlib
+missing module named _sha - imported by hashlib
+missing module named _subprocess - imported by subprocess, multiprocessing.forking, multiprocessing.reduction, subprocess32
+missing module named msvcrt - imported by subprocess, getpass, numpy.distutils.mingw32ccompiler, multiprocessing.forking, subprocess32
+missing module named 'org.python' - imported by pickle, setuptools.sandbox, xml.sax
+missing module named 'multiprocessing.popen_fork' - imported by /Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/PyInstaller/loader/rthooks/pyi_rth_multiprocessing.py
+missing module named 'multiprocessing.popen_spawn_win32' - imported by /Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/PyInstaller/loader/rthooks/pyi_rth_multiprocessing.py
+missing module named 'multiprocessing.spawn' - imported by /Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/PyInstaller/loader/rthooks/pyi_rth_multiprocessing.py
+missing module named _dummy_threading - imported by dummy_threading
+missing module named _winreg - imported by platform, mimetypes, urllib, winreg, distutils.msvc9compiler, distutils.msvccompiler, numpy.distutils.cpuinfo, requests.utils, pkg_resources._vendor.appdirs
+missing module named OverrideFrom23 - imported by Carbon.Res
+missing module named SOCKS - imported by ftplib
+missing module named rourl2path - imported by urllib
+missing module named 'java.lang' - imported by platform, xml.sax._exceptions
+missing module named _xmlplus - imported by xml
+missing module named _xmlrpclib - imported by xmlrpclib
+missing module named pyimod03_importers - imported by /Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/PyInstaller/loader/rthooks/pyi_rth_pkgres.py
+missing module named 'pkg_resources.extern.pyparsing' - imported by pkg_resources._vendor.packaging.requirements, pkg_resources._vendor.packaging.markers
+missing module named netbios - imported by uuid
+missing module named win32wnet - imported by uuid
+missing module named ordereddict - imported by google.protobuf.json_format, pyparsing, funcsigs, html5lib.treewalkers.etree, html5lib.filters.alphabeticalattributes, tqdm._utils, pkg_resources._vendor.pyparsing
+missing module named _thread.RLock - imported by _thread, pyparsing, pkg_resources._vendor.pyparsing
+missing module named _thread.allocate_lock - imported by _thread, cffi.lock
+missing module named _thread.get_ident - imported by _thread, future.backports.misc, numpy.core.arrayprint, pandas.compat.chainmap_impl
+missing module named 'win32com.shell' - imported by pkg_resources._vendor.appdirs
+missing module named 'com.sun' - imported by pkg_resources._vendor.appdirs
+missing module named com - imported by pkg_resources._vendor.appdirs
+missing module named win32api - imported by platform, distutils.msvccompiler, pkg_resources._vendor.appdirs
+missing module named win32com - imported by pkg_resources._vendor.appdirs
+missing module named pkg_resources.extern.packaging - imported by pkg_resources.extern, pkg_resources
+missing module named pkg_resources.extern.appdirs - imported by pkg_resources.extern, pkg_resources
+missing module named 'importlib.machinery' - imported by pkg_resources, numpy.compat.py3k, cffi.verifier
+missing module named 'pkg_resources.extern.six.moves' - imported by pkg_resources, pkg_resources._vendor.packaging.requirements
+missing module named pkg_resources.extern.six - imported by pkg_resources.extern, pkg_resources
+missing module named _imp - imported by pkg_resources
+missing module named vms_lib - imported by platform
+missing module named java - imported by platform, mock.mock
+missing module named win32con - imported by platform, distutils.msvccompiler
+missing module named win32pipe - imported by platform
+missing module named riscosenviron - imported by os
+missing module named riscospath - imported by os
+missing module named riscos - imported by os
+missing module named ce - imported by os
+missing module named _emx_link - imported by os
+missing module named os2 - imported by os
+missing module named nt - imported by os, ntpath
+missing module named numpy.arccosh - imported by numpy, scipy.signal.filter_design
+missing module named numpy.arcsinh - imported by numpy, scipy.signal.filter_design
+missing module named numpy.arctan - imported by numpy, scipy.signal.filter_design
+missing module named numpy.tan - imported by numpy, scipy.signal.bsplines, scipy.signal.filter_design
+missing module named numpy.power - imported by numpy, scipy.stats.kde
+missing module named numpy.hypot - imported by numpy, scipy.stats.morestats
+missing module named numpy.sinh - imported by numpy, scipy.stats._discrete_distns, scipy.signal.filter_design, scipy.fftpack.pseudo_diffs
+missing module named numpy.cosh - imported by numpy, scipy.stats._discrete_distns, scipy.signal.filter_design, scipy.fftpack.pseudo_diffs
+missing module named numpy.tanh - imported by numpy, scipy.stats._discrete_distns, scipy.fftpack.pseudo_diffs
+missing module named numpy.expm1 - imported by numpy, scipy.stats._discrete_distns
+missing module named numpy.log1p - imported by numpy, scipy.stats._discrete_distns
+missing module named numpy.NINF - imported by numpy, scipy.stats._distn_infrastructure
+missing module named numpy.log - imported by numpy, scipy.stats._distn_infrastructure, scipy.stats._discrete_distns, scipy.stats.morestats, scipy.signal.waveforms
+missing module named numpy.logical_and - imported by numpy, scipy.stats._distn_infrastructure, scipy.signal.bsplines
+missing module named numpy.double - imported by numpy, scipy.optimize.nnls
+missing module named numpy.greater - imported by numpy, scipy.optimize.minpack
+missing module named numpy.float64 - imported by numpy, scipy.optimize.lbfgsb
+missing module named numpy.less - imported by numpy, scipy.special.basic
+missing module named numpy.sign - imported by numpy, scipy.linalg.matfuncs, scipy.optimize.zeros
+missing module named numpy.conjugate - imported by numpy, scipy.linalg.matfuncs, scipy.signal.filter_design
+missing module named numpy.logical_not - imported by numpy, scipy.linalg.matfuncs
+missing module named numpy.single - imported by numpy, scipy.linalg.decomp_schur, scipy.linalg.matfuncs
+missing module named numpy.arcsin - imported by numpy, scipy.linalg.decomp_svd
+missing module named numpy.arccos - imported by numpy, scipy.linalg.decomp_svd, scipy.special.orthogonal
+missing module named numpy.conj - imported by numpy, scipy.linalg.decomp, scipy.io.mmio
+missing module named numpy.inexact - imported by numpy, scipy.linalg.decomp, scipy.special.basic, scipy.optimize.minpack
+missing module named builtins.complex - imported by builtins, numpy.core.numerictypes, numpy.lib._iotools, numpy
+missing module named builtins.float - imported by builtins, numpy.core.numerictypes, numpy.lib._iotools, numpy
+missing module named builtins.bool - imported by builtins, numpy.core.numerictypes, numpy.lib._iotools, numpy
+missing module named 'dbm.ndbm' - imported by future.moves.dbm.ndbm
+missing module named gdbm - imported by anydbm, future.moves.dbm.gnu
+missing module named 'dbm.gnu' - imported by future.moves.dbm.gnu
+missing module named 'dbm.dumb' - imported by future.moves.dbm.dumb
+missing module named _bsddb - imported by bsddb, bsddb.db
+missing module named bsddb3 - imported by bsddb
+missing module named _pybsddb - imported by bsddb, bsddb.db
+missing module named 'test.support' - imported by future.moves.test.support
+missing module named _datetime - imported by future.backports.datetime
+missing module named reprlib.recursive_repr - imported by reprlib, future.backports.misc
+missing module named numpy.lib.i0 - imported by numpy.lib, numpy.dual
+missing module named numpy.linalg.inv - imported by numpy.linalg, numpy.matrixlib.defmatrix, numpy.lib.polynomial, scipy.linalg._solvers, matplotlib.transforms
+missing module named pathlib - imported by numpy.compat.py3k, pandas.io.common, pandas.util.testing
+missing module named configparser - imported by setuptools.py36compat, numpy.distutils.system_info, numpy.distutils.npy_pkg_config, pbr.util
+missing module named 'numpy_distutils.cpuinfo' - imported by numpy.f2py.diagnose
+missing module named 'numpy_distutils.fcompiler' - imported by numpy.f2py.diagnose
+missing module named 'numpy_distutils.command' - imported by numpy.f2py.diagnose
+missing module named numpy_distutils - imported by numpy.f2py.diagnose
+missing module named numpy.testing.memusage - imported by numpy.testing, numpy.f2py.f2py_testing
+missing module named numpy.testing.jiffies - imported by numpy.testing, numpy.f2py.f2py_testing
+missing module named setuptools.extern.packaging - imported by setuptools.extern, setuptools.dist, setuptools.command.egg_info
+missing module named 'setuptools.extern.six' - imported by setuptools, setuptools.extension
+missing module named _manylinux - imported by setuptools.pep425tags
+missing module named wincertstore - imported by setuptools.ssl_support
+missing module named 'backports.ssl_match_hostname' - imported by setuptools.ssl_support, urllib3.packages.ssl_match_hostname, telegram.vendor.ptb_urllib3.urllib3.packages.ssl_match_hostname
+missing module named 'setuptools.extern.packaging.version' - imported by setuptools.msvc
+missing module named 'setuptools.extern.six.moves' - imported by setuptools.dist, setuptools.py33compat, setuptools.command.easy_install, setuptools.sandbox, setuptools.command.setopt, setuptools.package_index, setuptools.ssl_support, setuptools.command.egg_info, setuptools.command.py36compat, setuptools.namespaces, setuptools.msvc
+missing module named setuptools.extern.six - imported by setuptools.extern, setuptools.monkey, setuptools.dist, setuptools.py33compat, setuptools.config, setuptools.command.easy_install, setuptools.sandbox, setuptools.py27compat, setuptools.package_index, setuptools.wheel, setuptools.command.egg_info, setuptools.command.sdist, setuptools.command.bdist_egg, setuptools.unicode_utils, setuptools.glob, setuptools.command.develop
+missing module named __svn_version__ - imported by numpy.f2py.__version__
+missing module named numarray - imported by numpy.distutils.system_info
+missing module named Numeric - imported by numpy.distutils.system_info
+missing module named 'nose.plugins' - imported by numpy.testing.nose_tools.noseclasses, numpy.testing.nose_tools.nosetester
+missing module named scipy.exp - imported by scipy, scipy.signal.wavelets
+missing module named scipy.pi - imported by scipy, scipy.signal.wavelets
+missing module named scipy.linspace - imported by scipy, scipy.signal.wavelets
+missing module named numpy.core.integer - imported by numpy.core, numpy.fft.helper
+missing module named scipy.sparse.coo_matrix - imported by scipy.sparse, scipy.sparse.data, scipy.optimize._numdiff, scipy.integrate._bvp, scipy.integrate._ivp.common, pandas.core.sparse.frame, scipy.io.mmio
+missing module named numpy.core.sqrt - imported by numpy.core, numpy.fft.fftpack, numpy.linalg.linalg, scipy.sparse.linalg._norm
+missing module named scipy.linalg._cblas - imported by scipy.linalg, scipy.linalg.blas
+missing module named scipy.linalg._clapack - imported by scipy.linalg, scipy.linalg.lapack
+missing module named scipy.special.betaln - imported by scipy.special, scipy.stats._discrete_distns
+missing module named scipy.special.beta - imported by scipy.special, scipy.stats._tukeylambda_stats
+missing module named scipy.special.ive - imported by scipy.special, scipy.stats._distn_infrastructure
+missing module named scipy.special.kl_div - imported by scipy.special, scipy.stats._distn_infrastructure
+missing module named scipy.special.rel_entr - imported by scipy.special, scipy.stats._distn_infrastructure
+missing module named scipy.special.entr - imported by scipy.special, scipy.stats._distn_infrastructure, scipy.stats._discrete_distns, scipy.stats._multivariate
+missing module named scipy.special.chndtr - imported by scipy.special, scipy.stats._distn_infrastructure
+missing module named scipy.special.xlogy - imported by scipy.special, scipy.interpolate.rbf, scipy.stats._distn_infrastructure, scipy.stats._multivariate
+missing module named scipy.special.gammaln - imported by scipy.special, scipy.special.spfun_stats, scipy.integrate.quadrature, scipy.stats._discrete_distns, scipy.stats._multivariate
+missing module named scipy.special.airy - imported by scipy.special, scipy.special.orthogonal
+missing module named scikits - imported by scipy.sparse.linalg.dsolve.linsolve
+missing module named scipy.linalg.qr_insert - imported by scipy.linalg, scipy.sparse.linalg.isolve._gcrotmk
+missing module named scipy.spatial.cKDTree - imported by scipy.spatial, scipy.interpolate.ndgriddata
+missing module named six.moves.map - imported by six.moves, matplotlib.afm, matplotlib.patches, matplotlib.axes._subplots, matplotlib.mlab
+missing module named backports.lzma - imported by backports, pandas.compat
+missing module named six.moves.winreg - imported by six.moves, matplotlib.font_manager, dateutil.tz.win
+missing module named 'tornado.template' - imported by matplotlib.backends.backend_webagg
+missing module named 'tornado.websocket' - imported by matplotlib.backends.backend_webagg
+missing module named 'tornado.ioloop' - imported by matplotlib.backends.backend_webagg
+missing module named 'tornado.web' - imported by matplotlib.backends.backend_webagg
+missing module named tornado - imported by matplotlib.backends.backend_webagg, matplotlib.backends.backend_webagg_core
+missing module named 'collections.abc' - imported by pytz.lazy
+missing module named dateutil.tz.tzfile - imported by dateutil.tz, dateutil.zoneinfo
+missing module named six.moves.range - imported by six.moves, absl.flags._helpers, tensorflow.python.keras._impl.keras.utils.conv_utils, dateutil.rrule, tensorflow.python.keras._impl.keras.preprocessing.sequence, tensorflow.python.keras._impl.keras.preprocessing.text, util.text, DeepSpeech, tensorflow.contrib.linear_optimizer.python.ops.sdca_ops, tensorflow.contrib.linear_optimizer.python.ops.sharded_mutable_dense_hashtable, tensorflow.contrib.labeled_tensor.python.ops.core, util.audio, util.feeding
+missing module named six.moves.reduce - imported by six.moves, cycler
+missing module named 'matplotlib._windowing' - imported by matplotlib.backends.windowing
+missing module named matplotlib.axes.Axes - imported by matplotlib.axes, matplotlib.legend, matplotlib.pyplot, matplotlib.projections.geo, matplotlib.projections.polar, matplotlib.figure
+missing module named matplotlib.tri.Triangulation - imported by matplotlib.tri, matplotlib.tri.trifinder, matplotlib.tri.tritools, matplotlib.tri.triinterpolate, matplotlib.mlab
+missing module named 'mpl_toolkits.natgrid' - imported by matplotlib.mlab
+missing module named matplotlib.axes.Subplot - imported by matplotlib.axes, matplotlib.pyplot, pandas.plotting._core
+missing module named "'six.moves.urllib'.request" - imported by tensorflow.python.keras._impl.keras.utils.data_utils, matplotlib.image, matplotlib, tensorflow.contrib.cluster_resolver.python.training.tpu_cluster_resolver
+missing module named "'six.moves.urllib'.parse" - imported by matplotlib.image, matplotlib.textpath
+missing module named PIL - imported by matplotlib.image, matplotlib.backend_bases, matplotlib.backends.backend_agg, scipy.misc.pilutil, tensorflow.python.keras._impl.keras.preprocessing.image
+missing module named six.moves.xrange - imported by six.moves, tensorflow.python.framework.ops, tensorflow.python.ops.control_flow_ops, tensorflow.python.ops.math_ops, tensorflow.python.ops.variable_scope, tensorflow.python.ops.data_flow_grad, tensorflow.python.ops.special_math_ops, tensorflow.python.ops.gradients_impl, tensorflow.python.ops.control_flow_grad, tensorflow.python.ops.embedding_ops, tensorflow.python.layers.core, tensorflow.python.layers.normalization, matplotlib.cbook, matplotlib.backend_bases, matplotlib.hatch, matplotlib.markers, matplotlib.colorbar, matplotlib.contour, matplotlib.dviread, matplotlib.offsetbox, matplotlib.backends.backend_svg, matplotlib.mlab, matplotlib.tri.triinterpolate, matplotlib.axes._axes, matplotlib.stackplot, matplotlib.streamplot, matplotlib.table, matplotlib.axes._base, tensorflow.python.training.input, tensorflow.contrib.learn.python.learn.datasets.mnist, tensorflow.contrib.layers.python.layers.embedding_ops, tensorflow.contrib.layers.python.layers.rev_block_lib, tensorflow.contrib.learn.python.learn.learn_io.data_feeder, tensorflow.contrib.session_bundle.gc, tensorflow.contrib.factorization.python.ops.factorization_ops, tensorflow.contrib.factorization.python.ops.gmm_ops, tensorflow.contrib.tpu.python.tpu.device_assignment, tensorflow.contrib.tpu.python.tpu.tpu, tensorflow.contrib.tpu.python.tpu.tpu_estimator, tensorflow.contrib.tpu.python.tpu.tpu_feed, tensorflow.contrib.tpu.python.tpu.tpu_sharding, tensorflow.contrib.legacy_seq2seq.python.ops.seq2seq, tensorflow.contrib.ndlstm.python.lstm1d
+missing module named 'IPython.utils' - imported by matplotlib
+missing module named docutils - imported by pbr.builddoc
+missing module named 'sphinx.ext' - imported by pbr.builddoc
+missing module named sphinx - imported by pbr.builddoc
+missing module named reno - imported by pbr.packaging
+missing module named nose - imported by numpy.testing.nose_tools.utils, numpy.testing.nose_tools.decorators, numpy.testing.nose_tools.noseclasses, pbr.packaging
+missing module named testrepository - imported by pbr.testr_command
+missing module named pytest - imported by scipy._lib._testutils, matplotlib, pandas.util._tester, pandas.util.testing
+missing module named faulthandler - imported by matplotlib
+missing module named six.moves.reload_module - imported by six.moves, matplotlib
+missing module named six.moves.zip - imported by six.moves, tensorflow.python.keras._impl.keras.engine.topology, tensorflow.python.keras._impl.keras.optimizers, matplotlib.cbook, matplotlib.colors, matplotlib.textpath, matplotlib.patches, matplotlib.text, cycler, matplotlib.colorbar, matplotlib.collections, matplotlib.offsetbox, matplotlib.dates, matplotlib.legend_handler, matplotlib.mlab, matplotlib.widgets, matplotlib.axes._axes, tensorflow.python.keras._impl.keras.preprocessing.text, DeepSpeech, tensorflow.contrib.legacy_seq2seq.python.ops.seq2seq
+runtime module named six.moves - imported by tensorflow.python.framework.ops, absl.flags._helpers, tensorflow.python.framework.common_shapes, tensorflow.python.ops.control_flow_ops, tensorflow.python.ops.math_ops, tensorflow.python.ops.variable_scope, tensorflow.python.ops.data_flow_grad, tensorflow.python.ops.special_math_ops, tensorflow.python.ops.gradients_impl, tensorflow.python.ops.control_flow_grad, tensorflow.python.ops.embedding_ops, 'six.moves.urllib', tensorflow.python.keras._impl.keras.utils.conv_utils, tensorflow.python.keras._impl.keras.engine.topology, tensorflow.python.layers.core, tensorflow.python.layers.normalization, tensorflow.python.keras._impl.keras.optimizers, cryptography.x509.general_name, tensorflow.python.keras._impl.keras.datasets.cifar, matplotlib.cbook, matplotlib.backend_bases, matplotlib.colors, matplotlib.textpath, matplotlib.hatch, matplotlib.afm, matplotlib.font_manager, matplotlib.patches, matplotlib.markers, matplotlib.text, matplotlib.axes._subplots, cycler, matplotlib.colorbar, matplotlib.collections, matplotlib.contour, matplotlib.dviread, matplotlib.offsetbox, matplotlib.dates, dateutil.rrule, dateutil.tz.tz, dateutil.tz.win, matplotlib.backends.backend_svg, matplotlib.legend_handler, matplotlib.mlab, matplotlib.tri.triinterpolate, matplotlib.widgets, matplotlib.axes._axes, matplotlib.stackplot, matplotlib.streamplot, matplotlib.table, matplotlib.axes._base, matplotlib, tensorflow.python.keras._impl.keras.preprocessing.sequence, tensorflow.python.keras._impl.keras.preprocessing.text, tensorflow.python.training.input, html5lib.inputstream, html5lib.sanitizer, util.text, DeepSpeech, tensorflow.contrib.learn.python.learn.datasets.base, tensorflow.contrib.learn.python.learn.datasets.mnist, tensorflow.contrib.layers.python.layers.embedding_ops, tensorflow.contrib.layers.python.layers.rev_block_lib, tensorflow.contrib.learn.python.learn.learn_io.data_feeder, tensorflow.contrib.session_bundle.gc, tensorflow.contrib.factorization.python.ops.factorization_ops, tensorflow.contrib.factorization.python.ops.gmm_ops, tensorflow.contrib.linear_optimizer.python.ops.sdca_ops, tensorflow.contrib.linear_optimizer.python.ops.sharded_mutable_dense_hashtable, tensorflow.contrib.tpu.python.tpu.device_assignment, tensorflow.contrib.tpu.python.tpu.tpu, tensorflow.contrib.tpu.python.tpu.tpu_estimator, tensorflow.contrib.tpu.python.tpu.tpu_feed, tensorflow.contrib.tpu.python.tpu.tpu_sharding, tensorflow.contrib.gan.python.eval.python.classifier_metrics_impl, tensorflow.contrib.labeled_tensor.python.ops.core, tensorflow.contrib.legacy_seq2seq.python.ops.seq2seq, tensorflow.contrib.ndlstm.python.lstm1d, util.audio, util.feeding, matplotlib.backends.tkagg, matplotlib.backends._backend_tk, matplotlib.backends.backend_ps
+missing module named six.moves.filter - imported by six.moves, DeepSpeech
+missing module named 'six.moves.urllib_parse' - imported by 'six.moves.urllib_parse'
+missing module named 'IPython.core' - imported by matplotlib.pyplot, pandas.io.formats.printing, pandas.util.testing
+missing module named IPython - imported by matplotlib.pyplot, pandas.io.formats.printing, pandas.io.formats.format
+missing module named gobject - imported by matplotlib.pyplot
+missing module named gi - imported by matplotlib.pyplot
+missing module named PyQt5 - imported by matplotlib.pyplot
+missing module named PyQt4 - imported by matplotlib.pyplot, pandas.io.clipboard
+missing module named wx - imported by matplotlib.pyplot
+missing module named scipy.arange - imported by scipy, scipy.sparse.linalg.isolve.minres
+missing module named scipy.ones - imported by scipy, scipy.sparse.linalg.isolve.minres
+missing module named psutil - imported by scipy._lib._testutils
+missing module named testing - imported by cffi.recompiler
+missing module named cffi._pycparser - imported by cffi, cffi.cparser
+missing module named numpy.random.randn - imported by numpy.random, scipy, pandas.util.testing
+missing module named numpy.random.rand - imported by numpy.random, scipy, pandas.util.testing
+missing module named 'nose.util' - imported by numpy.testing.nose_tools.noseclasses
+missing module named numpy.core.number - imported by numpy.core, numpy.testing.nose_tools.utils
+missing module named numpy.lib.imag - imported by numpy.lib, numpy.testing.nose_tools.utils
+missing module named numpy.lib.real - imported by numpy.lib, numpy.testing.nose_tools.utils
+missing module named numpy.lib.iscomplexobj - imported by numpy.lib, numpy.testing.nose_tools.utils
+missing module named numpy.core.signbit - imported by numpy.core, numpy.testing.nose_tools.utils
+missing module named win32pdh - imported by numpy.testing.nose_tools.utils
+missing module named numpy.core.float64 - imported by numpy.core, numpy.testing.nose_tools.utils
+missing module named numpy.core.float32 - imported by numpy.core, numpy.testing.nose_tools.utils
+missing module named numpy.random.multivariate_normal - imported by numpy.random, scipy.stats.kde
+missing module named numpy.random.randint - imported by numpy.random, scipy.stats.kde
+missing module named numpy.core.conjugate - imported by numpy.core, numpy.fft.fftpack
+missing module named numpy.lib.triu - imported by numpy.lib, numpy.linalg.linalg
+missing module named numpy.core.divide - imported by numpy.core, numpy.linalg.linalg
+missing module named numpy.core.object_ - imported by numpy.core, numpy.linalg.linalg
+missing module named numpy.core.intp - imported by numpy.core, numpy.linalg.linalg
+missing module named numpy.core.longdouble - imported by numpy.core, numpy.linalg.linalg
+missing module named numpy.core.geterrobj - imported by numpy.core, numpy.linalg.linalg
+missing module named numpy.core.maximum - imported by numpy.core, numpy.linalg.linalg
+missing module named numpy.core.add - imported by numpy.core, numpy.linalg.linalg
+missing module named numpy.core.complexfloating - imported by numpy.core, numpy.linalg.linalg
+missing module named numpy.core.inexact - imported by numpy.core, numpy.linalg.linalg
+missing module named numpy.core.cdouble - imported by numpy.core, numpy.linalg.linalg
+missing module named numpy.core.csingle - imported by numpy.core, numpy.linalg.linalg
+missing module named numpy.core.double - imported by numpy.core, numpy.linalg.linalg
+missing module named numpy.core.single - imported by numpy.core, numpy.linalg.linalg
+missing module named 'urllib.error' - imported by numpy.lib._datasource, pandas.io.common
+missing module named 'urllib.request' - imported by numpy.lib._datasource, requests.compat, pandas.io.common
+missing module named 'urllib.parse' - imported by numpy.lib._datasource, asn1crypto._iri, requests.compat, pandas.io.common, pandas.io.s3
+missing module named lzma - imported by numpy.lib._datasource, pandas.compat
+missing module named numpy.recarray - imported by numpy, numpy.ma.mrecords
+missing module named numpy.dtype - imported by numpy, numpy.ma.mrecords, numpy.ctypeslib, scipy.optimize.minpack, scipy.io.netcdf
+missing module named numpy.expand_dims - imported by numpy, numpy.ma.core, scipy.signal.signaltools
+missing module named numpy.array - imported by numpy, numpy.ma.core, numpy.ma.extras, numpy.ma.mrecords, numpy.ctypeslib, scipy.linalg.decomp, scipy.sparse.linalg.isolve.utils, scipy.misc.common, scipy.interpolate.interpolate, scipy.interpolate._fitpack_impl, scipy.interpolate.fitpack2, scipy.misc.pilutil, scipy.stats.stats, scipy.optimize.lbfgsb, scipy.optimize.tnc, scipy.optimize.slsqp, scipy.optimize.minpack, scipy.integrate._ode, scipy.stats.morestats, scipy.signal.bsplines, scipy.signal.filter_design, scipy.signal.signaltools, scipy.signal.lti_conversion, scipy.io.netcdf
+missing module named numpy.bool_ - imported by numpy, numpy.ma.core, numpy.ma.mrecords
+missing module named numpy.iscomplexobj - imported by numpy, numpy.ma.core, scipy.linalg.decomp, scipy.misc.pilutil, scipy.fftpack.pseudo_diffs, scipy.signal.signaltools
+missing module named numpy.amin - imported by numpy, numpy.ma.core, scipy.misc.pilutil, scipy.stats.morestats
+missing module named numpy.amax - imported by numpy, numpy.ma.core, scipy.linalg.matfuncs, scipy.misc.pilutil, scipy.stats.morestats
+missing module named numpy.ndarray - imported by numpy, numpy.ma.core, numpy.ma.extras, numpy.ma.mrecords, numpy.ctypeslib, scipy.stats._distn_infrastructure, scipy.stats.mstats_basic, scipy.stats.mstats_extras, pandas.compat.numpy.function, scipy.signal.signaltools, scipy.io.mmio
+missing module named numpy.histogramdd - imported by numpy, numpy.lib.twodim_base
+missing module named numpy.eye - imported by numpy, numpy.core.numeric, scipy.interpolate._pade, scipy.optimize.optimize, scipy.optimize.minpack, scipy.signal.lti_conversion
+missing module named ujson - imported by telegram.base, telegram.utils.request, telegram.utils.webhookhandler
+missing module named 'telegram.vendor.ptb_urllib3.urllib3.packages.six.moves' - imported by telegram.vendor.ptb_urllib3.urllib3.exceptions, telegram.vendor.ptb_urllib3.urllib3.connectionpool, telegram.vendor.ptb_urllib3.urllib3.connection, telegram.vendor.ptb_urllib3.urllib3.util.response, telegram.vendor.ptb_urllib3.urllib3.request, telegram.vendor.ptb_urllib3.urllib3.response, telegram.vendor.ptb_urllib3.urllib3.poolmanager, telegram.vendor.ptb_urllib3.urllib3.contrib.appengine
+missing module named socks - imported by urllib3.contrib.socks, telegram.vendor.ptb_urllib3.urllib3.contrib.socks
+missing module named 'google.appengine' - imported by telegram.vendor.ptb_urllib3.urllib3.contrib.appengine
+missing module named google.protobuf.enable_deterministic_proto_serialization - imported by google.protobuf, google.protobuf.internal.api_implementation
+missing module named google.protobuf._use_fast_cpp_protos - imported by google.protobuf, google.protobuf.internal.api_implementation
+missing module named google.protobuf.internal.use_pure_python - imported by google.protobuf.internal, google.protobuf.internal.api_implementation
+missing module named s3fs - imported by pandas.io.s3, pandas.io.common
+missing module named py - imported by pandas.io.common
+missing module named gtk - imported by pandas.io.clipboard.clipboards, pandas.io.clipboard
+missing module named 'PyQt4.QtGui' - imported by pandas.io.clipboard.clipboards
+missing module named 'sqlalchemy.types' - imported by pandas.io.sql
+missing module named 'sqlalchemy.schema' - imported by pandas.io.sql
+missing module named 'sqlalchemy.ext' - imported by pandas.io.sql
+missing module named sqlalchemy - imported by pandas.io.sql
+missing module named blosc - imported by pandas.io.packers
+missing module named tables - imported by pandas.io.pytables
+missing module named pandas_gbq - imported by pandas.io.gbq
+missing module named botocore - imported by pandas.io.s3
+missing module named ImageFilter - imported by scipy.misc.pilutil
+missing module named Image - imported by scipy.misc.pilutil
+missing module named scipy.signal.dlti - imported by scipy.signal, scipy.signal.signaltools
+missing module named numexpr - imported by pandas.core.computation.check, pandas.core.computation.expressions, pandas.core.computation.engines
+missing module named fastparquet - imported by pandas.io.parquet
+missing module named 'pyarrow.parquet' - imported by pandas.io.parquet
+missing module named pyarrow - imported by pandas.io.parquet
+missing module named feather - imported by pandas.io.feather_format
+missing module named xlwt - imported by pandas.io.excel
+missing module named 'openpyxl.styles' - imported by pandas.io.excel
+missing module named 'openpyxl.style' - imported by pandas.io.excel
+missing module named 'openpyxl.cell' - imported by pandas.io.excel
+missing module named 'openpyxl.workbook' - imported by pandas.io.excel
+missing module named xlrd - imported by pandas.io.excel
+missing module named openpyxl - imported by pandas.compat.openpyxl_compat, pandas.io.excel
+missing module named xlsxwriter - imported by pandas.io.excel
+missing module named jinja2 - imported by pandas.io.formats.style
+missing module named bottleneck - imported by pandas.core.nanops
+missing module named xarray - imported by pandas.core.generic
+missing module named pudb - imported by pandas.util.testing
+missing module named 'py.path' - imported by pandas.util.testing
+missing module named 'lxml.etree' - imported by pandas.io.html
+missing module named 'lxml.html' - imported by pandas.io.html
+missing module named 'genshi.core' - imported by html5lib.treewalkers.genshistream
+missing module named genshi - imported by html5lib.treewalkers.genshistream
+missing module named html5lib.treebuilders.base - imported by html5lib.treebuilders, bs4.builder._html5lib
+missing module named datrie - imported by html5lib.trie.datrie
+missing module named charade - imported by html5lib.inputstream
+missing module named ElementC14N - imported by xml.etree.ElementTree
+missing module named lxml - imported by html5lib.treebuilders.etree_lxml, html5lib.treewalkers.lxmletree, bs4.builder._lxml, pandas.io.html
+missing module named iconv_codec - imported by bs4.dammit
+missing module named cchardet - imported by bs4.dammit
+missing module named simplejson - imported by requests.compat, pandas.util._print_versions
+missing module named pandas.factorize - imported by pandas, pandas.core.util.hashing
+missing module named pandas.option_context - imported by pandas, pandas.io.clipboards
+missing module named pandas.CategoricalIndex - imported by pandas, pandas.io.packers, pandas.core.dtypes.concat, pandas.core.categorical, pandas.util.testing
+missing module named pandas.NaT - imported by pandas, pandas.io.packers
+missing module named pandas.Period - imported by pandas, pandas.io.packers
+missing module named pandas.SparseDataFrame - imported by pandas, pandas.io.pytables
+missing module named pandas.SparseSeries - imported by pandas, pandas.io.pytables
+missing module named pandas.Panel4D - imported by pandas, pandas.io.pytables, pandas.util.testing
+missing module named pandas.Int64Index - imported by pandas, pandas.io.feather_format, pandas.io.parquet, pandas.io.pytables, pandas.io.packers, pandas.core.algorithms
+missing module named pandas.RangeIndex - imported by pandas, pandas.io.feather_format, pandas.io.parquet, pandas.io.packers, pandas.util.testing
+missing module named pandas.Interval - imported by pandas, pandas.core.reshape.tile
+missing module named pandas.Timedelta - imported by pandas, pandas.core.reshape.tile, pandas.core.reshape.merge
+missing module named pandas.concat - imported by pandas, pandas.core.window, pandas.core.groupby, pandas.core.sparse.frame, pandas.io.pytables, pandas.core.generic
+missing module named pandas.isna - imported by pandas, pandas.io.json.json, pandas.io.stata, pandas.io.pytables, pandas.core.categorical
+missing module named pandas.Float64Index - imported by pandas, pandas.core.internals, pandas.io.packers
+missing module named pandas.Timestamp - imported by pandas, pandas.core.indexes.timedeltas, pandas.core.reshape.tile, pandas.io.packers
+missing module named pandas.Panel - imported by pandas, pandas.core.indexing, pandas.core.window, pandas.io.pytables, pandas.io.packers, pandas.util.testing, tqdm._tqdm
+missing module named pandas.MultiIndex - imported by pandas, pandas.core.reshape.concat, pandas.io.json.json, pandas.core.window, pandas.core.reshape.merge, pandas.io.formats.excel, pandas.core.reshape.pivot, pandas.io.pytables, pandas.io.packers, pandas.core.strings, pandas.core.util.hashing, pandas.util.testing
+missing module named pandas.DataFrame - imported by pandas, pandas.core.reshape.concat, pandas.core.indexing, pandas.core.indexes.timedeltas, pandas.io.json.json, pandas.plotting._tools, pandas.plotting._core, pandas.core.indexes.multi, pandas.core.window, pandas.core.reshape.merge, pandas.io.feather_format, pandas.io.parquet, pandas.core.reshape.pivot, pandas.io.json.normalize, pandas.io.pytables, pandas.io.packers, pandas.io.clipboards, pandas.core.generic, pandas.core.strings, pandas.core.indexes.base, pandas.core.base, pandas.core.tools.datetimes, pandas.util.testing
+missing module named pandas.Index - imported by pandas, pandas.core.algorithms, pandas.core.reshape.concat, pandas.compat.pickle_compat, pandas.core.window, pandas.core.reshape.merge, pandas.io.formats.excel, pandas.io.pytables, pandas.io.packers, pandas.core.strings, pandas.core.dtypes.concat, pandas.core.base, pandas.core.categorical, pandas.core.sorting, pandas.core.tools.datetimes, pandas.core.util.hashing, pandas.core.dtypes.dtypes, pandas.util.testing
+missing module named pandas.DatetimeIndex - imported by pandas, pandas.core.algorithms, pandas.core.missing, pandas.core.indexes.timedeltas, pandas.io.stata, pandas.io.pytables, pandas.io.packers, pandas.util.testing
+missing module named pandas.PeriodIndex - imported by pandas, pandas.core.algorithms, pandas.io.formats.excel, pandas.io.pytables, pandas.io.packers, pandas.util.testing
+missing module named pandas.to_numeric - imported by pandas, pandas.core.dtypes.cast, pandas.core.categorical, pandas.core.tools.datetimes
+missing module named pandas.to_timedelta - imported by pandas, pandas.core.dtypes.cast, pandas.core.window, pandas.core.groupby, pandas.core.reshape.tile, pandas.io.stata, pandas.core.categorical, pandas.core.tools.datetimes
+missing module named pandas.TimedeltaIndex - imported by pandas, pandas.core.tools.timedeltas, pandas.core.algorithms, pandas.core.indexes.datetimes, pandas.io.pytables, pandas.util.testing
+missing module named pandas.to_datetime - imported by pandas, pandas.core.dtypes.cast, pandas.io.json.json, pandas.core.groupby, pandas.core.reshape.tile, pandas.io.stata, pandas.io.pytables, pandas.core.generic, pandas.core.categorical
+missing module named pandas.Series - imported by pandas, pandas.core.dtypes.missing, pandas.core.tools.timedeltas, pandas.core.algorithms, pandas.core.reshape.concat, pandas.core.missing, pandas.core.indexing, pandas.io.formats.format, pandas.core.indexes.datetimes, pandas.io.json.json, pandas.plotting._core, pandas.core.indexes.multi, pandas.core.window, pandas.core.reshape.tile, pandas.core.reshape.merge, pandas.io.pytables, pandas.io.packers, pandas.core.generic, pandas.core.indexes.accessors, pandas.core.dtypes.concat, pandas.core.indexes.base, pandas.core.base, pandas.core.categorical, pandas.core.tools.datetimes, pandas.core.util.hashing, pandas.io.html, pandas.util.testing
+missing module named pandas.IntervalIndex - imported by pandas, pandas.core.dtypes.missing, pandas.core.reshape.tile, pandas.core.indexes.category, pandas.util.testing
+missing module named pandas.Categorical - imported by pandas, pandas.core.dtypes.missing, pandas.core.indexes.interval, pandas.core.reshape.tile, pandas.core.reshape.merge, pandas.io.packers, pandas.core.dtypes.concat, pandas.core.util.hashing, pandas.core.dtypes.common, pandas.util.testing
+missing module named pandas.get_option - imported by pandas, pandas.io.formats.console, pandas.io.parquet, pandas.io.clipboards
+missing module named portpicker - imported by tensorflow.python.framework.test_util
+missing module named tensorflow.python.pywrap_dlopen_global_flags - imported by tensorflow.python, tensorflow.python.pywrap_tensorflow
+missing module named yaml - imported by tensorflow.python.keras._impl.keras.engine.topology, tensorflow.python.keras._impl.keras.models
+missing module named h5py - imported by tensorflow.python.keras._impl.keras.utils.io_utils, tensorflow.python.keras._impl.keras.engine.topology, tensorflow.python.keras._impl.keras.models
+missing module named pydot - imported by tensorflow.python.keras._impl.keras.utils.vis_utils
+missing module named pydotplus - imported by tensorflow.python.keras._impl.keras.utils.vis_utils
+missing module named pydot_ng - imported by tensorflow.python.keras._impl.keras.utils.vis_utils
+missing module named "'six.moves.urllib'.error" - imported by tensorflow.python.keras._impl.keras.utils.data_utils
+missing module named "'urllib3.packages.six.moves.urllib'.parse" - imported by urllib3.request, urllib3.poolmanager
+runtime module named urllib3.packages.six.moves - imported by httplib, urllib3.connectionpool, urllib3.util.response, 'urllib3.packages.six.moves.urllib', urllib3.response
+missing module named 'OpenSSL.crypto' - imported by urllib3.contrib.pyopenssl
+missing module named OpenSSL - imported by urllib3.contrib.pyopenssl
+missing module named 'IPython.display' - imported by tqdm._tqdm_notebook
+missing module named 'IPython.html' - imported by tqdm._tqdm_notebook
+missing module named ipywidgets - imported by tqdm._tqdm_notebook
+missing module named colorama - imported by tqdm._utils
+missing module named sklearn - imported by tensorflow.contrib.learn.python.learn.estimators._sklearn, tensorflow.contrib.losses.python.metric_learning.metric_loss_ops
+missing module named 'dask.dataframe' - imported by tensorflow.contrib.learn.python.learn.learn_io.data_feeder
+missing module named toolz - imported by tensorflow.contrib.learn.python.learn.learn_io.dask_io
+missing module named dask - imported by tensorflow.contrib.learn.python.learn.learn_io.dask_io
+missing module named 'sklearn.utils' - imported by tensorflow.contrib.learn.python.learn.estimators._sklearn
+missing module named 'sklearn.exceptions' - imported by tensorflow.contrib.learn.python.learn.estimators._sklearn
+missing module named 'sklearn.cross_validation' - imported by tensorflow.contrib.learn.python.learn.estimators._sklearn
+missing module named 'sklearn.metrics' - imported by tensorflow.contrib.learn.python.learn.estimators._sklearn
+missing module named tensorflow.contrib.keras.python - imported by tensorflow.contrib.keras
+missing module named 'oauth2client.client' - imported by tensorflow.contrib.cluster_resolver.python.training.tpu_cluster_resolver
+missing module named googleapiclient - imported by tensorflow.contrib.cluster_resolver.python.training.gce_cluster_resolver, tensorflow.contrib.cluster_resolver.python.training.tpu_cluster_resolver
+missing module named oauth2client - imported by tensorflow.contrib.cluster_resolver.python.training.gce_cluster_resolver
+missing module named 'six.moves.urllib' - imported by 'six.moves.urllib'

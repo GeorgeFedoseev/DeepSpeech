@@ -22,3 +22,4 @@ tqdm
 deepspeech
 webrtcvad
 pyaudio
+flask
