@@ -180,10 +180,8 @@ def filter_asr(csv_path, output_csv):
 
         print("Start processing...")
 
-        def init_worker():
-            signal.signal(signal.SIGINT, signal.SIG_IGN)
-
-        pool = ThreadPool(NUM_THREADS, init_worker)        
+        
+        pool = ThreadPool(NUM_THREADS)        
 
         try:
             pool.map_async(process_sample, rows_to_process)
