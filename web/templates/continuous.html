@@ -1,0 +1,170 @@
+<html>
+    <head>
+
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+        <script src="js/lib/hark.bundle.js"></script>
+        <script src="js/lib/recorder.js"></script>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        
+    </head>
+
+    <body>
+        <div id="app">            
+            <ol>
+                <li v-for="t in transcriptions">
+                  ${ t }
+                </li>
+            </ol>            
+        </div>
+
+
+        <br>
+        
+
+        <canvas class="visualizer" width="1024" height="768" style="pointer-events: none; position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></canvas>
+        <button id="test">Click me</button>
+        <div id="download_area"></div>
+        
+    </body>
+
+    <script src="js/renderer.js"></script>
+
+
+    <script type="text/javascript">
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+
+        var waveform = window.Waveform();
+
+        navigator.getUserMedia = navigator.getUserMedia ||
+                         navigator.webkitGetUserMedia ||
+                         navigator.mozGetUserMedia;
+
+        document.querySelector('#test').addEventListener('click', function() {
+
+            audioContext = new AudioContext();
+
+            navigator.getUserMedia({ audio: true},
+                function(audio_stream) {
+
+                var source = audioContext.createMediaStreamSource(audio_stream)
+
+
+
+                var node = source.context.createScriptProcessor(1024, 1, 1);
+
+                var rec = new Recorder(source, {
+                    numChannels: 1,
+                    targetSampleRate: 16000
+                })
+
+                var analyser = source.context.createAnalyser();
+                analyser.minDecibels = -90;
+                analyser.maxDecibels = -10;
+                analyser.smoothingTimeConstant = 0.5;
+
+                source.connect(analyser);
+                analyser.connect(node);                
+                node.connect(source.context.destination);
+
+                node.onaudioprocess = function (audioProcessingEvent) {                  
+                  analyse();
+                };
+
+                var visualizationCallback = function(dataArray, bufferLength){
+                    //console.log("visualizationCallback "+dataArray.length+" "+bufferLength)
+                    if (!document.hidden) {
+                        waveform.visualizeAudioBuffer(dataArray, bufferLength)
+                    }
+                }
+
+                var analyse = function () {
+                  analyser.fftSize = 4096;
+                  var bufferLength = analyser.fftSize;
+                  var dataArray = new Uint8Array(bufferLength);
+                  
+
+                  analyser.getByteTimeDomainData(dataArray);
+
+                  if (typeof visualizationCallback === 'function') {
+                    visualizationCallback(dataArray, bufferLength);
+                  }
+
+                  
+                };
+                
+
+                var options = {};
+                var speechEvents = hark(audio_stream, options);
+
+                speechEvents.on('speaking', function() {
+                  console.log('speaking');
+                  waveform.prepCanvas()
+
+                  rec.record()
+                });
+
+                speechEvents.on('stopped_speaking', function() {
+                  console.log('stopped_speaking');
+                  rec.stop()
+                  console.log("exportWAV")
+                  rec.exportWAV(function(blob){
+
+
+                    console.log("exportWAV callback")
+                    // var url = (window.URL || window.webkitURL).createObjectURL(blob);
+                    // var link = window.document.createElement('a');
+                    // link.href = url;
+                    // link.innerHTML = "download"
+                    // link.download = 'output.wav';
+                    // console.log(url)
+                    // document.querySelector("#download_area").appendChild(link)
+
+                    // upload blob
+
+                    var formData = new FormData()
+                    formData.append("wav_file", blob, "transcribe_me.wav")
+                    axios.post("/transcribe_file", formData).then(function (response) {
+                        console.log(response.data);
+                        app.transcriptions.push(response.data)
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
+
+
+                    
+                  })
+
+                  rec.clear()
+                });
+            },
+              function(err) {
+                 console.log("The following error occurred: " + err.name);
+              });
+
+         });
+
+       
+
+
+
+        var app = new Vue({
+            delimiters:['${', '}'],
+            el: '#app',
+            data: {
+                transcriptions: []                
+            },
+            methods: {
+                reverseMessage: function () {
+                  this.message = this.message.split('').reverse().join('')
+                }
+            }
+        })
+
+        
+    </script>
+</html>

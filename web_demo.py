@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 from werkzeug.utils import secure_filename
 
 import jinja2
@@ -16,6 +16,14 @@ app.jinja_loader = jinja2.FileSystemLoader('web/templates')
 @app.route("/")
 def hello():
     return render_template("home.html")
+
+@app.route("/continuous")
+def continuous():
+    return render_template("continuous.html")
+
+@app.route('/js/<path:path>')
+def send_js(path):
+    return send_from_directory('web/templates/js', path)
 
 @app.route('/transcribe_file', methods=['POST'])
 def transcribe_file():

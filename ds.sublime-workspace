@@ -4,6 +4,70 @@
 		"selected_items":
 		[
 			[
+				"se",
+				"secure_filename"
+			],
+			[
+				"render",
+				"render_template\tfunction"
+			],
+			[
+				"spee",
+				"speech_array\tstatement"
+			],
+			[
+				"samp",
+				"samples_per_second\tstatement"
+			],
+			[
+				"exe",
+				"Exception"
+			],
+			[
+				"audio",
+				"audio_utils"
+			],
+			[
+				"in",
+				"infer\tfunction"
+			],
+			[
+				"recor",
+				"recording_dir\tstatement"
+			],
+			[
+				"rec",
+				"rec_path\tparam"
+			],
+			[
+				"alpo",
+				"alphabet_config_path\tparam"
+			],
+			[
+				"use",
+				"use_lm\tparam"
+			],
+			[
+				"al",
+				"alphabet_config_path\tparam"
+			],
+			[
+				"init",
+				"initialized\tstatement"
+			],
+			[
+				"checkpoint_",
+				"checkpoint_dir\tparam"
+			],
+			[
+				"checkpoint",
+				"checkpoint_dir"
+			],
+			[
+				"checkpo",
+				"checkpoint_dir"
+			],
+			[
 				"map",
 				"map_async\tfunction"
 			],
@@ -380,10 +444,6 @@
 				"speech_end\tstatement"
 			],
 			[
-				"spee",
-				"speech_start\tstatement"
-			],
-			[
 				"inter",
 				"intervals\tstatement"
 			],
@@ -454,103 +514,61 @@
 			[
 				"write",
 				"writerow"
-			],
-			[
-				"sub",
-				"subtitles"
-			],
-			[
-				"vi",
-				"video_id\tstatement"
-			],
-			[
-				"cu",
-				"curr_dir_path"
-			],
-			[
-				"su",
-				"subtitles"
-			],
-			[
-				"im",
-				"image_to_string\tfunction"
-			],
-			[
-				"c",
-				"chrome\tmodule"
-			],
-			[
-				"full",
-				"fullpage_screenshot"
-			],
-			[
-				"decode",
-				"decodestring\tfunction"
-			],
-			[
-				"get_sc",
-				"get_screenshot_as_png\tfunction"
-			],
-			[
-				"ch",
-				"chrome\tstatement"
-			],
-			[
-				"sele",
-				"selenium\tmodule"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "asr-set-filter.py",
+			"file": "web_demo.py",
 			"settings":
 			{
-				"buffer_size": 5744,
+				"buffer_size": 729,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "DeepSpeech.py",
+			"file": "file_transcriber.py",
 			"settings":
 			{
-				"buffer_size": 89050,
+				"buffer_size": 1670,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "venv/lib/python2.7/site-packages/tensorflow/python/client/session.py",
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 65343,
+				"buffer_size": 506,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "util/text.py",
+			"file": "Dockerfile",
 			"settings":
 			{
-				"buffer_size": 8025,
+				"buffer_size": 6207,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "util/feeding.py",
+			"file": "web/templates/home.html",
 			"settings":
 			{
-				"buffer_size": 8926,
+				"buffer_size": 269,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "venv/lib/python2.7/site-packages/tensorflow/python/ops/data_flow_ops.py",
+			"file": "mic_listener.py",
 			"settings":
 			{
-				"buffer_size": 87154,
+				"buffer_size": 5164,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -558,7 +576,7 @@
 			"file": "requirements.txt",
 			"settings":
 			{
-				"buffer_size": 235,
+				"buffer_size": 270,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -629,17 +647,27 @@
 	"expanded_folders":
 	[
 		"/Users/gosha/Projects/DeepSpeech",
-		"/Users/gosha/Projects/DeepSpeech/util"
+		"/Users/gosha/Projects/DeepSpeech/web",
+		"/Users/gosha/Projects/DeepSpeech/web/templates"
 	],
 	"file_history":
 	[
+		"/Users/gosha/Projects/DeepSpeech/web_demo/home.html",
 		"/Users/gosha/Projects/DeepSpeech/infer.py",
+		"/Users/gosha/Projects/DeepSpeech/mic_transcriber.py",
+		"/Users/gosha/Projects/DeepSpeech/.gitignore",
+		"/Users/gosha/Projects/DeepSpeech/util/audio_filter_utils.py",
+		"/Users/gosha/Projects/DeepSpeech/DeepSpeech.py",
+		"/Users/gosha/Projects/DeepSpeech/data/alphabet_no_dash.txt",
+		"/Users/gosha/Projects/DeepSpeech/asr-set-filter.py",
+		"/Users/gosha/Projects/DeepSpeech/requirements.txt",
+		"/Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/tensorflow/python/ops/data_flow_ops.py",
+		"/Users/gosha/Projects/DeepSpeech/util/feeding.py",
+		"/Users/gosha/Projects/DeepSpeech/util/text.py",
+		"/Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/tensorflow/python/client/session.py",
 		"/Users/gosha/Projects/DeepSpeech/asr_cutting_clean.py",
 		"/Users/gosha/Projects/DeepSpeech/ds.sublime-project",
-		"/Users/gosha/Projects/DeepSpeech/DeepSpeech.py",
 		"/Users/gosha/Projects/DeepSpeech/batch_infer.py",
-		"/Users/gosha/Projects/DeepSpeech/requirements.txt",
-		"/Users/gosha/Projects/DeepSpeech/util/text.py",
 		"/Users/gosha/Projects/DeepSpeech/Dockerfile",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-1k.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-1k.sh",
@@ -665,14 +693,12 @@
 		"/Users/gosha/Projects/DeepSpeech/bin/run-echo-msk.sh",
 		"/Users/gosha/Projects/DeepSpeech/util/automation.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/run-voxforge-ru.sh",
-		"/Users/gosha/Projects/DeepSpeech/util/feeding.py",
 		"/Users/gosha/Projects/DeepSpeech/native_client/BUILD",
 		"/Users/gosha/Projects/DeepSpeech/native_client/Makefile",
 		"/Users/gosha/Projects/DeepSpeech/Dockerfile_bckup",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_librivox.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge.py",
 		"/Users/gosha/Projects/DeepSpeech/util/taskcluster.py",
-		"/Users/gosha/Projects/DeepSpeech/.gitignore",
 		"/Users/gosha/Projects/youtube-audio-captions-parsing/example_keywords.txt",
 		"/Users/gosha/Desktop/host_install.txt",
 		"/Users/gosha/Projects/youtube-audio-captions-parsing/yt.sublime-workspace",
@@ -743,6 +769,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"write",
+			"normalize",
+			"calculate_re",
 			"cut_clean_output",
 			"results_tuple",
 			"session.run",
@@ -867,10 +896,7 @@
 			"_stddev",
 			"default_stddev",
 			"ctc_beam_search_decoder_with_lm",
-			"print",
-			"log_te",
-			"log_",
-			"teleg"
+			"print"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -888,24 +914,72 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "asr-set-filter.py",
+					"file": "web_demo.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5744,
+						"buffer_size": 729,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5128,
-								5128
+								584,
+								584
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 0,
+								"count": 0,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 10.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "file_transcriber.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1670,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								832,
+								832
 							]
 						],
 						"settings":
@@ -929,153 +1003,158 @@
 									"selector": "source.python - string - constant.numeric"
 								}
 							],
-							"show_definitions": false,
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 697.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "DeepSpeech.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 89050,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								40147,
-								40163
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 12539.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "venv/lib/python2.7/site-packages/tensorflow/python/client/session.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 65343,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								41202,
-								41153
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 430.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "util/text.py",
+					"buffer": 2,
+					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8025,
+						"buffer_size": 506,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3340,
-								3320
+								506,
+								506
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"WordCount":
+							{
+								"changes": 7,
+								"count": 9,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "util/feeding.py",
-					"semi_transient": false,
+					"buffer": 3,
+					"file": "Dockerfile",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 8926,
+						"buffer_size": 6207,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2455,
-								2455
+								0,
+								0
 							]
 						],
 						"settings":
 						{
+							"WordCount":
+							{
+								"changes": 0,
+								"count": 504,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 145.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "web/templates/home.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 269,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								215,
+								215
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 88,
+								"count": 0,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "mic_listener.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4385,
+								4385
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 0,
+								"count": 0,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
 							"auto_complete_triggers":
 							[
 								{
@@ -1092,37 +1171,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 659.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "venv/lib/python2.7/site-packages/tensorflow/python/ops/data_flow_ops.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 87154,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								16248,
-								16248
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 6737.0,
+						"translation.y": 904.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -1134,26 +1183,35 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 235,
+						"buffer_size": 270,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								235,
-								235
+								270,
+								270
 							]
 						],
 						"settings":
 						{
+							"WordCount":
+							{
+								"changes": 35,
+								"count": 25,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
