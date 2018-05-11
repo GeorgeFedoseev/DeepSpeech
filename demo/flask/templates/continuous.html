@@ -90,11 +90,8 @@
 
                   if (typeof visualizationCallback === 'function') {
                     visualizationCallback(dataArray, bufferLength);
-                  }
-
-                  
-                };
-                
+                  }                  
+                };                
 
                 var options = {};
                 var speechEvents = hark(audio_stream, options);
@@ -110,17 +107,7 @@
                   console.log('stopped_speaking');
                   rec.stop()
                   //console.log("exportWAV")
-                  rec.exportWAV(function(blob){
-
-
-                    //console.log("exportWAV callback")
-                    // var url = (window.URL || window.webkitURL).createObjectURL(blob);
-                    // var link = window.document.createElement('a');
-                    // link.href = url;
-                    // link.innerHTML = "download"
-                    // link.download = 'output.wav';
-                    // console.log(url)
-                    // document.querySelector("#download_area").appendChild(link)
+                  rec.exportWAV(function(blob){                 
 
                     // upload blob
 
@@ -137,9 +124,6 @@
                     .catch(function (error) {
                         console.log(error);
                     });
-
-
-
                     
                   })
 

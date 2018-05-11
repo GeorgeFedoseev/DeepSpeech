@@ -1,0 +1,51 @@
+<html>
+    <head>
+
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+        <script src="js/lib/hark.bundle.js"></script>
+        <script src="js/lib/recorder.js"></script>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        
+        <style type="text/css">
+          
+        </style>
+
+    </head>
+
+    <body>
+        <div id="app">            
+
+          <div class="search-form">
+            <input class="search-query-input" v-model="query" v-on:keyup="onQueryChange">
+          </div>
+
+          <ol>
+              <li v-for="r in results">
+                ${ r }
+              </li>
+          </ol>
+        </div>        
+    </body>
+
+    <script type="text/javascript">
+
+        var app = new Vue({
+            delimiters:['${', '}'],
+            el: '#app',
+            data: {
+                query: '',
+                results: []    
+            },
+            methods: {
+                onQueryChange: function () {
+                  console.log("query changed"+app.query)
+                  
+                }
+            }
+        })
+        
+    </script>
+</html>

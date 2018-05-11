@@ -19,15 +19,19 @@ tmp_folder_path = os.path.join(project_root_path, "tmp")
 app = Flask(__name__)
 app.jinja_loader = jinja2.FileSystemLoader(templates_folder_path)
 
+
+@app.route('/js/<path:path>')
+def send_js(path):
+    return send_from_directory(js_folder_path, path)
     
 
 @app.route("/")
 def continuous():
     return render_template("continuous.html")
 
-@app.route('/js/<path:path>')
-def send_js(path):
-    return send_from_directory(js_folder_path, path)
+@app.route("/search")
+def search():
+    return render_template("search.html")
 
 
 @app.route('/file')
