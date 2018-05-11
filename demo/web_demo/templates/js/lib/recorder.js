@@ -115,7 +115,7 @@ var Recorder = exports.Recorder = (function () {
                 recLength += inputBuffer[0].length;
             }
             function downsampleBuffer(buffer, fromSampleRate, toSampleRate) {
-                console.log("convert sample rate from "+fromSampleRate+" to "+toSampleRate)
+                //console.log("convert sample rate from "+fromSampleRate+" to "+toSampleRate)
 
               if (toSampleRate === fromSampleRate) {
                 return buffer;
@@ -123,9 +123,9 @@ var Recorder = exports.Recorder = (function () {
 
 
               var sampleRateRatio = fromSampleRate / toSampleRate;
-              console.log("sampleRateRatio: "+sampleRateRatio)
+              //console.log("sampleRateRatio: "+sampleRateRatio)
               var newLength = Math.round(buffer.length / sampleRateRatio);
-              console.log("newLength: "+newLength)
+              //console.log("newLength: "+newLength)
               var result = new Float32Array(newLength);
               var offsetResult = 0;
               var offsetBuffer = 0;

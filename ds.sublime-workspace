@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"app",
+				"append"
+			],
+			[
+				"ap",
+				"app"
+			],
+			[
 				"se",
 				"secure_filename"
 			],
@@ -506,14 +514,6 @@
 			[
 				"fra",
 				"fragment_duration\tstatement"
-			],
-			[
-				"video",
-				"video_id\tparam"
-			],
-			[
-				"write",
-				"writerow"
 			]
 		]
 	},
@@ -523,7 +523,34 @@
 			"file": "web_demo.py",
 			"settings":
 			{
-				"buffer_size": 729,
+				"buffer_size": 930,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/templates/home.html",
+			"settings":
+			{
+				"buffer_size": 290,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/templates/continuous.html",
+			"settings":
+			{
+				"buffer_size": 5428,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/templates/js/lib/recorder.js",
+			"settings":
+			{
+				"buffer_size": 14696,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -542,23 +569,6 @@
 			"settings":
 			{
 				"buffer_size": 506,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Dockerfile",
-			"settings":
-			{
-				"buffer_size": 6207,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "web/templates/home.html",
-			"settings":
-			{
-				"buffer_size": 269,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -648,7 +658,9 @@
 	[
 		"/Users/gosha/Projects/DeepSpeech",
 		"/Users/gosha/Projects/DeepSpeech/web",
-		"/Users/gosha/Projects/DeepSpeech/web/templates"
+		"/Users/gosha/Projects/DeepSpeech/web/templates",
+		"/Users/gosha/Projects/DeepSpeech/web/templates/js",
+		"/Users/gosha/Projects/DeepSpeech/web/templates/js/lib"
 	],
 	"file_history":
 	[
@@ -754,7 +766,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -769,6 +781,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"newLength",
 			"write",
 			"normalize",
 			"calculate_re",
@@ -895,8 +908,7 @@
 			"n_hidden",
 			"_stddev",
 			"default_stddev",
-			"ctc_beam_search_decoder_with_lm",
-			"print"
+			"ctc_beam_search_decoder_with_lm"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -914,7 +926,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -923,15 +935,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 729,
+						"buffer_size": 930,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								584,
-								584
+								624,
+								624
 							]
 						],
 						"settings":
@@ -954,19 +966,137 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 10.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "web/templates/home.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 290,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								191,
+								191
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 2,
+								"count": 0,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "web/templates/continuous.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5428,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4445,
+								4445
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 343,
+								"count": 87,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1768.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 3,
+					"file": "web/templates/js/lib/recorder.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14696,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4868,
+								4868
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "javascript"
+							},
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1476.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "file_transcriber.py",
 					"semi_transient": false,
 					"settings":
@@ -1008,14 +1138,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 430.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 5,
 					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
@@ -1048,87 +1178,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "Dockerfile",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 6207,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 0,
-								"count": 504,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 145.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "web/templates/home.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 269,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								215,
-								215
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 88,
-								"count": 0,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "mic_listener.py",
 					"semi_transient": false,
 					"settings":
@@ -1174,11 +1228,11 @@
 						"translation.y": 904.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "requirements.txt",
 					"semi_transient": false,
 					"settings":
@@ -1211,7 +1265,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]

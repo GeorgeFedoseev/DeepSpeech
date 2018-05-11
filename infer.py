@@ -12,10 +12,13 @@ import os
 
 from util import text as text_utils
 
+current_dir_path = os.path.dirname(os.path.realpath(__file__))
+data_path = os.path.join(current_dir_path, "data")
+
 
 initialized = False
 
-def init(n_hidden, checkpoint_dir, alphabet_config_path="data/alphabet.txt", use_lm=False, language_tool_language='ru-RU'):
+def init(n_hidden, checkpoint_dir, alphabet_config_path=os.path.join(data_path, "alphabet.txt"), use_lm=False, language_tool_language='ru-RU'):
     global initialized
 
     if initialized:

@@ -20,6 +20,8 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = sys.argv[log_level_index] if log_level_inde
 # disable TF warnings
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 
+current_dir_path = os.path.dirname(os.path.realpath(__file__))
+
 import datetime
 import pickle
 import shutil
@@ -167,10 +169,10 @@ tf.app.flags.DEFINE_float   ('estop_std_thresh',  0.5,        'standard deviatio
 
 # Decoder
 
-tf.app.flags.DEFINE_string  ('decoder_library_path', 'native_client/libctc_decoder_with_kenlm.so', 'path to the libctc_decoder_with_kenlm.so library containing the decoder implementation.')
-tf.app.flags.DEFINE_string  ('alphabet_config_path', 'data/alphabet.txt', 'path to the configuration file specifying the alphabet used by the network. See the comment in data/alphabet.txt for a description of the format.')
-tf.app.flags.DEFINE_string  ('lm_binary_path',       'data/lm/lm.binary', 'path to the language model binary file created with KenLM')
-tf.app.flags.DEFINE_string  ('lm_trie_path',         'data/lm/trie', 'path to the language model trie file created with native_client/generate_trie')
+tf.app.flags.DEFINE_string  ('decoder_library_path', os.path.join(current_dir_path, 'native_client/libctc_decoder_with_kenlm.so'), 'path to the libctc_decoder_with_kenlm.so library containing the decoder implementation.')
+tf.app.flags.DEFINE_string  ('alphabet_config_path', os.path.join(current_dir_path, 'data/alphabet.txt'), 'path to the configuration file specifying the alphabet used by the network. See the comment in data/alphabet.txt for a description of the format.')
+tf.app.flags.DEFINE_string  ('lm_binary_path',       os.path.join(current_dir_path, 'data/lm/lm.binary'), 'path to the language model binary file created with KenLM')
+tf.app.flags.DEFINE_string  ('lm_trie_path',         os.path.join(current_dir_path, 'data/lm/trie'), 'path to the language model trie file created with native_client/generate_trie')
 tf.app.flags.DEFINE_integer ('beam_width',        1024,       'beam width used in the CTC decoder when building candidate transcriptions')
 tf.app.flags.DEFINE_float   ('lm_weight',         2.0,       'the alpha hyperparameter of the CTC decoder. Language Model weight.')
 tf.app.flags.DEFINE_float   ('word_count_weight', 2.00,      'the beta hyperparameter of the CTC decoder. Word insertion weight (penalty).')

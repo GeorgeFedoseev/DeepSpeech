@@ -109,11 +109,11 @@
                 speechEvents.on('stopped_speaking', function() {
                   console.log('stopped_speaking');
                   rec.stop()
-                  console.log("exportWAV")
+                  //console.log("exportWAV")
                   rec.exportWAV(function(blob){
 
 
-                    console.log("exportWAV callback")
+                    //console.log("exportWAV callback")
                     // var url = (window.URL || window.webkitURL).createObjectURL(blob);
                     // var link = window.document.createElement('a');
                     // link.href = url;
@@ -127,8 +127,12 @@
                     var formData = new FormData()
                     formData.append("wav_file", blob, "transcribe_me.wav")
                     axios.post("/transcribe_file", formData).then(function (response) {
-                        console.log(response.data);
-                        app.transcriptions.push(response.data)
+                        
+                        if(response.data.trim() != ""){
+                            console.log(response.data);
+                            app.transcriptions.push(response.data)
+                        }
+                            
                     })
                     .catch(function (error) {
                         console.log(error);

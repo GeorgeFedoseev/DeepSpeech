@@ -1,12 +1,12 @@
 import infer
 import time
-
 from util import audio_filter_utils as audio_utils
-
 import os
-
 import wave
 
+current_dir_path = os.path.dirname(os.path.realpath(__file__))
+project_root_path = os.path.join(current_dir_path, os.pardir)
+data_path = os.path.join(current_dir_path, "data")
 
 initialized = False
 def init():
@@ -20,7 +20,7 @@ def init():
     start_time = time.time()
     infer.init(n_hidden=2048,
         checkpoint_dir="/Users/gosha/Desktop/yt-vad-1k-2048/yt-vad-1k-2048-checkpoints",
-        alphabet_config_path="data/alphabet.txt",
+        alphabet_config_path= os.path.join(data_path, "alphabet.txt"),
         language_tool_language="")
     print("DeepSpeech init took %.2f sec" % (time.time() - start_time))
 
