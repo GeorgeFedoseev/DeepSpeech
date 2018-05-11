@@ -1,6 +1,15 @@
 # =* coding: utf-8 *=
 
 import os
+import sys
+reload(sys)
+
+sys.setdefaultencoding("utf-8")
+
+current_dir_path = os.path.dirname(os.path.realpath(__file__))
+project_root_path = os.path.join(current_dir_path, os.pardir, os.pardir)
+sys.path.insert(0, project_root_path)
+
 import const
 
 from whoosh.fields import Schema, TEXT, ID
@@ -20,10 +29,7 @@ from whoosh.lang.snowball import RussianStemmer
 from utils import db_util
 
 
-import sys
-reload(sys)
 
-sys.setdefaultencoding("utf-8")
 
 def index_all():    
     db_util.init_db()
@@ -80,9 +86,12 @@ def full_text_search(q):
 if __name__ == "__main__":
     index_all()
 
-    q = "линекс"    
+    q = "депозитов"    
+    
     print ("searching for %s" % (q))
-    full_text_search(q)
+    results = full_text_search(q)
+    print "%i results" % (len(results))
+
 
 
 

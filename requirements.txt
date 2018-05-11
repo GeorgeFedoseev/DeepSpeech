@@ -23,3 +23,8 @@ deepspeech
 webrtcvad
 pyaudio
 flask
+pafy
+youtube-dl
+sqlalchemy
+whoosh
+PyStemmer

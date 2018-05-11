@@ -5,14 +5,17 @@ import os
 import wave
 
 current_dir_path = os.path.dirname(os.path.realpath(__file__))
-project_root_path = os.path.join(current_dir_path, os.pardir)
+project_root_path = current_dir_path
 data_path = os.path.join(project_root_path, "data")
 
 initialized = False
-def init():
+def initialize():
+    #print "Initialize file transcriber..."
+
     global session, initialized
 
     if initialized:
+        #print "Already inited session"
         return
 
 
@@ -31,6 +34,8 @@ def init():
 
 
 def transcribe_file(rec_path):
+
+    initialize()
             
     wav_obj = wave.open(rec_path)
     #if not audio_utils.has_speech(wav_obj):

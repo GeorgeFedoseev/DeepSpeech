@@ -26,3 +26,5 @@
 *.tar.xz
 /dist
 /build
+/data/media_data
+/data/transcribed_data

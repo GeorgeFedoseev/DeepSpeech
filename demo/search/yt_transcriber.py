@@ -1,5 +1,13 @@
-# =* coding: utf-8 *=
 import os
+import sys
+reload(sys)
+
+sys.setdefaultencoding("utf-8")
+
+current_dir_path = os.path.dirname(os.path.realpath(__file__))
+project_root_path = os.path.join(current_dir_path, os.pardir, os.pardir)
+sys.path.insert(0, project_root_path)
+
 import subprocess
 import wave
 import shutil
@@ -8,18 +16,18 @@ import const
 from utils.yt_utils import download_yt_audio
 from utils.slicing_utils import slice_audio_by_silence
 from utils import audio_utils
-from utils.deepspeech_utils import run_deepspeech_for_wav
+
 
 from models import Transcription
 from utils import db_util
 
 from timeit import default_timer as timer
 
+import file_transcriber
 
-import sys
-reload(sys)
+import indexer
 
-sys.setdefaultencoding("utf-8")
+
 
 YT_VIDEOS_TO_INDEX = [
     "EC9t2-Lkgl4",
@@ -30,11 +38,12 @@ YT_VIDEOS_TO_INDEX = [
 
 
 
+
 def check_dependencies():
     try:
         subprocess.check_output(['soxi'], stderr=subprocess.STDOUT)        
         subprocess.check_output(['ffmpeg', '--help'], stderr=subprocess.STDOUT)
-        subprocess.check_output(['deepspeech', '-h'], stderr=subprocess.STDOUT)
+        #subprocess.check_output(['deepspeech', '-h'], stderr=subprocess.STDOUT)
     except Exception as ex:
         print 'ERROR: some of dependencies are not installed: ffmpeg or sox: '+str(ex)
         return False
@@ -44,9 +53,7 @@ def check_dependencies():
 
 
 def process_video(yt_video_id):
-    print("process video %s" % (yt_video_id))
-
-    curr_dir_path = os.getcwd()
+    print("process video %s" % (yt_video_id))    
 
     video_data_path = os.path.join(const.VIDEO_DATA_DIR, yt_video_id)
 
@@ -95,13 +102,15 @@ def process_video(yt_video_id):
             # run inference
             start_t = timer()
             print("Transcribing piece %s" % piece_procesing_path)
-            transcript = run_deepspeech_for_wav(piece_procesing_path, use_lm=True).decode("utf-8").strip()            
+            transcript = file_transcriber.transcribe_file(piece_procesing_path).decode("utf-8").strip()            
             print("transcription took %.f seconds" % (timer()-start_t))
 
             print(transcript)            
 
             t = Transcription(media_type="youtube", media_id=yt_video_id, time_start=piece["start"], time_end=piece["end"], transcription=transcript)
             db_util.add_item(t)
+
+            indexer.index_all()
 
             os.rename(piece_procesing_path, piece_done_path)
         

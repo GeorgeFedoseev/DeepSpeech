@@ -8,7 +8,6 @@ import sys
 import re
 import language_check
 
-import asr_cutting_clean
 
 # encoding=utf8
 reload(sys)

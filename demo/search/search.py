@@ -1,4 +1,14 @@
 # =* coding: utf-8 *=
+import os
+import sys
+reload(sys)
+
+sys.setdefaultencoding("utf-8")
+
+current_dir_path = os.path.dirname(os.path.realpath(__file__))
+project_root_path = os.path.join(current_dir_path, os.pardir, os.pardir)
+sys.path.insert(0, project_root_path)
+
 
 import indexer
 from utils import db_util
@@ -41,7 +51,7 @@ def search(q):
 
 
 if __name__ == "__main__":
-    results = search("оценка")
+    results = search("депозитов")
     #pprint(results)
 
     #print results[0]["results"][0]["highlight"]
