@@ -12,13 +12,15 @@ import os
 
 from util import text as text_utils
 
+import const
+
 current_dir_path = os.path.dirname(os.path.realpath(__file__))
 data_path = os.path.join(current_dir_path, "data")
 
 
 initialized = False
 
-def init(n_hidden, checkpoint_dir, alphabet_config_path=os.path.join(data_path, "alphabet.txt"), use_lm=False, language_tool_language='ru-RU'):
+def init(n_hidden=const.DEEP_SPEECH_N_HIDDEN, checkpoint_dir=const.DEEP_SPEECH_CHECKPOINT_DIR, alphabet_config_path=const.DEEP_SPEECH_ALPHABET_PATH, use_lm=False, language_tool_language='ru-RU'):
     global initialized
 
     if initialized:
@@ -81,7 +83,7 @@ def infer(wav_path, session_tuple):
 if __name__ == "__main__":
 
     start_time = time.time()
-    init(n_hidden=2048,checkpoint_dir="/Users/gosha/Desktop/yt-vad-1k-2048/yt-vad-1k-2048-checkpoints", alphabet_config_path="data/alphabet.txt")
+    init(n_hidden=2048,checkpoint_dir=const.DEEP_SPEECH_CHECKPOINT_DIR, alphabet_config_path=const.DEEP_SPEECH_ALPHABET_PATH)
     print("DeepSpeech init took %.2f sec" % (time.time() - start_time))
 
     
@@ -90,7 +92,7 @@ if __name__ == "__main__":
     session = init_session()
     print("session init took %.2f sec" % (time.time() - start_time))
 
-    test_file_path = os.path.join(os.getcwd(), "data/infer_test_3.wav")
+    test_file_path = os.path.join(const.DATA_DIR, "infer_test_3.wav")
 
     for i in range(0, 10):
         start_time = time.time()

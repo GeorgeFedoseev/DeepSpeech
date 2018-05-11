@@ -12,27 +12,27 @@ from werkzeug.utils import secure_filename
 import jinja2
 import file_transcriber
 
-templates_folder_path = os.path.join(current_dir_path, "web_demo", "templates")
+templates_folder_path = os.path.join(current_dir_path, "flask", "templates")
 js_folder_path = os.path.join(templates_folder_path, "js")
 tmp_folder_path = os.path.join(project_root_path, "tmp")
 
 app = Flask(__name__)
 app.jinja_loader = jinja2.FileSystemLoader(templates_folder_path)
 
-
-
+    
 
 @app.route("/")
-def hello():
-    return render_template("home.html")
-
-@app.route("/continuous")
 def continuous():
     return render_template("continuous.html")
 
 @app.route('/js/<path:path>')
 def send_js(path):
     return send_from_directory(js_folder_path, path)
+
+
+@app.route('/file')
+def single_file_transcribe():
+    return render_template("single_file_transcribe.html")
 
 @app.route('/transcribe_file', methods=['POST'])
 def transcribe_file():
@@ -44,7 +44,8 @@ def transcribe_file():
         file_transcriber.init()
         t = file_transcriber.transcribe_file(file_path)
 
-        return t
+        return t    
+        
 
 
 

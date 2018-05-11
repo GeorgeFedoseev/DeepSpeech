@@ -1,3 +1,9 @@
+import os
+import sys
+current_dir_path = os.path.dirname(os.path.realpath(__file__))
+project_root_path = os.path.join(current_dir_path, os.pardir, os.pardir)
+sys.path.insert(0, project_root_path)
+
 import mic_listener
 import infer
 
@@ -5,7 +11,7 @@ import time
 
 from util import audio_filter_utils as audio_utils
 
-import os
+
 
 import wave
 
@@ -13,12 +19,14 @@ import wave
 from threading import Thread
 
 
+
+data_path = os.path.join(project_root_path, "data")
+tmp_dir_path = os.path.join(project_root_path, "tmp")
+
+
 if __name__ == "__main__":
     start_time = time.time()
-    infer.init(n_hidden=2048,
-        checkpoint_dir="/Users/gosha/Desktop/yt-vad-1k-2048/yt-vad-1k-2048-checkpoints",
-        alphabet_config_path="data/alphabet.txt",
-        language_tool_language="")
+    infer.init(language_tool_language="")
     print("DeepSpeech init took %.2f sec" % (time.time() - start_time))
 
     
@@ -43,7 +51,6 @@ if __name__ == "__main__":
             print "got speech"
             
 
-            tmp_dir_path = os.path.join(os.getcwd(), "tmp")
             # filter
             # normalize volume
             audio_wav_volume_normalized_path = rec_path+"_normalized.wav"        
@@ -69,5 +76,5 @@ if __name__ == "__main__":
         thr.daemon = True
         thr.start()
 
-    mic_listener.init(_recording_dir="tmp", _callback_func=mic_listener_callback)
+    mic_listener.init(_recording_dir=tmp_dir_path, _callback_func=mic_listener_callback)
     mic_listener.listen()
