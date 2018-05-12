@@ -1254,8 +1254,7 @@ class TrainingCoordinator(object):
         self._lock = Lock()
         self.started = False
         if is_chief:
-            pass
-            #self._httpd = BaseHTTPServer.HTTPServer((FLAGS.coord_host, FLAGS.coord_port), TrainingCoordinator.TrainingCoordinationHandler)
+            self._httpd = BaseHTTPServer.HTTPServer((FLAGS.coord_host, FLAGS.coord_port), TrainingCoordinator.TrainingCoordinationHandler)
 
     def _reset_counters(self):
         self._index_train = 0
@@ -1418,9 +1417,9 @@ class TrainingCoordinator(object):
         '''
         if is_chief:
             log_debug('Starting coordinator...')
-            #self._thread = Thread(target=self._httpd.serve_forever)
-            #self._thread.daemon = True
-            #self._thread.start()
+            self._thread = Thread(target=self._httpd.serve_forever)
+            self._thread.daemon = True
+            self._thread.start()
             log_debug('Coordinator started.')
 
     def stop(self, wait_for_running_epochs=True):
