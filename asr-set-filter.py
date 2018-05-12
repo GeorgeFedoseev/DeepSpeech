@@ -30,7 +30,7 @@ def filter_asr(csv_path, output_csv):
     infer.init(use_lm=False, language_tool_language="") 
 
     CER_CALC_NUM = 15
-    NUM_THREADS = 56
+    NUM_THREADS = 128
 
     try:
         if csv_path.split(".")[-1] != "csv":
