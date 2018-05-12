@@ -12,6 +12,9 @@ from werkzeug.utils import secure_filename
 import jinja2
 import file_transcriber
 
+import json
+from search import yt_search
+
 templates_folder_path = os.path.join(current_dir_path, "flask", "templates")
 js_folder_path = os.path.join(templates_folder_path, "js")
 tmp_folder_path = os.path.join(project_root_path, "tmp")
@@ -37,6 +40,12 @@ def search():
 @app.route('/file')
 def single_file_transcribe():
     return render_template("single_file_transcribe.html")
+
+@app.route('/search_results')
+def get_search_results():
+    query = request.args.get('q', '')
+    #return query
+    return json.dumps(yt_search.search(query), indent=3, ensure_ascii=False)
 
 @app.route('/transcribe_file', methods=['POST'])
 def transcribe_file():

@@ -3,14 +3,102 @@
 
         <!-- development version, includes helpful console warnings -->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-        <script src="js/lib/hark.bundle.js"></script>
-        <script src="js/lib/recorder.js"></script>
+        <script src="js/lib/lodash.js"></script>
 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         
         <style type="text/css">
-          
+          body {
+            font-family: helvetica
+          }
+
+          a {
+            color: inherit;
+            text-decoration: inherit; 
+          }
+
+          .top-spacing {
+            position: relative;
+            width: 100%;
+            height: 10%;
+            max-height: 300px;
+          }
+
+          .logo-title {
+            position: relative;
+            width: 100%;            
+            font-size: 50px;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;           
+          }
+
+          .search-form {
+            position: relative;
+            width: 30%;
+            min-width: 300px;
+            margin: 0 auto;
+          }
+
+          .search-form input {            
+            position: relative;
+            width: 100%;
+            font-size: 25px;       
+            padding: 10px;     
+          }
+
+          .results-container {
+            position: relative;
+            max-width: 700px;
+            width: 100%;
+            background-color: orange;
+            margin: 0 auto;
+            margin-top: 30px;
+          }
+
+
+          .result-card {
+            position: relative;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+          }
+
+          .card-left {
+            position: relative;            
+            box-sizing: border-box;
+            width: 25%;        
+            margin-right: 20px;  
+            min-width: 110px;              
+            vertical-align: top;
+            display: inline-block;
+
+          }
+
+          .card-right {
+            position: relative;            
+            width: 65%;    
+            display: inline-block;            
+          }
+
+          .card-picture {
+            width: 100%;
+            padding-bottom: 56.25%;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+
+          .card-title {            
+            font-size: 25px;
+            margin-bottom: 10px;
+          }
+
+          .card-time-marks a:hover {
+            text-decoration: underline;
+          }
+
+
+
         </style>
 
     </head>
@@ -18,15 +106,36 @@
     <body>
         <div id="app">            
 
+          <div class="top-spacing"></div>
+
+          <div class="logo-title"><b>speech</b> search</div>
+
           <div class="search-form">
             <input class="search-query-input" v-model="query" v-on:keyup="onQueryChange">
           </div>
 
-          <ol>
-              <li v-for="r in results">
-                ${ r }
-              </li>
-          </ol>
+          <div class="results-container" v-for="result in search_results">
+            
+              <div class="result-card">
+                <a v-bind:href="'https://youtu.be/'+result.media_id+'?t='+result.matches[0].time_start" target="_blank">
+                  <div class="card-left">
+                    <div class="card-picture" v-bind:style="{ 'background-image': 'url(https://img.youtube.com/vi/' + result.media_id + '/default.jpg)' }"></div>  
+                  </div>
+                </a>
+                <div class="card-right">
+                  <a v-bind:href="'https://youtu.be/'+result.media_id+'?t='+result.matches[0].time_start" target="_blank">
+                    <div class="card-title">${result.media_id}</div>
+                  </a>
+                  <div class="card-time-marks" v-for="match in result.matches">
+                    <a v-bind:href="'https://youtu.be/'+result.media_id+'?t='+match.time_start" target="_blank">
+                      <div class="card-time-match" v-html="match.highlight"></div>
+                    </a>
+                  </div>  
+                </div>
+              </div>
+            
+          </div>
+
         </div>        
     </body>
 
@@ -36,16 +145,29 @@
             delimiters:['${', '}'],
             el: '#app',
             data: {
-                query: '',
-                results: []    
+                query: 'финансовых',
+                search_results: []    
             },
             methods: {
-                onQueryChange: function () {
-                  console.log("query changed"+app.query)
-                  
-                }
+                onQueryChange: _.debounce(function (e) {                 
+                  search(app.query)                  
+                }, 100)
+            },            
+            created: function () {
+              console.log("mounted")
+              if(this.query != ""){
+                search(this.query)
+              }
             }
         })
+
+        function search(q){
+          console.log("search for "+q)
+          axios.get("/search_results?q="+q).then(function (response) {
+            app.search_results = response.data
+            console.log(response.data)
+          })
+        }
         
     </script>
 </html>
