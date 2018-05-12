@@ -54,6 +54,8 @@ def filter_clean(in_csv_path, out_csv_path):
             csv_writer.writerow(["wav_filename", "wav_filesize", "transcript"])
             csv_writer.writerows(clean_rows)
 
+        print "exported clean csv to %s" % (out_csv_path)
+
 
     pass
 

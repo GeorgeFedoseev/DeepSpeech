@@ -27,7 +27,7 @@ def filter_asr(csv_path, output_csv):
     
 
     # init deepspeech
-    infer.init() 
+    infer.init(use_lm=False, language_tool_language="") 
 
     CER_CALC_NUM = 15
     NUM_THREADS = 56
