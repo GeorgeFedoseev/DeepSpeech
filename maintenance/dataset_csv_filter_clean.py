@@ -38,7 +38,7 @@ def filter_clean(in_csv_path, out_csv_path):
             if os.path.exists(r[0]):
                 found_files_count += 1
 
-                file_size = os.path.getsize(r[0])
+                wav_filesize = os.path.getsize(r[0])
                 audio_length = float(wav_filesize)/SAMPLE_RATE/BYTE_WIDTH
                 clean_speech_seconds += audio_length
 
