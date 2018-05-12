@@ -1254,7 +1254,8 @@ class TrainingCoordinator(object):
         self._lock = Lock()
         self.started = False
         if is_chief:
-            self._httpd = BaseHTTPServer.HTTPServer((FLAGS.coord_host, FLAGS.coord_port), TrainingCoordinator.TrainingCoordinationHandler)
+            pass
+            #self._httpd = BaseHTTPServer.HTTPServer((FLAGS.coord_host, FLAGS.coord_port), TrainingCoordinator.TrainingCoordinationHandler)
 
     def _reset_counters(self):
         self._index_train = 0
