@@ -1418,9 +1418,9 @@ class TrainingCoordinator(object):
         '''
         if is_chief:
             log_debug('Starting coordinator...')
-            self._thread = Thread(target=self._httpd.serve_forever)
-            self._thread.daemon = True
-            self._thread.start()
+            #self._thread = Thread(target=self._httpd.serve_forever)
+            #self._thread.daemon = True
+            #self._thread.start()
             log_debug('Coordinator started.')
 
     def stop(self, wait_for_running_epochs=True):
