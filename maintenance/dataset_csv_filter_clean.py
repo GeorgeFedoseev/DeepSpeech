@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import sys
 reload(sys)
@@ -10,6 +11,8 @@ BYTE_WIDTH = 2
 
 
 def filter_clean(in_csv_path, out_csv_path, exclude_not_found=False):
+    print "exclude_not_found: %s" % (str(exclude_not_found))
+
     with open(in_csv_path, 'r') as in_f:
         csv_reader = csv.reader(in_f)
         all_rows = list(csv_reader)[1:] # skip header
