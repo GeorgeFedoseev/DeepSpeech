@@ -9,7 +9,7 @@ SAMPLE_RATE = 16000
 BYTE_WIDTH = 2
 
 
-def filter_clean(in_csv_path, out_csv_path):
+def filter_clean(in_csv_path, out_csv_path, exclude_not_found=False):
     with open(in_csv_path, 'r') as in_f:
         csv_reader = csv.reader(in_f)
         all_rows = list(csv_reader)[1:] # skip header
@@ -31,6 +31,7 @@ def filter_clean(in_csv_path, out_csv_path):
             print "clean rows percentage: %.1f%%" % (float(len(clean_rows))/len(all_rows)*100)
 
 
+        found_clean_rows = []
         # calculate clean speech seconds
         clean_speech_seconds = 0
         found_files_count = 0
@@ -40,14 +41,19 @@ def filter_clean(in_csv_path, out_csv_path):
 
                 wav_filesize = os.path.getsize(r[0])
                 audio_length = float(wav_filesize)/SAMPLE_RATE/BYTE_WIDTH
-                clean_speech_seconds += audio_length
+                clean_speech_seconds += audio_length       
+                found_clean_rows.append(r)     
+
 
 
         clean_speech_hours = clean_speech_seconds/3600
 
-        print "found files percentage: %.2f%%" % (float(found_files_count)/len(clean_rows)*100)
+        print "not found files: %i" % (len(clean_rows) - found_files_count)
+        print "found files percentage: %f%%" % (float(found_files_count)/len(clean_rows)*100)
         print "total clean speech hours: %.2f" % (clean_speech_hours)
 
+        if exclude_not_found:
+            clean_rows = found_clean_rows
 
         with open(out_csv_path, 'w') as out_f:
             csv_writer = csv.writer(out_f)
@@ -63,6 +69,21 @@ def filter_clean(in_csv_path, out_csv_path):
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print('USAGE: python dataset_csv_filter_clean.py <in_csv_path> <out_csv_path>')
+        print('USAGE: python dataset_csv_filter_clean.py <in_csv_path> <out_csv_path> [--exclude-not-found]')
     else:
-        filter_clean(sys.argv[1], sys.argv[2])
+
+        exclude_not_found = False
+
+        try:
+            _ = sys.argv.index("--exclude-not-found")
+            exclude_not_found = True
+        except:
+            pass
+
+        filter_clean(sys.argv[1], sys.argv[2], exclude_not_found)
+
+
+
+
+
+
