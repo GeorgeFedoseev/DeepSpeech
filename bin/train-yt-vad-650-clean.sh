@@ -21,8 +21,8 @@ python -u DeepSpeech.py \
   --dropout_rate 0.3 \
   --default_stddev 0.046875 \
   --n_hidden 2048 \
-  --checkpoint_dir /assets/network/yt-vad-1k-2048/yt-vad-1k-clean-2048-checkpoints/ \
-  --export_dir /assets/network/yt-vad-1k-2048/yt-vad-1k-clean-2048-export/ \
+  --checkpoint_dir /assets/network/yt-vad-650-clean-2048/yt-vad-650-clean-2048-checkpoints/ \
+  --export_dir /assets/network/yt-vad-650-clean-2048/yt-vad-650-clean-2048-export/ \
   --log_level 1 \
   --report_count 100 \
   --xla=False \

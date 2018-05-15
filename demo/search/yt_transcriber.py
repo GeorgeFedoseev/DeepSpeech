@@ -33,7 +33,13 @@ YT_VIDEOS_TO_INDEX = [
     "EC9t2-Lkgl4",
     "AhZa26nDZfA",
     "NTqB5ged4Rw",
-    "SAQFzYnRTts"
+    "SAQFzYnRTts",
+    "LR_n8at2ORg",
+    "LrHIBkjOl2Y",
+    "0XRUbnKznOI",
+    "uuULi6X6yqU",
+    "RedxkKdFfkY",
+    "6KiAr8w6o7E"
 ]
 
 
@@ -108,9 +114,7 @@ def process_video(yt_video_id):
             print(transcript)            
 
             t = Transcription(media_type="youtube", media_id=yt_video_id, time_start=piece["start"], time_end=piece["end"], transcription=transcript)
-            db_util.add_item(t)
-
-            indexer.index_all()
+            db_util.add_item(t)            
 
             os.rename(piece_procesing_path, piece_done_path)
         
@@ -120,7 +124,9 @@ if __name__ == "__main__":
 
         db_util.init_db()
 
-        process_video(YT_VIDEOS_TO_INDEX[0])
+        for yt_video_id in YT_VIDEOS_TO_INDEX:            
+            process_video(yt_video_id)
+            indexer.index_all()
 
 
 
