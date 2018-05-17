@@ -8,7 +8,6 @@ fi;
 
 
 python -u DeepSpeech.py \
-  --alphabet_config_path "data/alphabet_no_dash.txt" \
   --train_files "/tmp/yt-vad-1k-dataset/yt-vad-1k-train-clean.csv" \
   --dev_files "/tmp/yt-vad-1k-dataset/yt-vad-1k-dev-clean.csv" \
   --test_files "/tmp/yt-vad-1k-dataset/yt-vad-1k-test-clean.csv" \
