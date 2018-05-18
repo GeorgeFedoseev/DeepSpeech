@@ -28,9 +28,11 @@ def copy_dataset_files(in_csv_path, out_dir_path):
         for r in all_rows:
             from_path = r[0]
             to_path = os.path.join(out_dir_path, os.path.basename(from_path))
-            shutil.copyfile(from_path, to_path)
+            if not os.path.exists(to_path) or os.path.getsize(from_path) != os.path.getsize(to_path):
+                shutil.copyfile(from_path, to_path)
+
             pbar.update(1)
-            
+
         pbar.close()
 
 
