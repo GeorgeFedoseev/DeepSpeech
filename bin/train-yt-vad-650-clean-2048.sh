@@ -8,9 +8,9 @@ fi;
 
 
 python -u DeepSpeech.py \
-  --train_files "/tmp/yt-vad-1k-dataset/yt-vad-1k-train-clean.csv" \
-  --dev_files "/tmp/yt-vad-1k-dataset/yt-vad-1k-dev-clean.csv" \
-  --test_files "/tmp/yt-vad-1k-dataset/yt-vad-1k-test-clean-5k.csv" \
+  --train_files "/tmp/yt-vad-650-clean/yt-vad-650-clean-train.csv" \
+  --dev_files "/tmp/yt-vad-650-clean/yt-vad-650-dev.csv" \
+  --test_files "/tmp/yt-vad-650-clean/yt-vad-650-clean-test.csv" \
   --train_batch_size 32 \
   --dev_batch_size 16 \
   --test_batch_size 16 \
