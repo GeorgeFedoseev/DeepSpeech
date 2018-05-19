@@ -138,7 +138,7 @@ RUN ln -s /DeepSpeech/native_client /tensorflow
 
 # >> START Build and bind
 
-WORKDIR /tensorflow
+#WORKDIR /tensorflow
 
 # Using CPU optimizations:
 # -mtune=generic -march=x86-64 -msse -msse2 -msse3 -msse4.1 -msse4.2 -mavx.
