@@ -9,7 +9,7 @@ fi;
 
 python -u DeepSpeech.py \
   --train_files "/tmp/yt-vad-650-clean/yt-vad-650-clean-train.csv" \
-  --dev_files "/tmp/yt-vad-650-clean/yt-vad-650-dev.csv" \
+  --dev_files "/tmp/yt-vad-650-clean/yt-vad-650-clean-dev.csv" \
   --test_files "/tmp/yt-vad-650-clean/yt-vad-650-clean-test.csv" \
   --train_batch_size 12 \
   --dev_batch_size 12 \
