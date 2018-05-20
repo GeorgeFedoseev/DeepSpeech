@@ -21,7 +21,7 @@ def initialize():
 
 
     start_time = time.time()
-    infer.init(language_tool_language="")
+    infer.init(language_tool_language="", use_lm=True)
     print("DeepSpeech init took %.2f sec" % (time.time() - start_time))
 
     

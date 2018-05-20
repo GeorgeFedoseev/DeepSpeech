@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"copy",
+				"copy_count\tstatement"
+			],
+			[
+				"all",
+				"all_out_rows\tstatement"
+			],
+			[
+				"csv",
+				"csv_writer\tstatement"
+			],
+			[
+				"out",
+				"out_f\tstatement"
+			],
+			[
+				"to",
+				"to_path\tstatement"
+			],
+			[
+				"from",
+				"from_path\tstatement"
+			],
+			[
+				"maked",
+				"makedirs\tfunction"
+			],
+			[
 				"exc",
 				"exclude_not_found\tstatement"
 			],
@@ -102,10 +130,6 @@
 			[
 				"get",
 				"getsize\tfunction"
-			],
-			[
-				"csv",
-				"csv_writer\tstatement"
 			],
 			[
 				"filter",
@@ -262,10 +286,6 @@
 			[
 				"cs",
 				"csv_writer\tstatement"
-			],
-			[
-				"all",
-				"all_rows\tstatement"
 			],
 			[
 				"alre",
@@ -448,10 +468,6 @@
 				"test_duration\tstatement"
 			],
 			[
-				"from",
-				"from_path"
-			],
-			[
 				"telegra",
 				"log_telegram"
 			],
@@ -498,22 +514,6 @@
 			[
 				"P",
 				"PROCESSING_CSV_FILE\tstatement"
-			],
-			[
-				"rem",
-				"remove_video_from_all\tfunction"
-			],
-			[
-				"pr",
-				"PROCESSING_CSV_FILE\tstatement"
-			],
-			[
-				"is",
-				"is_item_in_csv\tfunction"
-			],
-			[
-				"appe",
-				"append_column_to_csv\tfunction"
 			]
 		]
 	},
@@ -529,37 +529,19 @@
 			}
 		},
 		{
-			"file": "bin/import_voxforge_ru.py",
+			"file": "/Users/gosha/Desktop/yt-vad-1k-then-clean-2048-checkpoints_18May18/checkpoint",
 			"settings":
 			{
-				"buffer_size": 11557,
+				"buffer_size": 225,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bin/infer-yt-vad-650-clean.sh",
+			"file": "const.py",
 			"settings":
 			{
-				"buffer_size": 312,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/train-yt-vad-650-clean.sh",
-			"settings":
-			{
-				"buffer_size": 903,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "maintenance/dataset_csv_filter_clean.py",
-			"settings":
-			{
-				"buffer_size": 2520,
+				"buffer_size": 835,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -568,24 +550,25 @@
 			"file": "demo/web_demo.py",
 			"settings":
 			{
-				"buffer_size": 1655,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "demo/search/yt_transcriber.py",
-			"settings":
-			{
-				"buffer_size": 3982,
+				"buffer_size": 1619,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "demo/flask/templates/search.html",
+			"file": "file_transcriber.py",
 			"settings":
 			{
-				"buffer_size": 4900,
+				"buffer_size": 1779,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "infer.py",
+			"settings":
+			{
+				"buffer_size": 3053,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -656,28 +639,41 @@
 	"expanded_folders":
 	[
 		"/Users/gosha/Projects/DeepSpeech",
+		"/Users/gosha/Projects/DeepSpeech/data",
 		"/Users/gosha/Projects/DeepSpeech/demo",
-		"/Users/gosha/Projects/DeepSpeech/maintenance"
+		"/Users/gosha/Projects/DeepSpeech/demo/transcribe"
 	],
 	"file_history":
 	[
+		"/Users/gosha/Projects/DeepSpeech/maintenance/copy_dataset_files.py",
+		"/Users/gosha/Projects/DeepSpeech/Dockerfile",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-1024.sh",
+		"/Users/gosha/Projects/DeepSpeech/.gitignore",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-512.sh",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-2048.sh",
+		"/Users/gosha/Projects/DeepSpeech/requirements.txt",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-1k-then-clean.sh",
+		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-1k-then-clean.sh",
+		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_transcriber.py",
+		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/search.html",
+		"/Users/gosha/Library/Application Support/Sublime Text 3/Packages/Anaconda/Default (OSX).sublime-keymap",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-1k.sh",
+		"/Users/gosha/Library/Application Support/Sublime Text 3/Packages/User/sublime_jedi.sublime-settings",
+		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-650-clean.sh",
+		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge_ru.py",
 		"/Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/nacl/exceptions.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/continuous.html",
 		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_search.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/web_demo.py",
-		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/search.html",
 		"/Users/gosha/Projects/DeepSpeech/asr-set-filter.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/search/utils/db_util.py",
 		"/Users/gosha/Projects/DeepSpeech/maintenance/dataset_csv_filter_clean.py",
 		"/Users/gosha/Projects/DeepSpeech/ds.sublime-project",
-		"/Users/gosha/Projects/DeepSpeech/requirements.txt",
 		"/Users/gosha/Projects/DeepSpeech/infer.py",
 		"/Users/gosha/Projects/DeepSpeech/DeepSpeech.py",
-		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/search/indexer.py",
 		"/Users/gosha/Projects/DeepSpeech/const.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/transcribe/mic_transcriber.py",
-		"/Users/gosha/Projects/DeepSpeech/.gitignore",
 		"/Users/gosha/Projects/DeepSpeech/file_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/transcribe/file_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/js/lib/recorder.js",
@@ -700,15 +696,12 @@
 		"/Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/tensorflow/python/client/session.py",
 		"/Users/gosha/Projects/DeepSpeech/asr_cutting_clean.py",
 		"/Users/gosha/Projects/DeepSpeech/batch_infer.py",
-		"/Users/gosha/Projects/DeepSpeech/Dockerfile",
-		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-1k.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-1k.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_swb.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-echo-msk.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-autosubs-rus.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-autosubs-rus.sh",
 		"/Users/gosha/Projects/DeepSpeech/util/telegram_logger.py",
-		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge_ru.py",
 		"/Users/gosha/Projects/DeepSpeech/data/alphabet.txt",
 		"/Users/gosha/Projects/DeepSpeech/evaluate.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-subs-rus.sh",
@@ -779,14 +772,11 @@
 		"/Users/gosha/Projects/MusicPlayerTestProject/Podfile",
 		"/Users/gosha/Desktop/2_writing_2.txt",
 		"/Users/gosha/Desktop/2_writing_1.txt",
-		"/Volumes/STORAGE/TMP/SlidingWall.cs",
-		"/Users/gosha/Desktop/goodnia-ipa/pegasus/.htaccess",
-		"/Users/gosha/Projects/Discovery/Podfile",
-		"/Users/gosha/Desktop/test.txt"
+		"/Volumes/STORAGE/TMP/SlidingWall.cs"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -946,7 +936,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -962,38 +952,8 @@
 						"selection":
 						[
 							[
-								45,
-								22
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2634.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "bin/import_voxforge_ru.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11557,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9405,
-								9405
+								10481,
+								10501
 							]
 						],
 						"settings":
@@ -1006,37 +966,83 @@
 								"status": -1,
 								"syntax": "python"
 							},
+							"show_definitions": false,
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3205.0,
+						"translation.y": 2237.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "bin/infer-yt-vad-650-clean.sh",
+					"buffer": 1,
+					"file": "/Users/gosha/Desktop/yt-vad-1k-then-clean-2048-checkpoints_18May18/checkpoint",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 312,
+						"buffer_size": 225,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								312,
-								312
+								205,
+								205
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+							"WordCount":
+							{
+								"changes": 4,
+								"count": 16,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "const.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 835,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								327,
+								327
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1047,49 +1053,57 @@
 				},
 				{
 					"buffer": 3,
-					"file": "bin/train-yt-vad-650-clean.sh",
+					"file": "demo/web_demo.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 903,
+						"buffer_size": 1619,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								776,
-								776
+								1419,
+								1419
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
-							"tab_size": 2,
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 368.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "maintenance/dataset_csv_filter_clean.py",
+					"file": "file_transcriber.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2520,
+						"buffer_size": 1779,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14,
-								14
+								528,
+								524
 							]
 						],
 						"settings":
@@ -1118,7 +1132,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 90.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1126,19 +1140,19 @@
 				},
 				{
 					"buffer": 5,
-					"file": "demo/web_demo.py",
-					"semi_transient": true,
+					"file": "infer.py",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1655,
+						"buffer_size": 3053,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								666,
-								666
+								301,
+								301
 							]
 						],
 						"settings":
@@ -1151,36 +1165,6 @@
 								"status": -1,
 								"syntax": "python"
 							},
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "demo/search/yt_transcriber.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3982,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								788,
-								788
-							]
-						],
-						"settings":
-						{
 							"auto_complete_triggers":
 							[
 								{
@@ -1190,52 +1174,17 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
 								}
 							],
-							"show_definitions": false,
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 143.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "demo/flask/templates/search.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4900,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2635,
-								2635
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]

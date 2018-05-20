@@ -20,7 +20,7 @@ data_path = os.path.join(current_dir_path, "data")
 
 initialized = False
 
-def init(n_hidden=const.DEEP_SPEECH_N_HIDDEN, checkpoint_dir=const.DEEP_SPEECH_CHECKPOINT_DIR, alphabet_config_path=const.DEEP_SPEECH_ALPHABET_PATH, use_lm=False, language_tool_language='ru-RU'):
+def init(n_hidden=const.DEEP_SPEECH_N_HIDDEN, checkpoint_dir=const.DEEP_SPEECH_CHECKPOINT_DIR, alphabet_config_path=const.DEEP_SPEECH_ALPHABET_PATH, use_lm=False, language_tool_language=''):
     global initialized
 
     if initialized:
@@ -83,7 +83,7 @@ def infer(wav_path, session_tuple):
 if __name__ == "__main__":
 
     start_time = time.time()
-    init(n_hidden=2048,checkpoint_dir=const.DEEP_SPEECH_CHECKPOINT_DIR, alphabet_config_path=const.DEEP_SPEECH_ALPHABET_PATH)
+    init(use_lm=True)
     print("DeepSpeech init took %.2f sec" % (time.time() - start_time))
 
     

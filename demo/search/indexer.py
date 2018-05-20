@@ -11,21 +11,13 @@ project_root_path = os.path.join(current_dir_path, os.pardir, os.pardir)
 sys.path.insert(0, project_root_path)
 
 import const
-
 from whoosh.fields import Schema, TEXT, ID
 from whoosh.index import create_in
 from whoosh.index import open_dir
-
 from whoosh.qparser import QueryParser
-
 import Stemmer
-
 from whoosh.analysis import StemmingAnalyzer, LanguageAnalyzer
 from whoosh.lang.snowball import RussianStemmer
-
-
-
-
 from utils import db_util
 
 
@@ -77,9 +69,8 @@ def full_text_search(q):
                 ))
 
     return results
-            
 
-#ix = open_dir(const.TRANSCRIBED_WHOOSH_INDEX_DIR_PATH)
+
 
 
 
