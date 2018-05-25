@@ -78,15 +78,15 @@ def process_video(yt_video_id, video_title):
     if not os.path.exists(wav_audio_path):
         audio_utils.convert_to_wav(original_audio_path, wav_audio_path)
 
-    #wav_vol_corr_path = os.path.join(video_data_path, "audio_vol_corr.wav")
-    #print("correct_volume")
-    #if not os.path.exists(wav_vol_corr_path):  
-    #    audio_utils.correct_volume(wav_audio_path, wav_vol_corr_path, db=-12)
+    wav_vol_corr_path = os.path.join(video_data_path, "audio_vol_corr.wav")
+    print("correct_volume")
+    if not os.path.exists(wav_vol_corr_path):  
+       audio_utils.correct_volume(wav_audio_path, wav_vol_corr_path, db=-12)
 
     wav_filtered_path = os.path.join(video_data_path, "audio_filtered.wav")
     if not os.path.exists(wav_filtered_path):    
         print("apply_bandpass_filter")
-        audio_utils.apply_bandpass_filter(wav_audio_path, wav_filtered_path, low=2500)
+        audio_utils.apply_bandpass_filter(wav_vol_corr_path, wav_filtered_path, low=2500)
 
     wave_o = wave.open(wav_filtered_path, "r")
 
