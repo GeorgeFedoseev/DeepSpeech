@@ -520,55 +520,19 @@
 	"buffers":
 	[
 		{
-			"file": "DeepSpeech.py",
+			"file": "demo/flask/templates/search.html",
 			"settings":
 			{
-				"buffer_size": 89217,
+				"buffer_size": 4900,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/gosha/Desktop/yt-vad-1k-then-clean-2048-checkpoints_18May18/checkpoint",
+			"file": "/Users/gosha/Desktop/Diploma-Main/code/search.html",
 			"settings":
 			{
-				"buffer_size": 225,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "const.py",
-			"settings":
-			{
-				"buffer_size": 835,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "demo/web_demo.py",
-			"settings":
-			{
-				"buffer_size": 1619,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "file_transcriber.py",
-			"settings":
-			{
-				"buffer_size": 1779,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "infer.py",
-			"settings":
-			{
-				"buffer_size": 3053,
+				"buffer_size": 2604,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -641,18 +605,31 @@
 		"/Users/gosha/Projects/DeepSpeech",
 		"/Users/gosha/Projects/DeepSpeech/data",
 		"/Users/gosha/Projects/DeepSpeech/demo",
-		"/Users/gosha/Projects/DeepSpeech/demo/transcribe"
+		"/Users/gosha/Projects/DeepSpeech/demo/flask",
+		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates",
+		"/Users/gosha/Projects/DeepSpeech/demo/search"
 	],
 	"file_history":
 	[
+		"/Users/gosha/Projects/DeepSpeech/DeepSpeech.py",
+		"/Users/gosha/Projects/DeepSpeech/.gitignore",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-2048-new.sh",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-1k-then-clean.sh",
+		"/Users/gosha/Desktop/Diploma-Main/code/Dockerfile",
+		"/Users/gosha/Desktop/Diploma-Main/code/search.py",
+		"/Users/gosha/Desktop/Diploma-Main/code/transcriber.py",
+		"/Users/gosha/Desktop/Diploma-Main/code/indexer.py",
+		"/Users/gosha/Projects/DeepSpeech/const.py",
+		"/Users/gosha/Projects/DeepSpeech/demo/web_demo.py",
+		"/Users/gosha/Projects/DeepSpeech/file_transcriber.py",
+		"/Users/gosha/Projects/DeepSpeech/infer.py",
+		"/Users/gosha/Desktop/yt-vad-1k-then-clean-2048-checkpoints_18May18/checkpoint",
 		"/Users/gosha/Projects/DeepSpeech/maintenance/copy_dataset_files.py",
 		"/Users/gosha/Projects/DeepSpeech/Dockerfile",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-1024.sh",
-		"/Users/gosha/Projects/DeepSpeech/.gitignore",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-512.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-2048.sh",
 		"/Users/gosha/Projects/DeepSpeech/requirements.txt",
-		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-1k-then-clean.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-1k-then-clean.sh",
 		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/search.html",
@@ -664,17 +641,12 @@
 		"/Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/nacl/exceptions.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/continuous.html",
 		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_search.py",
-		"/Users/gosha/Projects/DeepSpeech/demo/web_demo.py",
 		"/Users/gosha/Projects/DeepSpeech/asr-set-filter.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/search/utils/db_util.py",
 		"/Users/gosha/Projects/DeepSpeech/maintenance/dataset_csv_filter_clean.py",
 		"/Users/gosha/Projects/DeepSpeech/ds.sublime-project",
-		"/Users/gosha/Projects/DeepSpeech/infer.py",
-		"/Users/gosha/Projects/DeepSpeech/DeepSpeech.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/search/indexer.py",
-		"/Users/gosha/Projects/DeepSpeech/const.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/transcribe/mic_transcriber.py",
-		"/Users/gosha/Projects/DeepSpeech/file_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/transcribe/file_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/js/lib/recorder.js",
 		"/Users/gosha/Projects/DeepSpeech/demo/file_transcriber.py",
@@ -766,17 +738,11 @@
 		"/Users/gosha/Projects/python_tests/image_rec_tests/digital_display_ocr.py",
 		"/Library/Python/2.7/site-packages/PIL/__init__.py",
 		"/Users/gosha/Projects/python_tests/selenium_utils.py",
-		"/Library/Python/2.7/site-packages/selenium/webdriver/chrome/webdriver.py",
-		"/Users/gosha/Projects/ThreeThingsToDo/Podfile",
-		"/Users/gosha/Projects/python_tests/working_with_images.py",
-		"/Users/gosha/Projects/MusicPlayerTestProject/Podfile",
-		"/Users/gosha/Desktop/2_writing_2.txt",
-		"/Users/gosha/Desktop/2_writing_1.txt",
-		"/Volumes/STORAGE/TMP/SlidingWall.cs"
+		"/Library/Python/2.7/site-packages/selenium/webdriver/chrome/webdriver.py"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -791,6 +757,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"early",
 			"indexer",
 			"mean",
 			"coord_port",
@@ -917,8 +884,7 @@
 			"samples",
 			"Epoch",
 			"wer_log_pattern",
-			"Sample",
-			"log_info"
+			"Sample"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -936,255 +902,85 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "DeepSpeech.py",
+					"file": "demo/flask/templates/search.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 89217,
+						"buffer_size": 4900,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10481,
-								10501
+								2489,
+								308
 							]
 						],
 						"settings":
 						{
 							"WordCount":
 							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"show_definitions": false,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2237.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Users/gosha/Desktop/yt-vad-1k-then-clean-2048-checkpoints_18May18/checkpoint",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 225,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								205,
-								205
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 4,
-								"count": 16,
+								"changes": 44,
+								"count": 22,
 								"modified": false,
 								"selection": false,
 								"status": -1,
 								"syntax": "plain text"
 							},
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "const.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 835,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								327,
-								327
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "demo/web_demo.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1619,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1419,
-								1419
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 368.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "file_transcriber.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1779,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								528,
-								524
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "infer.py",
+					"buffer": 1,
+					"file": "/Users/gosha/Desktop/Diploma-Main/code/search.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3053,
+						"buffer_size": 2604,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								301,
-								301
+								2604,
+								2604
 							]
 						],
 						"settings":
 						{
 							"WordCount":
 							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
+								"changes": 1,
+								"count": 21,
+								"modified": false,
+								"selection": false,
 								"status": -1,
-								"syntax": "python"
+								"syntax": "plain text"
 							},
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 109.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
