@@ -50,14 +50,14 @@ def transcribe_file(rec_path):
     audio_utils.loud_norm(rec_path, audio_wav_volume_normalized_path)
 
     # correct volume
-    audio_wav_volume_corrected_path = rec_path+"_volume_corrected.wav"        
+    #audio_wav_volume_corrected_path = rec_path+"_volume_corrected.wav"        
     #print("Correcting volume...")
-    audio_utils.correct_volume(audio_wav_volume_normalized_path, audio_wav_volume_corrected_path)
+    #audio_utils.correct_volume(audio_wav_volume_normalized_path, audio_wav_volume_corrected_path)
 
     # apply bandpass filter
     audio_wav_filtered_path = rec_path+"_filtered.wav"   
     #print("Applying bandpass filter...")
-    audio_utils.apply_bandpass_filter(audio_wav_volume_corrected_path, audio_wav_filtered_path)
+    audio_utils.apply_bandpass_filter(audio_wav_volume_normalized_path, audio_wav_filtered_path)
     
     return infer.infer(audio_wav_filtered_path, session)
     
