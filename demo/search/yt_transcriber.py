@@ -27,20 +27,21 @@ import file_transcriber
 
 import indexer
 
+import csv
 
 
-YT_VIDEOS_TO_INDEX = [
-    "EC9t2-Lkgl4",
-    "AhZa26nDZfA",
-    "NTqB5ged4Rw",
-    "SAQFzYnRTts",
-    "LR_n8at2ORg",
-    "LrHIBkjOl2Y",
-    "0XRUbnKznOI",
-    "uuULi6X6yqU",
-    "RedxkKdFfkY",
-    "6KiAr8w6o7E"
-]
+# YT_VIDEOS_TO_INDEX = [
+#     "EC9t2-Lkgl4",
+#     "AhZa26nDZfA",
+#     "NTqB5ged4Rw",
+#     "SAQFzYnRTts",
+#     "LR_n8at2ORg",
+#     "LrHIBkjOl2Y",
+#     "0XRUbnKznOI",
+#     "uuULi6X6yqU",
+#     "RedxkKdFfkY",
+#     "6KiAr8w6o7E"
+# ]
 
 
 
@@ -58,10 +59,16 @@ def check_dependencies():
 
 
 
-def process_video(yt_video_id):
+def process_video(yt_video_id, video_title):
     print("process video %s" % (yt_video_id))    
 
     video_data_path = os.path.join(const.VIDEO_DATA_DIR, yt_video_id)
+
+    video_done_flag_path = os.path.join(video_data_path, "DONE")
+
+    if os.path.exists(video_done_flag_path):
+        print 'already processed'
+        return
 
     # download video
     original_audio_path = download_yt_audio(yt_video_id)
@@ -113,20 +120,35 @@ def process_video(yt_video_id):
 
             print(transcript)            
 
-            t = Transcription(media_type="youtube", media_id=yt_video_id, time_start=piece["start"], time_end=piece["end"], transcription=transcript)
+            video_title = video_title.decode("utf-8").strip()
+            t = Transcription(media_type="youtube", media_name=video_title, media_id=yt_video_id, time_start=piece["start"], time_end=piece["end"], transcription=transcript)
             db_util.add_item(t)            
 
             os.rename(piece_procesing_path, piece_done_path)
+
+    with open(video_done_flag_path, 'w'):
+        pass
+
+    print 'DONE'
         
 
 if __name__ == "__main__":
-    if check_dependencies():
 
-        db_util.init_db()
+    if len(sys.argv) > 1:
 
-        for yt_video_id in YT_VIDEOS_TO_INDEX:            
-            process_video(yt_video_id)
+        if check_dependencies():
+            db_util.init_db()
+
+            with open(sys.argv[1], 'r') as csv_f:
+                yt_video_rows = list(csv.reader(csv_f))
+
+            for r in yt_video_rows:            
+                process_video(r[0], r[1])
+
+            print 'rebuilding search index...'
             indexer.index_all()
+    else:
+        print 'Usage: yt_transcriber.py <path_to_csv>'
 
 
 

@@ -77,7 +77,7 @@ def full_text_search(q):
 if __name__ == "__main__":
     index_all()
 
-    q = "депозитов"    
+    q = "знаменатель"    
     
     print ("searching for %s" % (q))
     results = full_text_search(q)

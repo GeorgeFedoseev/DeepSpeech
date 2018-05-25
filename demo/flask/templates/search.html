@@ -124,7 +124,7 @@
                 </a>
                 <div class="card-right">
                   <a v-bind:href="'https://youtu.be/'+result.media_id+'?t='+result.matches[0].time_start" target="_blank">
-                    <div class="card-title">${result.media_id}</div>
+                    <div class="card-title">${result.media_name}</div>
                   </a>
                   <div class="card-time-marks" v-for="match in result.matches">
                     <a v-bind:href="'https://youtu.be/'+result.media_id+'?t='+match.time_start" target="_blank">

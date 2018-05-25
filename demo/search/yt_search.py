@@ -29,6 +29,7 @@ def search(q):
 
         results_all.append({
             "media_id": db_item.media_id,
+            "media_name": db_item.media_name,
             "time_start": time.strftime('%Mm%Ss', time.gmtime(db_item.time_start)),
             "time_end": time.strftime('%Mm%Ss', time.gmtime(db_item.time_end)),
             "highlight": r[1]
@@ -41,8 +42,10 @@ def search(q):
     results_grouped_by_media = []
 
     for mid in media_ids:
+        media_name = [r for r in results_all if r["media_id"] == mid][0]["media_name"]
         results_grouped_by_media.append({
             "media_id": mid,
+            "media_name": media_name,
             "matches": [r for r in results_all if r["media_id"] == mid]
             })
 
@@ -51,19 +54,20 @@ def search(q):
 
 
 if __name__ == "__main__":
-    results = search("депозитов")
+    results = search("знаменатель")
     #pprint(results)
 
     #print results[0]["results"][0]["highlight"]
 
     if len(results) > 0:
-        res = results[0]["time_marks"][0]
-        print res["matches"]
+        pprint(results[0])
+        #res = results[0]["time_marks"][0]
+       #print res["matches"]
 
-        print res["matches"]
+       # print res["matches"]
 
-        formatted_timestart = time.strftime('%Mm%Ss', time.gmtime(res["time_start"]))
-        print "https://youtu.be/%s?t=%s" % (res["media_id"],  formatted_timestart)
+        #formatted_timestart = time.strftime('%Mm%Ss', time.gmtime(res["time_start"]))
+        #print "https://youtu.be/%s?t=%s" % (res["media_id"],  formatted_timestart)
     else:
         print("no results")
 
