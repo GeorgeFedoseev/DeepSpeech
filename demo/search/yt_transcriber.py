@@ -28,6 +28,7 @@ import file_transcriber
 import indexer
 
 import csv
+import time
 
 
 # YT_VIDEOS_TO_INDEX = [
@@ -71,7 +72,12 @@ def process_video(yt_video_id, video_title):
         return
 
     # download video
-    original_audio_path = download_yt_audio(yt_video_id)
+    try:
+        original_audio_path = download_yt_audio(yt_video_id)
+    except Exception as ex:
+        print 'Error downloading: %s\nRetrying in 5 sec...' % (str(ex))
+        time.sleep(5)
+        process_video(yt_video_id, video_title)
 
     # convert audio and apply filters
     wav_audio_path = os.path.join(video_data_path, "audio.wav")
@@ -142,7 +148,7 @@ if __name__ == "__main__":
             with open(sys.argv[1], 'r') as csv_f:
                 yt_video_rows = list(csv.reader(csv_f))
 
-            for r in yt_video_rows:            
+            for r in yt_video_rows:
                 process_video(r[0], r[1])
 
             print 'rebuilding search index...'
