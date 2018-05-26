@@ -45,24 +45,7 @@ import time
 # ]
 
 
-class TimedOutExc(Exception):
-  pass
 
-def deadline(timeout, *args):
-  def decorate(f):
-    def handler(signum, frame):
-      raise TimedOutExc()
-
-    def new_f(*args):
-
-      signal.signal(signal.SIGALRM, handler)
-      signal.alarm(timeout)
-      return f(*args)
-      signa.alarm(0)
-
-    new_f.__name__ = f.__name__
-    return new_f
-  return decorate
 
 
 
@@ -91,8 +74,7 @@ def process_video(yt_video_id, video_title):
         return
 
     # download video
-    try:
-        @deadline(900) # 15 mins deadline
+    try:        
         original_audio_path = download_yt_audio(yt_video_id)
     except Exception as ex:
         print 'Error downloading: %s\nRetrying in 5 sec...' % (str(ex))
