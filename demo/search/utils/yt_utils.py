@@ -6,6 +6,8 @@ import const
 
 import pafy
 
+import signal
+
 
 class TimedOutExc(Exception):
   pass
