@@ -6,29 +6,12 @@ import const
 
 import pafy
 
-import signal
+from timeout import timeout
 
 
-class TimedOutExc(Exception):
-  pass
 
-def deadline(timeout, *args):
-  def decorate(f):
-    def handler(signum, frame):
-      raise TimedOutExc()
 
-    def new_f(*args):
-
-      signal.signal(signal.SIGALRM, handler)
-      signal.alarm(timeout)
-      return f(*args)
-      signa.alarm(0)
-
-    new_f.__name__ = f.__name__
-    return new_f
-  return decorate
-
-@deadline(900)  # 15 mins deadline
+@timeout(900)  # 15 mins deadline
 def download_yt_audio(yt_video_id):
 
     curr_dir_path = const.curr_dir_path
