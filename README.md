@@ -15,5 +15,5 @@ dataset crawled from [voxforge.com](http://www.repository.voxforge1.org/download
 
 
 Created ASR system was applied to speech search task in big collection of video files.   
-Here is a demo:
-![seach-demo-5](seach-demo-5.gif)
+Here is a demo:  
+![search-demo-5](search-demo-5.gif)
