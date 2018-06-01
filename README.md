@@ -14,7 +14,7 @@ Developed speech recognition system for Russian language achieves 21% WER on cus
 dataset crawled from [voxforge.com](http://www.repository.voxforge1.org/downloads/Russian/Trunk/Audio/Main/16kHz_16bit/).
 
 
-Created ASR system was applied to speech search task in big collection of video files.  
+Created ASR system was applied to speech search task in big collection of video files. Implemented search service allows to jump to a particular moment in video where requested text is being spoken.
 
 
 Here is a demo:  
