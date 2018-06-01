@@ -1,6 +1,6 @@
 # DeepSpeech for Russian language
 
-Project DeepSpeech is an open source Speech-To-Text engine implemented by Mozilla, 
+Project DeepSpeech is an open source Speech-To-Text engine [implemented by Mozilla](https://github.com/mozilla/DeepSpeech), 
 based on [Baidu's Deep Speech research paper](https://arxiv.org/abs/1412.5567)
 using [TensorFlow](https://www.tensorflow.org/).
 
