@@ -20,7 +20,7 @@ language_check
 tqdm
 deepspeech
 webrtcvad
-pyaudio
+#pyaudio
 flask
 pafy
 youtube-dl

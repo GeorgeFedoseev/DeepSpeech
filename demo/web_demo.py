@@ -54,10 +54,9 @@ def transcribe_file():
         file_path = os.path.join(tmp_folder_path, secure_filename(f.filename))
         f.save(file_path)
 
-        file_transcriber.init()
         t = file_transcriber.transcribe_file(file_path)
 
-        return t    
+        return t
         
 
 

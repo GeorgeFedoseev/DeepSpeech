@@ -4,6 +4,70 @@
 		"selected_items":
 		[
 			[
+				"proces",
+				"process_video\tfunction"
+			],
+			[
+				"pr",
+				"print\tkeyword"
+			],
+			[
+				"video",
+				"video_title\tparam"
+			],
+			[
+				"media",
+				"media_name"
+			],
+			[
+				"csv",
+				"csv_f\tstatement"
+			],
+			[
+				"done",
+				"video_done_flag_path"
+			],
+			[
+				"videoda",
+				"video_done_flag_path\tstatement"
+			],
+			[
+				"copy",
+				"copy_count\tstatement"
+			],
+			[
+				"all",
+				"all_out_rows\tstatement"
+			],
+			[
+				"out",
+				"out_f\tstatement"
+			],
+			[
+				"to",
+				"to_path\tstatement"
+			],
+			[
+				"from",
+				"from_path\tstatement"
+			],
+			[
+				"maked",
+				"makedirs\tfunction"
+			],
+			[
+				"exc",
+				"exclude_not_found\tstatement"
+			],
+			[
+				"found",
+				"found_clean_rows\tstatement"
+			],
+			[
+				"clea",
+				"clean_rows\tstatement"
+			],
+			[
 				"match",
 				"matches"
 			],
@@ -88,20 +152,8 @@
 				"clean_rows\tstatement"
 			],
 			[
-				"found",
-				"found_files_count\tstatement"
-			],
-			[
-				"clea",
-				"clean_speech_seconds\tstatement"
-			],
-			[
 				"get",
 				"getsize\tfunction"
-			],
-			[
-				"csv",
-				"csv_writer\tstatement"
 			],
 			[
 				"filter",
@@ -258,10 +310,6 @@
 			[
 				"cs",
 				"csv_writer\tstatement"
-			],
-			[
-				"all",
-				"all_rows\tstatement"
 			],
 			[
 				"alre",
@@ -444,10 +492,6 @@
 				"test_duration\tstatement"
 			],
 			[
-				"from",
-				"from_path"
-			],
-			[
 				"telegra",
 				"log_telegram"
 			],
@@ -470,69 +514,51 @@
 			[
 				"fil",
 				"filename\tstatement"
-			],
-			[
-				"p",
-				"path"
-			],
-			[
-				"try",
-				"try\tTry/Except"
-			],
-			[
-				"vo",
-				"voxforge_url"
-			],
-			[
-				"sou",
-				"source_len\tstatement"
-			],
-			[
-				"targ",
-				"target_len\tstatement"
-			],
-			[
-				"P",
-				"PROCESSING_CSV_FILE\tstatement"
-			],
-			[
-				"rem",
-				"remove_video_from_all\tfunction"
-			],
-			[
-				"pr",
-				"PROCESSING_CSV_FILE\tstatement"
-			],
-			[
-				"is",
-				"is_item_in_csv\tfunction"
-			],
-			[
-				"appe",
-				"append_column_to_csv\tfunction"
-			],
-			[
-				"wr",
-				"writerow"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "demo/flask/templates/search.html",
+			"file": "demo/search/yt_transcriber.py",
 			"settings":
 			{
-				"buffer_size": 4896,
+				"buffer_size": 4790,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bin/train-yt-vad-1k-clean.sh",
+			"file": "demo/search/utils/yt_utils.py",
 			"settings":
 			{
-				"buffer_size": 887,
+				"buffer_size": 1437,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/gosha/Library/Application Support/DefaultCompany/DropboxSync/Unity/local.e55bd6616688f4fada40fcec5eb09cc2/Analytics/values",
+			"settings":
+			{
+				"buffer_size": 153,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "file_transcriber.py",
+			"settings":
+			{
+				"buffer_size": 1757,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "demo/search/indexer.py",
+			"settings":
+			{
+				"buffer_size": 1991,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -541,7 +567,32 @@
 			"file": "demo/web_demo.py",
 			"settings":
 			{
-				"buffer_size": 1655,
+				"buffer_size": 1619,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "demo/flask/templates/search.html",
+			"settings":
+			{
+				"buffer_size": 4902,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "demo/search/utils/db_util.py",
+			"settings":
+			{
+				"buffer_size": 1123,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "demo/search/models.py",
+			"settings":
+			{
+				"buffer_size": 712,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -550,16 +601,16 @@
 			"file": "demo/search/yt_search.py",
 			"settings":
 			{
-				"buffer_size": 1650,
+				"buffer_size": 1854,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "demo/flask/templates/continuous.html",
+			"file": "demo/search/yt-videos-to-parse.csv",
 			"settings":
 			{
-				"buffer_size": 4956,
+				"buffer_size": 0,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -630,26 +681,51 @@
 	"expanded_folders":
 	[
 		"/Users/gosha/Projects/DeepSpeech",
-		"/Users/gosha/Projects/DeepSpeech/bin",
-		"/Users/gosha/Projects/DeepSpeech/maintenance"
+		"/Users/gosha/Projects/DeepSpeech/demo",
+		"/Users/gosha/Projects/DeepSpeech/demo/flask",
+		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates",
+		"/Users/gosha/Projects/DeepSpeech/demo/search",
+		"/Users/gosha/Projects/DeepSpeech/demo/search/utils"
 	],
 	"file_history":
 	[
+		"/Users/gosha/Desktop/Diploma-Main/code/search.html",
+		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/search.html",
+		"/Users/gosha/Projects/DeepSpeech/DeepSpeech.py",
+		"/Users/gosha/Projects/DeepSpeech/.gitignore",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-2048-new.sh",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-1k-then-clean.sh",
+		"/Users/gosha/Desktop/Diploma-Main/code/Dockerfile",
+		"/Users/gosha/Desktop/Diploma-Main/code/search.py",
+		"/Users/gosha/Desktop/Diploma-Main/code/transcriber.py",
+		"/Users/gosha/Desktop/Diploma-Main/code/indexer.py",
+		"/Users/gosha/Projects/DeepSpeech/const.py",
+		"/Users/gosha/Projects/DeepSpeech/demo/web_demo.py",
+		"/Users/gosha/Projects/DeepSpeech/file_transcriber.py",
+		"/Users/gosha/Projects/DeepSpeech/infer.py",
+		"/Users/gosha/Desktop/yt-vad-1k-then-clean-2048-checkpoints_18May18/checkpoint",
+		"/Users/gosha/Projects/DeepSpeech/maintenance/copy_dataset_files.py",
+		"/Users/gosha/Projects/DeepSpeech/Dockerfile",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-1024.sh",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-512.sh",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-2048.sh",
+		"/Users/gosha/Projects/DeepSpeech/requirements.txt",
+		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-1k-then-clean.sh",
+		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_transcriber.py",
+		"/Users/gosha/Library/Application Support/Sublime Text 3/Packages/Anaconda/Default (OSX).sublime-keymap",
+		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-1k.sh",
+		"/Users/gosha/Library/Application Support/Sublime Text 3/Packages/User/sublime_jedi.sublime-settings",
+		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-650-clean.sh",
+		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge_ru.py",
+		"/Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/nacl/exceptions.py",
+		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/continuous.html",
+		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_search.py",
 		"/Users/gosha/Projects/DeepSpeech/asr-set-filter.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/search/utils/db_util.py",
 		"/Users/gosha/Projects/DeepSpeech/maintenance/dataset_csv_filter_clean.py",
 		"/Users/gosha/Projects/DeepSpeech/ds.sublime-project",
-		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/continuous.html",
-		"/Users/gosha/Projects/DeepSpeech/requirements.txt",
-		"/Users/gosha/Projects/DeepSpeech/infer.py",
-		"/Users/gosha/Projects/DeepSpeech/DeepSpeech.py",
-		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/search/indexer.py",
-		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_search.py",
-		"/Users/gosha/Projects/DeepSpeech/const.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/transcribe/mic_transcriber.py",
-		"/Users/gosha/Projects/DeepSpeech/.gitignore",
-		"/Users/gosha/Projects/DeepSpeech/file_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/transcribe/file_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/js/lib/recorder.js",
 		"/Users/gosha/Projects/DeepSpeech/demo/file_transcriber.py",
@@ -671,15 +747,12 @@
 		"/Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/tensorflow/python/client/session.py",
 		"/Users/gosha/Projects/DeepSpeech/asr_cutting_clean.py",
 		"/Users/gosha/Projects/DeepSpeech/batch_infer.py",
-		"/Users/gosha/Projects/DeepSpeech/Dockerfile",
-		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-1k.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-1k.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_swb.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-echo-msk.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-autosubs-rus.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-autosubs-rus.sh",
 		"/Users/gosha/Projects/DeepSpeech/util/telegram_logger.py",
-		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge_ru.py",
 		"/Users/gosha/Projects/DeepSpeech/data/alphabet.txt",
 		"/Users/gosha/Projects/DeepSpeech/evaluate.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-subs-rus.sh",
@@ -743,17 +816,7 @@
 		"/Users/gosha/Projects/python_tests/image_rec_tests/test.jpg",
 		"/Users/gosha/Projects/python_tests/image_rec_tests/digital_display_ocr.py",
 		"/Library/Python/2.7/site-packages/PIL/__init__.py",
-		"/Users/gosha/Projects/python_tests/selenium_utils.py",
-		"/Library/Python/2.7/site-packages/selenium/webdriver/chrome/webdriver.py",
-		"/Users/gosha/Projects/ThreeThingsToDo/Podfile",
-		"/Users/gosha/Projects/python_tests/working_with_images.py",
-		"/Users/gosha/Projects/MusicPlayerTestProject/Podfile",
-		"/Users/gosha/Desktop/2_writing_2.txt",
-		"/Users/gosha/Desktop/2_writing_1.txt",
-		"/Volumes/STORAGE/TMP/SlidingWall.cs",
-		"/Users/gosha/Desktop/goodnia-ipa/pegasus/.htaccess",
-		"/Users/gosha/Projects/Discovery/Podfile",
-		"/Users/gosha/Desktop/test.txt"
+		"/Users/gosha/Projects/python_tests/selenium_utils.py"
 	],
 	"find":
 	{
@@ -772,6 +835,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"early",
+			"indexer",
+			"mean",
 			"coord_port",
 			"http",
 			"newLength",
@@ -896,10 +962,7 @@
 			"samples",
 			"Epoch",
 			"wer_log_pattern",
-			"Sample",
-			"log_info",
-			"n_hidden",
-			"_stddev"
+			"Sample"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -917,79 +980,125 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "demo/flask/templates/search.html",
+					"file": "demo/search/yt_transcriber.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4896,
+						"buffer_size": 4790,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2415,
-								2415
+								841,
+								841
 							]
 						],
 						"settings":
 						{
-							"WordCount":
-							{
-								"changes": 2988,
-								"count": 176,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"show_definitions": false,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 915.0,
+						"translation.y": 237.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "demo/search/utils/yt_utils.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1437,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								94,
+								94
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "bin/train-yt-vad-1k-clean.sh",
+					"buffer": 2,
+					"file": "/Users/gosha/Library/Application Support/DefaultCompany/DropboxSync/Unity/local.e55bd6616688f4fada40fcec5eb09cc2/Analytics/values",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 887,
+						"buffer_size": 153,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								591,
-								593
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"WordCount":
 							{
-								"changes": 39,
-								"count": 66,
+								"changes": 0,
+								"count": 0,
 								"modified": false,
 								"selection": false,
 								"status": -1,
 								"syntax": "plain text"
 							},
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -999,102 +1108,30 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "demo/web_demo.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1655,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								882,
-								882
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 7.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
 					"buffer": 3,
-					"file": "demo/search/yt_search.py",
+					"file": "file_transcriber.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1650,
+						"buffer_size": 1757,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								767,
-								767
+								1457,
+								1457
 							]
 						],
 						"settings":
 						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 244.0,
+						"translation.y": 79.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -1102,41 +1139,232 @@
 				},
 				{
 					"buffer": 4,
-					"file": "demo/flask/templates/continuous.html",
+					"file": "demo/search/indexer.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4956,
+						"buffer_size": 1991,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3843,
-								3910
+								1863,
+								1863
 							]
 						],
 						"settings":
 						{
-							"WordCount":
-							{
-								"changes": 2,
-								"count": 80,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 732.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "demo/web_demo.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								301,
+								301
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "demo/flask/templates/search.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4902,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3532,
+								3532
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1575.0,
+						"translation.y": 1592.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "demo/search/utils/db_util.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1123,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 173.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "demo/search/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 712,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								712,
+								712
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "demo/search/yt_search.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1854,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1405,
+								1405
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 397.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "demo/search/yt-videos-to-parse.csv",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
 					"type": "text"
 				}
 			]

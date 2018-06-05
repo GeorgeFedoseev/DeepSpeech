@@ -6,6 +6,12 @@ import const
 
 import pafy
 
+from timeout import timeout
+
+
+
+
+@timeout(900)  # 15 mins deadline
 def download_yt_audio(yt_video_id):
 
     curr_dir_path = const.curr_dir_path
