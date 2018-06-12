@@ -532,16 +532,8 @@
 			"file": "demo/search/utils/yt_utils.py",
 			"settings":
 			{
-				"buffer_size": 1437,
+				"buffer_size": 1098,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/gosha/Library/Application Support/DefaultCompany/DropboxSync/Unity/local.e55bd6616688f4fada40fcec5eb09cc2/Analytics/values",
-			"settings":
-			{
-				"buffer_size": 153,
 				"line_ending": "Unix"
 			}
 		},
@@ -568,6 +560,14 @@
 			"settings":
 			{
 				"buffer_size": 1619,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ds.sublime-project",
+			"settings":
+			{
+				"buffer_size": 573,
 				"line_ending": "Unix"
 			}
 		},
@@ -689,6 +689,7 @@
 	],
 	"file_history":
 	[
+		"/Users/gosha/Library/Application Support/DefaultCompany/DropboxSync/Unity/local.e55bd6616688f4fada40fcec5eb09cc2/Analytics/values",
 		"/Users/gosha/Desktop/Diploma-Main/code/search.html",
 		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/search.html",
 		"/Users/gosha/Projects/DeepSpeech/DeepSpeech.py",
@@ -815,8 +816,7 @@
 		"/Users/gosha/Desktop/goodnia-ipa/skyhighquizapp/index.html",
 		"/Users/gosha/Projects/python_tests/image_rec_tests/test.jpg",
 		"/Users/gosha/Projects/python_tests/image_rec_tests/digital_display_ocr.py",
-		"/Library/Python/2.7/site-packages/PIL/__init__.py",
-		"/Users/gosha/Projects/python_tests/selenium_utils.py"
+		"/Library/Python/2.7/site-packages/PIL/__init__.py"
 	],
 	"find":
 	{
@@ -980,7 +980,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -1023,10 +1023,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 237.0,
+						"translation.y": 1030.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1035,24 +1035,36 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1437,
+						"buffer_size": 1098,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								94,
-								94
+								121,
+								121
 							]
 						],
 						"settings":
 						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
 							"auto_complete_triggers":
 							[
 								{
 									"characters": ".",
 									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								},
 								{
 									"characters": ".",
@@ -1067,48 +1079,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/Users/gosha/Library/Application Support/DefaultCompany/DropboxSync/Unity/local.e55bd6616688f4fada40fcec5eb09cc2/Analytics/values",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 153,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 0,
-								"count": 0,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "file_transcriber.py",
 					"semi_transient": false,
 					"settings":
@@ -1134,11 +1109,11 @@
 						"translation.y": 79.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "demo/search/indexer.py",
 					"semi_transient": false,
 					"settings":
@@ -1150,25 +1125,33 @@
 						"selection":
 						[
 							[
-								1863,
-								1863
+								1868,
+								1868
 							]
 						],
 						"settings":
 						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 732.0,
+						"translation.y": 743.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "demo/web_demo.py",
 					"semi_transient": false,
 					"settings":
@@ -1180,12 +1163,20 @@
 						"selection":
 						[
 							[
-								301,
-								301
+								421,
+								421
 							]
 						],
 						"settings":
 						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1194,7 +1185,44 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "ds.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 573,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								573
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "json"
+							},
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1224,7 +1252,7 @@
 						"translation.y": 1592.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
