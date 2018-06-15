@@ -33,7 +33,7 @@ def create_lm(vocabulary_path, o=5, prune=2):
 
     p = subprocess.Popen([
         command
-    ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    ], shell=True)
 
     out, err = p.communicate()
 
