@@ -38,7 +38,7 @@ def create_lm(vocabulary_path, o=5, prune=2):
     out, err = p.communicate()
 
     if p.returncode != 0:
-        raise Exception("Failed to loudnorm: %s" % str(err))
+        raise Exception("Failed to create language model: %s" % str(err))
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
