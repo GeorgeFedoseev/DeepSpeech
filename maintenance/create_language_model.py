@@ -16,6 +16,9 @@ import subprocess
 
 def create_lm(vocabulary_path, o=5, prune=2):
 
+    if not os.path.exists(const.DEEP_SPEECH_LM_DIR_PATH):
+        os.makedirs(const.DEEP_SPEECH_LM_DIR_PATH)
+
     lmplz_path = os.path.join(const.DEEP_SPEECH_PROJECT_ROOT_PATH, "native_client/kenlm/build/bin/lmplz")
     build_binary_path = os.path.join(const.DEEP_SPEECH_PROJECT_ROOT_PATH, "native_client/kenlm/build/bin/build_binary")
     generate_trie_path = os.path.join(const.DEEP_SPEECH_PROJECT_ROOT_PATH, "native_client/generate_trie")
