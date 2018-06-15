@@ -529,89 +529,53 @@
 			}
 		},
 		{
-			"file": "demo/search/utils/yt_utils.py",
+			"file": "Dockerfile",
 			"settings":
 			{
-				"buffer_size": 1098,
+				"buffer_size": 6206,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "file_transcriber.py",
+			"file": "/Users/gosha/Downloads/Ventuz_SendgridEmailer-v2-14Jun18-spelling-error-fix/SendgridEmailer.cs",
 			"settings":
 			{
-				"buffer_size": 1757,
+				"buffer_size": 3289,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "native_client/Makefile",
+			"settings":
+			{
+				"buffer_size": 3010,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "demo/search/indexer.py",
+			"file": "native_client/BUILD",
 			"settings":
 			{
-				"buffer_size": 1991,
+				"buffer_size": 7025,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "demo/web_demo.py",
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 1619,
+				"buffer_size": 555,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "ds.sublime-project",
+			"file": "venv/lib/python2.7/site-packages/setuptools/extension.py",
 			"settings":
 			{
-				"buffer_size": 573,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "demo/flask/templates/search.html",
-			"settings":
-			{
-				"buffer_size": 4902,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "demo/search/utils/db_util.py",
-			"settings":
-			{
-				"buffer_size": 1123,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "demo/search/models.py",
-			"settings":
-			{
-				"buffer_size": 712,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "demo/search/yt_search.py",
-			"settings":
-			{
-				"buffer_size": 1854,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "demo/search/yt-videos-to-parse.csv",
-			"settings":
-			{
-				"buffer_size": 0,
-				"encoding": "UTF-8",
+				"buffer_size": 1729,
 				"line_ending": "Unix"
 			}
 		}
@@ -681,17 +645,25 @@
 	"expanded_folders":
 	[
 		"/Users/gosha/Projects/DeepSpeech",
-		"/Users/gosha/Projects/DeepSpeech/demo",
-		"/Users/gosha/Projects/DeepSpeech/demo/flask",
-		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates",
-		"/Users/gosha/Projects/DeepSpeech/demo/search",
-		"/Users/gosha/Projects/DeepSpeech/demo/search/utils"
+		"/Users/gosha/Projects/DeepSpeech/native_client"
 	],
 	"file_history":
 	[
+		"/Users/gosha/Projects/DeepSpeech/Dockerfile_old",
+		"/Users/gosha/Projects/DeepSpeech/native_client/python/client.py",
+		"/Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/setuptools/__init__.py",
+		"/Users/gosha/Projects/DeepSpeech/demo/search/utils/yt_utils.py",
+		"/Users/gosha/Projects/DeepSpeech/file_transcriber.py",
+		"/Users/gosha/Projects/DeepSpeech/demo/search/indexer.py",
+		"/Users/gosha/Projects/DeepSpeech/demo/web_demo.py",
+		"/Users/gosha/Projects/DeepSpeech/ds.sublime-project",
+		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/search.html",
+		"/Users/gosha/Projects/DeepSpeech/demo/search/utils/db_util.py",
+		"/Users/gosha/Projects/DeepSpeech/demo/search/models.py",
+		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_search.py",
+		"/Users/gosha/Projects/DeepSpeech/demo/search/yt-videos-to-parse.csv",
 		"/Users/gosha/Library/Application Support/DefaultCompany/DropboxSync/Unity/local.e55bd6616688f4fada40fcec5eb09cc2/Analytics/values",
 		"/Users/gosha/Desktop/Diploma-Main/code/search.html",
-		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/search.html",
 		"/Users/gosha/Projects/DeepSpeech/DeepSpeech.py",
 		"/Users/gosha/Projects/DeepSpeech/.gitignore",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-2048-new.sh",
@@ -701,8 +673,6 @@
 		"/Users/gosha/Desktop/Diploma-Main/code/transcriber.py",
 		"/Users/gosha/Desktop/Diploma-Main/code/indexer.py",
 		"/Users/gosha/Projects/DeepSpeech/const.py",
-		"/Users/gosha/Projects/DeepSpeech/demo/web_demo.py",
-		"/Users/gosha/Projects/DeepSpeech/file_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/infer.py",
 		"/Users/gosha/Desktop/yt-vad-1k-then-clean-2048-checkpoints_18May18/checkpoint",
 		"/Users/gosha/Projects/DeepSpeech/maintenance/copy_dataset_files.py",
@@ -720,12 +690,8 @@
 		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge_ru.py",
 		"/Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/nacl/exceptions.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/continuous.html",
-		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_search.py",
 		"/Users/gosha/Projects/DeepSpeech/asr-set-filter.py",
-		"/Users/gosha/Projects/DeepSpeech/demo/search/utils/db_util.py",
 		"/Users/gosha/Projects/DeepSpeech/maintenance/dataset_csv_filter_clean.py",
-		"/Users/gosha/Projects/DeepSpeech/ds.sublime-project",
-		"/Users/gosha/Projects/DeepSpeech/demo/search/indexer.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/transcribe/mic_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/transcribe/file_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/demo/flask/templates/js/lib/recorder.js",
@@ -810,17 +776,11 @@
 		"/Users/gosha/Projects/youtube-audio-captions-parsing/audio_utils.py",
 		"/Users/gosha/Projects/youtube-audio-captions-parsing/yt.sublime-project",
 		"/Users/gosha/Projects/youtube-audio-captions-parsing/main.py",
-		"/Users/gosha/Projects/youtube-audio-captions-parsing/data/tssa",
-		"/Users/gosha/Desktop/writing5.2.txt",
-		"/Users/gosha/Desktop/writing5.1.txt",
-		"/Users/gosha/Desktop/goodnia-ipa/skyhighquizapp/index.html",
-		"/Users/gosha/Projects/python_tests/image_rec_tests/test.jpg",
-		"/Users/gosha/Projects/python_tests/image_rec_tests/digital_display_ocr.py",
-		"/Library/Python/2.7/site-packages/PIL/__init__.py"
+		"/Users/gosha/Projects/youtube-audio-captions-parsing/data/tssa"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -835,6 +795,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"swig",
+			"gcc",
 			"early",
 			"indexer",
 			"mean",
@@ -960,9 +922,7 @@
 			"use_seq_l",
 			"log_info",
 			"samples",
-			"Epoch",
-			"wer_log_pattern",
-			"Sample"
+			"Epoch"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -980,7 +940,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -1023,245 +983,58 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1030.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "demo/search/utils/yt_utils.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1098,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								121,
-								121
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "file_transcriber.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1757,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1457,
-								1457
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 79.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "demo/search/indexer.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1991,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1868,
-								1868
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 743.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "demo/web_demo.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1619,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								421,
-								421
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "ds.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 573,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								573
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "json"
-							},
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "demo/flask/templates/search.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4902,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3532,
-								3532
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1592.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "demo/search/utils/db_util.py",
+					"buffer": 1,
+					"file": "Dockerfile",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1123,
+						"buffer_size": 6206,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1757,
+								1757
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 2,
+								"count": 504,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 751.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/gosha/Downloads/Ventuz_SendgridEmailer-v2-14Jun18-spelling-error-fix/SendgridEmailer.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3289,
 						"regions":
 						{
 						},
@@ -1274,106 +1047,60 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"WordCount":
+							{
+								"changes": 0,
+								"count": 178,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 173.0,
+						"translation.y": 1546.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "demo/search/models.py",
+					"buffer": 3,
+					"file": "native_client/Makefile",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 712,
+						"buffer_size": 3010,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								712,
-								712
+								3010,
+								3010
 							]
 						],
 						"settings":
 						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 362.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "demo/search/yt_search.py",
+					"buffer": 4,
+					"file": "native_client/BUILD",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1854,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1405,
-								1405
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 397.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "demo/search/yt-videos-to-parse.csv",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
+						"buffer_size": 7025,
 						"regions":
 						{
 						},
@@ -1381,7 +1108,37 @@
 						[
 							[
 								0,
-								0
+								7025
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/Build.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2088.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": ".gitignore",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 555,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								110,
+								86
 							]
 						],
 						"settings":
@@ -1392,7 +1149,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "venv/lib/python2.7/site-packages/setuptools/extension.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								611,
+								611
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 183.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
