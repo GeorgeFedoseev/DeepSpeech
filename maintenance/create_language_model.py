@@ -25,7 +25,7 @@ def create_lm(vocabulary_path, o=5, prune=2):
         prune_str += str(prune)+" "
 
 
-    command = ("%s --text %s --arpa %s --o %i --prune %s -S 50%" % (lmplz_path, vocabulary_path, const.DEEP_SPEECH_ARPA_PATH, o, prune_str))
+    command = ("%s --text %s --arpa %s --o %i --prune %s -S 50%%" % (lmplz_path, vocabulary_path, const.DEEP_SPEECH_ARPA_PATH, o, prune_str))
     + (" & %s -T -s %s %s" % (build_binary_path, const.DEEP_SPEECH_ARPA_PATH, const.DEEP_SPEECH_LM_PATH))
     + (" & %s %s %s %s %s" % (generate_trie_path, const.DEEP_SPEECH_ALPHABET_PATH, const.DEEP_SPEECH_LM_PATH, vocabulary_path, const.DEEP_SPEECH_TRIE_PATH))
 
