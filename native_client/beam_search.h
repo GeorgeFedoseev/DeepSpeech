@@ -58,7 +58,7 @@ class KenLMBeamScorer : public tensorflow::ctc::BaseBeamScorer<KenLMBeamState> {
   void ExpandState(const KenLMBeamState& from_state, int from_label,
                          KenLMBeamState* to_state, int to_label) const {
 
-    printf("ExpandState");
+    //printf("ExpandState");
 
     CopyState(from_state, to_state);
 
@@ -83,13 +83,15 @@ class KenLMBeamScorer : public tensorflow::ctc::BaseBeamScorer<KenLMBeamState> {
       to_state->score = min_unigram_score + to_state->language_model_score;
       to_state->delta_score = to_state->score - from_state.score;
     } else {
+      // to_label is SPACE
+
       float lm_score_delta = ScoreIncompleteWord(from_state.model_state,
                             to_state->incomplete_word,
                             to_state->model_state);
       // Give fixed word bonus
-      if (!IsOOV(to_state->incomplete_word)) {
-        to_state->language_model_score += valid_word_count_weight_;
-      }
+      // if (!IsOOV(to_state->incomplete_word)) {
+      //   to_state->language_model_score += valid_word_count_weight_;
+      // }
       to_state->language_model_score += word_count_weight_;
       UpdateWithLMScore(to_state, lm_score_delta);
       ResetIncompleteWord(to_state);
