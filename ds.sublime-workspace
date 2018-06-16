@@ -4,12 +4,52 @@
 		"selected_items":
 		[
 			[
-				"proces",
-				"process_video\tfunction"
+				"lm",
+				"DEEP_SPEECH_LM_DIR_PATH\tstatement"
+			],
+			[
+				"trie",
+				"DEEP_SPEECH_TRIE_PATH\tstatement"
+			],
+			[
+				"gene",
+				"generate_trie_path\tstatement"
+			],
+			[
+				"arp",
+				"DEEP_SPEECH_ARPA_PATH\tstatement"
+			],
+			[
+				"bui",
+				"build_binary_path\tstatement"
 			],
 			[
 				"pr",
-				"print\tkeyword"
+				"prune_str\tstatement"
+			],
+			[
+				"prune",
+				"prune_str\tstatement"
+			],
+			[
+				"AR",
+				"DEEP_SPEECH_ARPA_PATH\tstatement"
+			],
+			[
+				"voca",
+				"vocabulary_path\tparam"
+			],
+			[
+				"del",
+				"DEEP_SPEECH_LM_DIR_PATH\tstatement"
+			],
+			[
+				"DEE",
+				"DEEP_SPEECH_LM_PATH"
+			],
+			[
+				"proces",
+				"process_video\tfunction"
 			],
 			[
 				"video",
@@ -190,10 +230,6 @@
 			[
 				"alpha",
 				"DEEP_SPEECH_ALPHABET_PATH\tstatement"
-			],
-			[
-				"DEE",
-				"DEEP_SPEECH_CHECKPOINT_DIR\tstatement"
 			],
 			[
 				"data",
@@ -478,104 +514,34 @@
 			[
 				"audi",
 				"audio_duration\tstatement"
-			],
-			[
-				"train",
-				"train_duration\tstatement"
-			],
-			[
-				"dev",
-				"dev_duration\tstatement"
-			],
-			[
-				"test",
-				"test_duration\tstatement"
-			],
-			[
-				"telegra",
-				"log_telegram"
-			],
-			[
-				"Mode",
-				"Model"
-			],
-			[
-				"infer",
-				"infer_use_lm"
-			],
-			[
-				"dow",
-				"download_url\tstatement"
-			],
-			[
-				"ret",
-				"retry_cnt\tstatement"
-			],
-			[
-				"fil",
-				"filename\tstatement"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "demo/search/yt_transcriber.py",
+			"file": "maintenance/create_language_model.py",
 			"settings":
 			{
-				"buffer_size": 4790,
+				"buffer_size": 2269,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Dockerfile",
+			"file": "bin/test-voxforge-ru.sh",
 			"settings":
 			{
-				"buffer_size": 6206,
+				"buffer_size": 646,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "const.py",
+			"settings":
+			{
+				"buffer_size": 1003,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/gosha/Downloads/Ventuz_SendgridEmailer-v2-14Jun18-spelling-error-fix/SendgridEmailer.cs",
-			"settings":
-			{
-				"buffer_size": 3289,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "native_client/Makefile",
-			"settings":
-			{
-				"buffer_size": 3010,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "native_client/BUILD",
-			"settings":
-			{
-				"buffer_size": 7025,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": ".gitignore",
-			"settings":
-			{
-				"buffer_size": 555,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "venv/lib/python2.7/site-packages/setuptools/extension.py",
-			"settings":
-			{
-				"buffer_size": 1729,
 				"line_ending": "Unix"
 			}
 		}
@@ -645,10 +611,16 @@
 	"expanded_folders":
 	[
 		"/Users/gosha/Projects/DeepSpeech",
-		"/Users/gosha/Projects/DeepSpeech/native_client"
+		"/Users/gosha/Projects/DeepSpeech/demo"
 	],
 	"file_history":
 	[
+		"/Users/gosha/Projects/DeepSpeech/Dockerfile",
+		"/Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/setuptools/extension.py",
+		"/Users/gosha/Projects/DeepSpeech/native_client/BUILD",
+		"/Users/gosha/Projects/DeepSpeech/native_client/Makefile",
+		"/Users/gosha/Downloads/Ventuz_SendgridEmailer-v2-14Jun18-spelling-error-fix/SendgridEmailer.cs",
+		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_transcriber.py",
 		"/Users/gosha/Projects/DeepSpeech/Dockerfile_old",
 		"/Users/gosha/Projects/DeepSpeech/native_client/python/client.py",
 		"/Users/gosha/Projects/DeepSpeech/venv/lib/python2.7/site-packages/setuptools/__init__.py",
@@ -676,13 +648,11 @@
 		"/Users/gosha/Projects/DeepSpeech/infer.py",
 		"/Users/gosha/Desktop/yt-vad-1k-then-clean-2048-checkpoints_18May18/checkpoint",
 		"/Users/gosha/Projects/DeepSpeech/maintenance/copy_dataset_files.py",
-		"/Users/gosha/Projects/DeepSpeech/Dockerfile",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-1024.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-512.sh",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-650-clean-2048.sh",
 		"/Users/gosha/Projects/DeepSpeech/requirements.txt",
 		"/Users/gosha/Projects/DeepSpeech/bin/infer-yt-vad-1k-then-clean.sh",
-		"/Users/gosha/Projects/DeepSpeech/demo/search/yt_transcriber.py",
 		"/Users/gosha/Library/Application Support/Sublime Text 3/Packages/Anaconda/Default (OSX).sublime-keymap",
 		"/Users/gosha/Projects/DeepSpeech/bin/train-yt-vad-1k.sh",
 		"/Users/gosha/Library/Application Support/Sublime Text 3/Packages/User/sublime_jedi.sublime-settings",
@@ -736,8 +706,6 @@
 		"/Users/gosha/Projects/DeepSpeech/bin/run-echo-msk.sh",
 		"/Users/gosha/Projects/DeepSpeech/util/automation.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/run-voxforge-ru.sh",
-		"/Users/gosha/Projects/DeepSpeech/native_client/BUILD",
-		"/Users/gosha/Projects/DeepSpeech/native_client/Makefile",
 		"/Users/gosha/Projects/DeepSpeech/Dockerfile_bckup",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_librivox.py",
 		"/Users/gosha/Projects/DeepSpeech/bin/import_voxforge.py",
@@ -774,13 +742,11 @@
 		"/Users/gosha/Projects/youtube-audio-captions-parsing/stats_util.py",
 		"/Users/gosha/Library/Application Support/Sublime Text 3/Packages/Jedi - Python autocompletion/Default.sublime-keymap",
 		"/Users/gosha/Projects/youtube-audio-captions-parsing/audio_utils.py",
-		"/Users/gosha/Projects/youtube-audio-captions-parsing/yt.sublime-project",
-		"/Users/gosha/Projects/youtube-audio-captions-parsing/main.py",
-		"/Users/gosha/Projects/youtube-audio-captions-parsing/data/tssa"
+		"/Users/gosha/Projects/youtube-audio-captions-parsing/yt.sublime-project"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -940,28 +906,36 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "demo/search/yt_transcriber.py",
+					"file": "maintenance/create_language_model.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4790,
+						"buffer_size": 2269,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								841,
-								841
+								806,
+								806
 							]
 						],
 						"settings":
 						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
 							"auto_complete_triggers":
 							[
 								{
@@ -971,70 +945,24 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
 								}
 							],
-							"show_definitions": false,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Dockerfile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6206,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1757,
-								1757
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 2,
-								"count": 504,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 751.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "/Users/gosha/Downloads/Ventuz_SendgridEmailer-v2-14Jun18-spelling-error-fix/SendgridEmailer.cs",
+					"buffer": 1,
+					"file": "bin/test-voxforge-ru.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3289,
+						"buffer_size": 646,
 						"regions":
 						{
 						},
@@ -1050,136 +978,68 @@
 							"WordCount":
 							{
 								"changes": 0,
-								"count": 178,
-								"modified": false,
-								"selection": false,
+								"count": 32,
+								"modified": true,
+								"selection": true,
 								"status": -1,
 								"syntax": "plain text"
 							},
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1546.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "native_client/Makefile",
+					"buffer": 2,
+					"file": "const.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3010,
+						"buffer_size": 1003,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3010,
-								3010
+								113,
+								142
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 362.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "native_client/BUILD",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7025,
-						"regions":
-						{
-						},
-						"selection":
-						[
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"auto_complete_triggers":
 							[
-								0,
-								7025
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/Build.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2088.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": ".gitignore",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 555,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								110,
-								86
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "venv/lib/python2.7/site-packages/setuptools/extension.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1729,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								611,
-								611
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 183.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
 					"type": "text"
 				}
 			]

@@ -1,6 +1,8 @@
 #ifndef BEAM_SEARCH_H
 #define BEAM_SEARCH_H
 
+#include <stdio.h>
+
 #include "alphabet.h"
 #include "trie_node.h"
 
@@ -55,6 +57,9 @@ class KenLMBeamScorer : public tensorflow::ctc::BaseBeamScorer<KenLMBeamState> {
   // expansion is done.
   void ExpandState(const KenLMBeamState& from_state, int from_label,
                          KenLMBeamState* to_state, int to_label) const {
+
+    printf("ExpandState");
+
     CopyState(from_state, to_state);
 
     if (!alphabet_.IsSpace(to_label)) {
