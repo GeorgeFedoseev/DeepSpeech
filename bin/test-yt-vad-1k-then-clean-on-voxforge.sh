@@ -28,5 +28,5 @@ python -u DeepSpeech.py \
   --report_count 100 \
   --xla=False \
   --use_warpctc=True \
-  --log_telegram=True \
+  --log_telegram=False \
   "$@"
