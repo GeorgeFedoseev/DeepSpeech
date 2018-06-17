@@ -8,7 +8,7 @@ from telegram.ext import Updater
 class TelegramLogger:
 
     def __init__(self, accessToken, chat_id):
-        self.updater = Updater(self.accessToken)
+        self.updater = Updater(accessToken)
         self.chat_id = chat_id
 
     @classmethod
