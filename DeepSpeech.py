@@ -1693,11 +1693,6 @@ def train(server=None):
                     # <PROGRESSBAR
                     try:
                         if job.set_name != current_job_name:
-                            
-
-                            if current_job_name != "":
-                                # finish prev progress bar
-                                pbar.update(total_jobs)
 
                             # recreate progressbar
                             total_jobs = 0
@@ -1793,6 +1788,10 @@ def train(server=None):
 
 
                     current_job_index += 1
+
+                    if current_job_index == total_jobs:
+                        # finish progress bar
+                        pbar.update(total_jobs)
 
 
                 
