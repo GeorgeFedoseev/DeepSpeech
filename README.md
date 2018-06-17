@@ -62,4 +62,5 @@ Example with extra parameters:
 ```
 python /DeepSpeech/maintenance/create_language_model.py /assets/big-vocabulary.txt 3 2
 ```
+It will create 3 files `in data/lm` folder: `lm.binary`, `trie` and `words.arpa`. `words.arpa` is intermediate file, DeepSpeech is using `trie` and `lm.binary` files for language modelling. Trie is a tree, representing all prefixes of words in LM. Each node (leaf) is a prefix and child-nodes are prefixes with one letter added.
 
