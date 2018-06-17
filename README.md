@@ -26,6 +26,12 @@ Here is a demo:
 
 * [Requirements](#requirements)
 * [Setting up training environment](#setting-up-training-environment)
+* [Define alphabet in `alphabet.txt`](#define-alphabet-in-alphabet.txt)
+* [Generate language model](#generate-language-model)
+* [Training on sample dataset](#training-on-sample-dataset)
+* [Setup Telegram notifications](#setup-telegram-notificationss)
+
+
 
 ### Requirements:  
 - Linux OS
@@ -33,8 +39,6 @@ Here is a demo:
 - nvidia-docker (for CUDA support)
 
 ## Setting up training environment
-
-
 
 1. Check `nvidia-smi` command is working before moving to the next step
 2. Clone this repo `git clone https://github.com/GeorgeFedoseev/DeepSpeech` and `cd DeepSpeech`
