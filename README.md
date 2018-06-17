@@ -22,6 +22,7 @@ Here is a demo:
 
 ![search-demo-5](demo/gifs/search-demo-5.gif)
 
+# Training setup
 
 ### Requirements:  
 - Linux OS
