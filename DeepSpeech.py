@@ -403,11 +403,8 @@ def initialize_globals():
 # Logging functions
 # =================
 
-def safe_print(content):
-    print("{0}\n".format(content))
-
 def prefix_print(prefix, message):
-    safe_print(prefix + ('\n' + prefix).join(message.split('\n')))
+    print(prefix + ('\n' + prefix).join(message.split('\n')))
 
 def log_debug(message):    
     if FLAGS.log_level == 0:
