@@ -1697,6 +1697,7 @@ def train(server=None):
 
                             # recreate progressbar
                             total_jobs = 0
+                            current_job_index = 0
                             if job.set_name == "train":
                                 log_info('Training epoch %i...' % COORD._epoch)
                                 total_jobs = COORD._num_jobs_train
