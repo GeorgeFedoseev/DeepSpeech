@@ -1782,6 +1782,7 @@ def train(server=None):
 
 
                 
+                print "\n\n"
                 #if pbar != None:
                 #    pbar.close()
                     
