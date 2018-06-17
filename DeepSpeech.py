@@ -1685,6 +1685,8 @@ def train(server=None):
                 # Get the first job
                 job = COORD.get_job()
 
+                current_job_index = 0
+
                 while job and not session.should_stop():
                     log_debug('Computing %s...' % job)
 
@@ -1718,7 +1720,7 @@ def train(server=None):
                             current_job_name = job.set_name
 
                         if pbar:     
-                            pbar.update(1)
+                            pbar.update(current_job_index)
                     except Exception as ex:
                         print("pbar Exception: %s" % str(ex))
 
@@ -1782,6 +1784,9 @@ def train(server=None):
                     # Send the current job to coordinator and receive the next one
                     log_debug('Sending %s...' % job)
                     job = COORD.next_job(job)
+
+
+                    current_job_index += 1
 
 
                 
