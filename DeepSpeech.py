@@ -44,8 +44,7 @@ import numpy as np
 from util.telegram_logger import TelegramLogger
 from pprint import pformat
 
-from tqdm import tqdm
-tqdm.monitor_interval = 0
+import pyprind
 
 from multiprocessing.pool import ThreadPool
 from timeit import default_timer as timer
@@ -1715,7 +1714,7 @@ def train(server=None):
 
 
                             
-                            pbar = tqdm(total=total_jobs)
+                            pbar = pyprind.ProgBar(n, monitor=True)
                             current_job_name = job.set_name
 
                         if pbar:     
@@ -1785,9 +1784,9 @@ def train(server=None):
                     job = COORD.next_job(job)
 
 
-                # close progressbar after all jobs done
+                # show stats after all jobs done
                 if pbar != None:
-                    pbar.close()
+                    print(pbar)
                     
             except Exception as e:
                 log_error(str(e))
