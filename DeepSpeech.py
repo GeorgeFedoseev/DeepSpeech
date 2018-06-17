@@ -207,8 +207,10 @@ for var in ['b1', 'h1', 'b2', 'h2', 'b3', 'h3', 'b5', 'h5', 'b6', 'h6']:
 
 FLAGS = tf.app.flags.FLAGS
 
-global initialized_globals
+
 initialized_globals = False
+
+telegram_logger = None
 
 def initialize_globals():
 
@@ -298,8 +300,7 @@ def initialize_globals():
         log_info('using XLA')    
 
     # Telegram Logging
-    global telegram_logger
-    telegram_logger = None
+    global telegram_logger    
 
     if FLAGS.log_telegram:
         # init
