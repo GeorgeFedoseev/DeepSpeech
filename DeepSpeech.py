@@ -308,7 +308,7 @@ def initialize_globals():
         telegram_logger = TelegramLogger.withJsonCredentials(FLAGS.telegram_cred_path)
 
         # log all tf params as attached file
-        telegram_logger.LogAsTxtAttachement(pformat(tf.app.flags.FLAGS.flag_values_dict()), attachment_name="tf_params")
+        telegram_logger.LogAsTxtAttachment(pformat(tf.app.flags.FLAGS.flag_values_dict()), attachment_name="tf_params")
                 
 
     global alphabet
