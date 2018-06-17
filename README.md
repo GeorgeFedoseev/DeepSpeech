@@ -50,8 +50,8 @@ docker exec -it deep-speech-training-container bash -c "stty cols $COLUMNS rows 
 ```
 Done! We are now inside training docker container.
 
-## Define alphabet alphabet.txt
-All training samples should have transcript consisting of characters defined in `data/alphabet.txt` file. In this repository alphabet.txt consists of space character, dash character and russian letters. If sample transcriptions in dataset will contain out-of-alphabet characters then DeepSpeech will throw an error.
+## Define alphabet in `alphabet.txt`
+All training samples should have transcript consisting of characters defined in `data/alphabet.txt` file. In this repository `alphabet.txt` consists of `space character`, `dash character` and russian letters. If sample transcriptions in dataset will contain out-of-alphabet characters then DeepSpeech will throw an error.
 
 ## Generate language model (using KenLM toolkit and generate_trie under the hood)
 Run python script with first parameter being some long text file from where language model will be estimated (for example some Wikipedia dump txt file)
