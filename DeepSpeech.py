@@ -1714,7 +1714,7 @@ def train(server=None):
 
 
                             
-                            pbar = pyprind.ProgBar(n, monitor=True)
+                            pbar = pyprind.ProgBar(total_jobs, monitor=True)
                             current_job_name = job.set_name
 
                         if pbar:     
