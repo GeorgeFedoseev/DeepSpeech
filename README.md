@@ -69,9 +69,13 @@ python /DeepSpeech/maintenance/create_language_model.py /assets/big-vocabulary.t
 It will create 3 files in `data/lm` folder: `lm.binary`, `trie` and `words.arpa`. `words.arpa` is intermediate file, DeepSpeech is using `trie` and `lm.binary` files for language modelling. Trie is a tree, representing all prefixes of words in LM. Each node (leaf) is a prefix and child-nodes are prefixes with one letter added.
 
 ## Training on sample dataset `data/tiny-dataset`
-Dataset consists of 3 sets: train, dev and test. For each set there is csv file and folder, containing wave files. In csv each rpw contains *full* path to audio, filesize in bytes and text transcription. For saving-space-in-repo purposes sample dataset has only 9 audio recordings (which is enough for demo and **not enough for good WER**). CSV file for train sets repeats same 3 rows 7 times to simulate more data.  
+Dataset consists of 3 sets: train, dev and test. For each set there is CSV file and folder, containing wave files. In csv each row contains *full* path to audio, filesize in bytes and text transcription. For saving-space-in-repo purposes sample dataset has only 9 audio recordings (which is enough for demo and **not enough for good WER**). CSV file for train set repeats same 3 rows 7 times to simulate more data.  
 To run demonstration of training process execute:
 ```
-bash bin/train-tiny-dataset.py
+bash bin/train-tiny-dataset.sh
 ```
-You should see **training** and **validation** progressbars running for each epoch. Training process stops when validaton error stops decreasing (early stopping). Then starts **testing** phase that uses language model (LM is not used during trainig), thats why it takes longer time for each sample to process (beam search implementation that uses language model is one-threaded and CPU only).
+You should see **training** and **validation** progressbars running for each epoch. Training process stops when validaton error stops decreasing (early stopping). Then starts **testing** phase that uses language model (LM is not used during trainig), thats why it takes longer time for each sample to process (beam search implementation that uses language model is one-threaded and CPU only).  
+
+Obviously with so tiny dataset good WER is not achievable. To achieve good WER (at least < 20%) use datasets with > 500hrs of speech.
+
+You can examine which parameters are passed to `DeepSpeech.py` script by checking contents of `train-tiny-dataset.sh` file.
