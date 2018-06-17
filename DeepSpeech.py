@@ -835,7 +835,7 @@ def get_git_branch():
 # Helpers
 # =======
 
-ddef calculate_report(results_tuple):
+def calculate_report(results_tuple):
     r'''
     This routine will calculate a WER report.
     It'll compute the `mean` WER and create ``Sample`` objects of the ``report_count`` top lowest
