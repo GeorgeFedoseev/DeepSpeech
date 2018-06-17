@@ -6,7 +6,6 @@ import os
 import sys
 
 import re
-import language_check
 
 
 # encoding=utf8
@@ -198,9 +197,6 @@ tf.app.flags.DEFINE_boolean ('test_use_lm',       True,        'Use Language Mod
 # enable Telegram logging
 tf.app.flags.DEFINE_boolean ('log_telegram',       False,        'Send messages to Telegram?')
 
-# enable LanguageTool correction
-tf.app.flags.DEFINE_string ('lt_lang',       "ru-RU",        'LanguageTool language')
-
 # cut filtering clean output csv path
 tf.app.flags.DEFINE_string ('cut_clean_output',   "",        'Output path of csv with only clean cut samples')
 
@@ -298,20 +294,7 @@ def initialize_globals():
     # add xla support
     if FLAGS.xla:
         session_config.graph_options.optimizer_options.global_jit_level = tf.OptimizerOptions.ON_1
-        log_info('using XLA')
-
-    # init LanguageTool
-    global languageTool
-    languageTool = None
-    if FLAGS.lt_lang != "":
-        print("Init language tool with lang %s" % (FLAGS.lt_lang))
-        languageTool = language_check.LanguageTool(FLAGS.lt_lang)
-        # disable uppercasing
-        languageTool.disabled.add('UPPERCASE_SENTENCE_START')
-
-    # init cut clean
-    if FLAGS.cut_clean_output != '':
-        asr_cutting_clean.init_with_csv_paths(FLAGS.test_files.split(","), FLAGS.cut_clean_output)
+        log_info('using XLA')    
 
     if FLAGS.log_telegram:
         telegram_logger.telegram_send_text_as_attachement("params", pformat(tf.app.flags.FLAGS.flag_values_dict()))
@@ -843,58 +826,22 @@ def get_git_branch():
 # Helpers
 # =======
 
-def calculate_report(results_tuple):
+ddef calculate_report(results_tuple):
     r'''
     This routine will calculate a WER report.
     It'll compute the `mean` WER and create ``Sample`` objects of the ``report_count`` top lowest
     loss items from the provided WER results tuple (only items with WER!=0 and ordered by their WER).
     '''
-    global languageTool
-    
-    items = list(zip(*results_tuple))
-    
-
-    #print("calculate_report using %i threads" % len(items))
-
-    def calculate_report_worker(item):
-        label, decoding, distance, loss = item
-        
-        if FLAGS.cut_clean_output != '':
-            asr_cutting_clean.onDecoded(label, decoding)
-
-        if languageTool != None:
-            decoding = languageTool.correct(decoding)
-            decoding = decoding.replace("ё", "е")
-            decoding = re.sub(u'[^a-zа-я- ]+', '', decoding)
-
-        sample_wer = wer(label, decoding)
-        sample = Sample(label, decoding, loss, distance, sample_wer)
-
-        levenshtein_dst = levenshtein(label.split(), decoding.split())
-        label_length = float(len(label.split()))
-        return (sample, levenshtein_dst, label_length)    
-
-    start = timer()
-    pool = ThreadPool(len(items))
-    calc_results = pool.map(calculate_report_worker, items)
-    #print("calculate_report took %f" % (timer()-start))
-
     samples = []
+    items = list(zip(*results_tuple))
     total_levenshtein = 0.0
     total_label_length = 0.0
-    for res in calc_results:
-        sample, levenshtein_dst, label_length = res
+    for label, decoding, distance, loss in items:
+        sample_wer = wer(label, decoding)
+        sample = Sample(label, decoding, loss, distance, sample_wer)
         samples.append(sample)
-        total_levenshtein += levenshtein_dst
-        total_label_length += label_length
-
-
-    # for label, decoding, distance, loss in items:
-    #     sample_wer = wer(label, decoding)
-    #     sample = Sample(label, decoding, loss, distance, sample_wer)
-    #     samples.append(sample)
-    #     total_levenshtein += levenshtein(label.split(), decoding.split())
-    #     total_label_length += float(len(label.split()))
+        total_levenshtein += levenshtein(label.split(), decoding.split())
+        total_label_length += float(len(label.split()))
 
     # Getting the WER from the accumulated levenshteins and lengths
     samples_wer = total_levenshtein / total_label_length
@@ -910,7 +857,6 @@ def calculate_report(results_tuple):
 
     # Order this top FLAGS.report_count items by their WER (lowest WER on top)
     samples.sort(key=lambda s: s.wer)
-    
 
     return samples_wer, samples
 
@@ -1958,12 +1904,7 @@ def do_single_file_inference(input_file_path):
             inputs['input_lengths']: [len(mfcc)],
         })
 
-        text = ndarray_to_text(output[0][0], alphabet)
-
-        if languageTool != None:
-            text = languageTool.correct(text)
-            text = text.replace("ё", "е")
-            text = re.sub(u'[^a-zа-я- ]+', '', text)
+        text = ndarray_to_text(output[0][0], alphabet)        
 
         print(text)
 
