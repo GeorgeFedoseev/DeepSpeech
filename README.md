@@ -20,4 +20,4 @@ Created ASR system was applied to speech search task in big collection of video 
 Here is a demo:  
 
 
-![search-demo-5](search-demo-5.gif)
+![search-demo-5](demo/gifs/search-demo-5.gif)
