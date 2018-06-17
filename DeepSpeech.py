@@ -41,7 +41,7 @@ from util.text import sparse_tensor_value_to_texts, wer, levenshtein, Alphabet, 
 from xdg import BaseDirectory as xdg
 import numpy as np
 
-from util import telegram_logger
+from util.telegram_logger import TelegramLogger
 from pprint import pformat
 
 from tqdm import tqdm
@@ -194,8 +194,9 @@ tf.app.flags.DEFINE_boolean ('infer_use_lm',       True,        'Use Language Mo
 tf.app.flags.DEFINE_boolean ('test_use_lm',       True,        'Use Language Model during test?')
 
 
-# enable Telegram logging
+# enable Telegram logging to get notified about training process
 tf.app.flags.DEFINE_boolean ('log_telegram',       False,        'Send messages to Telegram?')
+tf.app.flags.DEFINE_string ('telegram_cred_path',  "telegram_credentials.json",        'Path to Telegram creadentials json file. File contents: {"accessToken": "<telegram-bot-accessToken>", "chatId": <chatId-where-to-send-log-msg>}')
 
 # cut filtering clean output csv path
 tf.app.flags.DEFINE_string ('cut_clean_output',   "",        'Output path of csv with only clean cut samples')
@@ -296,8 +297,17 @@ def initialize_globals():
         session_config.graph_options.optimizer_options.global_jit_level = tf.OptimizerOptions.ON_1
         log_info('using XLA')    
 
+    # Telegram Logging
+    global telegram_logger
+    telegram_logger = None
+
     if FLAGS.log_telegram:
-        telegram_logger.telegram_send_text_as_attachement("params", pformat(tf.app.flags.FLAGS.flag_values_dict()))
+        # init
+        telegram_logger = TelegramLogger.withJsonCredentials(FLAGS.telegram_cred_path)
+
+        # log all tf params as attached file
+        telegram_logger.LogAsTxtAttachement(pformat(tf.app.flags.FLAGS.flag_values_dict()), attachment_name="tf_params")
+                
 
     global alphabet
     alphabet = Alphabet(os.path.abspath(FLAGS.alphabet_config_path))
@@ -407,24 +417,23 @@ def log_traffic(message):
         log_debug(message)
 
 def log_info(message):
-    if FLAGS.log_telegram:
-        if len(message) > 500:
-            telegram_logger.telegram_send_text_as_attachement("long_log", message)
-        else:
-            telegram_logger.log_telegram(message)
+    if FLAGS.log_telegram:        
+        telegram_logger.Log(message)
 
     if FLAGS.log_level <= 1:
         prefix_print('I ', message)
 
 def log_warn(message):
     if FLAGS.log_telegram:
-        telegram_logger.log_telegram(message)
+        telegram_logger.Log(message)
+
     if FLAGS.log_level <= 2:
         prefix_print('W ', message)
 
 def log_error(message):
     if FLAGS.log_telegram:
-        telegram_logger.log_telegram(message)
+        telegram_logger.Log(message)
+
     if FLAGS.log_level <= 3:
         prefix_print('E ', message)
 

@@ -1,26 +1,45 @@
 import os
+import json
 
 from telegram.ext import Updater
 
+# "592335153:AAEDnx7bFAfW87znwH6tAYsAfS-JZwdJEy8"
 
-updater = Updater("592335153:AAEDnx7bFAfW87znwH6tAYsAfS-JZwdJEy8")   
-def log_telegram(msg):
-    try:
-        updater.bot.send_message(chat_id="79735423", text=msg)
-    except:
-        pass
+class TelegramLogger:
 
-def telegram_send_text_as_attachement(name, text):
-    try:
-        fname = name+".txt"
-        f = open(fname, "w")
-        f.write(text)    
-        f.close()
+    def __init__(self, accessToken, chat_id):
+        self.updater = Updater(self.accessToken)
+        self.chat_id = chat_id
 
-        f = open(fname, "r")
-        updater.bot.send_document(chat_id="79735423", document=f)
-        f.close()
+    @classmethod
+    def withJsonCredentials(cls, json_path):
+        with open(json_path, 'r') as fp:            
+            cred = json.load(fp)
 
-        os.remove(fname)
-    except:
-        pass
+            return cls(cred["accessToken"], cred["chatId"])
+
+
+
+
+    def Log(self, msg):
+
+        if len(msg) > 500:
+            self.LogAsTxtAttachment(msg)
+            return
+
+        try:
+            self.updater.bot.send_message(chat_id=self.chat_id, text=msg)
+        except:
+            pass
+
+    def LogAsTxtAttachment(self, text, attachment_name="long_log"):
+        try:
+            fname = attachment_name+".txt"
+            with open(fname, "w") as fp:             
+                fp.write(text)            
+
+            with open(fname, "r") as fp:            
+                self.updater.bot.send_document(chat_id=self.chat_id, document=fp)
+            os.remove(fname)
+        except:
+            pass
