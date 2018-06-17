@@ -69,6 +69,7 @@ subprocess32==3.2.7
 tensorboard==1.6.0
 tensorflow==1.6.0
 termcolor==1.1.0
+tqdm==4.23.4
 urllib3==1.22
 webrtcvad==2.0.10
 Werkzeug==0.14.1
