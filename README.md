@@ -25,6 +25,7 @@ Here is a demo:
 # Training setup
 
 * [Requirements](#requirements)
+* [Setting up training environment](#setting-up-training-environment)
 
 ### Requirements:  
 - Linux OS
