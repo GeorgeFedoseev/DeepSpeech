@@ -22,7 +22,7 @@ python -u DeepSpeech.py \
   --default_stddev 0.046875 \
   --n_hidden 512 \
   --checkpoint_dir /network/tiny-dataset-512/tiny-dataset-512-checkpoints/ \
-  --export_dir /network/tiny-dataset-512/tiny-dataset-512-2048-export/ \
+  --export_dir /network/tiny-dataset-512/tiny-dataset-512-export/ \
   --log_level 1 \
   --report_count 3 \
   --xla=False \
