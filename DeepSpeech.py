@@ -300,9 +300,10 @@ def initialize_globals():
         log_info('using XLA')    
 
     # Telegram Logging
-    global telegram_logger    
+    global telegram_logger
 
     if FLAGS.log_telegram:
+        print("Init telegram logging")
         # init
         telegram_logger = TelegramLogger.withJsonCredentials(FLAGS.telegram_cred_path)
 
