@@ -42,7 +42,6 @@ from util.telegram_logger import TelegramLogger
 from pprint import pformat
 
 # progressbar
-from tqdm import tqdm
 import progressbar
 
 from multiprocessing.pool import ThreadPool
@@ -1715,8 +1714,6 @@ def train(server=None):
                                 log_info("Total samples: %i, total jobs: %i" % (total_samples, total_jobs))
 
 
-                            
-                            #pbar = tqdm(total=total_jobs)
                             pbar = progressbar.ProgressBar(max_value=total_jobs)
                             current_job_name = job.set_name
 
@@ -1795,13 +1792,6 @@ def train(server=None):
                     current_job_index += 1
 
                     
-
-
-                
-                
-                #if pbar != None:
-                #    pbar.close()
-                
                     
             except Exception as e:
                 log_error(str(e))
