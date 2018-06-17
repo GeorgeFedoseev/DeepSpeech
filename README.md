@@ -26,10 +26,10 @@ Here is a demo:
 
 * [Requirements](#requirements)
 * [Setting up training environment](#setting-up-training-environment)
-* [Define alphabet in `alphabet.txt`](#define-alphabet-in-alphabet.txt)
-* [Generate language model](#generate-language-model)
-* [Training on sample dataset](#training-on-sample-dataset)
-* [Setup Telegram notifications](#setup-telegram-notificationss)
+* [Define alphabet in `alphabet.txt`](#define-alphabet-in-alphabettxt)
+* [Generate language model](#generate-language-model-using-kenlm-toolkit-and-generate_trie-under-the-hood)
+* [Training on sample dataset](#training-on-sample-dataset-datatiny-dataset)
+* [Setup Telegram notifications](#setup-telegram-notifications)
 
 
 
