@@ -49,6 +49,9 @@ docker exec -it deep-speech-training-container bash -c "stty cols $COLUMNS rows 
 ```
 Done! We are now inside training docker container.
 
+## Define alphabet alphabet.txt
+All training samples should have transcript consisting of characters defined in `data/alphabet.txt` file. In this repository alphabet.txt consists of space character, dash character and russian letters. If sample transcriptions in dataset will contain out-of-alphabet characters then DeepSpeech will throw an error.
+
 ## Generate language model (using KenLM toolkit and generate_trie under the hood)
 Run python script with first parameter being some long text file from where language model will be estimated (for example some Wikipedia dump txt file)
 ```
@@ -62,5 +65,5 @@ Example with extra parameters:
 ```
 python /DeepSpeech/maintenance/create_language_model.py /assets/big-vocabulary.txt 3 2
 ```
-It will create 3 files `in data/lm` folder: `lm.binary`, `trie` and `words.arpa`. `words.arpa` is intermediate file, DeepSpeech is using `trie` and `lm.binary` files for language modelling. Trie is a tree, representing all prefixes of words in LM. Each node (leaf) is a prefix and child-nodes are prefixes with one letter added.
+It will create 3 files in `data/lm` folder: `lm.binary`, `trie` and `words.arpa`. `words.arpa` is intermediate file, DeepSpeech is using `trie` and `lm.binary` files for language modelling. Trie is a tree, representing all prefixes of words in LM. Each node (leaf) is a prefix and child-nodes are prefixes with one letter added.
 
