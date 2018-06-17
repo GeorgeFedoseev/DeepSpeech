@@ -419,21 +419,21 @@ def log_traffic(message):
         log_debug(message)
 
 def log_info(message):
-    if FLAGS.log_telegram:        
+    if telegram_logger:        
         telegram_logger.Log(message)
 
     if FLAGS.log_level <= 1:
         prefix_print('I ', message)
 
 def log_warn(message):
-    if FLAGS.log_telegram:
+    if telegram_logger:
         telegram_logger.Log(message)
 
     if FLAGS.log_level <= 2:
         prefix_print('W ', message)
 
 def log_error(message):
-    if FLAGS.log_telegram:
+    if telegram_logger:
         telegram_logger.Log(message)
 
     if FLAGS.log_level <= 3:
