@@ -1695,6 +1695,10 @@ def train(server=None):
                         if job.set_name != current_job_name:
                             
 
+                            if current_job_name != "":
+                                # finish prev progress bar
+                                pbar.update(total_jobs)
+
                             # recreate progressbar
                             total_jobs = 0
                             current_job_index = 0
@@ -1795,7 +1799,7 @@ def train(server=None):
                 
                 #if pbar != None:
                 #    pbar.close()
-                pbar.update(total_jobs)
+                
                     
             except Exception as e:
                 log_error(str(e))
