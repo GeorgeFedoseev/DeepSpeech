@@ -1,8 +1,9 @@
 # import pyprind
-# import time
+import time
+from tqdm import tqdm
 
-# n = 100
-# timesleep = 5
+n = 100
+timesleep = 5
 
 # bar = pyprind.ProgBar(n, monitor=True)
 # bar.update(0)
@@ -12,4 +13,9 @@
 #     bar.update(10)
 # print(bar)
 
-import tqdm
+
+
+pbar = tqdm(total=n)
+for i in range(n):
+    time.sleep(timesleep) # your computation here
+    pbar.update(1)

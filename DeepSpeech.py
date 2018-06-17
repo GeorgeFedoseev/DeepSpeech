@@ -15,9 +15,6 @@ sys.setdefaultencoding('utf8')
 log_level_index = sys.argv.index('--log_level') + 1 if '--log_level' in sys.argv else 0
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = sys.argv[log_level_index] if log_level_index > 0 and log_level_index < len(sys.argv) else '3'
 
-# disable TF warnings
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-
 current_dir_path = os.path.dirname(os.path.realpath(__file__))
 
 import datetime
