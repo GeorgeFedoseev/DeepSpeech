@@ -41,7 +41,9 @@ import numpy as np
 from util.telegram_logger import TelegramLogger
 from pprint import pformat
 
+# progressbar
 from tqdm import tqdm
+import progressbar
 
 from multiprocessing.pool import ThreadPool
 from timeit import default_timer as timer
@@ -1711,7 +1713,8 @@ def train(server=None):
 
 
                             
-                            pbar = tqdm(total=total_jobs)
+                            #pbar = tqdm(total=total_jobs)
+                            pbar = progressbar.ProgressBar(max_value=total_jobs)
                             current_job_name = job.set_name
 
                         if pbar:     
