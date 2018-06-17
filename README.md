@@ -79,3 +79,14 @@ You should see **training** and **validation** progressbars running for each epo
 Obviously with so tiny dataset good WER is not achievable. To achieve good WER (at least < 20%) use datasets with > 500hrs of speech.
 
 You can examine which parameters are passed to `DeepSpeech.py` script by checking contents of `train-tiny-dataset.sh` file.
+
+## Setup Telegram notifications
+Because training big RNNs like in DeepSpeech takes time (from few hours to days and even weeks on weak hardware), its good to be notified about training results and not to check manually all the time.  
+You can use Telegram Bot to send you log messages. Create bot in Telegram and get `accessToken`, start chatting with bot and get `chatId`. Then create `telegram_credentials.json` file in the root folder of the project with following contents:
+```
+{
+  "accessToken": "<your-access-token>",
+  "chatId": "<your-chat-id>"
+}
+```
+To tell `DeepSpeech.py` to send you log messages through your Telegram Bot to specified chat add flag `--log_telegram=1` when running training.
