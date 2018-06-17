@@ -21,3 +21,23 @@ Here is a demo:
 
 
 ![search-demo-5](demo/gifs/search-demo-5.gif)
+
+
+## Setting up training environment
+
+Requirements:  
+- Linux OS
+- docker
+- nvidia-docker (for CUDA support)
+
+1. Check `nvidia-smi` command is working before moving to the next step
+2. Clone this repo `git clone https://github.com/GeorgeFedoseev/DeepSpeech` and `cd DeepSpeech`
+3. Build docker image based on `Dockerfile` from clone repo: 
+```
+nvidia-docker build -t deep-speech-training-image -f Dockerfile .
+```
+4. Run container as daemon. Link folders from host machine to docker container using `-v <host-dit>:<container-dir>` flags. We will need `/datasets` and `/network` folders in container to get access to datasets and to store Neural Network checkpoints. `-d` parameter runs container as daemon (we will connect to container on next step):
+```
+docker run --runtime=nvidia -d --name deep-speech-training-container -v /<path-to-some-assets-folder-on-host>:/assets -v /<path-to-datasets-folder-on-host>:/datasets -v /<path-to-some-folder-to-store-NN-checkpoints-on-host>:/network deep-speech-training-image
+```
+
