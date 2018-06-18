@@ -22,7 +22,7 @@ Here is a demo:
 
 ![search-demo-5](demo/gifs/search-demo-5.gif)
 
-# Using released files
+# Using [released files](https://github.com/georgefedoseev/DeepSpeech/releases)
 ## Using released files for inference
 You will need Mac OS or Linux  
 1. Follow [this Mozilla's DeepSpeech guide](https://github.com/mozilla/DeepSpeech#using-the-python-package) to install pip3 deepspeech package.
