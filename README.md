@@ -57,8 +57,10 @@ all_model_checkpoint_paths: "/network/DeepSpeech-ru-v1.0-checkpoint_dir/model.ck
 
 ### Requirements:  
 - UNIX OS
-- docker
-- nvidia-docker (for CUDA support)
+- `cuda-command-line-tools`
+- `docker`
+- `nvidia-docker` (for CUDA support)
+
 
 ## Setting up training environment
 
