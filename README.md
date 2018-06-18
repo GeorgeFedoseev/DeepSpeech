@@ -22,6 +22,16 @@ Here is a demo:
 
 ![search-demo-5](demo/gifs/search-demo-5.gif)
 
+# Using released files
+## Inference
+You will need Mac OS or Linux  
+1. Follow [this Mozilla's DeepSpeech guide](https://github.com/mozilla/DeepSpeech#using-the-python-package) to install pip3 deepspeech package.
+2. Go to [releases](https://github.com/georgefedoseev/DeepSpeech/releases) and download `tensorflow_pb_models.tar.gz` and `language_model.tar.gz`.  
+2. Unpack all files (`output_graph.pb`, `lm.binary`, `trie` and `alphabet.txt`) to some folder. And run inference:
+```
+deepspeech output_graph.pb alphabet.txt lm.binary trie my_russian_speech_audio_file.wav
+```
+
 # Training setup
 
 * [Requirements](#requirements)
@@ -34,7 +44,7 @@ Here is a demo:
 
 
 ### Requirements:  
-- Linux OS
+- UNIX OS
 - docker
 - nvidia-docker (for CUDA support)
 
