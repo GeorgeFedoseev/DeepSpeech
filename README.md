@@ -56,6 +56,7 @@ all_model_checkpoint_paths: "/network/DeepSpeech-ru-v1.0-checkpoint_dir/model.ck
 
 
 ### Requirements:  
+- Good NVIDIA GPU with at least 8GB of VRAM
 - Linux OS
 - `cuda-command-line-tools`
 - `docker`
