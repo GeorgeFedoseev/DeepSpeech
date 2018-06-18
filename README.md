@@ -23,7 +23,7 @@ Here is a demo:
 ![search-demo-5](demo/gifs/search-demo-5.gif)
 
 # Using released files
-## Inference
+## Using released files for inference
 You will need Mac OS or Linux  
 1. Follow [this Mozilla's DeepSpeech guide](https://github.com/mozilla/DeepSpeech#using-the-python-package) to install pip3 deepspeech package.
 2. Go to [releases](https://github.com/georgefedoseev/DeepSpeech/releases) and download `tensorflow_pb_models.tar.gz` and `language_model.tar.gz`.  
@@ -31,6 +31,18 @@ You will need Mac OS or Linux
 ```
 deepspeech output_graph.pb alphabet.txt lm.binary trie my_russian_speech_audio_file.wav
 ```
+## Continue training from released checkpoint
+Checkpoint is a directory that you specify as `--checkpoint_dir` parameter when training with `DeepSpeech.py`. You can continue training TensorFlow acoustic model from released checkpoint with your own datasets.  
+Released checkpoints are using `--n_hidden=2048` (number of neurons in hidden layers in neural network), and it cannot be modified if you want to use this released checkpoint (for values other than 2048 it will throw an error).
+  
+To use released checkpoint in your training:  
+1. Follow [Training setup guide](#training-setup)
+2. Extract `checkpoint_dir.tar.gz` archive downloaded from [release](https://github.com/georgefedoseev/DeepSpeech/releases) somewhere in your `/network/checkpoints` directory (or any other). Change absolute paths to main checkpoint file in `checkpoint` text file. Example of `checkpoint` file contents:
+```
+model_checkpoint_path: "/network/DeepSpeech-ru-v1.0-checkpoint_dir/model.ckpt-126656"
+all_model_checkpoint_paths: "/network/DeepSpeech-ru-v1.0-checkpoint_dir/model.ckpt-126656"
+```
+3. Train with your own datasets setting `--checkpoint_dir` parameter to directory that you extracted checkpoint to.
 
 # Training setup
 
