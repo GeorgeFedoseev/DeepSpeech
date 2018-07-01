@@ -88,10 +88,12 @@ class KenLMBeamScorer : public tensorflow::ctc::BaseBeamScorer<KenLMBeamState> {
       float lm_score_delta = ScoreIncompleteWord(from_state.model_state,
                             to_state->incomplete_word,
                             to_state->model_state);
+      
       // Give fixed word bonus
-      // if (!IsOOV(to_state->incomplete_word)) {
-      //   to_state->language_model_score += valid_word_count_weight_;
-      // }
+      if (!IsOOV(to_state->incomplete_word)) {
+        to_state->language_model_score += valid_word_count_weight_;
+      }
+
       to_state->language_model_score += word_count_weight_;
       UpdateWithLMScore(to_state, lm_score_delta);
       ResetIncompleteWord(to_state);
