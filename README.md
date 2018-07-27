@@ -21,6 +21,8 @@ Here is a demo:
 
 
 ![search-demo-5](demo/gifs/search-demo-5.gif)
+  
+Please write to <a href="mailto:george.fedoseev@me.com">george.fedoseev@me.com</a> for any questions and support.
 
 # Using [released files](https://github.com/georgefedoseev/DeepSpeech/releases)
 ## Using released files for inference
