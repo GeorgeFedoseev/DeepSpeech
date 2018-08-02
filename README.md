@@ -75,7 +75,7 @@ nvidia-docker build -t deep-speech-training-image -f Dockerfile .
 ```
 4. Run container as daemon. Link folders from host machine to docker container using `-v <host-dit>:<container-dir>` flags. We will need `/datasets` and `/network` folders in container to get access to datasets and to store Neural Network checkpoints. `-d` parameter runs container as daemon (we will connect to container on next step):
 ```
-docker run --runtime=nvidia -d --name deep-speech-training-container -v /<path-to-some-assets-folder-on-host>:/assets -v /<path-to-datasets-folder-on-host>:/datasets -v /<path-to-some-folder-to-store-NN-checkpoints-on-host>:/network deep-speech-training-image
+docker run --runtime=nvidia -dit --name deep-speech-training-container -v /<path-to-some-assets-folder-on-host>:/assets -v /<path-to-datasets-folder-on-host>:/datasets -v /<path-to-some-folder-to-store-NN-checkpoints-on-host>:/network deep-speech-training-image
 ```
 5. Connect to running container (`bash -c` command is used to sync width and height of console window).
 ```
