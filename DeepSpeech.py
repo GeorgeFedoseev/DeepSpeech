@@ -1688,6 +1688,8 @@ def train(server=None):
 
             # recreate pbar
             update_progressbar.pbar = progressbar.ProgressBar(max_value=update_progressbar.total_jobs).start()            
+            update_progressbar.pbar.update(0)
+            
             update_progressbar.current_set_name = set_name
 
         if update_progressbar.pbar:
