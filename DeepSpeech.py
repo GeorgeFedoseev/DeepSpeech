@@ -1655,7 +1655,9 @@ def train(server=None):
 
 
     # Progress Bar
-    def update_progressbar(set_name):
+    def update_progressbar(set_name):        
+        if not hasattr(update_progressbar, 'current_set_name'):
+            update_progressbar.current_set_name = None            
 
         if update_progressbar.current_set_name != set_name:
 
