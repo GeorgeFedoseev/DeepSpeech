@@ -1662,7 +1662,7 @@ def train(server=None):
         if update_progressbar.current_set_name != set_name:
 
             # close prev pbar if it exists
-            if update_progressbar.pbar:
+            if hasattr(update_progressbar, 'pbar') and update_progressbar.pbar:
                 update_progressbar.pbar.finish()
 
             update_progressbar.total_jobs = None
