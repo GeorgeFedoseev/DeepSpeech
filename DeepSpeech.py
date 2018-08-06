@@ -1687,12 +1687,10 @@ def train(server=None):
             update_progressbar.current_set_name = set_name
 
         if update_progressbar.pbar:
-            update_progressbar.pbar.update(update_progressbar.current_job_index)        
+            update_progressbar.pbar.update(update_progressbar.current_job_index+1)        
 
         update_progressbar.current_job_index += 1
-
-        if update_progressbar.current_job_index == update_progressbar.total_jobs-1:
-            update_progressbar.pbar.update(update_progressbar.total_jobs)
+        
 
     # The MonitoredTrainingSession takes care of session initialization,
     # restoring from a checkpoint, saving to a checkpoint, and closing when done
@@ -1725,9 +1723,7 @@ def train(server=None):
 
                 while job and not session.should_stop():
                     log_debug('Computing %s...' % job)
-
-                    if FLAGS.show_progressbar and FLAGS.log_level > 0:
-                        update_progressbar(job.set_name)
+                    
 
                     # The feed_dict (mainly for switching between queues)
                     feed_dict = {}
@@ -1785,6 +1781,9 @@ def train(server=None):
                     if job.report:
                         job.mean_edit_distance = total_mean_edit_distance / job.steps
                         job.wer, job.samples = calculate_report(report_results)
+
+                    if FLAGS.show_progressbar and FLAGS.log_level > 0:
+                        update_progressbar(job.set_name)
 
 
                     # Send the current job to coordinator and receive the next one
