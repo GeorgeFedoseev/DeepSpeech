@@ -1687,9 +1687,7 @@ def train(server=None):
                 log_info("Total samples: %i, total jobs: %i" % (total_samples, update_progressbar.total_jobs))
 
             # recreate pbar
-            update_progressbar.pbar = progressbar.ProgressBar(max_value=update_progressbar.total_jobs,
-                                                              initial_value=1).start()            
-
+            update_progressbar.pbar = progressbar.ProgressBar(max_value=update_progressbar.total_jobs).start()
 
             update_progressbar.current_set_name = set_name
 
@@ -1789,6 +1787,7 @@ def train(server=None):
                         job.mean_edit_distance = total_mean_edit_distance / job.steps
                         job.wer, job.samples = calculate_report(report_results)
 
+                                        
                     if FLAGS.show_progressbar and FLAGS.log_level > 0:
                         update_progressbar(job.set_name)
 
