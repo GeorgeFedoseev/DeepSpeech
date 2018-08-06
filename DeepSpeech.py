@@ -131,6 +131,7 @@ tf.app.flags.DEFINE_boolean ('use_seq_length',   True,        'have sequence_len
 # Reporting
 
 tf.app.flags.DEFINE_integer ('log_level',        1,           'log level for console logs - 0: INFO, 1: WARN, 2: ERROR, 3: FATAL')
+tf.app.flags.DEFINE_boolean ('show_progressbar',       True,        'Show progress for training, validation and testing processes. Log level should be > 0.')
 tf.app.flags.DEFINE_boolean ('log_traffic',      False,       'log cluster transaction and traffic information during debug logging')
 
 tf.app.flags.DEFINE_string  ('wer_log_pattern',  '',          'pattern for machine readable global logging of WER progress; has to contain %%s, %%s and %%f for the set name, the date and the float respectively; example: "GLOBAL LOG: logwer(\'12ade231\', %%s, %%s, %%f)" would result in some entry like "GLOBAL LOG: logwer(\'12ade231\', \'train\', \'2017-05-18T03:09:48-0700\', 0.05)"; if omitted (default), there will be no logging')
@@ -1653,9 +1654,43 @@ def train(server=None):
         init_from_frozen_model_op = tf.group(*assign_ops)
 
 
-    # init progress bar
-    current_job_name = ""
-    pbar = None
+    # Progress Bar
+    def update_progressbar(set_name):
+
+        if update_progressbar.current_set_name != set_name:
+
+            update_progressbar.total_jobs = None
+            update_progressbar.current_job_index = 0
+
+            current_epoch = COORD._epoch-1
+
+            if job.set_name == "train":
+                log_info('Training epoch %i...' % current_epoch)
+                update_progressbar.total_jobs = COORD._num_jobs_train
+                total_samples = model_feeder.train.total_batches*FLAGS.train_batch_size
+                log_info("Total samples: %i, total jobs: %i" % (total_samples, total_jobs))
+            elif job.set_name == "dev":
+                log_info('Validating epoch %i...' % current_epoch)
+                update_progressbar.total_jobs = COORD._num_jobs_dev
+                total_samples = model_feeder.dev.total_batches*FLAGS.dev_batch_size
+                log_info("Total samples: %i, total jobs: %i" % (total_samples, total_jobs))
+            elif job.set_name == "test":
+                log_info('Testing epoch %i...' % current_epoch)
+                update_progressbar.total_jobs = COORD._num_jobs_test
+                total_samples = model_feeder.test.total_batches*FLAGS.test_batch_size
+                log_info("Total samples: %i, total jobs: %i" % (total_samples, total_jobs))
+
+            # recreate pbar
+            update_progressbar.pbar = progressbar.ProgressBar(max_value=total_jobs)
+            update_progressbar.current_set_name = set_name
+
+        if update_prgoressbar.pbar:
+            update_progressbar.pbar.update(update_progressbar.current_job_index)
+
+        if update_progressbar.current_job_index == update_progressbar.total_jobs-1:
+            update_progressbar.pbar.update(update_progressbar.total_jobs)
+
+        update_progressbar.current_job_index += 1
 
     # The MonitoredTrainingSession takes care of session initialization,
     # restoring from a checkpoint, saving to a checkpoint, and closing when done
@@ -1684,45 +1719,13 @@ def train(server=None):
                 # Get the first job
                 job = COORD.get_job()
 
-                current_job_index = 0
+                
 
                 while job and not session.should_stop():
                     log_debug('Computing %s...' % job)
 
-                    # <PROGRESSBAR
-                    try:
-                        if job.set_name != current_job_name:
-
-                            # recreate progressbar
-                            total_jobs = 0
-                            current_job_index = 0
-                            curr_epoch = COORD._epoch-1
-                            if job.set_name == "train":
-                                log_info('Training epoch %i...' % curr_epoch)
-                                total_jobs = COORD._num_jobs_train
-                                total_samples = model_feeder.train.total_batches*FLAGS.train_batch_size
-                                log_info("Total samples: %i, total jobs: %i" % (total_samples, total_jobs))
-                            elif job.set_name == "dev":
-                                log_info('Validating epoch %i...' % curr_epoch)
-                                total_jobs = COORD._num_jobs_dev
-                                total_samples = model_feeder.dev.total_batches*FLAGS.dev_batch_size
-                                log_info("Total samples: %i, total jobs: %i" % (total_samples, total_jobs))
-                            elif job.set_name == "test":
-                                log_info('Testing epoch %i...' % curr_epoch)
-                                total_jobs = COORD._num_jobs_test
-                                total_samples = model_feeder.test.total_batches*FLAGS.test_batch_size
-                                log_info("Total samples: %i, total jobs: %i" % (total_samples, total_jobs))
-
-
-                            pbar = progressbar.ProgressBar(max_value=total_jobs)
-                            current_job_name = job.set_name
-
-                        if pbar:     
-                            pbar.update(current_job_index)
-                    except Exception as ex:
-                        print("pbar Exception: %s" % str(ex))
-
-                    # PROGRESSBAR>
+                    if FLAGS.show_progressbar and FLAGS.log_level > 0:
+                        update_progressbar(job.set_name)
 
                     # The feed_dict (mainly for switching between queues)
                     feed_dict = {}
