@@ -1686,7 +1686,7 @@ def train(server=None):
             update_progressbar.pbar = progressbar.ProgressBar(max_value=update_progressbar.total_jobs)
             update_progressbar.current_set_name = set_name
 
-        if update_prgoressbar.pbar:
+        if update_progressbar.pbar:
             update_progressbar.pbar.update(update_progressbar.current_job_index)
 
         if update_progressbar.current_job_index == update_progressbar.total_jobs-1:
