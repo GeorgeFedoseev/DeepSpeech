@@ -1778,9 +1778,7 @@ def train(server=None):
                             total_mean_edit_distance += batch_report[1]
 
 
-                    if current_job_index == total_jobs-1:
-                        # finish progress bar
-                        pbar.update(total_jobs)
+                    
 
                     # Gathering job results
                     job.loss = total_loss / job.steps
@@ -1794,7 +1792,6 @@ def train(server=None):
                     job = COORD.next_job(job)
 
 
-                    current_job_index += 1
 
                     
                     
