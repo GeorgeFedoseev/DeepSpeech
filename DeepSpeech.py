@@ -1670,20 +1670,20 @@ def train(server=None):
                 log_info('Training epoch %i...' % current_epoch)
                 update_progressbar.total_jobs = COORD._num_jobs_train
                 total_samples = model_feeder.train.total_batches*FLAGS.train_batch_size
-                log_info("Total samples: %i, total jobs: %i" % (total_samples, total_jobs))
+                log_info("Total samples: %i, total jobs: %i" % (total_samples, update_progressbar.total_jobs))
             elif job.set_name == "dev":
                 log_info('Validating epoch %i...' % current_epoch)
                 update_progressbar.total_jobs = COORD._num_jobs_dev
                 total_samples = model_feeder.dev.total_batches*FLAGS.dev_batch_size
-                log_info("Total samples: %i, total jobs: %i" % (total_samples, total_jobs))
+                log_info("Total samples: %i, total jobs: %i" % (total_samples, update_progressbar.total_jobs))
             elif job.set_name == "test":
                 log_info('Testing epoch %i...' % current_epoch)
                 update_progressbar.total_jobs = COORD._num_jobs_test
                 total_samples = model_feeder.test.total_batches*FLAGS.test_batch_size
-                log_info("Total samples: %i, total jobs: %i" % (total_samples, total_jobs))
+                log_info("Total samples: %i, total jobs: %i" % (total_samples, update_progressbar.total_jobs))
 
             # recreate pbar
-            update_progressbar.pbar = progressbar.ProgressBar(max_value=total_jobs)
+            update_progressbar.pbar = progressbar.ProgressBar(max_value=update_progressbar.total_jobs)
             update_progressbar.current_set_name = set_name
 
         if update_prgoressbar.pbar:
