@@ -1687,14 +1687,13 @@ def train(server=None):
                 log_info("Total samples: %i, total jobs: %i" % (total_samples, update_progressbar.total_jobs))
 
             # recreate pbar
-            update_progressbar.pbar = progressbar.ProgressBar(max_value=update_progressbar.total_jobs).start()            
-            time.sleep(0.1)
-            update_progressbar.pbar.update(0)
+            update_progressbar.pbar = progressbar.ProgressBar(max_value=update_progressbar.total_jobs,
+                                                              initial_value=1).start()            
+
 
             update_progressbar.current_set_name = set_name
 
-        if update_progressbar.pbar:
-            log_info("Update progress bar with: %i" % (update_progressbar.current_job_index+1));
+        if update_progressbar.pbar:            
             update_progressbar.pbar.update(update_progressbar.current_job_index+1)        
 
         update_progressbar.current_job_index += 1
