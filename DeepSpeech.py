@@ -1687,12 +1687,12 @@ def train(server=None):
             update_progressbar.current_set_name = set_name
 
         if update_progressbar.pbar:
-            update_progressbar.pbar.update(update_progressbar.current_job_index)
+            update_progressbar.pbar.update(update_progressbar.current_job_index)        
+
+        update_progressbar.current_job_index += 1
 
         if update_progressbar.current_job_index == update_progressbar.total_jobs-1:
             update_progressbar.pbar.update(update_progressbar.total_jobs)
-
-        update_progressbar.current_job_index += 1
 
     # The MonitoredTrainingSession takes care of session initialization,
     # restoring from a checkpoint, saving to a checkpoint, and closing when done
