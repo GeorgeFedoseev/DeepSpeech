@@ -10,7 +10,7 @@ Big datasets for training are being crawled
 using [developed method](https://github.com/GeorgeFedoseev/YouTube-Captions-Based-Speech-Dataset-Parser) 
 from YouTube videos with captions.
 
-Developed speech recognition system for Russian language achieves 21% WER on custom
+Developed speech recognition system for Russian language achieves 18% WER on custom
 dataset crawled from [voxforge.com](http://www.repository.voxforge1.org/downloads/Russian/Trunk/Audio/Main/16kHz_16bit/).
 
 
