@@ -4,10 +4,10 @@ Project DeepSpeech is an open source Speech-To-Text engine [implemented by Mozil
 based on [Baidu's Deep Speech research paper](https://arxiv.org/abs/1412.5567)
 using [TensorFlow](https://www.tensorflow.org/).
 
-This particular repository is focused on creating big vocabulary ASR system for Russian language.
+This particular repository is focused on creating big vocabulary ASR system for Russian language ([paper](http://ceur-ws.org/Vol-2267/470-474-paper-90.pdf)).
 
 Big datasets for training are being crawled
-using [developed method](https://github.com/GeorgeFedoseev/YouTube-Captions-Based-Speech-Dataset-Parser) 
+using [developed method](https://github.com/GeorgeFedoseev/YouTube-Captions-Based-Speech-Dataset-Parser) ([paper](http://ceur-ws.org/Vol-2267/475-479-paper-91.pdf))
 from YouTube videos with captions.
 
 Developed speech recognition system for Russian language achieves 18% WER on custom
