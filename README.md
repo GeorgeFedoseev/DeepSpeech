@@ -10,6 +10,17 @@ Big datasets for training are being crawled
 using [developed method](https://github.com/GeorgeFedoseev/YouTube-Captions-Based-Speech-Dataset-Parser) ([paper](http://ceur-ws.org/Vol-2267/475-479-paper-91.pdf))
 from YouTube videos with captions.
 
+### Datasets:
+Labeled russian speech (CSVs + wav):  
+- [yt-subs-rus-6k (6K hours, raw, 543GB)](https://drive.google.com/file/d/1tDAiAmMTmBpJ4a9fdSunLVVDQBheZOLQ/view?usp=sharing)  
+- [yt-vad-650-clean (650 hours, cleaned, 56GB)](https://drive.google.com/file/d/12WUh8REDuhOAQIISF7hBldM0mhxtDpE0/view?usp=sharing)  
+- [random samples from yt-subs-rus-6k (274MB)](https://drive.google.com/file/d/1Vx6NP0i3GhVpKFKVvTlEVo-mhvhLZ3q0/view?usp=sharing)  
+
+
+Used language model:  
+- [LM-mixed-yt-echo-wiki-o5-prune2-24Jun18 (1GB)](https://drive.google.com/file/d/1FdiUVpef4cVKnB8noG4BUjVTSwaS9HfA/view?usp=sharing)
+
+
 Developed speech recognition system for Russian language achieves 18% WER on custom
 dataset crawled from [voxforge.com](http://www.repository.voxforge1.org/downloads/Russian/Trunk/Audio/Main/16kHz_16bit/).
 
